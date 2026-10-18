@@ -225,10 +225,18 @@ class NfsRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "size_gib") || $data->size_gib === null) { throw new SdkValidationError("size_gib", 'required', "Required property 'size_gib' is missing or null"); }
-        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
-        if (!property_exists($data, "vpc_ids") || $data->vpc_ids === null) { throw new SdkValidationError("vpc_ids", 'required', "Required property 'vpc_ids' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "size_gib") || $data->size_gib === null) {
+            throw new SdkValidationError("size_gib", 'required', "Required property 'size_gib' is missing or null");
+        }
+        if (!property_exists($data, "region") || $data->region === null) {
+            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
+        }
+        if (!property_exists($data, "vpc_ids") || $data->vpc_ids === null) {
+            throw new SdkValidationError("vpc_ids", 'required', "Required property 'vpc_ids' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             sizeGib: SdkClient::intValue($data->size_gib),
@@ -250,9 +258,24 @@ final readonly class NfsResponseStatusEnum implements SdkOpenEnum
     public const FAILED = "FAILED";
     public const DELETED = "DELETED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

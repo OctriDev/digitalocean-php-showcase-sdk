@@ -20,7 +20,7 @@ class ImageActions
     public static function imageActionsList(ClientConfig $clientConfig, int $imageId, ?RequestOptions $requestOptions = null): GetImageActionsResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/images/" . SdkClient::encodePathSegment($imageId) . "/actions", $clientConfig, returnType: GetImageActionsResponse::class, decoder: 'json', operationId: 'imageActionsList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/images/" . SdkClient::encodePathSegment($imageId) . "/actions", $clientConfig, returnType: GetImageActionsResponse::class, decoder: 'json', operationId: 'imageActionsList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, GetImageActionsResponse::class));
     }
 
@@ -37,7 +37,7 @@ class ImageActions
     public static function imageActionsPost(ClientConfig $clientConfig, int $imageId, ImageActionBase|ImageActionTransfer|SdkNotGiven $body = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): Action
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/images/" . SdkClient::encodePathSegment($imageId) . "/actions", $clientConfig, body: $body, returnType: Action::class, decoder: 'json', operationId: 'imageActionsPost', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/images/" . SdkClient::encodePathSegment($imageId) . "/actions", $clientConfig, body: $body, returnType: Action::class, decoder: 'json', operationId: 'imageActionsPost', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, Action::class));
     }
 
@@ -56,7 +56,7 @@ class ImageActions
 
         Validation::validateRange('action_id', $actionId, min: 1);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/images/" . SdkClient::encodePathSegment($imageId) . "/actions/" . SdkClient::encodePathSegment($actionId) . "", $clientConfig, returnType: Action::class, decoder: 'json', operationId: 'imageActionsGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/images/" . SdkClient::encodePathSegment($imageId) . "/actions/" . SdkClient::encodePathSegment($actionId) . "", $clientConfig, returnType: Action::class, decoder: 'json', operationId: 'imageActionsGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, Action::class));
     }
 }

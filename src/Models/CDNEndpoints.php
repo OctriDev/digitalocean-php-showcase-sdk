@@ -104,7 +104,9 @@ class AllCdnEndpoints implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             endpoints: (property_exists($data, "endpoints") && $data->endpoints !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, CdnEndpoint::class), SdkClient::arrayValue($data->endpoints))) : SdkNotGiven::Value),
@@ -223,7 +225,9 @@ class CdnEndpoint implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "origin") || $data->origin === null) { throw new SdkValidationError("origin", 'required', "Required property 'origin' is missing or null"); }
+        if (!property_exists($data, "origin") || $data->origin === null) {
+            throw new SdkValidationError("origin", 'required', "Required property 'origin' is missing or null");
+        }
         return new self(
             origin: SdkClient::stringValue($data->origin),
             id: (property_exists($data, "id") && $data->id !== null ? SdkClient::stringValue($data->id) : SdkNotGiven::Value),
@@ -310,7 +314,9 @@ class CdnEndpointRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "origin") || $data->origin === null) { throw new SdkValidationError("origin", 'required', "Required property 'origin' is missing or null"); }
+        if (!property_exists($data, "origin") || $data->origin === null) {
+            throw new SdkValidationError("origin", 'required', "Required property 'origin' is missing or null");
+        }
         return new self(
             origin: SdkClient::stringValue($data->origin),
             ttl: (property_exists($data, "ttl") && $data->ttl !== null ? SdkClient::intValue($data->ttl) : SdkNotGiven::Value),

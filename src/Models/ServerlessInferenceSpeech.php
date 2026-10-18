@@ -45,7 +45,9 @@ class SpeechAudioItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "b64_json") || $data->b64_json === null) { throw new SdkValidationError("b64_json", 'required', "Required property 'b64_json' is missing or null"); }
+        if (!property_exists($data, "b64_json") || $data->b64_json === null) {
+            throw new SdkValidationError("b64_json", 'required', "Required property 'b64_json' is missing or null");
+        }
         return new self(
             b64Json: SdkClient::stringValue($data->b64_json),
         );
@@ -102,7 +104,9 @@ class SpeechResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, SpeechAudioItem::class), SdkClient::arrayValue($data->data))),
             created: (property_exists($data, "created") && $data->created !== null ? SdkClient::intValue($data->created) : SdkNotGiven::Value),

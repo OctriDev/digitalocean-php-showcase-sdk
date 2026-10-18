@@ -15,11 +15,26 @@ final readonly class GenaiListCustomModelsStatus implements SdkOpenEnum
     public const STATUS_FAILED = "STATUS_FAILED";
     public const STATUS_DELETED = "STATUS_DELETED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListEvaluationDatasetsDatasetType implements SdkOpenEnum
@@ -27,11 +42,26 @@ final readonly class GenaiListEvaluationDatasetsDatasetType implements SdkOpenEn
     public const EVALUATION_DATASET_TYPE_UNKNOWN = "EVALUATION_DATASET_TYPE_UNKNOWN";
     public const EVALUATION_DATASET_TYPE_MODEL = "EVALUATION_DATASET_TYPE_MODEL";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListModelEvaluationRunsStatus implements SdkOpenEnum
@@ -46,11 +76,26 @@ final readonly class GenaiListModelEvaluationRunsStatus implements SdkOpenEnum
     public const MODEL_EVALUATION_RUN_PARTIALLY_SUCCESSFUL = "MODEL_EVALUATION_RUN_PARTIALLY_SUCCESSFUL";
     public const MODEL_EVALUATION_RUN_FAILED = "MODEL_EVALUATION_RUN_FAILED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListModelEvaluationRunsSortBy implements SdkOpenEnum
@@ -59,11 +104,26 @@ final readonly class GenaiListModelEvaluationRunsSortBy implements SdkOpenEnum
     public const MODEL_EVALUATION_RUN_SORT_FIELD_CREATED_AT = "MODEL_EVALUATION_RUN_SORT_FIELD_CREATED_AT";
     public const MODEL_EVALUATION_RUN_SORT_FIELD_STATUS = "MODEL_EVALUATION_RUN_SORT_FIELD_STATUS";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListModelEvaluationRunsSortDirection implements SdkOpenEnum
@@ -72,11 +132,26 @@ final readonly class GenaiListModelEvaluationRunsSortDirection implements SdkOpe
     public const SORT_DIRECTION_ASC = "SORT_DIRECTION_ASC";
     public const SORT_DIRECTION_DESC = "SORT_DIRECTION_DESC";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListModelCatalogSortBy implements SdkOpenEnum
@@ -85,11 +160,26 @@ final readonly class GenaiListModelCatalogSortBy implements SdkOpenEnum
     public const MODEL_CATALOG_SORT_BY_NAME = "MODEL_CATALOG_SORT_BY_NAME";
     public const MODEL_CATALOG_SORT_BY_PRICE = "MODEL_CATALOG_SORT_BY_PRICE";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListModelCatalogSortDirection implements SdkOpenEnum
@@ -98,11 +188,26 @@ final readonly class GenaiListModelCatalogSortDirection implements SdkOpenEnum
     public const SORT_DIRECTION_ASC = "SORT_DIRECTION_ASC";
     public const SORT_DIRECTION_DESC = "SORT_DIRECTION_DESC";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListModelCatalogUseCase implements SdkOpenEnum
@@ -115,11 +220,26 @@ final readonly class GenaiListModelCatalogUseCase implements SdkOpenEnum
     public const MODEL_CATALOG_USE_CASE_VIDEO = "MODEL_CATALOG_USE_CASE_VIDEO";
     public const MODEL_CATALOG_USE_CASE_EMBEDDING = "MODEL_CATALOG_USE_CASE_EMBEDDING";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListScenarioLibrarySortBy implements SdkOpenEnum
@@ -128,11 +248,26 @@ final readonly class GenaiListScenarioLibrarySortBy implements SdkOpenEnum
     public const SCENARIO_LIBRARY_SORT_FIELD_NAME = "SCENARIO_LIBRARY_SORT_FIELD_NAME";
     public const SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT = "SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListScenarioLibrarySortDirection implements SdkOpenEnum
@@ -141,11 +276,26 @@ final readonly class GenaiListScenarioLibrarySortDirection implements SdkOpenEnu
     public const SORT_DIRECTION_ASC = "SORT_DIRECTION_ASC";
     public const SORT_DIRECTION_DESC = "SORT_DIRECTION_DESC";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListScenarioLibraryScenariosSortBy implements SdkOpenEnum
@@ -155,11 +305,26 @@ final readonly class GenaiListScenarioLibraryScenariosSortBy implements SdkOpenE
     public const SCENARIO_SORT_FIELD_NAME = "SCENARIO_SORT_FIELD_NAME";
     public const SCENARIO_SORT_FIELD_DESCRIPTION = "SCENARIO_SORT_FIELD_DESCRIPTION";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListScenarioLibraryScenariosSortDirection implements SdkOpenEnum
@@ -168,11 +333,26 @@ final readonly class GenaiListScenarioLibraryScenariosSortDirection implements S
     public const SORT_DIRECTION_ASC = "SORT_DIRECTION_ASC";
     public const SORT_DIRECTION_DESC = "SORT_DIRECTION_DESC";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListScenarioSetsSortBy implements SdkOpenEnum
@@ -184,11 +364,26 @@ final readonly class GenaiListScenarioSetsSortBy implements SdkOpenEnum
     public const SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT = "SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT";
     public const SCENARIO_SET_SORT_FIELD_UPDATED_AT = "SCENARIO_SET_SORT_FIELD_UPDATED_AT";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListScenarioSetsSortDirection implements SdkOpenEnum
@@ -197,11 +392,26 @@ final readonly class GenaiListScenarioSetsSortDirection implements SdkOpenEnum
     public const SORT_DIRECTION_ASC = "SORT_DIRECTION_ASC";
     public const SORT_DIRECTION_DESC = "SORT_DIRECTION_DESC";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListScenariosSortBy implements SdkOpenEnum
@@ -211,11 +421,26 @@ final readonly class GenaiListScenariosSortBy implements SdkOpenEnum
     public const SCENARIO_SORT_FIELD_NAME = "SCENARIO_SORT_FIELD_NAME";
     public const SCENARIO_SORT_FIELD_DESCRIPTION = "SCENARIO_SORT_FIELD_DESCRIPTION";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListScenariosSortDirection implements SdkOpenEnum
@@ -224,11 +449,26 @@ final readonly class GenaiListScenariosSortDirection implements SdkOpenEnum
     public const SORT_DIRECTION_ASC = "SORT_DIRECTION_ASC";
     public const SORT_DIRECTION_DESC = "SORT_DIRECTION_DESC";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListSimulationRunsSortBy implements SdkOpenEnum
@@ -239,11 +479,26 @@ final readonly class GenaiListSimulationRunsSortBy implements SdkOpenEnum
     public const SIMULATION_RUN_SORT_FIELD_STATUS = "SIMULATION_RUN_SORT_FIELD_STATUS";
     public const SIMULATION_RUN_SORT_FIELD_UPDATED_AT = "SIMULATION_RUN_SORT_FIELD_UPDATED_AT";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListSimulationRunsSortDirection implements SdkOpenEnum
@@ -252,11 +507,26 @@ final readonly class GenaiListSimulationRunsSortDirection implements SdkOpenEnum
     public const SORT_DIRECTION_ASC = "SORT_DIRECTION_ASC";
     public const SORT_DIRECTION_DESC = "SORT_DIRECTION_DESC";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListSimulationEpisodesSortBy implements SdkOpenEnum
@@ -267,11 +537,26 @@ final readonly class GenaiListSimulationEpisodesSortBy implements SdkOpenEnum
     public const SIMULATION_EPISODE_SORT_FIELD_STATUS = "SIMULATION_EPISODE_SORT_FIELD_STATUS";
     public const SIMULATION_EPISODE_SORT_FIELD_VERDICT = "SIMULATION_EPISODE_SORT_FIELD_VERDICT";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GenaiListSimulationEpisodesSortDirection implements SdkOpenEnum
@@ -280,9 +565,24 @@ final readonly class GenaiListSimulationEpisodesSortDirection implements SdkOpen
     public const SORT_DIRECTION_ASC = "SORT_DIRECTION_ASC";
     public const SORT_DIRECTION_DESC = "SORT_DIRECTION_DESC";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

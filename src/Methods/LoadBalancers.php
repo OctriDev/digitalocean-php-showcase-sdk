@@ -20,7 +20,7 @@ class LoadBalancers
     public static function loadBalancersCreate(ClientConfig $clientConfig, LoadBalancerCreateRequest $body, ?RequestOptions $requestOptions = null): LoadBalancerCreateResponse
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/load_balancers", $clientConfig, body: $body, returnType: LoadBalancerCreateResponse::class, decoder: 'json', operationId: 'loadBalancersCreate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/load_balancers", $clientConfig, body: $body, returnType: LoadBalancerCreateResponse::class, decoder: 'json', operationId: 'loadBalancersCreate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, LoadBalancerCreateResponse::class));
     }
 
@@ -45,7 +45,7 @@ class LoadBalancers
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/load_balancers", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllLoadBalancers::class, decoder: 'json', operationId: 'loadBalancersList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/load_balancers", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllLoadBalancers::class, decoder: 'json', operationId: 'loadBalancersList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllLoadBalancers::class));
     }
 
@@ -61,7 +61,7 @@ class LoadBalancers
     public static function loadBalancersGet(ClientConfig $clientConfig, string $lbId, ?RequestOptions $requestOptions = null): ExistingLoadBalancer
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "", $clientConfig, returnType: ExistingLoadBalancer::class, decoder: 'json', operationId: 'loadBalancersGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "", $clientConfig, returnType: ExistingLoadBalancer::class, decoder: 'json', operationId: 'loadBalancersGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingLoadBalancer::class));
     }
 
@@ -78,7 +78,7 @@ class LoadBalancers
     public static function loadBalancersUpdate(ClientConfig $clientConfig, string $lbId, LoadBalancerUpdateRequest $body, ?RequestOptions $requestOptions = null): UpdatedLoadBalancer
     {
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "", $clientConfig, body: $body, returnType: UpdatedLoadBalancer::class, decoder: 'json', operationId: 'loadBalancersUpdate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "", $clientConfig, body: $body, returnType: UpdatedLoadBalancer::class, decoder: 'json', operationId: 'loadBalancersUpdate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, UpdatedLoadBalancer::class));
     }
 
@@ -93,7 +93,7 @@ class LoadBalancers
     public static function loadBalancersDelete(ClientConfig $clientConfig, string $lbId, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "", $clientConfig, decoder: 'empty', operationId: 'loadBalancersDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "", $clientConfig, decoder: 'empty', operationId: 'loadBalancersDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -107,7 +107,7 @@ class LoadBalancers
     public static function loadBalancersDeleteCache(ClientConfig $clientConfig, string $lbId, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "/cache", $clientConfig, decoder: 'empty', operationId: 'loadBalancersDeleteCache', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "/cache", $clientConfig, decoder: 'empty', operationId: 'loadBalancersDeleteCache', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -122,7 +122,7 @@ class LoadBalancers
     public static function loadBalancersAddDroplets(ClientConfig $clientConfig, string $lbId, LoadBalancerDropletIds $body, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('POST', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "/droplets", $clientConfig, body: $body, decoder: 'empty', operationId: 'loadBalancersAddDroplets', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('POST', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "/droplets", $clientConfig, body: $body, decoder: 'empty', operationId: 'loadBalancersAddDroplets', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -137,7 +137,7 @@ class LoadBalancers
     public static function loadBalancersRemoveDroplets(ClientConfig $clientConfig, string $lbId, LoadBalancerDropletIds $body, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "/droplets", $clientConfig, body: $body, decoder: 'empty', operationId: 'loadBalancersRemoveDroplets', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "/droplets", $clientConfig, body: $body, decoder: 'empty', operationId: 'loadBalancersRemoveDroplets', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -154,7 +154,7 @@ class LoadBalancers
 
         Validation::validateItems('forwarding_rules', $forwardingRules, min: 1);
 
-        return SdkClient::request('POST', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "/forwarding_rules", $clientConfig, body: ['forwarding_rules' => $forwardingRules], decoder: 'empty', operationId: 'loadBalancersAddForwardingRules', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('POST', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "/forwarding_rules", $clientConfig, body: ['forwarding_rules' => $forwardingRules], decoder: 'empty', operationId: 'loadBalancersAddForwardingRules', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -171,6 +171,6 @@ class LoadBalancers
 
         Validation::validateItems('forwarding_rules', $forwardingRules, min: 1);
 
-        return SdkClient::request('DELETE', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "/forwarding_rules", $clientConfig, body: ['forwarding_rules' => $forwardingRules], decoder: 'empty', operationId: 'loadBalancersRemoveForwardingRules', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/load_balancers/" . SdkClient::encodePathSegment($lbId) . "/forwarding_rules", $clientConfig, body: ['forwarding_rules' => $forwardingRules], decoder: 'empty', operationId: 'loadBalancersRemoveForwardingRules', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

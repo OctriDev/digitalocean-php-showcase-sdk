@@ -12,12 +12,10 @@ namespace octridev_digitalocean;
  */
 class WebhookBearerToken implements \JsonSerializable
 {
-
     /**
      */
     public function __construct(
-    ) {
-    }
+    ) {}
 
     /** @return array<array-key, mixed> */
     public function toArray(): array

@@ -104,7 +104,9 @@ class AllRepositories implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             repositories: (property_exists($data, "repositories") && $data->repositories !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Repository::class), SdkClient::arrayValue($data->repositories))) : SdkNotGiven::Value),
@@ -122,11 +124,26 @@ final readonly class RegistryCreateSubscriptionTierSlugEnum implements SdkOpenEn
     public const BASIC = "basic";
     public const PROFESSIONAL = "professional";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -140,11 +157,26 @@ final readonly class RegistryCreateRegionEnum implements SdkOpenEnum
     public const SGP1 = "sgp1";
     public const FRA1 = "fra1";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -207,8 +239,12 @@ class RegistryCreate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "subscription_tier_slug") || $data->subscription_tier_slug === null) { throw new SdkValidationError("subscription_tier_slug", 'required', "Required property 'subscription_tier_slug' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "subscription_tier_slug") || $data->subscription_tier_slug === null) {
+            throw new SdkValidationError("subscription_tier_slug", 'required', "Required property 'subscription_tier_slug' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             subscriptionTierSlug: SdkClient::hydrateStringEnumOrString($data->subscription_tier_slug, RegistryCreateSubscriptionTierSlugEnum::class),
@@ -272,11 +308,26 @@ final readonly class RegistryRunGcTypeEnum implements SdkOpenEnum
     public const UNREFERENCED_BLOBS_ONLY = "unreferenced blobs only";
     public const UNTAGGED_MANIFESTS_AND_UNREFERENCED_BLOBS = "untagged manifests and unreferenced blobs";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**

@@ -91,8 +91,12 @@ class BatchResultsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "batch_id") || $data->batch_id === null) { throw new SdkValidationError("batch_id", 'required', "Required property 'batch_id' is missing or null"); }
-        if (!property_exists($data, "result_available") || $data->result_available === null) { throw new SdkValidationError("result_available", 'required', "Required property 'result_available' is missing or null"); }
+        if (!property_exists($data, "batch_id") || $data->batch_id === null) {
+            throw new SdkValidationError("batch_id", 'required', "Required property 'batch_id' is missing or null");
+        }
+        if (!property_exists($data, "result_available") || $data->result_available === null) {
+            throw new SdkValidationError("result_available", 'required', "Required property 'result_available' is missing or null");
+        }
         return new self(
             batchId: SdkClient::stringValue($data->batch_id),
             resultAvailable: SdkClient::boolValue($data->result_available),

@@ -167,12 +167,24 @@ class AddonsResource implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "uuid") || $data->uuid === null) { throw new SdkValidationError("uuid", 'required', "Required property 'uuid' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "state") || $data->state === null) { throw new SdkValidationError("state", 'required', "Required property 'state' is missing or null"); }
-        if (!property_exists($data, "app_slug") || $data->app_slug === null) { throw new SdkValidationError("app_slug", 'required', "Required property 'app_slug' is missing or null"); }
-        if (!property_exists($data, "plan_slug") || $data->plan_slug === null) { throw new SdkValidationError("plan_slug", 'required', "Required property 'plan_slug' is missing or null"); }
-        if (!property_exists($data, "has_config") || $data->has_config === null) { throw new SdkValidationError("has_config", 'required', "Required property 'has_config' is missing or null"); }
+        if (!property_exists($data, "uuid") || $data->uuid === null) {
+            throw new SdkValidationError("uuid", 'required', "Required property 'uuid' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "state") || $data->state === null) {
+            throw new SdkValidationError("state", 'required', "Required property 'state' is missing or null");
+        }
+        if (!property_exists($data, "app_slug") || $data->app_slug === null) {
+            throw new SdkValidationError("app_slug", 'required', "Required property 'app_slug' is missing or null");
+        }
+        if (!property_exists($data, "plan_slug") || $data->plan_slug === null) {
+            throw new SdkValidationError("plan_slug", 'required', "Required property 'plan_slug' is missing or null");
+        }
+        if (!property_exists($data, "has_config") || $data->has_config === null) {
+            throw new SdkValidationError("has_config", 'required', "Required property 'has_config' is missing or null");
+        }
         return new self(
             uuid: SdkClient::stringValue($data->uuid),
             name: SdkClient::stringValue($data->name),
@@ -238,8 +250,12 @@ class AddonsResourceMetadata implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "value") || $data->value === null) { throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "value") || $data->value === null) {
+            throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             value: (is_bool($data->value) ? SdkClient::boolValue($data->value) : SdkClient::stringValue($data->value)),

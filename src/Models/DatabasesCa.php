@@ -45,7 +45,9 @@ class Ca implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "certificate") || $data->certificate === null) { throw new SdkValidationError("certificate", 'required', "Required property 'certificate' is missing or null"); }
+        if (!property_exists($data, "certificate") || $data->certificate === null) {
+            throw new SdkValidationError("certificate", 'required', "Required property 'certificate' is missing or null");
+        }
         return new self(
             certificate: SdkClient::stringValue($data->certificate),
         );
@@ -90,7 +92,9 @@ class CaResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "ca") || $data->ca === null) { throw new SdkValidationError("ca", 'required', "Required property 'ca' is missing or null"); }
+        if (!property_exists($data, "ca") || $data->ca === null) {
+            throw new SdkValidationError("ca", 'required', "Required property 'ca' is missing or null");
+        }
         return new self(
             ca: SdkClient::hydrateClass($data->ca, Ca::class),
         );

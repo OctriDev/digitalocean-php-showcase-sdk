@@ -104,7 +104,9 @@ class AllRepositoriesV2 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             repositories: (property_exists($data, "repositories") && $data->repositories !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, RepositoryV2::class), SdkClient::arrayValue($data->repositories))) : SdkNotGiven::Value),
@@ -220,8 +222,12 @@ class CompletionUsageCacheCreation implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "ephemeral_5m_input_tokens") || $data->ephemeral_5m_input_tokens === null) { throw new SdkValidationError("ephemeral_5m_input_tokens", 'required', "Required property 'ephemeral_5m_input_tokens' is missing or null"); }
-        if (!property_exists($data, "ephemeral_1h_input_tokens") || $data->ephemeral_1h_input_tokens === null) { throw new SdkValidationError("ephemeral_1h_input_tokens", 'required', "Required property 'ephemeral_1h_input_tokens' is missing or null"); }
+        if (!property_exists($data, "ephemeral_5m_input_tokens") || $data->ephemeral_5m_input_tokens === null) {
+            throw new SdkValidationError("ephemeral_5m_input_tokens", 'required', "Required property 'ephemeral_5m_input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "ephemeral_1h_input_tokens") || $data->ephemeral_1h_input_tokens === null) {
+            throw new SdkValidationError("ephemeral_1h_input_tokens", 'required', "Required property 'ephemeral_1h_input_tokens' is missing or null");
+        }
         return new self(
             ephemeral5mInputTokens: SdkClient::intValue($data->ephemeral_5m_input_tokens),
             ephemeral1hInputTokens: SdkClient::intValue($data->ephemeral_1h_input_tokens),
@@ -317,12 +323,24 @@ class CompletionUsage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "completion_tokens") || $data->completion_tokens === null) { throw new SdkValidationError("completion_tokens", 'required', "Required property 'completion_tokens' is missing or null"); }
-        if (!property_exists($data, "prompt_tokens") || $data->prompt_tokens === null) { throw new SdkValidationError("prompt_tokens", 'required', "Required property 'prompt_tokens' is missing or null"); }
-        if (!property_exists($data, "cache_created_input_tokens") || $data->cache_created_input_tokens === null) { throw new SdkValidationError("cache_created_input_tokens", 'required', "Required property 'cache_created_input_tokens' is missing or null"); }
-        if (!property_exists($data, "cache_creation") || $data->cache_creation === null) { throw new SdkValidationError("cache_creation", 'required', "Required property 'cache_creation' is missing or null"); }
-        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) { throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null"); }
-        if (!property_exists($data, "total_tokens") || $data->total_tokens === null) { throw new SdkValidationError("total_tokens", 'required', "Required property 'total_tokens' is missing or null"); }
+        if (!property_exists($data, "completion_tokens") || $data->completion_tokens === null) {
+            throw new SdkValidationError("completion_tokens", 'required', "Required property 'completion_tokens' is missing or null");
+        }
+        if (!property_exists($data, "prompt_tokens") || $data->prompt_tokens === null) {
+            throw new SdkValidationError("prompt_tokens", 'required', "Required property 'prompt_tokens' is missing or null");
+        }
+        if (!property_exists($data, "cache_created_input_tokens") || $data->cache_created_input_tokens === null) {
+            throw new SdkValidationError("cache_created_input_tokens", 'required', "Required property 'cache_created_input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "cache_creation") || $data->cache_creation === null) {
+            throw new SdkValidationError("cache_creation", 'required', "Required property 'cache_creation' is missing or null");
+        }
+        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) {
+            throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "total_tokens") || $data->total_tokens === null) {
+            throw new SdkValidationError("total_tokens", 'required', "Required property 'total_tokens' is missing or null");
+        }
         return new self(
             completionTokens: SdkClient::intValue($data->completion_tokens),
             promptTokens: SdkClient::intValue($data->prompt_tokens),
@@ -343,9 +361,24 @@ final readonly class DiskInfoTypeEnum implements SdkOpenEnum
     public const BOOT = "boot";
     public const SCRATCH = "scratch";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

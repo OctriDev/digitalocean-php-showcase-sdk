@@ -187,8 +187,12 @@ class McpServerCreateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "serverRef") || $data->serverRef === null) { throw new SdkValidationError("serverRef", 'required', "Required property 'serverRef' is missing or null"); }
-        if (!property_exists($data, "endpoint") || $data->endpoint === null) { throw new SdkValidationError("endpoint", 'required', "Required property 'endpoint' is missing or null"); }
+        if (!property_exists($data, "serverRef") || $data->serverRef === null) {
+            throw new SdkValidationError("serverRef", 'required', "Required property 'serverRef' is missing or null");
+        }
+        if (!property_exists($data, "endpoint") || $data->endpoint === null) {
+            throw new SdkValidationError("endpoint", 'required', "Required property 'endpoint' is missing or null");
+        }
         return new self(
             serverRef: SdkClient::stringValue($data->serverRef),
             endpoint: SdkClient::stringValue($data->endpoint),

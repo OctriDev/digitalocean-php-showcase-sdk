@@ -31,17 +31,17 @@ trait HarnessRuntimeMethodsPart4
             "/v2/agents/sessions/" . SdkClient::encodePathSegment($sessionId) . "/events",
             config: $clientConfig,
             query: [
-            'replay_only' => new SdkQueryValue($replayOnly, "form", true),
-            'replay_from' => new SdkQueryValue($replayFrom, "form", true),
-            'cursor' => new SdkQueryValue($cursor, "form", true),
-            'device_id' => new SdkQueryValue($deviceId, "form", true),
-        ],
+                'replay_only' => new SdkQueryValue($replayOnly, "form", true),
+                'replay_from' => new SdkQueryValue($replayFrom, "form", true),
+                'cursor' => new SdkQueryValue($cursor, "form", true),
+                'device_id' => new SdkQueryValue($deviceId, "form", true),
+            ],
             extraHeaders: ["Last-Event-ID" => SdkClient::headerValue($lastEventId, false), "X-Device-UUID" => SdkClient::headerValue($xDeviceUuid, false)],
             operationId: 'harnessGetSessionEvents',
             streamFormat: 'sse',
             streamMediaType: 'text/event-stream',
             requestOptions: $requestOptions,
-            errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]
+            errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)],
         ) as $_ev) {
             if ($_ev->data === '[DONE]') {
                 return;
@@ -64,7 +64,7 @@ trait HarnessRuntimeMethodsPart4
 
         Validation::validateRange('port', $port, min: 1024, max: 65535);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/agents/sessions/" . SdkClient::encodePathSegment($sessionId) . "/port-forward/" . SdkClient::encodePathSegment($port) . "", $clientConfig, returnType: Error2::class, decoder: 'json', operationId: 'harnessGetSessionPortForward', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 402 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 423 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 502 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/agents/sessions/" . SdkClient::encodePathSegment($sessionId) . "/port-forward/" . SdkClient::encodePathSegment($port) . "", $clientConfig, returnType: Error2::class, decoder: 'json', operationId: 'harnessGetSessionPortForward', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 402 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 423 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 502 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, Error2::class));
     }
 
@@ -80,7 +80,7 @@ trait HarnessRuntimeMethodsPart4
     public static function harnessGetSessionIngress(ClientConfig $clientConfig, string $sessionId, ?RequestOptions $requestOptions = null): GetIngressUrlResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/agents/sessions/" . SdkClient::encodePathSegment($sessionId) . "/ingress", $clientConfig, returnType: GetIngressUrlResponse::class, decoder: 'json', operationId: 'harnessGetSessionIngress', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 423 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 501 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/agents/sessions/" . SdkClient::encodePathSegment($sessionId) . "/ingress", $clientConfig, returnType: GetIngressUrlResponse::class, decoder: 'json', operationId: 'harnessGetSessionIngress', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 423 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 501 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, GetIngressUrlResponse::class));
     }
 
@@ -97,7 +97,7 @@ trait HarnessRuntimeMethodsPart4
     public static function harnessListTemplates(ClientConfig $clientConfig, int|SdkNotGiven $pageSize = SdkNotGiven::Value, string|SdkNotGiven $pageToken = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): ListTemplatesResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/agents/templates", $clientConfig, query: ['page_size' => new SdkQueryValue($pageSize, "form", true), 'page_token' => new SdkQueryValue($pageToken, "form", true)], returnType: ListTemplatesResponse::class, decoder: 'json', operationId: 'harnessListTemplates', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/agents/templates", $clientConfig, query: ['page_size' => new SdkQueryValue($pageSize, "form", true), 'page_token' => new SdkQueryValue($pageToken, "form", true)], returnType: ListTemplatesResponse::class, decoder: 'json', operationId: 'harnessListTemplates', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ListTemplatesResponse::class));
     }
 
@@ -184,7 +184,7 @@ trait HarnessRuntimeMethodsPart4
     public static function harnessCreateTemplate(ClientConfig $clientConfig, string $name, string $baseTemplate, string $sourceOciRef, ?RequestOptions $requestOptions = null): CreateTemplateResponse
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/agents/templates", $clientConfig, body: ['name' => $name, 'base_template' => $baseTemplate, 'source_oci_ref' => $sourceOciRef], returnType: CreateTemplateResponse::class, decoder: 'json', operationId: 'harnessCreateTemplate', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 402 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/agents/templates", $clientConfig, body: ['name' => $name, 'base_template' => $baseTemplate, 'source_oci_ref' => $sourceOciRef], returnType: CreateTemplateResponse::class, decoder: 'json', operationId: 'harnessCreateTemplate', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 402 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, CreateTemplateResponse::class));
     }
 
@@ -202,7 +202,7 @@ trait HarnessRuntimeMethodsPart4
 
         Validation::validateUuid('template_id', $templateId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/agents/templates/" . SdkClient::encodePathSegment($templateId) . "", $clientConfig, returnType: GetTemplateResponse::class, decoder: 'json', operationId: 'harnessGetTemplate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/agents/templates/" . SdkClient::encodePathSegment($templateId) . "", $clientConfig, returnType: GetTemplateResponse::class, decoder: 'json', operationId: 'harnessGetTemplate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, GetTemplateResponse::class));
     }
 
@@ -222,7 +222,7 @@ trait HarnessRuntimeMethodsPart4
 
         Validation::validateUuid('template_id', $templateId);
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/agents/templates/" . SdkClient::encodePathSegment($templateId) . "", $clientConfig, body: ['source_oci_ref' => $sourceOciRef, 'base_template' => $baseTemplate], returnType: CreateTemplateResponse::class, decoder: 'json', operationId: 'harnessUpdateTemplate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 402 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/agents/templates/" . SdkClient::encodePathSegment($templateId) . "", $clientConfig, body: ['source_oci_ref' => $sourceOciRef, 'base_template' => $baseTemplate], returnType: CreateTemplateResponse::class, decoder: 'json', operationId: 'harnessUpdateTemplate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 402 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, CreateTemplateResponse::class));
     }
 
@@ -240,7 +240,7 @@ trait HarnessRuntimeMethodsPart4
 
         Validation::validateUuid('template_id', $templateId);
 
-        $sdkResponse = SdkClient::request('DELETE', "/v2/agents/templates/" . SdkClient::encodePathSegment($templateId) . "", $clientConfig, returnType: DeleteTemplateResponse::class, decoder: 'json', operationId: 'harnessDeleteTemplate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('DELETE', "/v2/agents/templates/" . SdkClient::encodePathSegment($templateId) . "", $clientConfig, returnType: DeleteTemplateResponse::class, decoder: 'json', operationId: 'harnessDeleteTemplate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DeleteTemplateResponse::class));
     }
 }

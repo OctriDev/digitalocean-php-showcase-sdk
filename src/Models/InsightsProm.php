@@ -14,11 +14,26 @@ final readonly class PromErrorStatusEnum implements SdkOpenEnum
 {
     public const ERROR = "error";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -33,11 +48,26 @@ final readonly class PromErrorErrorTypeEnum implements SdkOpenEnum
     public const EXECUTION = "execution";
     public const UNAVAILABLE = "unavailable";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -98,9 +128,15 @@ class PromError implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
-        if (!property_exists($data, "errorType") || $data->errorType === null) { throw new SdkValidationError("errorType", 'required', "Required property 'errorType' is missing or null"); }
-        if (!property_exists($data, "error") || $data->error === null) { throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) {
+            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
+        }
+        if (!property_exists($data, "errorType") || $data->errorType === null) {
+            throw new SdkValidationError("errorType", 'required', "Required property 'errorType' is missing or null");
+        }
+        if (!property_exists($data, "error") || $data->error === null) {
+            throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null");
+        }
         return new self(
             status: SdkClient::hydrateStringEnumOrString($data->status, PromErrorStatusEnum::class),
             errorType: SdkClient::hydrateStringEnumOrString($data->errorType, PromErrorErrorTypeEnum::class),
@@ -116,11 +152,26 @@ final readonly class PromMatrixDataResultTypeEnum implements SdkOpenEnum
 {
     public const MATRIX = "matrix";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -171,8 +222,12 @@ class PromMatrixData implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "resultType") || $data->resultType === null) { throw new SdkValidationError("resultType", 'required', "Required property 'resultType' is missing or null"); }
-        if (!property_exists($data, "result") || $data->result === null) { throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null"); }
+        if (!property_exists($data, "resultType") || $data->resultType === null) {
+            throw new SdkValidationError("resultType", 'required', "Required property 'resultType' is missing or null");
+        }
+        if (!property_exists($data, "result") || $data->result === null) {
+            throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null");
+        }
         return new self(
             resultType: SdkClient::hydrateStringEnumOrString($data->resultType, PromMatrixDataResultTypeEnum::class),
             result: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, PromMatrixSample::class), SdkClient::arrayValue($data->result))),
@@ -228,8 +283,12 @@ class PromMatrixSample implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "metric") || $data->metric === null) { throw new SdkValidationError("metric", 'required', "Required property 'metric' is missing or null"); }
-        if (!property_exists($data, "values") || $data->values === null) { throw new SdkValidationError("values", 'required', "Required property 'values' is missing or null"); }
+        if (!property_exists($data, "metric") || $data->metric === null) {
+            throw new SdkValidationError("metric", 'required', "Required property 'metric' is missing or null");
+        }
+        if (!property_exists($data, "values") || $data->values === null) {
+            throw new SdkValidationError("values", 'required', "Required property 'values' is missing or null");
+        }
         return new self(
             metric: SdkClient::mapValues(SdkClient::stringMapValue($data->metric), static fn($item) => SdkClient::stringValue($item)),
             values: array_values(array_map(static fn($item) => array_values(array_map(static fn($item2) => (is_float($item2) || is_int($item2) ? SdkClient::floatValue($item2) : SdkClient::stringValue($item2)), SdkClient::arrayValue($item))), SdkClient::arrayValue($data->values))),
@@ -247,11 +306,26 @@ final readonly class PromQueryDataResultTypeEnum implements SdkOpenEnum
     public const SCALAR = "scalar";
     public const STRING = "string";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -302,8 +376,12 @@ class PromQueryData implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "resultType") || $data->resultType === null) { throw new SdkValidationError("resultType", 'required', "Required property 'resultType' is missing or null"); }
-        if (!property_exists($data, "result") || $data->result === null) { throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null"); }
+        if (!property_exists($data, "resultType") || $data->resultType === null) {
+            throw new SdkValidationError("resultType", 'required', "Required property 'resultType' is missing or null");
+        }
+        if (!property_exists($data, "result") || $data->result === null) {
+            throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null");
+        }
         return new self(
             resultType: SdkClient::hydrateStringEnumOrString($data->resultType, PromQueryDataResultTypeEnum::class),
             result: SdkClient::decodeUnionValue($data->result, [static fn(mixed $value) => array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, PromVectorSample::class), SdkClient::arrayValue($value))), static fn(mixed $value) => array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, PromMatrixSample::class), SdkClient::arrayValue($value))), static fn(mixed $value) => array_values(array_map(static fn($item) => (is_float($item) || is_int($item) ? SdkClient::floatValue($item) : SdkClient::stringValue($item)), SdkClient::arrayValue($value)))]),
@@ -318,9 +396,24 @@ final readonly class PromQueryRangeResponseStatusEnum implements SdkOpenEnum
 {
     public const SUCCESS = "success";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

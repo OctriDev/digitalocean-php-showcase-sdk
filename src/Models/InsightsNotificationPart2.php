@@ -45,7 +45,9 @@ class NotificationChannelResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "notification_channel") || $data->notification_channel === null) { throw new SdkValidationError("notification_channel", 'required', "Required property 'notification_channel' is missing or null"); }
+        if (!property_exists($data, "notification_channel") || $data->notification_channel === null) {
+            throw new SdkValidationError("notification_channel", 'required', "Required property 'notification_channel' is missing or null");
+        }
         return new self(
             notificationChannel: SdkClient::hydrateClass($data->notification_channel, NotificationChannel::class),
         );
