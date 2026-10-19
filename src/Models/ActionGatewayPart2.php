@@ -130,9 +130,7 @@ class SetActorLimits implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "overrides") || $data->overrides === null) {
-            throw new SdkValidationError("overrides", 'required', "Required property 'overrides' is missing or null");
-        }
+        if (!property_exists($data, "overrides") || $data->overrides === null) { throw new SdkValidationError("overrides", 'required', "Required property 'overrides' is missing or null"); }
         return new self(
             overrides: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, LimitOverride::class), SdkClient::arrayValue($data->overrides))),
         );

@@ -19,26 +19,11 @@ final readonly class AlertConditionWindowEnum implements SdkOpenEnum
     public const EVALUATION_WINDOW_30M = "EVALUATION_WINDOW_30M";
     public const EVALUATION_WINDOW_1H = "EVALUATION_WINDOW_1H";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -95,26 +80,11 @@ final readonly class AlertInstanceSeverityEnum implements SdkOpenEnum
     public const WARNING = "warning";
     public const CRITICAL = "critical";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -125,26 +95,11 @@ final readonly class AlertInstanceStatusEnum implements SdkOpenEnum
     public const ACTIVE = "active";
     public const RESOLVED = "resolved";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -281,27 +236,13 @@ class AlertInstance implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "rule_id") || $data->rule_id === null) {
-            throw new SdkValidationError("rule_id", 'required', "Required property 'rule_id' is missing or null");
-        }
-        if (!property_exists($data, "severity") || $data->severity === null) {
-            throw new SdkValidationError("severity", 'required', "Required property 'severity' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "value") || $data->value === null) {
-            throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null");
-        }
-        if (!property_exists($data, "triggered_at") || $data->triggered_at === null) {
-            throw new SdkValidationError("triggered_at", 'required', "Required property 'triggered_at' is missing or null");
-        }
-        if (!property_exists($data, "last_triggered_at") || $data->last_triggered_at === null) {
-            throw new SdkValidationError("last_triggered_at", 'required', "Required property 'last_triggered_at' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "rule_id") || $data->rule_id === null) { throw new SdkValidationError("rule_id", 'required', "Required property 'rule_id' is missing or null"); }
+        if (!property_exists($data, "severity") || $data->severity === null) { throw new SdkValidationError("severity", 'required', "Required property 'severity' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "value") || $data->value === null) { throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null"); }
+        if (!property_exists($data, "triggered_at") || $data->triggered_at === null) { throw new SdkValidationError("triggered_at", 'required', "Required property 'triggered_at' is missing or null"); }
+        if (!property_exists($data, "last_triggered_at") || $data->last_triggered_at === null) { throw new SdkValidationError("last_triggered_at", 'required', "Required property 'last_triggered_at' is missing or null"); }
         return new self(
             id: SdkClient::stringValue($data->id),
             ruleId: SdkClient::stringValue($data->rule_id),
@@ -355,9 +296,7 @@ class AlertInstanceResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "alert_instance") || $data->alert_instance === null) {
-            throw new SdkValidationError("alert_instance", 'required', "Required property 'alert_instance' is missing or null");
-        }
+        if (!property_exists($data, "alert_instance") || $data->alert_instance === null) { throw new SdkValidationError("alert_instance", 'required', "Required property 'alert_instance' is missing or null"); }
         return new self(
             alertInstance: SdkClient::hydrateClass($data->alert_instance, AlertInstance::class),
         );
@@ -372,24 +311,9 @@ final readonly class AlertRuleStatusEnum implements SdkOpenEnum
     public const ALERT_RULE_STATUS_ACTIVE = "ALERT_RULE_STATUS_ACTIVE";
     public const ALERT_RULE_STATUS_PAUSED = "ALERT_RULE_STATUS_PAUSED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

@@ -199,12 +199,8 @@ class AsyncInvokeRequestTagsItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "key") || $data->key === null) {
-            throw new SdkValidationError("key", 'required', "Required property 'key' is missing or null");
-        }
-        if (!property_exists($data, "value") || $data->value === null) {
-            throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null");
-        }
+        if (!property_exists($data, "key") || $data->key === null) { throw new SdkValidationError("key", 'required', "Required property 'key' is missing or null"); }
+        if (!property_exists($data, "value") || $data->value === null) { throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null"); }
         return new self(
             key: SdkClient::stringValue($data->key),
             value: SdkClient::stringValue($data->value),
@@ -272,12 +268,8 @@ class AsyncInvokeRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "model_id") || $data->model_id === null) {
-            throw new SdkValidationError("model_id", 'required', "Required property 'model_id' is missing or null");
-        }
-        if (!property_exists($data, "input") || $data->input === null) {
-            throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null");
-        }
+        if (!property_exists($data, "model_id") || $data->model_id === null) { throw new SdkValidationError("model_id", 'required', "Required property 'model_id' is missing or null"); }
+        if (!property_exists($data, "input") || $data->input === null) { throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null"); }
         return new self(
             modelId: SdkClient::stringValue($data->model_id),
             input: SdkClient::hydrateClass($data->input, AsyncInvokeRequestInput::class),
@@ -296,24 +288,9 @@ final readonly class AsyncInvokeResponseStatusEnum implements SdkOpenEnum
     public const COMPLETED = "COMPLETED";
     public const FAILED = "FAILED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

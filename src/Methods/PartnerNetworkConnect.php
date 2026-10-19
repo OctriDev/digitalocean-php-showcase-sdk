@@ -15,26 +15,11 @@ final readonly class PartnerAttachmentsCreateRegion implements SdkOpenEnum
     public const AMS = "ams";
     public const SGP = "sgp";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 final readonly class PartnerAttachmentsCreateRedundancyZone implements SdkOpenEnum
@@ -42,26 +27,11 @@ final readonly class PartnerAttachmentsCreateRedundancyZone implements SdkOpenEn
     public const MEGAPORT_BLUE = "MEGAPORT_BLUE";
     public const MEGAPORT_RED = "MEGAPORT_RED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -132,18 +102,10 @@ class PartnerAttachmentsCreateBgp implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "local_router_ip") || $data->local_router_ip === null) {
-            throw new SdkValidationError("local_router_ip", 'required', "Required property 'local_router_ip' is missing or null");
-        }
-        if (!property_exists($data, "peer_router_ip") || $data->peer_router_ip === null) {
-            throw new SdkValidationError("peer_router_ip", 'required', "Required property 'peer_router_ip' is missing or null");
-        }
-        if (!property_exists($data, "peer_router_asn") || $data->peer_router_asn === null) {
-            throw new SdkValidationError("peer_router_asn", 'required', "Required property 'peer_router_asn' is missing or null");
-        }
-        if (!property_exists($data, "auth_key") || $data->auth_key === null) {
-            throw new SdkValidationError("auth_key", 'required', "Required property 'auth_key' is missing or null");
-        }
+        if (!property_exists($data, "local_router_ip") || $data->local_router_ip === null) { throw new SdkValidationError("local_router_ip", 'required', "Required property 'local_router_ip' is missing or null"); }
+        if (!property_exists($data, "peer_router_ip") || $data->peer_router_ip === null) { throw new SdkValidationError("peer_router_ip", 'required', "Required property 'peer_router_ip' is missing or null"); }
+        if (!property_exists($data, "peer_router_asn") || $data->peer_router_asn === null) { throw new SdkValidationError("peer_router_asn", 'required', "Required property 'peer_router_asn' is missing or null"); }
+        if (!property_exists($data, "auth_key") || $data->auth_key === null) { throw new SdkValidationError("auth_key", 'required', "Required property 'auth_key' is missing or null"); }
         return new self(
             localRouterIp: SdkClient::stringValue($data->local_router_ip),
             peerRouterIp: SdkClient::stringValue($data->peer_router_ip),
@@ -175,7 +137,7 @@ class PartnerNetworkConnect
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/partner_network_connect/attachments", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllPartnerAttachments::class, decoder: 'json', operationId: 'partnerAttachmentsList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/partner_network_connect/attachments", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllPartnerAttachments::class, decoder: 'json', operationId: 'partnerAttachmentsList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllPartnerAttachments::class));
     }
 
@@ -202,7 +164,7 @@ class PartnerNetworkConnect
 
         Validation::validateItems('vpc_ids', $vpcIds, min: 1);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/partner_network_connect/attachments", $clientConfig, body: ['name' => $name, 'connection_bandwidth_in_mbps' => $connectionBandwidthInMbps, 'region' => $region, 'naas_provider' => $naasProvider, 'vpc_ids' => $vpcIds, 'parent_uuid' => $parentUuid, 'bgp' => $bgp, 'redundancy_zone' => $redundancyZone], returnType: SinglePartnerAttachment::class, decoder: 'json', operationId: 'partnerAttachmentsCreate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 422 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/partner_network_connect/attachments", $clientConfig, body: ['name' => $name, 'connection_bandwidth_in_mbps' => $connectionBandwidthInMbps, 'region' => $region, 'naas_provider' => $naasProvider, 'vpc_ids' => $vpcIds, 'parent_uuid' => $parentUuid, 'bgp' => $bgp, 'redundancy_zone' => $redundancyZone], returnType: SinglePartnerAttachment::class, decoder: 'json', operationId: 'partnerAttachmentsCreate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 422 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SinglePartnerAttachment::class));
     }
 
@@ -218,7 +180,7 @@ class PartnerNetworkConnect
     public static function partnerAttachmentsGet(ClientConfig $clientConfig, string $paId, ?RequestOptions $requestOptions = null): SinglePartnerAttachment
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "", $clientConfig, returnType: SinglePartnerAttachment::class, decoder: 'json', operationId: 'partnerAttachmentsGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "", $clientConfig, returnType: SinglePartnerAttachment::class, decoder: 'json', operationId: 'partnerAttachmentsGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SinglePartnerAttachment::class));
     }
 
@@ -235,7 +197,7 @@ class PartnerNetworkConnect
     public static function partnerAttachmentsPatch(ClientConfig $clientConfig, string $paId, PartnerAttachmentUpdatable|SdkNotGiven $body = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): SinglePartnerAttachment
     {
 
-        $sdkResponse = SdkClient::request('PATCH', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "", $clientConfig, body: $body, returnType: SinglePartnerAttachment::class, decoder: 'json', operationId: 'partnerAttachmentsPatch', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PATCH', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "", $clientConfig, body: $body, returnType: SinglePartnerAttachment::class, decoder: 'json', operationId: 'partnerAttachmentsPatch', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SinglePartnerAttachment::class));
     }
 
@@ -251,7 +213,7 @@ class PartnerNetworkConnect
     public static function partnerAttachmentsDelete(ClientConfig $clientConfig, string $paId, ?RequestOptions $requestOptions = null): SinglePartnerAttachmentDeleting
     {
 
-        $sdkResponse = SdkClient::request('DELETE', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "", $clientConfig, returnType: SinglePartnerAttachmentDeleting::class, decoder: 'json', operationId: 'partnerAttachmentsDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('DELETE', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "", $clientConfig, returnType: SinglePartnerAttachmentDeleting::class, decoder: 'json', operationId: 'partnerAttachmentsDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SinglePartnerAttachmentDeleting::class));
     }
 
@@ -267,7 +229,7 @@ class PartnerNetworkConnect
     public static function partnerAttachmentsGetBgpAuthKey(ClientConfig $clientConfig, string $paId, ?RequestOptions $requestOptions = null): SinglePartnerAttachmentBgpAuthKey
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "/bgp_auth_key", $clientConfig, returnType: SinglePartnerAttachmentBgpAuthKey::class, decoder: 'json', operationId: 'partnerAttachmentsGetBgpAuthKey', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "/bgp_auth_key", $clientConfig, returnType: SinglePartnerAttachmentBgpAuthKey::class, decoder: 'json', operationId: 'partnerAttachmentsGetBgpAuthKey', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SinglePartnerAttachmentBgpAuthKey::class));
     }
 
@@ -293,7 +255,7 @@ class PartnerNetworkConnect
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "/remote_routes", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllPartnerAttachmentRemoteRoutes::class, decoder: 'json', operationId: 'partnerAttachmentsListRemoteRoutes', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "/remote_routes", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllPartnerAttachmentRemoteRoutes::class, decoder: 'json', operationId: 'partnerAttachmentsListRemoteRoutes', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllPartnerAttachmentRemoteRoutes::class));
     }
 
@@ -309,7 +271,7 @@ class PartnerNetworkConnect
     public static function partnerAttachmentsGetServiceKey(ClientConfig $clientConfig, string $paId, ?RequestOptions $requestOptions = null): SinglePartnerAttachmentServiceKey
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "/service_key", $clientConfig, returnType: SinglePartnerAttachmentServiceKey::class, decoder: 'json', operationId: 'partnerAttachmentsGetServiceKey', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "/service_key", $clientConfig, returnType: SinglePartnerAttachmentServiceKey::class, decoder: 'json', operationId: 'partnerAttachmentsGetServiceKey', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SinglePartnerAttachmentServiceKey::class));
     }
 
@@ -325,7 +287,7 @@ class PartnerNetworkConnect
     public static function partnerAttachmentsCreateServiceKey(ClientConfig $clientConfig, string $paId, ?RequestOptions $requestOptions = null): array
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "/service_key", $clientConfig, decoder: 'json', operationId: 'partnerAttachmentsCreateServiceKey', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/partner_network_connect/attachments/" . SdkClient::encodePathSegment($paId) . "/service_key", $clientConfig, decoder: 'json', operationId: 'partnerAttachmentsCreateServiceKey', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::stringMapValue($sdkResponse->data));
     }
 }

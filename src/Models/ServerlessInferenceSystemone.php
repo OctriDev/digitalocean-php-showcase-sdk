@@ -16,26 +16,11 @@ final readonly class SystemoneAnswerTypeEnum implements SdkOpenEnum
     public const CHOICE = "choice";
     public const SCORE = "score";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -148,9 +133,7 @@ class SystemoneAnswer implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, SystemoneAnswerTypeEnum::class),
             noul: (property_exists($data, "noul") && $data->noul !== null ? SdkClient::floatValue($data->noul) : SdkNotGiven::Value),
@@ -172,26 +155,11 @@ final readonly class SystemoneQuestionTypeEnum implements SdkOpenEnum
     public const CHOICE = "choice";
     public const SCORE = "score";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -254,12 +222,8 @@ class SystemoneQuestion implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "instructions") || $data->instructions === null) {
-            throw new SdkValidationError("instructions", 'required', "Required property 'instructions' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "instructions") || $data->instructions === null) { throw new SdkValidationError("instructions", 'required', "Required property 'instructions' is missing or null"); }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, SystemoneQuestionTypeEnum::class),
             instructions: SdkClient::stringValue($data->instructions),
@@ -326,15 +290,9 @@ class SystemoneRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "state") || $data->state === null) {
-            throw new SdkValidationError("state", 'required', "Required property 'state' is missing or null");
-        }
-        if (!property_exists($data, "model") || $data->model === null) {
-            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
-        }
-        if (!property_exists($data, "questions") || $data->questions === null) {
-            throw new SdkValidationError("questions", 'required', "Required property 'questions' is missing or null");
-        }
+        if (!property_exists($data, "state") || $data->state === null) { throw new SdkValidationError("state", 'required', "Required property 'state' is missing or null"); }
+        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "questions") || $data->questions === null) { throw new SdkValidationError("questions", 'required', "Required property 'questions' is missing or null"); }
         return new self(
             state: SdkClient::stringValue($data->state),
             model: SdkClient::stringValue($data->model),

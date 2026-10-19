@@ -125,33 +125,15 @@ class AlertPolicyRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "alerts") || $data->alerts === null) {
-            throw new SdkValidationError("alerts", 'required', "Required property 'alerts' is missing or null");
-        }
-        if (!property_exists($data, "compare") || $data->compare === null) {
-            throw new SdkValidationError("compare", 'required', "Required property 'compare' is missing or null");
-        }
-        if (!property_exists($data, "description") || $data->description === null) {
-            throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null");
-        }
-        if (!property_exists($data, "enabled") || $data->enabled === null) {
-            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
-        }
-        if (!property_exists($data, "entities") || $data->entities === null) {
-            throw new SdkValidationError("entities", 'required', "Required property 'entities' is missing or null");
-        }
-        if (!property_exists($data, "tags") || $data->tags === null) {
-            throw new SdkValidationError("tags", 'required', "Required property 'tags' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "value") || $data->value === null) {
-            throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null");
-        }
-        if (!property_exists($data, "window") || $data->window === null) {
-            throw new SdkValidationError("window", 'required', "Required property 'window' is missing or null");
-        }
+        if (!property_exists($data, "alerts") || $data->alerts === null) { throw new SdkValidationError("alerts", 'required', "Required property 'alerts' is missing or null"); }
+        if (!property_exists($data, "compare") || $data->compare === null) { throw new SdkValidationError("compare", 'required', "Required property 'compare' is missing or null"); }
+        if (!property_exists($data, "description") || $data->description === null) { throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null"); }
+        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
+        if (!property_exists($data, "entities") || $data->entities === null) { throw new SdkValidationError("entities", 'required', "Required property 'entities' is missing or null"); }
+        if (!property_exists($data, "tags") || $data->tags === null) { throw new SdkValidationError("tags", 'required', "Required property 'tags' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "value") || $data->value === null) { throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null"); }
+        if (!property_exists($data, "window") || $data->window === null) { throw new SdkValidationError("window", 'required', "Required property 'window' is missing or null"); }
         return new self(
             alerts: SdkClient::hydrateClass($data->alerts, Alerts::class),
             compare: SdkClient::hydrateStringEnumOrString($data->compare, AlertPolicyRequestCompareEnum::class),
@@ -260,12 +242,8 @@ class Alerts implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "email") || $data->email === null) {
-            throw new SdkValidationError("email", 'required', "Required property 'email' is missing or null");
-        }
-        if (!property_exists($data, "slack") || $data->slack === null) {
-            throw new SdkValidationError("slack", 'required', "Required property 'slack' is missing or null");
-        }
+        if (!property_exists($data, "email") || $data->email === null) { throw new SdkValidationError("email", 'required', "Required property 'email' is missing or null"); }
+        if (!property_exists($data, "slack") || $data->slack === null) { throw new SdkValidationError("slack", 'required', "Required property 'slack' is missing or null"); }
         return new self(
             email: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->email))),
             slack: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, SlackDetails::class), SdkClient::arrayValue($data->slack))),
@@ -281,26 +259,11 @@ final readonly class DestinationTypeEnum implements SdkOpenEnum
     public const OPENSEARCH_DBAAS = "opensearch_dbaas";
     public const OPENSEARCH_EXT = "opensearch_ext";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -377,9 +340,7 @@ class Destination implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "config") || $data->config === null) {
-            throw new SdkValidationError("config", 'required', "Required property 'config' is missing or null");
-        }
+        if (!property_exists($data, "config") || $data->config === null) { throw new SdkValidationError("config", 'required', "Required property 'config' is missing or null"); }
         return new self(
             config: SdkClient::hydrateClass($data->config, OpensearchConfig::class),
             id: (property_exists($data, "id") && $data->id !== null ? SdkClient::stringValue($data->id) : SdkNotGiven::Value),

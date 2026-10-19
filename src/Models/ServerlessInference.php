@@ -14,26 +14,11 @@ final readonly class EmbeddingDataItemObjectEnum implements SdkOpenEnum
 {
     public const EMBEDDING = "embedding";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -94,15 +79,9 @@ class EmbeddingDataItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "index") || $data->index === null) {
-            throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null");
-        }
-        if (!property_exists($data, "object") || $data->object === null) {
-            throw new SdkValidationError("object", 'required', "Required property 'object' is missing or null");
-        }
-        if (!property_exists($data, "embedding") || $data->embedding === null) {
-            throw new SdkValidationError("embedding", 'required', "Required property 'embedding' is missing or null");
-        }
+        if (!property_exists($data, "index") || $data->index === null) { throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null"); }
+        if (!property_exists($data, "object") || $data->object === null) { throw new SdkValidationError("object", 'required', "Required property 'object' is missing or null"); }
+        if (!property_exists($data, "embedding") || $data->embedding === null) { throw new SdkValidationError("embedding", 'required', "Required property 'embedding' is missing or null"); }
         return new self(
             index: SdkClient::intValue($data->index),
             object_: SdkClient::hydrateStringEnumOrString($data->object, EmbeddingDataItemObjectEnum::class),
@@ -161,9 +140,7 @@ class GeneratedImage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "b64_json") || $data->b64_json === null) {
-            throw new SdkValidationError("b64_json", 'required', "Required property 'b64_json' is missing or null");
-        }
+        if (!property_exists($data, "b64_json") || $data->b64_json === null) { throw new SdkValidationError("b64_json", 'required', "Required property 'b64_json' is missing or null"); }
         return new self(
             b64Json: SdkClient::stringValue($data->b64_json),
             revisedPrompt: (property_exists($data, "revised_prompt") && $data->revised_prompt !== null ? SdkClient::stringValue($data->revised_prompt) : SdkNotGiven::Value),
@@ -178,26 +155,11 @@ final readonly class ImageGenPartialImageEventTypeEnum implements SdkOpenEnum
 {
     public const IMAGE_GENERATION_PARTIAL_IMAGE = "image_generation.partial_image";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -210,26 +172,11 @@ final readonly class ImageGenPartialImageEventSizeEnum implements SdkOpenEnum
     public const _1536X1024 = "1536x1024";
     public const AUTO = "auto";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -242,26 +189,11 @@ final readonly class ImageGenPartialImageEventQualityEnum implements SdkOpenEnum
     public const HIGH = "high";
     public const AUTO = "auto";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -273,26 +205,11 @@ final readonly class ImageGenPartialImageEventBackgroundEnum implements SdkOpenE
     public const OPAQUE = "opaque";
     public const AUTO = "auto";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -304,24 +221,9 @@ final readonly class ImageGenPartialImageEventOutputFormatEnum implements SdkOpe
     public const WEBP = "webp";
     public const JPEG = "jpeg";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

@@ -12,26 +12,11 @@ final readonly class OneClicksListType implements SdkOpenEnum
     public const DROPLET = "droplet";
     public const KUBERNETES = "kubernetes";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 class _1ClickApplications
@@ -47,7 +32,7 @@ class _1ClickApplications
     public static function oneClicksList(ClientConfig $clientConfig, OneClicksListType|SdkNotGiven $type = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): OneClicksAll
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/1-clicks", $clientConfig, query: ['type' => new SdkQueryValue($type, "form", true)], returnType: OneClicksAll::class, decoder: 'json', operationId: 'oneClicksList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/1-clicks", $clientConfig, query: ['type' => new SdkQueryValue($type, "form", true)], returnType: OneClicksAll::class, decoder: 'json', operationId: 'oneClicksList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, OneClicksAll::class));
     }
 
@@ -64,7 +49,7 @@ class _1ClickApplications
     public static function oneClicksInstallKubernetes(ClientConfig $clientConfig, array $addonSlugs, string $clusterUuid, ?RequestOptions $requestOptions = null): OneClicksCreateResponse
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/1-clicks/kubernetes", $clientConfig, body: ['addon_slugs' => $addonSlugs, 'cluster_uuid' => $clusterUuid], returnType: OneClicksCreateResponse::class, decoder: 'json', operationId: 'oneClicksInstallKubernetes', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/1-clicks/kubernetes", $clientConfig, body: ['addon_slugs' => $addonSlugs, 'cluster_uuid' => $clusterUuid], returnType: OneClicksCreateResponse::class, decoder: 'json', operationId: 'oneClicksInstallKubernetes', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, OneClicksCreateResponse::class));
     }
 }

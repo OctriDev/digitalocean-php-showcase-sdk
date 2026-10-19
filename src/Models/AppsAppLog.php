@@ -57,9 +57,7 @@ class AppLogDestinationDatadogSpec implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "api_key") || $data->api_key === null) {
-            throw new SdkValidationError("api_key", 'required', "Required property 'api_key' is missing or null");
-        }
+        if (!property_exists($data, "api_key") || $data->api_key === null) { throw new SdkValidationError("api_key", 'required', "Required property 'api_key' is missing or null"); }
         return new self(
             apiKey: SdkClient::stringValue($data->api_key),
             endpoint: (property_exists($data, "endpoint") && $data->endpoint !== null ? SdkClient::stringValue($data->endpoint) : SdkNotGiven::Value),
@@ -153,9 +151,7 @@ class AppLogDestinationDefinition implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             papertrail: (property_exists($data, "papertrail") && $data->papertrail !== null ? SdkClient::hydrateClass($data->papertrail, AppLogDestinationPapertrailSpec::class) : SdkNotGiven::Value),

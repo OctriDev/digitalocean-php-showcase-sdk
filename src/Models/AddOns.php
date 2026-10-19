@@ -75,18 +75,10 @@ class AddonsAppInfo implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "app_slug") || $data->app_slug === null) {
-            throw new SdkValidationError("app_slug", 'required', "Required property 'app_slug' is missing or null");
-        }
-        if (!property_exists($data, "tos") || $data->tos === null) {
-            throw new SdkValidationError("tos", 'required', "Required property 'tos' is missing or null");
-        }
-        if (!property_exists($data, "eula") || $data->eula === null) {
-            throw new SdkValidationError("eula", 'required', "Required property 'eula' is missing or null");
-        }
-        if (!property_exists($data, "plans") || $data->plans === null) {
-            throw new SdkValidationError("plans", 'required', "Required property 'plans' is missing or null");
-        }
+        if (!property_exists($data, "app_slug") || $data->app_slug === null) { throw new SdkValidationError("app_slug", 'required', "Required property 'app_slug' is missing or null"); }
+        if (!property_exists($data, "tos") || $data->tos === null) { throw new SdkValidationError("tos", 'required', "Required property 'tos' is missing or null"); }
+        if (!property_exists($data, "eula") || $data->eula === null) { throw new SdkValidationError("eula", 'required', "Required property 'eula' is missing or null"); }
+        if (!property_exists($data, "plans") || $data->plans === null) { throw new SdkValidationError("plans", 'required', "Required property 'plans' is missing or null"); }
         return new self(
             appSlug: SdkClient::stringValue($data->app_slug),
             tos: SdkClient::stringValue($data->tos),
@@ -104,26 +96,11 @@ final readonly class AddonsAppMetadataTypeEnum implements SdkOpenEnum
     public const STRING = "string";
     public const BOOLEAN = "boolean";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -216,21 +193,11 @@ class AddonsAppMetadata implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "display_name") || $data->display_name === null) {
-            throw new SdkValidationError("display_name", 'required', "Required property 'display_name' is missing or null");
-        }
-        if (!property_exists($data, "description") || $data->description === null) {
-            throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "display_name") || $data->display_name === null) { throw new SdkValidationError("display_name", 'required', "Required property 'display_name' is missing or null"); }
+        if (!property_exists($data, "description") || $data->description === null) { throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             id: SdkClient::intValue($data->id),
             name: SdkClient::stringValue($data->name),
@@ -356,18 +323,10 @@ class AddonsDimensionVolumeWithPrice implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "low_volume") || $data->low_volume === null) {
-            throw new SdkValidationError("low_volume", 'required', "Required property 'low_volume' is missing or null");
-        }
-        if (!property_exists($data, "max_volume") || $data->max_volume === null) {
-            throw new SdkValidationError("max_volume", 'required', "Required property 'max_volume' is missing or null");
-        }
-        if (!property_exists($data, "price_per_unit") || $data->price_per_unit === null) {
-            throw new SdkValidationError("price_per_unit", 'required', "Required property 'price_per_unit' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "low_volume") || $data->low_volume === null) { throw new SdkValidationError("low_volume", 'required', "Required property 'low_volume' is missing or null"); }
+        if (!property_exists($data, "max_volume") || $data->max_volume === null) { throw new SdkValidationError("max_volume", 'required', "Required property 'max_volume' is missing or null"); }
+        if (!property_exists($data, "price_per_unit") || $data->price_per_unit === null) { throw new SdkValidationError("price_per_unit", 'required', "Required property 'price_per_unit' is missing or null"); }
         return new self(
             id: SdkClient::intValue($data->id),
             lowVolume: SdkClient::intValue($data->low_volume),

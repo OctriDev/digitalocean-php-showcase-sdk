@@ -117,9 +117,7 @@ class DatabaseUser implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             role: (property_exists($data, "role") && $data->role !== null ? SdkClient::hydrateStringEnumOrString($data->role, DatabaseUserRoleEnum::class) : SdkNotGiven::Value),
@@ -194,9 +192,7 @@ class DatabaseUserRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             mysqlSettings: (property_exists($data, "mysql_settings") && $data->mysql_settings !== null ? SdkClient::hydrateClass($data->mysql_settings, MysqlSettings::class) : SdkNotGiven::Value),

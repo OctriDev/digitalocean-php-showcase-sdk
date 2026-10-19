@@ -29,7 +29,7 @@ class ReservedIPv6Api
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/reserved_ipv6", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: ReservedIPv6ListResponse::class, decoder: 'json', operationId: 'reservedIPv6List', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/reserved_ipv6", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: ReservedIPv6ListResponse::class, decoder: 'json', operationId: 'reservedIPv6List', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ReservedIPv6ListResponse::class));
     }
 
@@ -45,7 +45,7 @@ class ReservedIPv6Api
     public static function reservedIPv6Create(ClientConfig $clientConfig, string $regionSlug, ?RequestOptions $requestOptions = null): ReservedIpv6CreateResponse
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/reserved_ipv6", $clientConfig, body: ['region_slug' => $regionSlug], returnType: ReservedIpv6CreateResponse::class, decoder: 'json', operationId: 'reservedIPv6Create', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/reserved_ipv6", $clientConfig, body: ['region_slug' => $regionSlug], returnType: ReservedIpv6CreateResponse::class, decoder: 'json', operationId: 'reservedIPv6Create', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ReservedIpv6CreateResponse::class));
     }
 
@@ -61,7 +61,7 @@ class ReservedIPv6Api
     public static function reservedIPv6Get(ClientConfig $clientConfig, string $reservedIpv6, ?RequestOptions $requestOptions = null): ReservedIpv6Response
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/reserved_ipv6/" . SdkClient::encodePathSegment($reservedIpv6) . "", $clientConfig, returnType: ReservedIpv6Response::class, decoder: 'json', operationId: 'reservedIPv6Get', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/reserved_ipv6/" . SdkClient::encodePathSegment($reservedIpv6) . "", $clientConfig, returnType: ReservedIpv6Response::class, decoder: 'json', operationId: 'reservedIPv6Get', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ReservedIpv6Response::class));
     }
 
@@ -76,6 +76,6 @@ class ReservedIPv6Api
     public static function reservedIPv6Delete(ClientConfig $clientConfig, string $reservedIpv6, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/reserved_ipv6/" . SdkClient::encodePathSegment($reservedIpv6) . "", $clientConfig, decoder: 'empty', operationId: 'reservedIPv6Delete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 422 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/reserved_ipv6/" . SdkClient::encodePathSegment($reservedIpv6) . "", $clientConfig, decoder: 'empty', operationId: 'reservedIPv6Delete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 422 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

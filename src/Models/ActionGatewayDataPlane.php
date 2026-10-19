@@ -15,26 +15,11 @@ final readonly class ApprovalDecisionDecisionEnum implements SdkOpenEnum
     public const APPROVE = "approve";
     public const DENY = "deny";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -75,9 +60,7 @@ class ApprovalDecision implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "decision") || $data->decision === null) {
-            throw new SdkValidationError("decision", 'required', "Required property 'decision' is missing or null");
-        }
+        if (!property_exists($data, "decision") || $data->decision === null) { throw new SdkValidationError("decision", 'required', "Required property 'decision' is missing or null"); }
         return new self(
             decision: SdkClient::hydrateStringEnumOrString($data->decision, ApprovalDecisionDecisionEnum::class),
         );
@@ -92,26 +75,11 @@ final readonly class ApprovalDecisionResponseStatusEnum implements SdkOpenEnum
     public const APPROVED = "approved";
     public const DENIED = "denied";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -276,26 +244,11 @@ final readonly class DataPlaneSearchToolsResponseStatusEnum implements SdkOpenEn
     public const SUCCEEDED = "succeeded";
     public const FAILED = "failed";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 class DataPlaneSearchToolsResponseOutput implements \JsonSerializable

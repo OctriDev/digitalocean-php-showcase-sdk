@@ -290,26 +290,11 @@ final readonly class ApiScenarioLibraryEntryStatus implements SdkOpenEnum
     public const SCENARIO_LIBRARY_ENTRY_STATUS_ACTIVE = "SCENARIO_LIBRARY_ENTRY_STATUS_ACTIVE";
     public const SCENARIO_LIBRARY_ENTRY_STATUS_ARCHIVED = "SCENARIO_LIBRARY_ENTRY_STATUS_ARCHIVED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -321,24 +306,9 @@ final readonly class ApiScenarioLibrarySortField implements SdkOpenEnum
     public const SCENARIO_LIBRARY_SORT_FIELD_NAME = "SCENARIO_LIBRARY_SORT_FIELD_NAME";
     public const SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT = "SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

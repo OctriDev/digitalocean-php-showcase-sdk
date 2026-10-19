@@ -104,9 +104,7 @@ class AllAutoscalePools implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             autoscalePools: (property_exists($data, "autoscale_pools") && $data->autoscale_pools !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, AutoscalePool::class), SdkClient::arrayValue($data->autoscale_pools))) : SdkNotGiven::Value),
@@ -212,9 +210,7 @@ class AllMembers implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             droplets: (property_exists($data, "droplets") && $data->droplets !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Member::class), SdkClient::arrayValue($data->droplets))) : SdkNotGiven::Value),
@@ -232,24 +228,9 @@ final readonly class AutoscalePoolStatusEnum implements SdkOpenEnum
     public const DELETING = "deleting";
     public const ERROR = "error";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

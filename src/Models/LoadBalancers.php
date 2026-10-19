@@ -104,9 +104,7 @@ class AllLoadBalancers implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             loadBalancers: (property_exists($data, "load_balancers") && $data->load_balancers !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, LoadBalancer::class), SdkClient::arrayValue($data->load_balancers))) : SdkNotGiven::Value),
@@ -245,26 +243,11 @@ final readonly class ForwardingRuleEntryProtocolEnum implements SdkOpenEnum
     public const TCP = "tcp";
     public const UDP = "udp";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -278,24 +261,9 @@ final readonly class ForwardingRuleTargetProtocolEnum implements SdkOpenEnum
     public const TCP = "tcp";
     public const UDP = "udp";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

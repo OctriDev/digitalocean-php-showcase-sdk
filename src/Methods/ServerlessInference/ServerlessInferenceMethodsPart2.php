@@ -22,7 +22,7 @@ trait ServerlessInferenceMethodsPart2
     public static function inferenceCreateSystemone(ClientConfig $clientConfig, string $state, string $model, array $questions, ?RequestOptions $requestOptions = null): SystemoneResponse
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v1/systemone", $clientConfig, body: ['state' => $state, 'model' => $model, 'questions' => $questions], returnType: SystemoneResponse::class, decoder: 'json', operationId: 'inferenceCreateSystemone', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 422 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 424 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 502 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/systemone", $clientConfig, body: ['state' => $state, 'model' => $model, 'questions' => $questions], returnType: SystemoneResponse::class, decoder: 'json', operationId: 'inferenceCreateSystemone', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 422 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 424 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 502 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SystemoneResponse::class));
     }
 
@@ -62,7 +62,7 @@ trait ServerlessInferenceMethodsPart2
             Validation::validateRange('top_p', $topP, min: 0, max: 1);
         }
 
-        $sdkResponse = SdkClient::request('POST', "/v1/responses", $clientConfig, body: ['model' => $model, 'input' => $input, 'max_output_tokens' => $maxOutputTokens, 'temperature' => $temperature, 'stream' => $stream, 'instructions' => $instructions, 'top_p' => $topP, 'stream_options' => $streamOptions, 'tools' => $tools, 'tool_choice' => $toolChoice, 'stop' => $stop, 'metadata' => $metadata, 'user' => $user], returnType: CreateResponseResponse::class, decoder: 'json', operationId: 'inferenceCreateResponse', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/responses", $clientConfig, body: ['model' => $model, 'input' => $input, 'max_output_tokens' => $maxOutputTokens, 'temperature' => $temperature, 'stream' => $stream, 'instructions' => $instructions, 'top_p' => $topP, 'stream_options' => $streamOptions, 'tools' => $tools, 'tool_choice' => $toolChoice, 'stop' => $stop, 'metadata' => $metadata, 'user' => $user], returnType: CreateResponseResponse::class, decoder: 'json', operationId: 'inferenceCreateResponse', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, CreateResponseResponse::class));
     }
 
@@ -100,7 +100,7 @@ trait ServerlessInferenceMethodsPart2
             streamFormat: 'sse',
             streamMediaType: 'text/event-stream',
             requestOptions: $requestOptions,
-            errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)],
+            errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]
         ) as $_ev) {
             if ($_ev->data === '[DONE]') {
                 return;
@@ -122,7 +122,7 @@ trait ServerlessInferenceMethodsPart2
     public static function inferenceCreateAsyncInvoke(ClientConfig $clientConfig, string $modelId, InferenceCreateAsyncInvokeInput $input, array|null|SdkNotGiven $tags = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): AsyncInvokeResponse
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v1/async-invoke", $clientConfig, body: ['model_id' => $modelId, 'input' => $input, 'tags' => $tags], returnType: AsyncInvokeResponse::class, decoder: 'json', operationId: 'inferenceCreateAsyncInvoke', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/async-invoke", $clientConfig, body: ['model_id' => $modelId, 'input' => $input, 'tags' => $tags], returnType: AsyncInvokeResponse::class, decoder: 'json', operationId: 'inferenceCreateAsyncInvoke', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AsyncInvokeResponse::class));
     }
 
@@ -144,7 +144,7 @@ trait ServerlessInferenceMethodsPart2
 
         Validation::validateLength('input', $input, min: 1);
 
-        $sdkResponse = SdkClient::request('POST', "/v1/audio/speech", $clientConfig, body: ['model' => $model, 'input' => $input, 'voice' => $voice, 'response_format' => $responseFormat, 'instructions' => $instructions], returnType: SpeechResponse::class, decoder: 'json', operationId: 'inferenceCreateSpeech', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/audio/speech", $clientConfig, body: ['model' => $model, 'input' => $input, 'voice' => $voice, 'response_format' => $responseFormat, 'instructions' => $instructions], returnType: SpeechResponse::class, decoder: 'json', operationId: 'inferenceCreateSpeech', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SpeechResponse::class));
     }
 
@@ -169,7 +169,7 @@ trait ServerlessInferenceMethodsPart2
             Validation::validateRange('fps', $fps, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('POST', "/v1/videos", $clientConfig, body: ['model' => $model, 'prompt' => $prompt, 'size' => $size, 'fps' => $fps], returnType: VideoGeneration::class, decoder: 'json', operationId: 'inferenceCreateVideo', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/videos", $clientConfig, body: ['model' => $model, 'prompt' => $prompt, 'size' => $size, 'fps' => $fps], returnType: VideoGeneration::class, decoder: 'json', operationId: 'inferenceCreateVideo', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, VideoGeneration::class));
     }
 
@@ -185,7 +185,7 @@ trait ServerlessInferenceMethodsPart2
     public static function inferenceGetVideo(ClientConfig $clientConfig, string $videoId, ?RequestOptions $requestOptions = null): VideoGeneration
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v1/videos/" . SdkClient::encodePathSegment($videoId) . "", $clientConfig, returnType: VideoGeneration::class, decoder: 'json', operationId: 'inferenceGetVideo', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v1/videos/" . SdkClient::encodePathSegment($videoId) . "", $clientConfig, returnType: VideoGeneration::class, decoder: 'json', operationId: 'inferenceGetVideo', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, VideoGeneration::class));
     }
 
@@ -201,7 +201,7 @@ trait ServerlessInferenceMethodsPart2
     public static function inferenceGetVideoContent(ClientConfig $clientConfig, string $videoId, ?RequestOptions $requestOptions = null): string
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v1/videos/" . SdkClient::encodePathSegment($videoId) . "/content", $clientConfig, decoder: 'bytes', operationId: 'inferenceGetVideoContent', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v1/videos/" . SdkClient::encodePathSegment($videoId) . "/content", $clientConfig, decoder: 'bytes', operationId: 'inferenceGetVideoContent', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::stringValue($sdkResponse->data));
     }
 }

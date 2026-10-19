@@ -193,12 +193,8 @@ class NotificationSlackItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "channel") || $data->channel === null) {
-            throw new SdkValidationError("channel", 'required', "Required property 'channel' is missing or null");
-        }
-        if (!property_exists($data, "url") || $data->url === null) {
-            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
-        }
+        if (!property_exists($data, "channel") || $data->channel === null) { throw new SdkValidationError("channel", 'required', "Required property 'channel' is missing or null"); }
+        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
         return new self(
             channel: SdkClient::stringValue($data->channel),
             url: SdkClient::stringValue($data->url),
@@ -254,12 +250,8 @@ class Notification implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "email") || $data->email === null) {
-            throw new SdkValidationError("email", 'required', "Required property 'email' is missing or null");
-        }
-        if (!property_exists($data, "slack") || $data->slack === null) {
-            throw new SdkValidationError("slack", 'required', "Required property 'slack' is missing or null");
-        }
+        if (!property_exists($data, "email") || $data->email === null) { throw new SdkValidationError("email", 'required', "Required property 'email' is missing or null"); }
+        if (!property_exists($data, "slack") || $data->slack === null) { throw new SdkValidationError("slack", 'required', "Required property 'slack' is missing or null"); }
         return new self(
             email: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->email))),
             slack: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, NotificationSlackItem::class), SdkClient::arrayValue($data->slack))),

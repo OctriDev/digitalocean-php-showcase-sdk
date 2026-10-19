@@ -123,18 +123,10 @@ class SandboxTemplateBuild implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "build_id") || $data->build_id === null) {
-            throw new SdkValidationError("build_id", 'required', "Required property 'build_id' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
+        if (!property_exists($data, "build_id") || $data->build_id === null) { throw new SdkValidationError("build_id", 'required', "Required property 'build_id' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
         return new self(
             buildId: SdkClient::stringValue($data->build_id),
             status: SdkClient::hydrateStringEnumOrString($data->status, SandboxTemplateBuildStatusEnum::class),

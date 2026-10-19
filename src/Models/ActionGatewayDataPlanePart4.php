@@ -57,9 +57,7 @@ class InvokeToolsRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tools") || $data->tools === null) {
-            throw new SdkValidationError("tools", 'required', "Required property 'tools' is missing or null");
-        }
+        if (!property_exists($data, "tools") || $data->tools === null) { throw new SdkValidationError("tools", 'required', "Required property 'tools' is missing or null"); }
         return new self(
             tools: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ToolCall::class), SdkClient::arrayValue($data->tools))),
             rationale: (property_exists($data, "rationale") && $data->rationale !== null ? SdkClient::stringValue($data->rationale) : SdkNotGiven::Value),
@@ -274,9 +272,7 @@ class SearchQuery implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "use_case") || $data->use_case === null) {
-            throw new SdkValidationError("use_case", 'required', "Required property 'use_case' is missing or null");
-        }
+        if (!property_exists($data, "use_case") || $data->use_case === null) { throw new SdkValidationError("use_case", 'required', "Required property 'use_case' is missing or null"); }
         return new self(
             useCase: SdkClient::stringValue($data->use_case),
             knownFields: (property_exists($data, "known_fields") && $data->known_fields !== null ? SdkClient::stringValue($data->known_fields) : SdkNotGiven::Value),

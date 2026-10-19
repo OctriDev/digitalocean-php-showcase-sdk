@@ -264,9 +264,7 @@ class PartnerAttachmentUpdatableVariant0 implements PartnerAttachmentUpdatable, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
         );
@@ -308,9 +306,7 @@ class PartnerAttachmentUpdatableVariant1 implements PartnerAttachmentUpdatable, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "vpc_ids") || $data->vpc_ids === null) {
-            throw new SdkValidationError("vpc_ids", 'required', "Required property 'vpc_ids' is missing or null");
-        }
+        if (!property_exists($data, "vpc_ids") || $data->vpc_ids === null) { throw new SdkValidationError("vpc_ids", 'required', "Required property 'vpc_ids' is missing or null"); }
         return new self(
             vpcIds: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->vpc_ids))),
         );

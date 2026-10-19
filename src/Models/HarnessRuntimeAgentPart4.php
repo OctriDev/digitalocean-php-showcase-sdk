@@ -109,21 +109,11 @@ class AgentManifestSpecSandboxMountsItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "path") || $data->path === null) {
-            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
-        }
-        if (!property_exists($data, "bucket") || $data->bucket === null) {
-            throw new SdkValidationError("bucket", 'required', "Required property 'bucket' is missing or null");
-        }
-        if (!property_exists($data, "accessKeyRef") || $data->accessKeyRef === null) {
-            throw new SdkValidationError("accessKeyRef", 'required', "Required property 'accessKeyRef' is missing or null");
-        }
-        if (!property_exists($data, "secretKeyRef") || $data->secretKeyRef === null) {
-            throw new SdkValidationError("secretKeyRef", 'required', "Required property 'secretKeyRef' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
+        if (!property_exists($data, "bucket") || $data->bucket === null) { throw new SdkValidationError("bucket", 'required', "Required property 'bucket' is missing or null"); }
+        if (!property_exists($data, "accessKeyRef") || $data->accessKeyRef === null) { throw new SdkValidationError("accessKeyRef", 'required', "Required property 'accessKeyRef' is missing or null"); }
+        if (!property_exists($data, "secretKeyRef") || $data->secretKeyRef === null) { throw new SdkValidationError("secretKeyRef", 'required', "Required property 'secretKeyRef' is missing or null"); }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, AgentManifestSpecSandboxMountsItemTypeEnum::class),
             path: SdkClient::stringValue($data->path),
@@ -174,9 +164,7 @@ class AgentManifestSpecSandboxEgressAllowItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "host") || $data->host === null) {
-            throw new SdkValidationError("host", 'required', "Required property 'host' is missing or null");
-        }
+        if (!property_exists($data, "host") || $data->host === null) { throw new SdkValidationError("host", 'required', "Required property 'host' is missing or null"); }
         return new self(
             host: SdkClient::stringValue($data->host),
         );

@@ -85,21 +85,11 @@ class Region implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "slug") || $data->slug === null) {
-            throw new SdkValidationError("slug", 'required', "Required property 'slug' is missing or null");
-        }
-        if (!property_exists($data, "features") || $data->features === null) {
-            throw new SdkValidationError("features", 'required', "Required property 'features' is missing or null");
-        }
-        if (!property_exists($data, "available") || $data->available === null) {
-            throw new SdkValidationError("available", 'required', "Required property 'available' is missing or null");
-        }
-        if (!property_exists($data, "sizes") || $data->sizes === null) {
-            throw new SdkValidationError("sizes", 'required', "Required property 'sizes' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "slug") || $data->slug === null) { throw new SdkValidationError("slug", 'required', "Required property 'slug' is missing or null"); }
+        if (!property_exists($data, "features") || $data->features === null) { throw new SdkValidationError("features", 'required', "Required property 'features' is missing or null"); }
+        if (!property_exists($data, "available") || $data->available === null) { throw new SdkValidationError("available", 'required', "Required property 'available' is missing or null"); }
+        if (!property_exists($data, "sizes") || $data->sizes === null) { throw new SdkValidationError("sizes", 'required', "Required property 'sizes' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             slug: SdkClient::stringValue($data->slug),
@@ -131,24 +121,9 @@ final readonly class RegionSlug implements SdkOpenEnum
     public const TOR1 = "tor1";
     public const SYD1 = "syd1";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

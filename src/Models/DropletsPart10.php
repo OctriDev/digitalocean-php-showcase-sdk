@@ -233,15 +233,9 @@ class DropletSingleCreateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "size") || $data->size === null) {
-            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
-        }
-        if (!property_exists($data, "image") || $data->image === null) {
-            throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "size") || $data->size === null) { throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null"); }
+        if (!property_exists($data, "image") || $data->image === null) { throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             size: SdkClient::stringValue($data->size),
@@ -299,9 +293,7 @@ class DropletSnapshotVariant0 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
         return new self(
             id: SdkClient::intValue($data->id),
         );
@@ -316,24 +308,9 @@ final readonly class DropletSnapshotVariant2TypeEnum implements SdkOpenEnum
     public const SNAPSHOT = "snapshot";
     public const BACKUP = "backup";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

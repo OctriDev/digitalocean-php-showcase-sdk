@@ -55,12 +55,8 @@ class RouteCreate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "destination_cidr") || $data->destination_cidr === null) {
-            throw new SdkValidationError("destination_cidr", 'required', "Required property 'destination_cidr' is missing or null");
-        }
-        if (!property_exists($data, "target_urns") || $data->target_urns === null) {
-            throw new SdkValidationError("target_urns", 'required', "Required property 'target_urns' is missing or null");
-        }
+        if (!property_exists($data, "destination_cidr") || $data->destination_cidr === null) { throw new SdkValidationError("destination_cidr", 'required', "Required property 'destination_cidr' is missing or null"); }
+        if (!property_exists($data, "target_urns") || $data->target_urns === null) { throw new SdkValidationError("target_urns", 'required', "Required property 'target_urns' is missing or null"); }
         return new self(
             destinationCidr: SdkClient::stringValue($data->destination_cidr),
             targetUrns: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->target_urns))),
@@ -106,9 +102,7 @@ class RouteUpdate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "target_urns") || $data->target_urns === null) {
-            throw new SdkValidationError("target_urns", 'required', "Required property 'target_urns' is missing or null");
-        }
+        if (!property_exists($data, "target_urns") || $data->target_urns === null) { throw new SdkValidationError("target_urns", 'required', "Required property 'target_urns' is missing or null"); }
         return new self(
             targetUrns: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->target_urns))),
         );

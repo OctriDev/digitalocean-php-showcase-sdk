@@ -14,26 +14,11 @@ final readonly class HarnessValidateSessionPolicySpecSandboxMountsItemTypeEnum i
 {
     public const S3FUSE = "s3fuse";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -138,21 +123,11 @@ class HarnessValidateSessionPolicySpecSandboxMountsItem implements \JsonSerializ
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "path") || $data->path === null) {
-            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
-        }
-        if (!property_exists($data, "bucket") || $data->bucket === null) {
-            throw new SdkValidationError("bucket", 'required', "Required property 'bucket' is missing or null");
-        }
-        if (!property_exists($data, "accessKeyRef") || $data->accessKeyRef === null) {
-            throw new SdkValidationError("accessKeyRef", 'required', "Required property 'accessKeyRef' is missing or null");
-        }
-        if (!property_exists($data, "secretKeyRef") || $data->secretKeyRef === null) {
-            throw new SdkValidationError("secretKeyRef", 'required', "Required property 'secretKeyRef' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
+        if (!property_exists($data, "bucket") || $data->bucket === null) { throw new SdkValidationError("bucket", 'required', "Required property 'bucket' is missing or null"); }
+        if (!property_exists($data, "accessKeyRef") || $data->accessKeyRef === null) { throw new SdkValidationError("accessKeyRef", 'required', "Required property 'accessKeyRef' is missing or null"); }
+        if (!property_exists($data, "secretKeyRef") || $data->secretKeyRef === null) { throw new SdkValidationError("secretKeyRef", 'required', "Required property 'secretKeyRef' is missing or null"); }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, HarnessValidateSessionPolicySpecSandboxMountsItemTypeEnum::class),
             path: SdkClient::stringValue($data->path),
@@ -203,9 +178,7 @@ class HarnessValidateSessionPolicySpecSandboxEgressAllowItem implements \JsonSer
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "host") || $data->host === null) {
-            throw new SdkValidationError("host", 'required', "Required property 'host' is missing or null");
-        }
+        if (!property_exists($data, "host") || $data->host === null) { throw new SdkValidationError("host", 'required', "Required property 'host' is missing or null"); }
         return new self(
             host: SdkClient::stringValue($data->host),
         );

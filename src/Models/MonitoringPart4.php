@@ -55,12 +55,8 @@ class Metrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
         return new self(
             data: SdkClient::hydrateClass($data->data, MetricsData::class),
             status: SdkClient::hydrateStringEnumOrString($data->status, MetricsStatusEnum::class),
@@ -75,26 +71,11 @@ final readonly class MetricsDataResultTypeEnum implements SdkOpenEnum
 {
     public const MATRIX = "matrix";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -145,12 +126,8 @@ class MetricsData implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "result") || $data->result === null) {
-            throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null");
-        }
-        if (!property_exists($data, "resultType") || $data->resultType === null) {
-            throw new SdkValidationError("resultType", 'required', "Required property 'resultType' is missing or null");
-        }
+        if (!property_exists($data, "result") || $data->result === null) { throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null"); }
+        if (!property_exists($data, "resultType") || $data->resultType === null) { throw new SdkValidationError("resultType", 'required', "Required property 'resultType' is missing or null"); }
         return new self(
             result: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, MetricsResult::class), SdkClient::arrayValue($data->result))),
             resultType: SdkClient::hydrateStringEnumOrString($data->resultType, MetricsDataResultTypeEnum::class),
@@ -206,12 +183,8 @@ class MetricsResult implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "metric") || $data->metric === null) {
-            throw new SdkValidationError("metric", 'required', "Required property 'metric' is missing or null");
-        }
-        if (!property_exists($data, "values") || $data->values === null) {
-            throw new SdkValidationError("values", 'required', "Required property 'values' is missing or null");
-        }
+        if (!property_exists($data, "metric") || $data->metric === null) { throw new SdkValidationError("metric", 'required', "Required property 'metric' is missing or null"); }
+        if (!property_exists($data, "values") || $data->values === null) { throw new SdkValidationError("values", 'required', "Required property 'values' is missing or null"); }
         return new self(
             metric: SdkClient::mapValues(SdkClient::stringMapValue($data->metric), static fn($item) => SdkClient::stringValue($item)),
             values: array_values(array_map(static fn($item) => array_values(array_map(static fn($item2) => (is_int($item2) ? SdkClient::intValue($item2) : SdkClient::stringValue($item2)), SdkClient::arrayValue($item))), SdkClient::arrayValue($data->values))),
@@ -279,12 +252,8 @@ class MonitoringListAlertPolicyResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "policies") || $data->policies === null) {
-            throw new SdkValidationError("policies", 'required', "Required property 'policies' is missing or null");
-        }
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "policies") || $data->policies === null) { throw new SdkValidationError("policies", 'required', "Required property 'policies' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             policies: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, AlertPolicy::class), SdkClient::arrayValue($data->policies))),
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),

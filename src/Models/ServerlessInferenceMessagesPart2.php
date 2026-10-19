@@ -15,26 +15,11 @@ final readonly class MessagesCreateRequestSpeedEnum implements SdkOpenEnum
     public const STANDARD = "standard";
     public const FAST = "fast";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -239,15 +224,9 @@ class MessagesCreateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "model") || $data->model === null) {
-            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
-        }
-        if (!property_exists($data, "max_tokens") || $data->max_tokens === null) {
-            throw new SdkValidationError("max_tokens", 'required', "Required property 'max_tokens' is missing or null");
-        }
-        if (!property_exists($data, "messages") || $data->messages === null) {
-            throw new SdkValidationError("messages", 'required', "Required property 'messages' is missing or null");
-        }
+        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "max_tokens") || $data->max_tokens === null) { throw new SdkValidationError("max_tokens", 'required', "Required property 'max_tokens' is missing or null"); }
+        if (!property_exists($data, "messages") || $data->messages === null) { throw new SdkValidationError("messages", 'required', "Required property 'messages' is missing or null"); }
         return new self(
             model: SdkClient::stringValue($data->model),
             maxTokens: SdkClient::intValue($data->max_tokens),
@@ -275,26 +254,11 @@ final readonly class MessagesCreateResponseTypeEnum implements SdkOpenEnum
 {
     public const MESSAGE = "message";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -304,26 +268,11 @@ final readonly class MessagesCreateResponseRoleEnum implements SdkOpenEnum
 {
     public const ASSISTANT = "assistant";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -336,24 +285,9 @@ final readonly class MessagesCreateResponseStopReasonEnum implements SdkOpenEnum
     public const STOP_SEQUENCE = "stop_sequence";
     public const TOOL_USE = "tool_use";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

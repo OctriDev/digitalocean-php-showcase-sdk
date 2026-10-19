@@ -85,21 +85,11 @@ class AlertRule implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "spec") || $data->spec === null) {
-            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
         return new self(
             id: SdkClient::stringValue($data->id),
             spec: SdkClient::hydrateClass($data->spec, AlertRuleSpec::class),
@@ -157,26 +147,11 @@ final readonly class AlertRuleCreateRequestStatusEnum implements SdkOpenEnum
     public const ALERT_RULE_STATUS_ACTIVE = "ALERT_RULE_STATUS_ACTIVE";
     public const ALERT_RULE_STATUS_PAUSED = "ALERT_RULE_STATUS_PAUSED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -225,9 +200,7 @@ class AlertRuleCreateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) {
-            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
-        }
+        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, AlertRuleSpec::class),
             status: (property_exists($data, "status") && $data->status !== null ? SdkClient::hydrateStringEnumOrString($data->status, AlertRuleCreateRequestStatusEnum::class) : SdkNotGiven::Value),
@@ -243,26 +216,11 @@ final readonly class AlertRuleRequestStatusEnum implements SdkOpenEnum
     public const ALERT_RULE_STATUS_ACTIVE = "ALERT_RULE_STATUS_ACTIVE";
     public const ALERT_RULE_STATUS_PAUSED = "ALERT_RULE_STATUS_PAUSED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -315,9 +273,7 @@ class AlertRuleRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) {
-            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
-        }
+        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, AlertRuleSpec::class),
             status: (property_exists($data, "status") && $data->status !== null ? SdkClient::hydrateStringEnumOrString($data->status, AlertRuleRequestStatusEnum::class) : SdkNotGiven::Value),
@@ -363,9 +319,7 @@ class AlertRuleResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "alert_rule") || $data->alert_rule === null) {
-            throw new SdkValidationError("alert_rule", 'required', "Required property 'alert_rule' is missing or null");
-        }
+        if (!property_exists($data, "alert_rule") || $data->alert_rule === null) { throw new SdkValidationError("alert_rule", 'required', "Required property 'alert_rule' is missing or null"); }
         return new self(
             alertRule: SdkClient::hydrateClass($data->alert_rule, AlertRule::class),
         );
@@ -382,24 +336,9 @@ final readonly class AlertRuleSpecReAlertDurationEnum implements SdkOpenEnum
     public const RE_ALERT_DURATION_4H = "RE_ALERT_DURATION_4H";
     public const RE_ALERT_DURATION_NEVER = "RE_ALERT_DURATION_NEVER";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

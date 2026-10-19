@@ -62,26 +62,11 @@ final readonly class LogsinkSchemaSinkTypeEnum implements SdkOpenEnum
     public const ELASTICSEARCH = "elasticsearch";
     public const OPENSEARCH = "opensearch";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -152,18 +137,10 @@ class LogsinkSchema implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "sink_id") || $data->sink_id === null) {
-            throw new SdkValidationError("sink_id", 'required', "Required property 'sink_id' is missing or null");
-        }
-        if (!property_exists($data, "sink_name") || $data->sink_name === null) {
-            throw new SdkValidationError("sink_name", 'required', "Required property 'sink_name' is missing or null");
-        }
-        if (!property_exists($data, "sink_type") || $data->sink_type === null) {
-            throw new SdkValidationError("sink_type", 'required', "Required property 'sink_type' is missing or null");
-        }
-        if (!property_exists($data, "config") || $data->config === null) {
-            throw new SdkValidationError("config", 'required', "Required property 'config' is missing or null");
-        }
+        if (!property_exists($data, "sink_id") || $data->sink_id === null) { throw new SdkValidationError("sink_id", 'required', "Required property 'sink_id' is missing or null"); }
+        if (!property_exists($data, "sink_name") || $data->sink_name === null) { throw new SdkValidationError("sink_name", 'required', "Required property 'sink_name' is missing or null"); }
+        if (!property_exists($data, "sink_type") || $data->sink_type === null) { throw new SdkValidationError("sink_type", 'required', "Required property 'sink_type' is missing or null"); }
+        if (!property_exists($data, "config") || $data->config === null) { throw new SdkValidationError("config", 'required', "Required property 'config' is missing or null"); }
         return new self(
             sinkId: SdkClient::stringValue($data->sink_id),
             sinkName: SdkClient::stringValue($data->sink_name),
@@ -211,9 +188,7 @@ class LogsinkUpdate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "config") || $data->config === null) {
-            throw new SdkValidationError("config", 'required', "Required property 'config' is missing or null");
-        }
+        if (!property_exists($data, "config") || $data->config === null) { throw new SdkValidationError("config", 'required', "Required property 'config' is missing or null"); }
         return new self(
             config: SdkClient::hydrateUnionAs($data->config, LogsinkUpdateConfig::class, [RsyslogLogsink::class, ElasticsearchLogsink::class, OpensearchLogsink::class, DatadogLogsink::class], null, []),
         );

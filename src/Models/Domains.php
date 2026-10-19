@@ -42,9 +42,7 @@ class AllDomainsResponseVariant0 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "domains") || $data->domains === null) {
-            throw new SdkValidationError("domains", 'required', "Required property 'domains' is missing or null");
-        }
+        if (!property_exists($data, "domains") || $data->domains === null) { throw new SdkValidationError("domains", 'required', "Required property 'domains' is missing or null"); }
         return new self(
             domains: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Domain::class), SdkClient::arrayValue($data->domains))),
         );
@@ -111,12 +109,8 @@ class AllDomainsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "domains") || $data->domains === null) {
-            throw new SdkValidationError("domains", 'required', "Required property 'domains' is missing or null");
-        }
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "domains") || $data->domains === null) { throw new SdkValidationError("domains", 'required', "Required property 'domains' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             domains: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Domain::class), SdkClient::arrayValue($data->domains))),
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),

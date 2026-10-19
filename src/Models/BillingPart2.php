@@ -23,26 +23,11 @@ final readonly class BillingHistoryTypeEnum implements SdkOpenEnum
     public const REFUND = "Refund";
     public const REVERSAL = "Reversal";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -253,9 +238,7 @@ class BillingHistoryResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             billingHistory: (property_exists($data, "billing_history") && $data->billing_history !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BillingHistory::class), SdkClient::arrayValue($data->billing_history))) : SdkNotGiven::Value),
@@ -332,18 +315,10 @@ class BillingInsights implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data_points") || $data->data_points === null) {
-            throw new SdkValidationError("data_points", 'required', "Required property 'data_points' is missing or null");
-        }
-        if (!property_exists($data, "total_items") || $data->total_items === null) {
-            throw new SdkValidationError("total_items", 'required', "Required property 'total_items' is missing or null");
-        }
-        if (!property_exists($data, "total_pages") || $data->total_pages === null) {
-            throw new SdkValidationError("total_pages", 'required', "Required property 'total_pages' is missing or null");
-        }
-        if (!property_exists($data, "current_page") || $data->current_page === null) {
-            throw new SdkValidationError("current_page", 'required', "Required property 'current_page' is missing or null");
-        }
+        if (!property_exists($data, "data_points") || $data->data_points === null) { throw new SdkValidationError("data_points", 'required', "Required property 'data_points' is missing or null"); }
+        if (!property_exists($data, "total_items") || $data->total_items === null) { throw new SdkValidationError("total_items", 'required', "Required property 'total_items' is missing or null"); }
+        if (!property_exists($data, "total_pages") || $data->total_pages === null) { throw new SdkValidationError("total_pages", 'required', "Required property 'total_pages' is missing or null"); }
+        if (!property_exists($data, "current_page") || $data->current_page === null) { throw new SdkValidationError("current_page", 'required', "Required property 'current_page' is missing or null"); }
         return new self(
             dataPoints: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BillingDataPoint::class), SdkClient::arrayValue($data->data_points))),
             totalItems: SdkClient::intValue($data->total_items),

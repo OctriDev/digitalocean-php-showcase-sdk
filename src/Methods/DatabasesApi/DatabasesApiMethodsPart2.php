@@ -23,7 +23,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        return SdkClient::request('PUT', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/maintenance", $clientConfig, body: ['day' => $day, 'hour' => $hour], decoder: 'empty', operationId: 'databasesUpdateMaintenanceWindow', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('PUT', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/maintenance", $clientConfig, body: ['day' => $day, 'hour' => $hour], decoder: 'empty', operationId: 'databasesUpdateMaintenanceWindow', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -39,7 +39,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        return SdkClient::request('PUT', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/install_update", $clientConfig, decoder: 'empty', operationId: 'databasesInstallUpdate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('PUT', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/install_update", $clientConfig, decoder: 'empty', operationId: 'databasesInstallUpdate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -56,7 +56,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/backups", $clientConfig, returnType: DatabaseBackups::class, decoder: 'json', operationId: 'databasesListBackups', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/backups", $clientConfig, returnType: DatabaseBackups::class, decoder: 'json', operationId: 'databasesListBackups', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DatabaseBackups::class));
     }
 
@@ -74,7 +74,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/replicas", $clientConfig, returnType: DatabaseReplicas::class, decoder: 'json', operationId: 'databasesListReplicas', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/replicas", $clientConfig, returnType: DatabaseReplicas::class, decoder: 'json', operationId: 'databasesListReplicas', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DatabaseReplicas::class));
     }
 
@@ -101,7 +101,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/replicas", $clientConfig, body: ['name' => $name, 'size' => $size, 'region' => $region, 'tags' => $tags, 'private_network_uuid' => $privateNetworkUuid, 'connection' => $connection, 'private_connection' => $privateConnection, 'storage_size_mib' => $storageSizeMib, 'do_settings' => $doSettings], returnType: DatabaseReplicaResponse::class, decoder: 'json', operationId: 'databasesCreateReplica', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/replicas", $clientConfig, body: ['name' => $name, 'size' => $size, 'region' => $region, 'tags' => $tags, 'private_network_uuid' => $privateNetworkUuid, 'connection' => $connection, 'private_connection' => $privateConnection, 'storage_size_mib' => $storageSizeMib, 'do_settings' => $doSettings], returnType: DatabaseReplicaResponse::class, decoder: 'json', operationId: 'databasesCreateReplica', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DatabaseReplicaResponse::class));
     }
 
@@ -119,7 +119,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/events", $clientConfig, returnType: EventsLogsResponse::class, decoder: 'json', operationId: 'databasesListEventsLogs', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/events", $clientConfig, returnType: EventsLogsResponse::class, decoder: 'json', operationId: 'databasesListEventsLogs', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, EventsLogsResponse::class));
     }
 
@@ -138,7 +138,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/replicas/" . SdkClient::encodePathSegment($replicaName) . "", $clientConfig, returnType: DatabaseReplicaResponse::class, decoder: 'json', operationId: 'databasesGetReplica', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/replicas/" . SdkClient::encodePathSegment($replicaName) . "", $clientConfig, returnType: DatabaseReplicaResponse::class, decoder: 'json', operationId: 'databasesGetReplica', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DatabaseReplicaResponse::class));
     }
 
@@ -156,7 +156,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        return SdkClient::request('DELETE', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/replicas/" . SdkClient::encodePathSegment($replicaName) . "", $clientConfig, decoder: 'empty', operationId: 'databasesDestroyReplica', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/replicas/" . SdkClient::encodePathSegment($replicaName) . "", $clientConfig, decoder: 'empty', operationId: 'databasesDestroyReplica', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -173,7 +173,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        return SdkClient::request('PUT', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/replicas/" . SdkClient::encodePathSegment($replicaName) . "/promote", $clientConfig, decoder: 'empty', operationId: 'databasesPromoteReplica', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('PUT', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/replicas/" . SdkClient::encodePathSegment($replicaName) . "/promote", $clientConfig, decoder: 'empty', operationId: 'databasesPromoteReplica', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -190,7 +190,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users", $clientConfig, returnType: Users::class, decoder: 'json', operationId: 'databasesListUsers', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users", $clientConfig, returnType: Users::class, decoder: 'json', operationId: 'databasesListUsers', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, Users::class));
     }
 
@@ -209,7 +209,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users", $clientConfig, body: $body, returnType: UserResponse::class, decoder: 'json', operationId: 'databasesAddUser', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users", $clientConfig, body: $body, returnType: UserResponse::class, decoder: 'json', operationId: 'databasesAddUser', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, UserResponse::class));
     }
 
@@ -228,7 +228,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users/" . SdkClient::encodePathSegment($username) . "", $clientConfig, returnType: UserResponse::class, decoder: 'json', operationId: 'databasesGetUser', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users/" . SdkClient::encodePathSegment($username) . "", $clientConfig, returnType: UserResponse::class, decoder: 'json', operationId: 'databasesGetUser', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, UserResponse::class));
     }
 
@@ -246,7 +246,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        return SdkClient::request('DELETE', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users/" . SdkClient::encodePathSegment($username) . "", $clientConfig, decoder: 'empty', operationId: 'databasesDeleteUser', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users/" . SdkClient::encodePathSegment($username) . "", $clientConfig, decoder: 'empty', operationId: 'databasesDeleteUser', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -265,7 +265,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users/" . SdkClient::encodePathSegment($username) . "", $clientConfig, body: $body, returnType: UserResponse::class, decoder: 'json', operationId: 'databasesUpdateUser', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 422 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users/" . SdkClient::encodePathSegment($username) . "", $clientConfig, body: $body, returnType: UserResponse::class, decoder: 'json', operationId: 'databasesUpdateUser', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 422 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, UserResponse::class));
     }
 
@@ -285,7 +285,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users/" . SdkClient::encodePathSegment($username) . "/reset_auth", $clientConfig, body: ['mysql_settings' => $mysqlSettings], returnType: UserResponse::class, decoder: 'json', operationId: 'databasesResetAuth', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/users/" . SdkClient::encodePathSegment($username) . "/reset_auth", $clientConfig, body: ['mysql_settings' => $mysqlSettings], returnType: UserResponse::class, decoder: 'json', operationId: 'databasesResetAuth', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, UserResponse::class));
     }
 
@@ -303,7 +303,7 @@ trait DatabasesApiMethodsPart2
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/dbs", $clientConfig, returnType: Databases::class, decoder: 'json', operationId: 'databasesList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/dbs", $clientConfig, returnType: Databases::class, decoder: 'json', operationId: 'databasesList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, Databases::class));
     }
 }

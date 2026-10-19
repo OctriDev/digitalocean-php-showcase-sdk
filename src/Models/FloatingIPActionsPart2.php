@@ -104,9 +104,7 @@ class FloatingIpActions implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             actions: (property_exists($data, "actions") && $data->actions !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Action::class), SdkClient::arrayValue($data->actions))) : SdkNotGiven::Value),
@@ -168,9 +166,7 @@ class FloatingIpActionUnassign implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, FloatingIpActionUnassignTypeEnum::class),
             additionalProperties: array_diff_key(SdkClient::stringMapValue($data), array_flip(["type"])),
@@ -225,9 +221,7 @@ class FloatingIPsAction implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, FloatingIPsActionTypeEnum::class),
         );

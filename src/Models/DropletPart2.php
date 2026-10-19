@@ -233,15 +233,9 @@ class DropletSingleCreate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "size") || $data->size === null) {
-            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
-        }
-        if (!property_exists($data, "image") || $data->image === null) {
-            throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "size") || $data->size === null) { throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null"); }
+        if (!property_exists($data, "image") || $data->image === null) { throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             size: SdkClient::stringValue($data->size),

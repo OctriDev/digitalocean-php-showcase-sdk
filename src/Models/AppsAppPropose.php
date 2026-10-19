@@ -57,9 +57,7 @@ class AppProposeRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) {
-            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
-        }
+        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, AppSpecRequest::class),
             appId: (property_exists($data, "app_id") && $data->app_id !== null ? SdkClient::stringValue($data->app_id) : SdkNotGiven::Value),

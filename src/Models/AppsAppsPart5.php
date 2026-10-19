@@ -241,9 +241,7 @@ class AppsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             apps: (property_exists($data, "apps") && $data->apps !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, App::class), SdkClient::arrayValue($data->apps))) : SdkNotGiven::Value),

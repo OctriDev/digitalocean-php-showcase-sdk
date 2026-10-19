@@ -94,9 +94,7 @@ class NfsActionSnapshotParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
         );
@@ -161,9 +159,7 @@ class NfsActionSnapshot implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, NfsActionSnapshotTypeEnum::class),
             region: (property_exists($data, "region") && $data->region !== null ? SdkClient::stringValue($data->region) : SdkNotGiven::Value),
@@ -210,9 +206,7 @@ class NfsActionsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "action") || $data->action === null) {
-            throw new SdkValidationError("action", 'required', "Required property 'action' is missing or null");
-        }
+        if (!property_exists($data, "action") || $data->action === null) { throw new SdkValidationError("action", 'required', "Required property 'action' is missing or null"); }
         return new self(
             action: SdkClient::hydrateClass($data->action, NfsAction2::class),
         );
@@ -254,9 +248,7 @@ class NfsActionSwitchPerformanceTierVariant1Params implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "performance_tier") || $data->performance_tier === null) {
-            throw new SdkValidationError("performance_tier", 'required', "Required property 'performance_tier' is missing or null");
-        }
+        if (!property_exists($data, "performance_tier") || $data->performance_tier === null) { throw new SdkValidationError("performance_tier", 'required', "Required property 'performance_tier' is missing or null"); }
         return new self(
             performanceTier: SdkClient::stringValue($data->performance_tier),
         );
@@ -350,9 +342,7 @@ class NfsActionSwitchPerformanceTierParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "performance_tier") || $data->performance_tier === null) {
-            throw new SdkValidationError("performance_tier", 'required', "Required property 'performance_tier' is missing or null");
-        }
+        if (!property_exists($data, "performance_tier") || $data->performance_tier === null) { throw new SdkValidationError("performance_tier", 'required', "Required property 'performance_tier' is missing or null"); }
         return new self(
             performanceTier: SdkClient::stringValue($data->performance_tier),
         );

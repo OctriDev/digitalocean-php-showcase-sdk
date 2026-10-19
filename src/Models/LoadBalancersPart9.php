@@ -309,9 +309,7 @@ class LoadBalancerBaseRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "forwarding_rules") || $data->forwarding_rules === null) {
-            throw new SdkValidationError("forwarding_rules", 'required', "Required property 'forwarding_rules' is missing or null");
-        }
+        if (!property_exists($data, "forwarding_rules") || $data->forwarding_rules === null) { throw new SdkValidationError("forwarding_rules", 'required', "Required property 'forwarding_rules' is missing or null"); }
         return new self(
             forwardingRules: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ForwardingRule::class), SdkClient::arrayValue($data->forwarding_rules))),
             name: (property_exists($data, "name") && $data->name !== null ? SdkClient::stringValue($data->name) : SdkNotGiven::Value),
@@ -349,24 +347,9 @@ final readonly class LoadBalancerCreateRequestVariant0SizeEnum implements SdkOpe
     public const LB_MEDIUM = "lb-medium";
     public const LB_LARGE = "lb-large";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

@@ -142,24 +142,9 @@ final readonly class ApiOpenSearchPlanSize implements SdkOpenEnum
     public const OPEN_SEARCH_PLAN_SIZE_LARGE = "OPEN_SEARCH_PLAN_SIZE_LARGE";
     public const OPEN_SEARCH_PLAN_SIZE_EXTRA_LARGE = "OPEN_SEARCH_PLAN_SIZE_EXTRA_LARGE";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

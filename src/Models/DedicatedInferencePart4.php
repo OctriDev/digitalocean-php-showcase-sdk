@@ -155,9 +155,7 @@ class DedicatedInferenceCreateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) {
-            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
-        }
+        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, DedicatedInferenceSpec::class),
             accessTokens: (property_exists($data, "access_tokens") && $data->access_tokens !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->access_tokens), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
@@ -215,9 +213,7 @@ class DedicatedInferenceCreateRequestRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) {
-            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
-        }
+        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, DedicatedInferenceSpecRequest::class),
             accessTokens: (property_exists($data, "access_tokens") && $data->access_tokens !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->access_tokens), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),

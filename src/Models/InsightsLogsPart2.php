@@ -143,9 +143,7 @@ class LogsFilterValueStringArrayValue implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "values") || $data->values === null) {
-            throw new SdkValidationError("values", 'required', "Required property 'values' is missing or null");
-        }
+        if (!property_exists($data, "values") || $data->values === null) { throw new SdkValidationError("values", 'required', "Required property 'values' is missing or null"); }
         return new self(
             values: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->values))),
         );
@@ -190,9 +188,7 @@ class LogsFilterValueNumberArrayValue implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "values") || $data->values === null) {
-            throw new SdkValidationError("values", 'required', "Required property 'values' is missing or null");
-        }
+        if (!property_exists($data, "values") || $data->values === null) { throw new SdkValidationError("values", 'required', "Required property 'values' is missing or null"); }
         return new self(
             values: array_values(array_map(static fn($item) => SdkClient::floatValue($item), SdkClient::arrayValue($data->values))),
         );

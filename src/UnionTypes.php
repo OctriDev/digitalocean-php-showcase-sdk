@@ -32,7 +32,9 @@ interface ReservedIpv6ListReservedIpv6sItemDroplet {}
 /** A tagged union member whose tag names no branch this SDK knows, kept as received. */
 abstract class SdkUnknownMember implements \JsonSerializable
 {
-    final public function __construct(public readonly mixed $raw) {}
+    final public function __construct(public readonly mixed $raw)
+    {
+    }
 
     public function jsonSerialize(): mixed
     {
@@ -41,7 +43,11 @@ abstract class SdkUnknownMember implements \JsonSerializable
 }
 
 /** A `MessagesRequestContentBlockParam` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownMessagesRequestContentBlockParam extends SdkUnknownMember implements MessagesRequestContentBlockParam {}
+final class UnknownMessagesRequestContentBlockParam extends SdkUnknownMember implements MessagesRequestContentBlockParam
+{
+}
 
 /** A `MessagesResponseContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownMessagesResponseContentBlock extends SdkUnknownMember implements MessagesResponseContentBlock {}
+final class UnknownMessagesResponseContentBlock extends SdkUnknownMember implements MessagesResponseContentBlock
+{
+}

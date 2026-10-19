@@ -16,26 +16,11 @@ final readonly class AccountStatusEnum implements SdkOpenEnum
     public const WARNING = "warning";
     public const LOCKED = "locked";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -219,27 +204,13 @@ class Account implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "droplet_limit") || $data->droplet_limit === null) {
-            throw new SdkValidationError("droplet_limit", 'required', "Required property 'droplet_limit' is missing or null");
-        }
-        if (!property_exists($data, "floating_ip_limit") || $data->floating_ip_limit === null) {
-            throw new SdkValidationError("floating_ip_limit", 'required', "Required property 'floating_ip_limit' is missing or null");
-        }
-        if (!property_exists($data, "email") || $data->email === null) {
-            throw new SdkValidationError("email", 'required', "Required property 'email' is missing or null");
-        }
-        if (!property_exists($data, "uuid") || $data->uuid === null) {
-            throw new SdkValidationError("uuid", 'required', "Required property 'uuid' is missing or null");
-        }
-        if (!property_exists($data, "email_verified") || $data->email_verified === null) {
-            throw new SdkValidationError("email_verified", 'required', "Required property 'email_verified' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "status_message") || $data->status_message === null) {
-            throw new SdkValidationError("status_message", 'required', "Required property 'status_message' is missing or null");
-        }
+        if (!property_exists($data, "droplet_limit") || $data->droplet_limit === null) { throw new SdkValidationError("droplet_limit", 'required', "Required property 'droplet_limit' is missing or null"); }
+        if (!property_exists($data, "floating_ip_limit") || $data->floating_ip_limit === null) { throw new SdkValidationError("floating_ip_limit", 'required', "Required property 'floating_ip_limit' is missing or null"); }
+        if (!property_exists($data, "email") || $data->email === null) { throw new SdkValidationError("email", 'required', "Required property 'email' is missing or null"); }
+        if (!property_exists($data, "uuid") || $data->uuid === null) { throw new SdkValidationError("uuid", 'required', "Required property 'uuid' is missing or null"); }
+        if (!property_exists($data, "email_verified") || $data->email_verified === null) { throw new SdkValidationError("email_verified", 'required', "Required property 'email_verified' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "status_message") || $data->status_message === null) { throw new SdkValidationError("status_message", 'required', "Required property 'status_message' is missing or null"); }
         return new self(
             dropletLimit: SdkClient::intValue($data->droplet_limit),
             floatingIpLimit: SdkClient::intValue($data->floating_ip_limit),

@@ -87,26 +87,11 @@ final readonly class NfsAction2ResourceTypeEnum implements SdkOpenEnum
     public const SHARE = "SHARE";
     public const SNAPSHOT = "SNAPSHOT";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -118,26 +103,11 @@ final readonly class NfsAction2StatusEnum implements SdkOpenEnum
     public const COMPLETED = "COMPLETED";
     public const ACTION_FAILED = "ACTION_FAILED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -240,24 +210,12 @@ class NfsAction2 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "region_slug") || $data->region_slug === null) {
-            throw new SdkValidationError("region_slug", 'required', "Required property 'region_slug' is missing or null");
-        }
-        if (!property_exists($data, "resource_id") || $data->resource_id === null) {
-            throw new SdkValidationError("resource_id", 'required', "Required property 'resource_id' is missing or null");
-        }
-        if (!property_exists($data, "resource_type") || $data->resource_type === null) {
-            throw new SdkValidationError("resource_type", 'required', "Required property 'resource_type' is missing or null");
-        }
-        if (!property_exists($data, "started_at") || $data->started_at === null) {
-            throw new SdkValidationError("started_at", 'required', "Required property 'started_at' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "region_slug") || $data->region_slug === null) { throw new SdkValidationError("region_slug", 'required', "Required property 'region_slug' is missing or null"); }
+        if (!property_exists($data, "resource_id") || $data->resource_id === null) { throw new SdkValidationError("resource_id", 'required', "Required property 'resource_id' is missing or null"); }
+        if (!property_exists($data, "resource_type") || $data->resource_type === null) { throw new SdkValidationError("resource_type", 'required', "Required property 'resource_type' is missing or null"); }
+        if (!property_exists($data, "started_at") || $data->started_at === null) { throw new SdkValidationError("started_at", 'required', "Required property 'started_at' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             regionSlug: SdkClient::stringValue($data->region_slug),
             resourceId: SdkClient::stringValue($data->resource_id),

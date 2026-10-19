@@ -15,26 +15,11 @@ final readonly class KubernetesNodePoolGpuPartitionModeEnum implements SdkOpenEn
     public const AMD_PARTITION_MODE_SPX_NPS1 = "AMD_PARTITION_MODE_SPX_NPS1";
     public const AMD_PARTITION_MODE_DPX_NPS2 = "AMD_PARTITION_MODE_DPX_NPS2";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -203,15 +188,9 @@ class KubernetesNodePool implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "size") || $data->size === null) {
-            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "count") || $data->count === null) {
-            throw new SdkValidationError("count", 'required', "Required property 'count' is missing or null");
-        }
+        if (!property_exists($data, "size") || $data->size === null) { throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "count") || $data->count === null) { throw new SdkValidationError("count", 'required', "Required property 'count' is missing or null"); }
         return new self(
             size: SdkClient::stringValue($data->size),
             name: SdkClient::stringValue($data->name),

@@ -17,7 +17,7 @@ trait HarnessRuntimeMethodsPart7
     public static function harnessListWebhookProviders(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): ListWebhookProvidersResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/agents/webhook-providers", $clientConfig, returnType: ListWebhookProvidersResponse::class, decoder: 'json', operationId: 'harnessListWebhookProviders', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/agents/webhook-providers", $clientConfig, returnType: ListWebhookProvidersResponse::class, decoder: 'json', operationId: 'harnessListWebhookProviders', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ListWebhookProvidersResponse::class));
     }
 }

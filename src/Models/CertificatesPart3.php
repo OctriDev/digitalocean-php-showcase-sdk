@@ -67,12 +67,8 @@ class CertificateRequestLetsEncrypt implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "dns_names") || $data->dns_names === null) {
-            throw new SdkValidationError("dns_names", 'required', "Required property 'dns_names' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "dns_names") || $data->dns_names === null) { throw new SdkValidationError("dns_names", 'required', "Required property 'dns_names' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             dnsNames: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->dns_names))),

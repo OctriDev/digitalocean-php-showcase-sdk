@@ -105,9 +105,7 @@ class MessagesStreamEvent implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, MessagesStreamEventTypeEnum::class),
             message: (property_exists($data, "message") && $data->message !== null ? SdkClient::stringMapValue($data->message) : SdkNotGiven::Value),
@@ -157,9 +155,7 @@ class MessagesThinkingConfigParam implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::stringValue($data->type),
         );
@@ -226,12 +222,8 @@ class MessagesToolDefinitionParam implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "input_schema") || $data->input_schema === null) {
-            throw new SdkValidationError("input_schema", 'required', "Required property 'input_schema' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "input_schema") || $data->input_schema === null) { throw new SdkValidationError("input_schema", 'required', "Required property 'input_schema' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             inputSchema: SdkClient::stringMapValue($data->input_schema),
@@ -306,15 +298,9 @@ class MessagesToolResultBlockParam implements MessagesRequestContentBlockParam, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
-            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
-        }
-        if (!property_exists($data, "content") || $data->content === null) {
-            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, MessagesToolResultBlockParamTypeEnum::class),
             toolUseId: SdkClient::stringValue($data->tool_use_id),

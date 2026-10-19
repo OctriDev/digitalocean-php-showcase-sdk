@@ -123,10 +123,12 @@ class SchemaRegistryConnection implements \JsonSerializable
  */
 class SchemaRegistryConnectionRequest implements \JsonSerializable
 {
+
     /**
      */
     public function __construct(
-    ) {}
+    ) {
+    }
 
     /** @return array<array-key, mixed> */
     public function toArray(): array

@@ -14,26 +14,11 @@ final readonly class NfsListAccessPointsStatus implements SdkOpenEnum
     public const ACCESS_POINT_FAILED = "ACCESS_POINT_FAILED";
     public const ACCESS_POINT_DELETED = "ACCESS_POINT_DELETED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 class Nfs
@@ -53,7 +38,7 @@ class Nfs
     public static function nfsCreate(ClientConfig $clientConfig, string $name, int $sizeGib, string $region, array $vpcIds, string|SdkNotGiven $performanceTier = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): NfsCreateResponse
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/nfs", $clientConfig, body: ['name' => $name, 'size_gib' => $sizeGib, 'region' => $region, 'vpc_ids' => $vpcIds, 'performance_tier' => $performanceTier], returnType: NfsCreateResponse::class, decoder: 'json', operationId: 'nfsCreate', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/nfs", $clientConfig, body: ['name' => $name, 'size_gib' => $sizeGib, 'region' => $region, 'vpc_ids' => $vpcIds, 'performance_tier' => $performanceTier], returnType: NfsCreateResponse::class, decoder: 'json', operationId: 'nfsCreate', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, NfsCreateResponse::class));
     }
 
@@ -69,7 +54,7 @@ class Nfs
     public static function nfsList(ClientConfig $clientConfig, string|SdkNotGiven $region = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): NfsListResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/nfs", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true)], returnType: NfsListResponse::class, decoder: 'json', operationId: 'nfsList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/nfs", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true)], returnType: NfsListResponse::class, decoder: 'json', operationId: 'nfsList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, NfsListResponse::class));
     }
 
@@ -86,7 +71,7 @@ class Nfs
     public static function nfsGet(ClientConfig $clientConfig, string $nfsId, string|SdkNotGiven $region = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): NfsGetResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/nfs/" . SdkClient::encodePathSegment($nfsId) . "", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true)], returnType: NfsGetResponse::class, decoder: 'json', operationId: 'nfsGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/nfs/" . SdkClient::encodePathSegment($nfsId) . "", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true)], returnType: NfsGetResponse::class, decoder: 'json', operationId: 'nfsGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, NfsGetResponse::class));
     }
 
@@ -102,7 +87,7 @@ class Nfs
     public static function nfsDelete(ClientConfig $clientConfig, string $nfsId, string|SdkNotGiven $region = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/nfs/" . SdkClient::encodePathSegment($nfsId) . "", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true)], decoder: 'empty', operationId: 'nfsDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/nfs/" . SdkClient::encodePathSegment($nfsId) . "", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true)], decoder: 'empty', operationId: 'nfsDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -118,7 +103,7 @@ class Nfs
     public static function nfsListSnapshot(ClientConfig $clientConfig, string|SdkNotGiven $region = SdkNotGiven::Value, string|SdkNotGiven $shareId = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): NfsSnapshotListResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/nfs/snapshots", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true), 'share_id' => new SdkQueryValue($shareId, "form", true)], returnType: NfsSnapshotListResponse::class, decoder: 'json', operationId: 'nfsListSnapshot', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/nfs/snapshots", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true), 'share_id' => new SdkQueryValue($shareId, "form", true)], returnType: NfsSnapshotListResponse::class, decoder: 'json', operationId: 'nfsListSnapshot', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, NfsSnapshotListResponse::class));
     }
 
@@ -135,7 +120,7 @@ class Nfs
     public static function nfsGetSnapshot(ClientConfig $clientConfig, string $nfsSnapshotId, string|SdkNotGiven $region = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): NfsSnapshotGetResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/nfs/snapshots/" . SdkClient::encodePathSegment($nfsSnapshotId) . "", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true)], returnType: NfsSnapshotGetResponse::class, decoder: 'json', operationId: 'nfsGetSnapshot', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/nfs/snapshots/" . SdkClient::encodePathSegment($nfsSnapshotId) . "", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true)], returnType: NfsSnapshotGetResponse::class, decoder: 'json', operationId: 'nfsGetSnapshot', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, NfsSnapshotGetResponse::class));
     }
 
@@ -151,7 +136,7 @@ class Nfs
     public static function nfsDeleteSnapshot(ClientConfig $clientConfig, string $nfsSnapshotId, string|SdkNotGiven $region = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/nfs/snapshots/" . SdkClient::encodePathSegment($nfsSnapshotId) . "", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true)], decoder: 'empty', operationId: 'nfsDeleteSnapshot', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/nfs/snapshots/" . SdkClient::encodePathSegment($nfsSnapshotId) . "", $clientConfig, query: ['region' => new SdkQueryValue($region, "form", true)], decoder: 'empty', operationId: 'nfsDeleteSnapshot', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -172,7 +157,7 @@ class Nfs
 
         Validation::validateUuid('share_id', $shareId);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/nfs/shares/" . SdkClient::encodePathSegment($shareId) . "/access_points", $clientConfig, body: ['name' => $name, 'path' => $path, 'access_policy' => $accessPolicy, 'vpc_id' => $vpcId], returnType: AccessPointActionResponse::class, decoder: 'json', operationId: 'nfsCreateAccessPoint', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, NfsApiError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, NfsApiError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/nfs/shares/" . SdkClient::encodePathSegment($shareId) . "/access_points", $clientConfig, body: ['name' => $name, 'path' => $path, 'access_policy' => $accessPolicy, 'vpc_id' => $vpcId], returnType: AccessPointActionResponse::class, decoder: 'json', operationId: 'nfsCreateAccessPoint', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, NfsApiError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, NfsApiError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AccessPointActionResponse::class));
     }
 
@@ -191,7 +176,7 @@ class Nfs
 
         Validation::validateUuid('share_id', $shareId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/nfs/shares/" . SdkClient::encodePathSegment($shareId) . "/access_points", $clientConfig, query: ['status' => new SdkQueryValue($status, "form", true)], returnType: AccessPointListResponse::class, decoder: 'json', operationId: 'nfsListAccessPoints', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, NfsApiError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/nfs/shares/" . SdkClient::encodePathSegment($shareId) . "/access_points", $clientConfig, query: ['status' => new SdkQueryValue($status, "form", true)], returnType: AccessPointListResponse::class, decoder: 'json', operationId: 'nfsListAccessPoints', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, NfsApiError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AccessPointListResponse::class));
     }
 
@@ -209,7 +194,7 @@ class Nfs
 
         Validation::validateUuid('access_point_id', $accessPointId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/nfs/access_points/" . SdkClient::encodePathSegment($accessPointId) . "", $clientConfig, returnType: AccessPointGetResponse::class, decoder: 'json', operationId: 'nfsGetAccessPoint', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/nfs/access_points/" . SdkClient::encodePathSegment($accessPointId) . "", $clientConfig, returnType: AccessPointGetResponse::class, decoder: 'json', operationId: 'nfsGetAccessPoint', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AccessPointGetResponse::class));
     }
 
@@ -227,7 +212,7 @@ class Nfs
 
         Validation::validateUuid('access_point_id', $accessPointId);
 
-        $sdkResponse = SdkClient::request('DELETE', "/v2/nfs/access_points/" . SdkClient::encodePathSegment($accessPointId) . "", $clientConfig, returnType: AccessPointActionResponse::class, decoder: 'json', operationId: 'nfsDeleteAccessPoint', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, NfsApiError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('DELETE', "/v2/nfs/access_points/" . SdkClient::encodePathSegment($accessPointId) . "", $clientConfig, returnType: AccessPointActionResponse::class, decoder: 'json', operationId: 'nfsDeleteAccessPoint', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, NfsApiError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AccessPointActionResponse::class));
     }
 }

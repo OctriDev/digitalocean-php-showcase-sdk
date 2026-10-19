@@ -122,9 +122,7 @@ class DropletActionEnableBackups implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, DropletActionEnableBackupsTypeEnum::class),
             backupPolicy: (property_exists($data, "backup_policy") && $data->backup_policy !== null ? SdkClient::hydrateClass($data->backup_policy, DropletBackupPolicy::class) : SdkNotGiven::Value),
@@ -167,9 +165,7 @@ class DropletSingleCreateVariant0 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
         );

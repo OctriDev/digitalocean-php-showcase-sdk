@@ -15,26 +15,11 @@ final readonly class AlertPolicyCompareEnum implements SdkOpenEnum
     public const GREATERTHAN = "GreaterThan";
     public const LESSTHAN = "LessThan";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -79,26 +64,11 @@ final readonly class AlertPolicyTypeEnum implements SdkOpenEnum
     public const V1_DROPLET_AUTOSCALE_ALERTS_SCALE_UP = "v1/droplet/autoscale_alerts/scale_up";
     public const V1_DROPLET_AUTOSCALE_ALERTS_SCALE_DOWN = "v1/droplet/autoscale_alerts/scale_down";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -111,26 +81,11 @@ final readonly class AlertPolicyWindowEnum implements SdkOpenEnum
     public const _30M = "30m";
     public const _1H = "1h";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -261,36 +216,16 @@ class AlertPolicy implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "alerts") || $data->alerts === null) {
-            throw new SdkValidationError("alerts", 'required', "Required property 'alerts' is missing or null");
-        }
-        if (!property_exists($data, "compare") || $data->compare === null) {
-            throw new SdkValidationError("compare", 'required', "Required property 'compare' is missing or null");
-        }
-        if (!property_exists($data, "description") || $data->description === null) {
-            throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null");
-        }
-        if (!property_exists($data, "enabled") || $data->enabled === null) {
-            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
-        }
-        if (!property_exists($data, "entities") || $data->entities === null) {
-            throw new SdkValidationError("entities", 'required', "Required property 'entities' is missing or null");
-        }
-        if (!property_exists($data, "tags") || $data->tags === null) {
-            throw new SdkValidationError("tags", 'required', "Required property 'tags' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "uuid") || $data->uuid === null) {
-            throw new SdkValidationError("uuid", 'required', "Required property 'uuid' is missing or null");
-        }
-        if (!property_exists($data, "value") || $data->value === null) {
-            throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null");
-        }
-        if (!property_exists($data, "window") || $data->window === null) {
-            throw new SdkValidationError("window", 'required', "Required property 'window' is missing or null");
-        }
+        if (!property_exists($data, "alerts") || $data->alerts === null) { throw new SdkValidationError("alerts", 'required', "Required property 'alerts' is missing or null"); }
+        if (!property_exists($data, "compare") || $data->compare === null) { throw new SdkValidationError("compare", 'required', "Required property 'compare' is missing or null"); }
+        if (!property_exists($data, "description") || $data->description === null) { throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null"); }
+        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
+        if (!property_exists($data, "entities") || $data->entities === null) { throw new SdkValidationError("entities", 'required', "Required property 'entities' is missing or null"); }
+        if (!property_exists($data, "tags") || $data->tags === null) { throw new SdkValidationError("tags", 'required', "Required property 'tags' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "uuid") || $data->uuid === null) { throw new SdkValidationError("uuid", 'required', "Required property 'uuid' is missing or null"); }
+        if (!property_exists($data, "value") || $data->value === null) { throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null"); }
+        if (!property_exists($data, "window") || $data->window === null) { throw new SdkValidationError("window", 'required', "Required property 'window' is missing or null"); }
         return new self(
             alerts: SdkClient::hydrateClass($data->alerts, Alerts::class),
             compare: SdkClient::hydrateStringEnumOrString($data->compare, AlertPolicyCompareEnum::class),
@@ -314,26 +249,11 @@ final readonly class AlertPolicyRequestCompareEnum implements SdkOpenEnum
     public const GREATERTHAN = "GreaterThan";
     public const LESSTHAN = "LessThan";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -378,26 +298,11 @@ final readonly class AlertPolicyRequestTypeEnum implements SdkOpenEnum
     public const V1_DROPLET_AUTOSCALE_ALERTS_SCALE_UP = "v1/droplet/autoscale_alerts/scale_up";
     public const V1_DROPLET_AUTOSCALE_ALERTS_SCALE_DOWN = "v1/droplet/autoscale_alerts/scale_down";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -410,24 +315,9 @@ final readonly class AlertPolicyRequestWindowEnum implements SdkOpenEnum
     public const _30M = "30m";
     public const _1H = "1h";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

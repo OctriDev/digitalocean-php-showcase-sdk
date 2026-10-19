@@ -67,12 +67,8 @@ class DatabaseClusterResize implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "size") || $data->size === null) {
-            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
-        }
-        if (!property_exists($data, "num_nodes") || $data->num_nodes === null) {
-            throw new SdkValidationError("num_nodes", 'required', "Required property 'num_nodes' is missing or null");
-        }
+        if (!property_exists($data, "size") || $data->size === null) { throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null"); }
+        if (!property_exists($data, "num_nodes") || $data->num_nodes === null) { throw new SdkValidationError("num_nodes", 'required', "Required property 'num_nodes' is missing or null"); }
         return new self(
             size: SdkClient::stringValue($data->size),
             numNodes: SdkClient::intValue($data->num_nodes),
@@ -119,9 +115,7 @@ class DatabaseClusterResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "database") || $data->database === null) {
-            throw new SdkValidationError("database", 'required', "Required property 'database' is missing or null");
-        }
+        if (!property_exists($data, "database") || $data->database === null) { throw new SdkValidationError("database", 'required', "Required property 'database' is missing or null"); }
         return new self(
             database: SdkClient::hydrateClass($data->database, DatabaseClusterRead::class),
         );
@@ -258,9 +252,7 @@ class DatabaseConfigResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "config") || $data->config === null) {
-            throw new SdkValidationError("config", 'required', "Required property 'config' is missing or null");
-        }
+        if (!property_exists($data, "config") || $data->config === null) { throw new SdkValidationError("config", 'required', "Required property 'config' is missing or null"); }
         return new self(
             config: SdkClient::hydrateUnionAs($data->config, DatabaseConfigResponseConfig::class, [MysqlAdvancedConfig::class, PostgresAdvancedConfig::class, RedisAdvancedConfig::class, ValkeyAdvancedConfig::class, KafkaAdvancedConfig::class, OpensearchAdvancedConfig::class, MongoAdvancedConfig::class], null, []),
         );

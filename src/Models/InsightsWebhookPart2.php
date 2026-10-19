@@ -93,9 +93,7 @@ class WebhookNotificationConfigResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "url") || $data->url === null) {
-            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
-        }
+        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
         return new self(
             url: SdkClient::stringValue($data->url),
             basicAuth: (property_exists($data, "basic_auth") && $data->basic_auth !== null ? SdkClient::hydrateClass($data->basic_auth, WebhookBasicAuthResponse::class) : SdkNotGiven::Value),

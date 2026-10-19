@@ -23,7 +23,7 @@ trait KubernetesMethodsPart2
 
         Validation::validateUuid('cluster_id', $clusterId);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools", $clientConfig, body: $body, returnType: NodePoolCreate::class, decoder: 'json', operationId: 'kubernetesAddNodePool', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools", $clientConfig, body: $body, returnType: NodePoolCreate::class, decoder: 'json', operationId: 'kubernetesAddNodePool', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, NodePoolCreate::class));
     }
 
@@ -44,7 +44,7 @@ trait KubernetesMethodsPart2
 
         Validation::validateUuid('node_pool_id', $nodePoolId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools/" . SdkClient::encodePathSegment($nodePoolId) . "", $clientConfig, returnType: ExistingNodePool::class, decoder: 'json', operationId: 'kubernetesGetNodePool', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools/" . SdkClient::encodePathSegment($nodePoolId) . "", $clientConfig, returnType: ExistingNodePool::class, decoder: 'json', operationId: 'kubernetesGetNodePool', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingNodePool::class));
     }
 
@@ -73,7 +73,7 @@ trait KubernetesMethodsPart2
 
         Validation::validateUuid('node_pool_id', $nodePoolId);
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools/" . SdkClient::encodePathSegment($nodePoolId) . "", $clientConfig, body: ['name' => $name, 'count' => $count, 'tags' => $tags, 'labels' => $labels, 'taints' => $taints, 'auto_scale' => $autoScale, 'min_nodes' => $minNodes, 'max_nodes' => $maxNodes], returnType: NodePoolUpdate::class, decoder: 'json', operationId: 'kubernetesUpdateNodePool', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools/" . SdkClient::encodePathSegment($nodePoolId) . "", $clientConfig, body: ['name' => $name, 'count' => $count, 'tags' => $tags, 'labels' => $labels, 'taints' => $taints, 'auto_scale' => $autoScale, 'min_nodes' => $minNodes, 'max_nodes' => $maxNodes], returnType: NodePoolUpdate::class, decoder: 'json', operationId: 'kubernetesUpdateNodePool', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, NodePoolUpdate::class));
     }
 
@@ -93,7 +93,7 @@ trait KubernetesMethodsPart2
 
         Validation::validateUuid('node_pool_id', $nodePoolId);
 
-        return SdkClient::request('DELETE', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools/" . SdkClient::encodePathSegment($nodePoolId) . "", $clientConfig, decoder: 'empty', operationId: 'kubernetesDeleteNodePool', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools/" . SdkClient::encodePathSegment($nodePoolId) . "", $clientConfig, decoder: 'empty', operationId: 'kubernetesDeleteNodePool', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -125,7 +125,7 @@ trait KubernetesMethodsPart2
             Validation::validateRange('replace', $replace, min: 0, max: 1);
         }
 
-        return SdkClient::request('DELETE', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools/" . SdkClient::encodePathSegment($nodePoolId) . "/nodes/" . SdkClient::encodePathSegment($nodeId) . "", $clientConfig, query: ['skip_drain' => new SdkQueryValue($skipDrain, "form", true), 'replace' => new SdkQueryValue($replace, "form", true)], decoder: 'empty', operationId: 'kubernetesDeleteNode', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools/" . SdkClient::encodePathSegment($nodePoolId) . "/nodes/" . SdkClient::encodePathSegment($nodeId) . "", $clientConfig, query: ['skip_drain' => new SdkQueryValue($skipDrain, "form", true), 'replace' => new SdkQueryValue($replace, "form", true)], decoder: 'empty', operationId: 'kubernetesDeleteNode', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -147,7 +147,7 @@ trait KubernetesMethodsPart2
 
         Validation::validateUuid('node_pool_id', $nodePoolId);
 
-        return SdkClient::request('POST', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools/" . SdkClient::encodePathSegment($nodePoolId) . "/recycle", $clientConfig, body: ['nodes' => $nodes], decoder: 'empty', operationId: 'kubernetesRecycleNodePool', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('POST', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/node_pools/" . SdkClient::encodePathSegment($nodePoolId) . "/recycle", $clientConfig, body: ['nodes' => $nodes], decoder: 'empty', operationId: 'kubernetesRecycleNodePool', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -164,7 +164,7 @@ trait KubernetesMethodsPart2
 
         Validation::validateUuid('cluster_id', $clusterId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/user", $clientConfig, returnType: User2::class, decoder: 'json', operationId: 'kubernetesGetClusterUser', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/user", $clientConfig, returnType: User2::class, decoder: 'json', operationId: 'kubernetesGetClusterUser', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, User2::class));
     }
 
@@ -177,7 +177,7 @@ trait KubernetesMethodsPart2
     public static function kubernetesListOptions(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): KubernetesOptions
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/kubernetes/options", $clientConfig, returnType: KubernetesOptions::class, decoder: 'json', operationId: 'kubernetesListOptions', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/kubernetes/options", $clientConfig, returnType: KubernetesOptions::class, decoder: 'json', operationId: 'kubernetesListOptions', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, KubernetesOptions::class));
     }
 
@@ -199,7 +199,7 @@ trait KubernetesMethodsPart2
 
         Validation::validateUuid('cluster_id', $clusterId);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/clusterlint", $clientConfig, body: ['include_groups' => $includeGroups, 'include_checks' => $includeChecks, 'exclude_groups' => $excludeGroups, 'exclude_checks' => $excludeChecks], returnType: ClusterlintRun::class, decoder: 'json', operationId: 'kubernetesRunClusterLint', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/clusterlint", $clientConfig, body: ['include_groups' => $includeGroups, 'include_checks' => $includeChecks, 'exclude_groups' => $excludeGroups, 'exclude_checks' => $excludeChecks], returnType: ClusterlintRun::class, decoder: 'json', operationId: 'kubernetesRunClusterLint', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ClusterlintRun::class));
     }
 
@@ -222,7 +222,7 @@ trait KubernetesMethodsPart2
             Validation::validateUuid('run_id', $runId);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/clusterlint", $clientConfig, query: ['run_id' => new SdkQueryValue($runId, "form", true)], returnType: ClusterlintResults::class, decoder: 'json', operationId: 'kubernetesGetClusterLintResults', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/clusterlint", $clientConfig, query: ['run_id' => new SdkQueryValue($runId, "form", true)], returnType: ClusterlintResults::class, decoder: 'json', operationId: 'kubernetesGetClusterLintResults', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ClusterlintResults::class));
     }
 
@@ -237,7 +237,7 @@ trait KubernetesMethodsPart2
     public static function kubernetesAddRegistry(ClientConfig $clientConfig, array|SdkNotGiven $clusterUuids = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('POST', "/v2/kubernetes/registry", $clientConfig, body: ['cluster_uuids' => $clusterUuids], decoder: 'empty', operationId: 'kubernetesAddRegistry', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('POST', "/v2/kubernetes/registry", $clientConfig, body: ['cluster_uuids' => $clusterUuids], decoder: 'empty', operationId: 'kubernetesAddRegistry', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -251,7 +251,7 @@ trait KubernetesMethodsPart2
     public static function kubernetesRemoveRegistry(ClientConfig $clientConfig, array|SdkNotGiven $clusterUuids = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/kubernetes/registry", $clientConfig, body: ['cluster_uuids' => $clusterUuids], decoder: 'empty', operationId: 'kubernetesRemoveRegistry', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/kubernetes/registry", $clientConfig, body: ['cluster_uuids' => $clusterUuids], decoder: 'empty', operationId: 'kubernetesRemoveRegistry', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -266,7 +266,7 @@ trait KubernetesMethodsPart2
     public static function kubernetesAddRegistries(ClientConfig $clientConfig, array|SdkNotGiven $clusterUuids = SdkNotGiven::Value, array|SdkNotGiven $registries = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('POST', "/v2/kubernetes/registries", $clientConfig, body: ['cluster_uuids' => $clusterUuids, 'registries' => $registries], decoder: 'empty', operationId: 'kubernetesAddRegistries', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('POST', "/v2/kubernetes/registries", $clientConfig, body: ['cluster_uuids' => $clusterUuids, 'registries' => $registries], decoder: 'empty', operationId: 'kubernetesAddRegistries', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -281,7 +281,7 @@ trait KubernetesMethodsPart2
     public static function kubernetesRemoveRegistries(ClientConfig $clientConfig, array|SdkNotGiven $clusterUuids = SdkNotGiven::Value, array|SdkNotGiven $registries = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/kubernetes/registries", $clientConfig, body: ['cluster_uuids' => $clusterUuids, 'registries' => $registries], decoder: 'empty', operationId: 'kubernetesRemoveRegistries', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/kubernetes/registries", $clientConfig, body: ['cluster_uuids' => $clusterUuids, 'registries' => $registries], decoder: 'empty', operationId: 'kubernetesRemoveRegistries', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -303,7 +303,7 @@ trait KubernetesMethodsPart2
             Validation::validateDateTime('since', $since);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/status_messages", $clientConfig, query: ['since' => new SdkQueryValue($since, "form", true)], returnType: StatusMessagesResponse::class, decoder: 'json', operationId: 'kubernetesGetStatusMessages', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/kubernetes/clusters/" . SdkClient::encodePathSegment($clusterId) . "/status_messages", $clientConfig, query: ['since' => new SdkQueryValue($since, "form", true)], returnType: StatusMessagesResponse::class, decoder: 'json', operationId: 'kubernetesGetStatusMessages', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, StatusMessagesResponse::class));
     }
 }

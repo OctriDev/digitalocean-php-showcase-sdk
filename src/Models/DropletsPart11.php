@@ -42,9 +42,7 @@ class DropletSnapshotVariant2 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, DropletSnapshotVariant2TypeEnum::class),
         );
@@ -59,26 +57,11 @@ final readonly class DropletSnapshotTypeEnum implements SdkOpenEnum
     public const SNAPSHOT = "snapshot";
     public const BACKUP = "backup";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -179,27 +162,13 @@ class DropletSnapshot implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "regions") || $data->regions === null) {
-            throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null");
-        }
-        if (!property_exists($data, "min_disk_size") || $data->min_disk_size === null) {
-            throw new SdkValidationError("min_disk_size", 'required', "Required property 'min_disk_size' is missing or null");
-        }
-        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) {
-            throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "regions") || $data->regions === null) { throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null"); }
+        if (!property_exists($data, "min_disk_size") || $data->min_disk_size === null) { throw new SdkValidationError("min_disk_size", 'required', "Required property 'min_disk_size' is missing or null"); }
+        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) { throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             id: SdkClient::intValue($data->id),
             name: SdkClient::stringValue($data->name),

@@ -38,9 +38,7 @@ class AllSizesVariant0 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "sizes") || $data->sizes === null) {
-            throw new SdkValidationError("sizes", 'required', "Required property 'sizes' is missing or null");
-        }
+        if (!property_exists($data, "sizes") || $data->sizes === null) { throw new SdkValidationError("sizes", 'required', "Required property 'sizes' is missing or null"); }
         return new self(
             sizes: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Size::class), SdkClient::arrayValue($data->sizes))),
         );
@@ -103,12 +101,8 @@ class AllSizes implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "sizes") || $data->sizes === null) {
-            throw new SdkValidationError("sizes", 'required', "Required property 'sizes' is missing or null");
-        }
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "sizes") || $data->sizes === null) { throw new SdkValidationError("sizes", 'required', "Required property 'sizes' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             sizes: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Size::class), SdkClient::arrayValue($data->sizes))),
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),

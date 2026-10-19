@@ -45,9 +45,7 @@ class EmailNotificationConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "to") || $data->to === null) {
-            throw new SdkValidationError("to", 'required', "Required property 'to' is missing or null");
-        }
+        if (!property_exists($data, "to") || $data->to === null) { throw new SdkValidationError("to", 'required', "Required property 'to' is missing or null"); }
         return new self(
             to: SdkClient::stringValue($data->to),
         );
@@ -128,9 +126,7 @@ class MetricsQuery implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "metric") || $data->metric === null) {
-            throw new SdkValidationError("metric", 'required', "Required property 'metric' is missing or null");
-        }
+        if (!property_exists($data, "metric") || $data->metric === null) { throw new SdkValidationError("metric", 'required', "Required property 'metric' is missing or null"); }
         return new self(
             metric: SdkClient::stringValue($data->metric),
             filters: (property_exists($data, "filters") && $data->filters !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, QueryFilter::class), SdkClient::arrayValue($data->filters))) : SdkNotGiven::Value),
@@ -152,26 +148,11 @@ final readonly class QueryFilterOperatorEnum implements SdkOpenEnum
     public const FILTER_OPERATOR_GREATER_THAN = "FILTER_OPERATOR_GREATER_THAN";
     public const FILTER_OPERATOR_GREATER_THAN_OR_EQUAL = "FILTER_OPERATOR_GREATER_THAN_OR_EQUAL";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -232,15 +213,9 @@ class QueryFilter implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "field") || $data->field === null) {
-            throw new SdkValidationError("field", 'required', "Required property 'field' is missing or null");
-        }
-        if (!property_exists($data, "operator") || $data->operator === null) {
-            throw new SdkValidationError("operator", 'required', "Required property 'operator' is missing or null");
-        }
-        if (!property_exists($data, "value") || $data->value === null) {
-            throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null");
-        }
+        if (!property_exists($data, "field") || $data->field === null) { throw new SdkValidationError("field", 'required', "Required property 'field' is missing or null"); }
+        if (!property_exists($data, "operator") || $data->operator === null) { throw new SdkValidationError("operator", 'required', "Required property 'operator' is missing or null"); }
+        if (!property_exists($data, "value") || $data->value === null) { throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null"); }
         return new self(
             field: SdkClient::stringValue($data->field),
             operator: SdkClient::hydrateStringEnumOrString($data->operator, QueryFilterOperatorEnum::class),
@@ -287,9 +262,7 @@ class SecretStatus implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "configured") || $data->configured === null) {
-            throw new SdkValidationError("configured", 'required', "Required property 'configured' is missing or null");
-        }
+        if (!property_exists($data, "configured") || $data->configured === null) { throw new SdkValidationError("configured", 'required', "Required property 'configured' is missing or null"); }
         return new self(
             configured: SdkClient::boolValue($data->configured),
         );

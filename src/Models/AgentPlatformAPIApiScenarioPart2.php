@@ -286,26 +286,11 @@ final readonly class ApiScenarioSetSortField implements SdkOpenEnum
     public const SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT = "SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT";
     public const SCENARIO_SET_SORT_FIELD_UPDATED_AT = "SCENARIO_SET_SORT_FIELD_UPDATED_AT";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -319,26 +304,11 @@ final readonly class ApiScenarioSetSourceKind implements SdkOpenEnum
     public const SCENARIO_SET_SOURCE_KIND_LIBRARY = "SCENARIO_SET_SOURCE_KIND_LIBRARY";
     public const SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED = "SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -352,26 +322,11 @@ final readonly class ApiScenarioSetStatus implements SdkOpenEnum
     public const SCENARIO_SET_STATUS_FAILED = "SCENARIO_SET_STATUS_FAILED";
     public const SCENARIO_SET_STATUS_CANCELLED = "SCENARIO_SET_STATUS_CANCELLED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -384,24 +339,9 @@ final readonly class ApiScenarioSortField implements SdkOpenEnum
     public const SCENARIO_SORT_FIELD_NAME = "SCENARIO_SORT_FIELD_NAME";
     public const SCENARIO_SORT_FIELD_DESCRIPTION = "SCENARIO_SORT_FIELD_DESCRIPTION";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

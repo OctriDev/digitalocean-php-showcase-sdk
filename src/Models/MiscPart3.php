@@ -153,9 +153,7 @@ class DomainRecordA implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::stringValue($data->type),
             id: (property_exists($data, "id") && $data->id !== null ? SdkClient::intValue($data->id) : SdkNotGiven::Value),
@@ -180,26 +178,11 @@ final readonly class FirewallRuleBaseProtocolEnum implements SdkOpenEnum
     public const UDP = "udp";
     public const ICMP = "icmp";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -210,26 +193,11 @@ final readonly class FirewallRuleBaseActionEnum implements SdkOpenEnum
     public const ALLOW = "allow";
     public const DENY = "deny";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -292,12 +260,8 @@ class FirewallRuleBase implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "protocol") || $data->protocol === null) {
-            throw new SdkValidationError("protocol", 'required', "Required property 'protocol' is missing or null");
-        }
-        if (!property_exists($data, "ports") || $data->ports === null) {
-            throw new SdkValidationError("ports", 'required', "Required property 'ports' is missing or null");
-        }
+        if (!property_exists($data, "protocol") || $data->protocol === null) { throw new SdkValidationError("protocol", 'required', "Required property 'protocol' is missing or null"); }
+        if (!property_exists($data, "ports") || $data->ports === null) { throw new SdkValidationError("ports", 'required', "Required property 'ports' is missing or null"); }
         return new self(
             protocol: SdkClient::hydrateStringEnumOrString($data->protocol, FirewallRuleBaseProtocolEnum::class),
             ports: SdkClient::stringValue($data->ports),
@@ -313,26 +277,11 @@ final readonly class McpServerCreateTransportEnum implements SdkOpenEnum
 {
     public const STREAMABLE_HTTP = "streamable_http";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -344,24 +293,9 @@ final readonly class McpServerCreateCredentialRefSourceEnum implements SdkOpenEn
     public const SECRET = "secret";
     public const CONNECTION = "connection";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

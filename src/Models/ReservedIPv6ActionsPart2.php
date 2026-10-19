@@ -45,9 +45,7 @@ class ReservedIpv6ActionType implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, ReservedIpv6ActionTypeTypeEnum::class),
         );
@@ -107,9 +105,7 @@ class ReservedIpv6ActionUnassign implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, ReservedIpv6ActionUnassignTypeEnum::class),
             additionalProperties: array_diff_key(SdkClient::stringMapValue($data), array_flip(["type"])),

@@ -104,9 +104,7 @@ class AllVpcRoutes implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             routes: (property_exists($data, "routes") && $data->routes !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Route::class), SdkClient::arrayValue($data->routes))) : SdkNotGiven::Value),
@@ -212,9 +210,7 @@ class AllVpcSubnetRoutes implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             routes: (property_exists($data, "routes") && $data->routes !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Route::class), SdkClient::arrayValue($data->routes))) : SdkNotGiven::Value),
@@ -231,26 +227,11 @@ final readonly class RouteTypeEnum implements SdkOpenEnum
     public const STATIC = "STATIC";
     public const DYNAMIC = "DYNAMIC";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -345,18 +326,10 @@ class Route implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "destination_cidr") || $data->destination_cidr === null) {
-            throw new SdkValidationError("destination_cidr", 'required', "Required property 'destination_cidr' is missing or null");
-        }
-        if (!property_exists($data, "target_urns") || $data->target_urns === null) {
-            throw new SdkValidationError("target_urns", 'required', "Required property 'target_urns' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "destination_cidr") || $data->destination_cidr === null) { throw new SdkValidationError("destination_cidr", 'required', "Required property 'destination_cidr' is missing or null"); }
+        if (!property_exists($data, "target_urns") || $data->target_urns === null) { throw new SdkValidationError("target_urns", 'required', "Required property 'target_urns' is missing or null"); }
         return new self(
             id: SdkClient::stringValue($data->id),
             type: SdkClient::hydrateStringEnumOrString($data->type, RouteTypeEnum::class),

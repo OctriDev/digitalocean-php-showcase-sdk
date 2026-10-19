@@ -171,18 +171,10 @@ class AutoscalePoolDropletTemplate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "region") || $data->region === null) {
-            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
-        }
-        if (!property_exists($data, "size") || $data->size === null) {
-            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
-        }
-        if (!property_exists($data, "image") || $data->image === null) {
-            throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null");
-        }
-        if (!property_exists($data, "ssh_keys") || $data->ssh_keys === null) {
-            throw new SdkValidationError("ssh_keys", 'required', "Required property 'ssh_keys' is missing or null");
-        }
+        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
+        if (!property_exists($data, "size") || $data->size === null) { throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null"); }
+        if (!property_exists($data, "image") || $data->image === null) { throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null"); }
+        if (!property_exists($data, "ssh_keys") || $data->ssh_keys === null) { throw new SdkValidationError("ssh_keys", 'required', "Required property 'ssh_keys' is missing or null"); }
         return new self(
             region: SdkClient::hydrateStringEnumOrString($data->region, AutoscalePoolDropletTemplateRegionEnum::class),
             size: SdkClient::stringValue($data->size),
@@ -284,12 +276,8 @@ class AutoscalePoolDynamicConfig implements AutoscalePoolConfig, AutoscalePoolCr
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "min_instances") || $data->min_instances === null) {
-            throw new SdkValidationError("min_instances", 'required', "Required property 'min_instances' is missing or null");
-        }
-        if (!property_exists($data, "max_instances") || $data->max_instances === null) {
-            throw new SdkValidationError("max_instances", 'required', "Required property 'max_instances' is missing or null");
-        }
+        if (!property_exists($data, "min_instances") || $data->min_instances === null) { throw new SdkValidationError("min_instances", 'required', "Required property 'min_instances' is missing or null"); }
+        if (!property_exists($data, "max_instances") || $data->max_instances === null) { throw new SdkValidationError("max_instances", 'required', "Required property 'max_instances' is missing or null"); }
         return new self(
             minInstances: SdkClient::intValue($data->min_instances),
             maxInstances: SdkClient::intValue($data->max_instances),
@@ -338,9 +326,7 @@ class AutoscalePoolStaticConfig implements AutoscalePoolConfig, AutoscalePoolCre
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "target_number_instances") || $data->target_number_instances === null) {
-            throw new SdkValidationError("target_number_instances", 'required', "Required property 'target_number_instances' is missing or null");
-        }
+        if (!property_exists($data, "target_number_instances") || $data->target_number_instances === null) { throw new SdkValidationError("target_number_instances", 'required', "Required property 'target_number_instances' is missing or null"); }
         return new self(
             targetNumberInstances: SdkClient::intValue($data->target_number_instances),
         );

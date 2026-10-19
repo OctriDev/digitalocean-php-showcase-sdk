@@ -103,26 +103,11 @@ final readonly class UserSettingsUpdateOpensearchAclItemPermissionEnum implement
     public const READWRITE = "readwrite";
     public const WRITE = "write";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -194,26 +179,11 @@ final readonly class UserSettingsUpdateAclItemPermissionEnum implements SdkOpenE
     public const PRODUCE = "produce";
     public const PRODUCECONSUME = "produceconsume";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -276,12 +246,8 @@ class UserSettingsUpdateAclItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "topic") || $data->topic === null) {
-            throw new SdkValidationError("topic", 'required', "Required property 'topic' is missing or null");
-        }
-        if (!property_exists($data, "permission") || $data->permission === null) {
-            throw new SdkValidationError("permission", 'required', "Required property 'permission' is missing or null");
-        }
+        if (!property_exists($data, "topic") || $data->topic === null) { throw new SdkValidationError("topic", 'required', "Required property 'topic' is missing or null"); }
+        if (!property_exists($data, "permission") || $data->permission === null) { throw new SdkValidationError("permission", 'required', "Required property 'permission' is missing or null"); }
         return new self(
             topic: SdkClient::stringValue($data->topic),
             permission: SdkClient::hydrateStringEnumOrString($data->permission, UserSettingsUpdateAclItemPermissionEnum::class),

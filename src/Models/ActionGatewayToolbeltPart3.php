@@ -169,9 +169,7 @@ class ToolbeltTools implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tools") || $data->tools === null) {
-            throw new SdkValidationError("tools", 'required', "Required property 'tools' is missing or null");
-        }
+        if (!property_exists($data, "tools") || $data->tools === null) { throw new SdkValidationError("tools", 'required', "Required property 'tools' is missing or null"); }
         return new self(
             tools: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->tools))),
         );

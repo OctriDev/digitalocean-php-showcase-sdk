@@ -91,12 +91,8 @@ class OutputViewCreate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "fields") || $data->fields === null) {
-            throw new SdkValidationError("fields", 'required', "Required property 'fields' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "fields") || $data->fields === null) { throw new SdkValidationError("fields", 'required', "Required property 'fields' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             fields: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->fields))),
@@ -193,9 +189,7 @@ class OutputViewPreview implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "fields") || $data->fields === null) {
-            throw new SdkValidationError("fields", 'required', "Required property 'fields' is missing or null");
-        }
+        if (!property_exists($data, "fields") || $data->fields === null) { throw new SdkValidationError("fields", 'required', "Required property 'fields' is missing or null"); }
         return new self(
             fields: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->fields))),
             tool: (property_exists($data, "tool") && $data->tool !== null ? SdkClient::stringValue($data->tool) : SdkNotGiven::Value),

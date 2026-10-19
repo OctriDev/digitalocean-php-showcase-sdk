@@ -79,12 +79,8 @@ class VolumeActionPostAttach implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) {
-            throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) { throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, VolumeActionPostAttachTypeEnum::class),
             dropletId: SdkClient::intValue($data->droplet_id),
@@ -154,9 +150,7 @@ class VolumeActionPostBase implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, VolumeActionPostBaseTypeEnum::class),
             region: (property_exists($data, "region") && $data->region !== null ? SdkClient::hydrateStringEnumOrString($data->region, RegionSlug::class) : SdkNotGiven::Value),
@@ -199,9 +193,7 @@ class VolumeActionPostDetachVariant1 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) {
-            throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null");
-        }
+        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) { throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null"); }
         return new self(
             dropletId: SdkClient::intValue($data->droplet_id),
         );
@@ -278,12 +270,8 @@ class VolumeActionPostDetach implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) {
-            throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) { throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, VolumeActionPostDetachTypeEnum::class),
             dropletId: SdkClient::intValue($data->droplet_id),
@@ -327,9 +315,7 @@ class VolumeActionPostResizeVariant1 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) {
-            throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null");
-        }
+        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) { throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null"); }
         return new self(
             sizeGigabytes: SdkClient::intValue($data->size_gigabytes),
         );

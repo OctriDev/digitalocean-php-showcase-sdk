@@ -57,9 +57,7 @@ class SpansOrderBy implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "field") || $data->field === null) {
-            throw new SdkValidationError("field", 'required', "Required property 'field' is missing or null");
-        }
+        if (!property_exists($data, "field") || $data->field === null) { throw new SdkValidationError("field", 'required', "Required property 'field' is missing or null"); }
         return new self(
             field: SdkClient::hydrateClass($data->field, SpansFilterField::class),
             direction: (property_exists($data, "direction") && $data->direction !== null ? SdkClient::hydrateStringEnumOrString($data->direction, SpansOrderByDirectionEnum::class) : SdkNotGiven::Value),
@@ -233,9 +231,7 @@ class SpansSearchRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "timeRange") || $data->timeRange === null) {
-            throw new SdkValidationError("timeRange", 'required', "Required property 'timeRange' is missing or null");
-        }
+        if (!property_exists($data, "timeRange") || $data->timeRange === null) { throw new SdkValidationError("timeRange", 'required', "Required property 'timeRange' is missing or null"); }
         return new self(
             timeRange: SdkClient::hydrateClass($data->timeRange, SpansTimeRange::class),
             filter: (property_exists($data, "filter") && $data->filter !== null ? SdkClient::hydrateClass($data->filter, SpansFilterExpression::class) : SdkNotGiven::Value),

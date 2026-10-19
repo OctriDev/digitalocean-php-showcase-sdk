@@ -45,9 +45,7 @@ class SqlMode implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "sql_mode") || $data->sql_mode === null) {
-            throw new SdkValidationError("sql_mode", 'required', "Required property 'sql_mode' is missing or null");
-        }
+        if (!property_exists($data, "sql_mode") || $data->sql_mode === null) { throw new SdkValidationError("sql_mode", 'required', "Required property 'sql_mode' is missing or null"); }
         return new self(
             sqlMode: SdkClient::stringValue($data->sql_mode),
         );
@@ -154,26 +152,11 @@ final readonly class ValkeyAdvancedConfigValkeyPersistenceEnum implements SdkOpe
     public const OFF = "off";
     public const RDB = "rdb";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -184,24 +167,9 @@ final readonly class ValkeyAdvancedConfigValkeyAclChannelsDefaultEnum implements
     public const ALLCHANNELS = "allchannels";
     public const RESETCHANNELS = "resetchannels";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

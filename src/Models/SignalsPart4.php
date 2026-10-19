@@ -57,9 +57,7 @@ class ListConsents implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "consents") || $data->consents === null) {
-            throw new SdkValidationError("consents", 'required', "Required property 'consents' is missing or null");
-        }
+        if (!property_exists($data, "consents") || $data->consents === null) { throw new SdkValidationError("consents", 'required', "Required property 'consents' is missing or null"); }
         return new self(
             consents: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ConsentRecord::class), SdkClient::arrayValue($data->consents))),
             source: (property_exists($data, "source") && $data->source !== null ? SdkClient::hydrateStringEnumOrString($data->source, ListConsentsSourceEnum::class) : SdkNotGiven::Value),

@@ -57,9 +57,7 @@ class AppsUpdateAppRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) {
-            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
-        }
+        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, AppSpec::class),
             updateAllSourceVersions: (property_exists($data, "update_all_source_versions") && $data->update_all_source_versions !== null ? SdkClient::boolValue($data->update_all_source_versions) : SdkNotGiven::Value),
@@ -117,9 +115,7 @@ class AppsUpdateAppRequestRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) {
-            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
-        }
+        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, AppSpecRequest::class),
             updateAllSourceVersions: (property_exists($data, "update_all_source_versions") && $data->update_all_source_versions !== null ? SdkClient::boolValue($data->update_all_source_versions) : SdkNotGiven::Value),
