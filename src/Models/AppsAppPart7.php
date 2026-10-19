@@ -81,7 +81,9 @@ class AppVariableDefinition implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "key") || $data->key === null) { throw new SdkValidationError("key", 'required', "Required property 'key' is missing or null"); }
+        if (!property_exists($data, "key") || $data->key === null) {
+            throw new SdkValidationError("key", 'required', "Required property 'key' is missing or null");
+        }
         return new self(
             key: SdkClient::stringValue($data->key),
             scope: (property_exists($data, "scope") && $data->scope !== null ? SdkClient::hydrateStringEnumOrString($data->scope, AppVariableDefinitionScopeEnum::class) : SdkNotGiven::Value),

@@ -70,7 +70,9 @@ class NfsAction implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, NfsActionTypeEnum::class),
             region: (property_exists($data, "region") && $data->region !== null ? SdkClient::stringValue($data->region) : SdkNotGiven::Value),
@@ -113,7 +115,9 @@ class NfsActionAttachVariant1Params implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) { throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null"); }
+        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) {
+            throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null");
+        }
         return new self(
             vpcId: SdkClient::stringValue($data->vpc_id),
         );
@@ -207,7 +211,9 @@ class NfsActionAttachParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) { throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null"); }
+        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) {
+            throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null");
+        }
         return new self(
             vpcId: SdkClient::stringValue($data->vpc_id),
         );
@@ -272,7 +278,9 @@ class NfsActionAttach implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, NfsActionAttachTypeEnum::class),
             region: (property_exists($data, "region") && $data->region !== null ? SdkClient::stringValue($data->region) : SdkNotGiven::Value),
@@ -316,7 +324,9 @@ class NfsActionDetachVariant1Params implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) { throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null"); }
+        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) {
+            throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null");
+        }
         return new self(
             vpcId: SdkClient::stringValue($data->vpc_id),
         );

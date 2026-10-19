@@ -45,7 +45,9 @@ class ImagesPostAccountTransferDecline implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "transfer_id") || $data->transfer_id === null) { throw new SdkValidationError("transfer_id", 'required', "Required property 'transfer_id' is missing or null"); }
+        if (!property_exists($data, "transfer_id") || $data->transfer_id === null) {
+            throw new SdkValidationError("transfer_id", 'required', "Required property 'transfer_id' is missing or null");
+        }
         return new self(
             transferId: SdkClient::intValue($data->transfer_id),
         );
@@ -208,7 +210,9 @@ class UpdatedImage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "image") || $data->image === null) { throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null"); }
+        if (!property_exists($data, "image") || $data->image === null) {
+            throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null");
+        }
         return new self(
             image: SdkClient::hydrateClass($data->image, Image::class),
         );

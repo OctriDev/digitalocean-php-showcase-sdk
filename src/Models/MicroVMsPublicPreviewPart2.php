@@ -266,7 +266,9 @@ class ExecRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "argv") || $data->argv === null) { throw new SdkValidationError("argv", 'required', "Required property 'argv' is missing or null"); }
+        if (!property_exists($data, "argv") || $data->argv === null) {
+            throw new SdkValidationError("argv", 'required', "Required property 'argv' is missing or null");
+        }
         return new self(
             argv: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->argv))),
             cwd: (property_exists($data, "cwd") && $data->cwd !== null ? SdkClient::stringValue($data->cwd) : SdkNotGiven::Value),

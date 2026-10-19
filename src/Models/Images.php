@@ -38,7 +38,9 @@ class AllImagesVariant0 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "images") || $data->images === null) { throw new SdkValidationError("images", 'required', "Required property 'images' is missing or null"); }
+        if (!property_exists($data, "images") || $data->images === null) {
+            throw new SdkValidationError("images", 'required', "Required property 'images' is missing or null");
+        }
         return new self(
             images: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Image::class), SdkClient::arrayValue($data->images))),
         );
@@ -101,8 +103,12 @@ class AllImages implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "images") || $data->images === null) { throw new SdkValidationError("images", 'required', "Required property 'images' is missing or null"); }
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "images") || $data->images === null) {
+            throw new SdkValidationError("images", 'required', "Required property 'images' is missing or null");
+        }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             images: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Image::class), SdkClient::arrayValue($data->images))),
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
@@ -149,7 +155,9 @@ class ExistingImage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "image") || $data->image === null) { throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null"); }
+        if (!property_exists($data, "image") || $data->image === null) {
+            throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null");
+        }
         return new self(
             image: SdkClient::hydrateClass($data->image, Image::class),
         );
@@ -319,9 +327,15 @@ class ImageNewCustom implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
-        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
+        if (!property_exists($data, "region") || $data->region === null) {
+            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             url: SdkClient::stringValue($data->url),

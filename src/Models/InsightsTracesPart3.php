@@ -81,7 +81,9 @@ class TracesSearchRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "timeRange") || $data->timeRange === null) { throw new SdkValidationError("timeRange", 'required', "Required property 'timeRange' is missing or null"); }
+        if (!property_exists($data, "timeRange") || $data->timeRange === null) {
+            throw new SdkValidationError("timeRange", 'required', "Required property 'timeRange' is missing or null");
+        }
         return new self(
             timeRange: SdkClient::hydrateClass($data->timeRange, TracesTimeRange::class),
             filter: (property_exists($data, "filter") && $data->filter !== null ? SdkClient::hydrateClass($data->filter, TracesFilterExpression::class) : SdkNotGiven::Value),
@@ -139,8 +141,12 @@ class TracesSearchResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "pagination") || $data->pagination === null) { throw new SdkValidationError("pagination", 'required', "Required property 'pagination' is missing or null"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "pagination") || $data->pagination === null) {
+            throw new SdkValidationError("pagination", 'required', "Required property 'pagination' is missing or null");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, TracesTraceSummary::class), SdkClient::arrayValue($data->data))),
             pagination: SdkClient::hydrateClass($data->pagination, TracesPaginationResponse::class),
@@ -328,8 +334,12 @@ class TracesSpanRecord implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "traceId") || $data->traceId === null) { throw new SdkValidationError("traceId", 'required', "Required property 'traceId' is missing or null"); }
-        if (!property_exists($data, "spanId") || $data->spanId === null) { throw new SdkValidationError("spanId", 'required', "Required property 'spanId' is missing or null"); }
+        if (!property_exists($data, "traceId") || $data->traceId === null) {
+            throw new SdkValidationError("traceId", 'required', "Required property 'traceId' is missing or null");
+        }
+        if (!property_exists($data, "spanId") || $data->spanId === null) {
+            throw new SdkValidationError("spanId", 'required', "Required property 'spanId' is missing or null");
+        }
         return new self(
             traceId: SdkClient::stringValue($data->traceId),
             spanId: SdkClient::stringValue($data->spanId),

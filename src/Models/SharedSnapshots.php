@@ -42,7 +42,9 @@ class SnapshotsVariant0 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
         return new self(
             id: SdkClient::stringValue($data->id),
         );
@@ -57,11 +59,26 @@ final readonly class SnapshotsVariant2ResourceTypeEnum implements SdkOpenEnum
     public const DROPLET = "droplet";
     public const VOLUME = "volume";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 class SnapshotsVariant2 implements \JsonSerializable
@@ -119,9 +136,15 @@ class SnapshotsVariant2 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "resource_id") || $data->resource_id === null) { throw new SdkValidationError("resource_id", 'required', "Required property 'resource_id' is missing or null"); }
-        if (!property_exists($data, "resource_type") || $data->resource_type === null) { throw new SdkValidationError("resource_type", 'required', "Required property 'resource_type' is missing or null"); }
-        if (!property_exists($data, "tags")) { throw new SdkValidationError("tags", 'required', "Missing required property 'tags'"); }
+        if (!property_exists($data, "resource_id") || $data->resource_id === null) {
+            throw new SdkValidationError("resource_id", 'required', "Required property 'resource_id' is missing or null");
+        }
+        if (!property_exists($data, "resource_type") || $data->resource_type === null) {
+            throw new SdkValidationError("resource_type", 'required', "Required property 'resource_type' is missing or null");
+        }
+        if (!property_exists($data, "tags")) {
+            throw new SdkValidationError("tags", 'required', "Missing required property 'tags'");
+        }
         return new self(
             resourceId: SdkClient::stringValue($data->resource_id),
             resourceType: SdkClient::hydrateStringEnumOrString($data->resource_type, SnapshotsVariant2ResourceTypeEnum::class),
@@ -138,11 +161,26 @@ final readonly class SnapshotsResourceTypeEnum implements SdkOpenEnum
     public const DROPLET = "droplet";
     public const VOLUME = "volume";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -263,15 +301,33 @@ class Snapshots implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
-        if (!property_exists($data, "regions") || $data->regions === null) { throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null"); }
-        if (!property_exists($data, "min_disk_size") || $data->min_disk_size === null) { throw new SdkValidationError("min_disk_size", 'required', "Required property 'min_disk_size' is missing or null"); }
-        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) { throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null"); }
-        if (!property_exists($data, "resource_id") || $data->resource_id === null) { throw new SdkValidationError("resource_id", 'required', "Required property 'resource_id' is missing or null"); }
-        if (!property_exists($data, "resource_type") || $data->resource_type === null) { throw new SdkValidationError("resource_type", 'required', "Required property 'resource_type' is missing or null"); }
-        if (!property_exists($data, "tags")) { throw new SdkValidationError("tags", 'required', "Missing required property 'tags'"); }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
+        if (!property_exists($data, "regions") || $data->regions === null) {
+            throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null");
+        }
+        if (!property_exists($data, "min_disk_size") || $data->min_disk_size === null) {
+            throw new SdkValidationError("min_disk_size", 'required', "Required property 'min_disk_size' is missing or null");
+        }
+        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) {
+            throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null");
+        }
+        if (!property_exists($data, "resource_id") || $data->resource_id === null) {
+            throw new SdkValidationError("resource_id", 'required', "Required property 'resource_id' is missing or null");
+        }
+        if (!property_exists($data, "resource_type") || $data->resource_type === null) {
+            throw new SdkValidationError("resource_type", 'required', "Required property 'resource_type' is missing or null");
+        }
+        if (!property_exists($data, "tags")) {
+            throw new SdkValidationError("tags", 'required', "Missing required property 'tags'");
+        }
         return new self(
             id: SdkClient::stringValue($data->id),
             name: SdkClient::stringValue($data->name),

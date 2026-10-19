@@ -16,11 +16,26 @@ final readonly class AcceleratorConfigSpecStatusEnum implements SdkOpenEnum
     public const PROVISIONING = "provisioning";
     public const ACTIVE = "active";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -93,9 +108,15 @@ class AcceleratorConfigSpec implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "scale") || $data->scale === null) { throw new SdkValidationError("scale", 'required', "Required property 'scale' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "accelerator_slug") || $data->accelerator_slug === null) { throw new SdkValidationError("accelerator_slug", 'required', "Required property 'accelerator_slug' is missing or null"); }
+        if (!property_exists($data, "scale") || $data->scale === null) {
+            throw new SdkValidationError("scale", 'required', "Required property 'scale' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "accelerator_slug") || $data->accelerator_slug === null) {
+            throw new SdkValidationError("accelerator_slug", 'required', "Required property 'accelerator_slug' is missing or null");
+        }
         return new self(
             scale: SdkClient::intValue($data->scale),
             type: SdkClient::stringValue($data->type),
@@ -163,9 +184,15 @@ class AcceleratorConfigSpecRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "scale") || $data->scale === null) { throw new SdkValidationError("scale", 'required', "Required property 'scale' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "accelerator_slug") || $data->accelerator_slug === null) { throw new SdkValidationError("accelerator_slug", 'required', "Required property 'accelerator_slug' is missing or null"); }
+        if (!property_exists($data, "scale") || $data->scale === null) {
+            throw new SdkValidationError("scale", 'required', "Required property 'scale' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "accelerator_slug") || $data->accelerator_slug === null) {
+            throw new SdkValidationError("accelerator_slug", 'required', "Required property 'accelerator_slug' is missing or null");
+        }
         return new self(
             scale: SdkClient::intValue($data->scale),
             type: SdkClient::stringValue($data->type),
@@ -271,7 +298,9 @@ class AcceleratorsList implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             accelerators: (property_exists($data, "accelerators") && $data->accelerators !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, DedicatedInferenceAccelerator::class), SdkClient::arrayValue($data->accelerators))) : SdkNotGiven::Value),

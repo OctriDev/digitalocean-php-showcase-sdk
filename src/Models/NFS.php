@@ -55,8 +55,12 @@ class AccessPointActionResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "access_point") || $data->access_point === null) { throw new SdkValidationError("access_point", 'required', "Required property 'access_point' is missing or null"); }
-        if (!property_exists($data, "action") || $data->action === null) { throw new SdkValidationError("action", 'required', "Required property 'action' is missing or null"); }
+        if (!property_exists($data, "access_point") || $data->access_point === null) {
+            throw new SdkValidationError("access_point", 'required', "Required property 'access_point' is missing or null");
+        }
+        if (!property_exists($data, "action") || $data->action === null) {
+            throw new SdkValidationError("action", 'required', "Required property 'action' is missing or null");
+        }
         return new self(
             accessPoint: SdkClient::hydrateClass($data->access_point, AccessPointResponse::class),
             action: SdkClient::hydrateClass($data->action, NfsAction2::class),
@@ -102,7 +106,9 @@ class AccessPointGetResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "access_point") || $data->access_point === null) { throw new SdkValidationError("access_point", 'required', "Required property 'access_point' is missing or null"); }
+        if (!property_exists($data, "access_point") || $data->access_point === null) {
+            throw new SdkValidationError("access_point", 'required', "Required property 'access_point' is missing or null");
+        }
         return new self(
             accessPoint: SdkClient::hydrateClass($data->access_point, AccessPointResponse::class),
         );
@@ -147,7 +153,9 @@ class AccessPointListResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "access_points") || $data->access_points === null) { throw new SdkValidationError("access_points", 'required', "Required property 'access_points' is missing or null"); }
+        if (!property_exists($data, "access_points") || $data->access_points === null) {
+            throw new SdkValidationError("access_points", 'required', "Required property 'access_points' is missing or null");
+        }
         return new self(
             accessPoints: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, AccessPointResponse::class), SdkClient::arrayValue($data->access_points))),
         );
@@ -222,10 +230,18 @@ class AccessPointRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
-        if (!property_exists($data, "access_policy") || $data->access_policy === null) { throw new SdkValidationError("access_policy", 'required', "Required property 'access_policy' is missing or null"); }
-        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) { throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "path") || $data->path === null) {
+            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
+        }
+        if (!property_exists($data, "access_policy") || $data->access_policy === null) {
+            throw new SdkValidationError("access_policy", 'required', "Required property 'access_policy' is missing or null");
+        }
+        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) {
+            throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             path: SdkClient::stringValue($data->path),
@@ -245,9 +261,24 @@ final readonly class AccessPointResponseStatusEnum implements SdkOpenEnum
     public const ACCESS_POINT_FAILED = "ACCESS_POINT_FAILED";
     public const ACCESS_POINT_DELETED = "ACCESS_POINT_DELETED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

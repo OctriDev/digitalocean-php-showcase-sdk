@@ -175,7 +175,9 @@ class AppMetricsBandwidthUsageRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "app_ids") || $data->app_ids === null) { throw new SdkValidationError("app_ids", 'required', "Required property 'app_ids' is missing or null"); }
+        if (!property_exists($data, "app_ids") || $data->app_ids === null) {
+            throw new SdkValidationError("app_ids", 'required', "Required property 'app_ids' is missing or null");
+        }
         return new self(
             appIds: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->app_ids))),
             date: (property_exists($data, "date") && $data->date !== null ? SdkClient::stringValue($data->date) : SdkNotGiven::Value),

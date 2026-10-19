@@ -55,8 +55,12 @@ class SlackDetails implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "channel") || $data->channel === null) { throw new SdkValidationError("channel", 'required', "Required property 'channel' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "channel") || $data->channel === null) {
+            throw new SdkValidationError("channel", 'required', "Required property 'channel' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         return new self(
             channel: SdkClient::stringValue($data->channel),
             url: SdkClient::stringValue($data->url),

@@ -13,11 +13,26 @@ final readonly class UptimeCreateCheckType implements SdkOpenEnum
     public const HTTP = "http";
     public const HTTPS = "https";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class UptimeCreateAlertType implements SdkOpenEnum
@@ -27,11 +42,26 @@ final readonly class UptimeCreateAlertType implements SdkOpenEnum
     public const DOWN_GLOBAL = "down_global";
     public const SSL_EXPIRY = "ssl_expiry";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class UptimeCreateAlertComparison implements SdkOpenEnum
@@ -39,11 +69,26 @@ final readonly class UptimeCreateAlertComparison implements SdkOpenEnum
     public const GREATER_THAN = "greater_than";
     public const LESS_THAN = "less_than";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class UptimeCreateAlertPeriod implements SdkOpenEnum
@@ -56,11 +101,26 @@ final readonly class UptimeCreateAlertPeriod implements SdkOpenEnum
     public const _30M = "30m";
     public const _1H = "1h";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class UptimeUpdateAlertType implements SdkOpenEnum
@@ -70,11 +130,26 @@ final readonly class UptimeUpdateAlertType implements SdkOpenEnum
     public const DOWN_GLOBAL = "down_global";
     public const SSL_EXPIRY = "ssl_expiry";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class UptimeUpdateAlertComparison implements SdkOpenEnum
@@ -82,11 +157,26 @@ final readonly class UptimeUpdateAlertComparison implements SdkOpenEnum
     public const GREATER_THAN = "greater_than";
     public const LESS_THAN = "less_than";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class UptimeUpdateAlertPeriod implements SdkOpenEnum
@@ -99,11 +189,26 @@ final readonly class UptimeUpdateAlertPeriod implements SdkOpenEnum
     public const _30M = "30m";
     public const _1H = "1h";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 class Uptime
@@ -128,7 +233,7 @@ class Uptime
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/uptime/checks", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllChecks::class, decoder: 'json', operationId: 'uptimeListChecks', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/uptime/checks", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllChecks::class, decoder: 'json', operationId: 'uptimeListChecks', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllChecks::class));
     }
 
@@ -148,7 +253,7 @@ class Uptime
     public static function uptimeCreateCheck(ClientConfig $clientConfig, string $name, UptimeCreateCheckType $type, string $target, array $regions, bool $enabled, ?RequestOptions $requestOptions = null): ExistingCheck
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/uptime/checks", $clientConfig, body: ['name' => $name, 'type' => $type, 'target' => $target, 'regions' => $regions, 'enabled' => $enabled], returnType: ExistingCheck::class, decoder: 'json', operationId: 'uptimeCreateCheck', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/uptime/checks", $clientConfig, body: ['name' => $name, 'type' => $type, 'target' => $target, 'regions' => $regions, 'enabled' => $enabled], returnType: ExistingCheck::class, decoder: 'json', operationId: 'uptimeCreateCheck', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingCheck::class));
     }
 
@@ -166,7 +271,7 @@ class Uptime
 
         Validation::validateUuid('check_id', $checkId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "", $clientConfig, returnType: ExistingCheck::class, decoder: 'json', operationId: 'uptimeGetCheck', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "", $clientConfig, returnType: ExistingCheck::class, decoder: 'json', operationId: 'uptimeGetCheck', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingCheck::class));
     }
 
@@ -185,7 +290,7 @@ class Uptime
 
         Validation::validateUuid('check_id', $checkId);
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "", $clientConfig, body: $body, returnType: ExistingCheck::class, decoder: 'json', operationId: 'uptimeUpdateCheck', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "", $clientConfig, body: $body, returnType: ExistingCheck::class, decoder: 'json', operationId: 'uptimeUpdateCheck', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingCheck::class));
     }
 
@@ -202,7 +307,7 @@ class Uptime
 
         Validation::validateUuid('check_id', $checkId);
 
-        return SdkClient::request('DELETE', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "", $clientConfig, decoder: 'empty', operationId: 'uptimeDeleteCheck', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "", $clientConfig, decoder: 'empty', operationId: 'uptimeDeleteCheck', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -219,7 +324,7 @@ class Uptime
 
         Validation::validateUuid('check_id', $checkId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/state", $clientConfig, returnType: ExistingCheckState::class, decoder: 'json', operationId: 'uptimeGetCheckState', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/state", $clientConfig, returnType: ExistingCheckState::class, decoder: 'json', operationId: 'uptimeGetCheckState', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingCheckState::class));
     }
 
@@ -247,7 +352,7 @@ class Uptime
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/alerts", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllAlerts::class, decoder: 'json', operationId: 'uptimeListAlerts', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/alerts", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllAlerts::class, decoder: 'json', operationId: 'uptimeListAlerts', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllAlerts::class));
     }
 
@@ -271,7 +376,7 @@ class Uptime
 
         Validation::validateUuid('check_id', $checkId);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/alerts", $clientConfig, body: ['name' => $name, 'type' => $type, 'notifications' => $notifications, 'period' => $period, 'threshold' => $threshold, 'comparison' => $comparison], returnType: ExistingAlert::class, decoder: 'json', operationId: 'uptimeCreateAlert', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/alerts", $clientConfig, body: ['name' => $name, 'type' => $type, 'notifications' => $notifications, 'period' => $period, 'threshold' => $threshold, 'comparison' => $comparison], returnType: ExistingAlert::class, decoder: 'json', operationId: 'uptimeCreateAlert', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingAlert::class));
     }
 
@@ -292,7 +397,7 @@ class Uptime
 
         Validation::validateUuid('alert_id', $alertId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/alerts/" . SdkClient::encodePathSegment($alertId) . "", $clientConfig, returnType: ExistingAlert::class, decoder: 'json', operationId: 'uptimeGetAlert', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/alerts/" . SdkClient::encodePathSegment($alertId) . "", $clientConfig, returnType: ExistingAlert::class, decoder: 'json', operationId: 'uptimeGetAlert', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingAlert::class));
     }
 
@@ -319,7 +424,7 @@ class Uptime
 
         Validation::validateUuid('alert_id', $alertId);
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/alerts/" . SdkClient::encodePathSegment($alertId) . "", $clientConfig, body: ['name' => $name, 'type' => $type, 'notifications' => $notifications, 'period' => $period, 'threshold' => $threshold, 'comparison' => $comparison], returnType: ExistingAlert::class, decoder: 'json', operationId: 'uptimeUpdateAlert', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/alerts/" . SdkClient::encodePathSegment($alertId) . "", $clientConfig, body: ['name' => $name, 'type' => $type, 'notifications' => $notifications, 'period' => $period, 'threshold' => $threshold, 'comparison' => $comparison], returnType: ExistingAlert::class, decoder: 'json', operationId: 'uptimeUpdateAlert', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingAlert::class));
     }
 
@@ -339,6 +444,6 @@ class Uptime
 
         Validation::validateUuid('alert_id', $alertId);
 
-        return SdkClient::request('DELETE', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/alerts/" . SdkClient::encodePathSegment($alertId) . "", $clientConfig, decoder: 'empty', operationId: 'uptimeDeleteAlert', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/uptime/checks/" . SdkClient::encodePathSegment($checkId) . "/alerts/" . SdkClient::encodePathSegment($alertId) . "", $clientConfig, decoder: 'empty', operationId: 'uptimeDeleteAlert', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

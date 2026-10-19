@@ -19,11 +19,26 @@ final readonly class DomainsListRecordsType implements SdkOpenEnum
     public const SRV = "SRV";
     public const TXT = "TXT";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 class DomainRecords
@@ -51,7 +66,7 @@ class DomainRecords
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records", $clientConfig, query: ['name' => new SdkQueryValue($name, "form", true), 'type' => new SdkQueryValue($type, "form", true), 'per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllDomainRecordsResponse::class, decoder: 'json', operationId: 'domainsListRecords', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records", $clientConfig, query: ['name' => new SdkQueryValue($name, "form", true), 'type' => new SdkQueryValue($type, "form", true), 'per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllDomainRecordsResponse::class, decoder: 'json', operationId: 'domainsListRecords', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllDomainRecordsResponse::class));
     }
 
@@ -68,7 +83,7 @@ class DomainRecords
     public static function domainsCreateRecord(ClientConfig $clientConfig, string $domainName, DomainRecordARequest|DomainRecordAaaa|DomainRecordCaa|DomainRecordCname|DomainRecordMx|DomainRecordNs|DomainRecordSoa|DomainRecordSrv|DomainRecordTxt|SdkNotGiven $body = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): CreatedDomainRecord
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records", $clientConfig, body: $body, returnType: CreatedDomainRecord::class, decoder: 'json', operationId: 'domainsCreateRecord', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records", $clientConfig, body: $body, returnType: CreatedDomainRecord::class, decoder: 'json', operationId: 'domainsCreateRecord', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, CreatedDomainRecord::class));
     }
 
@@ -85,7 +100,7 @@ class DomainRecords
     public static function domainsGetRecord(ClientConfig $clientConfig, string $domainName, int $domainRecordId, ?RequestOptions $requestOptions = null): DomainRecordResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records/" . SdkClient::encodePathSegment($domainRecordId) . "", $clientConfig, returnType: DomainRecordResponse::class, decoder: 'json', operationId: 'domainsGetRecord', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records/" . SdkClient::encodePathSegment($domainRecordId) . "", $clientConfig, returnType: DomainRecordResponse::class, decoder: 'json', operationId: 'domainsGetRecord', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DomainRecordResponse::class));
     }
 
@@ -111,7 +126,7 @@ class DomainRecords
     public static function domainsPatchRecord(ClientConfig $clientConfig, string $domainName, int $domainRecordId, string $type, string|SdkNotGiven $name = SdkNotGiven::Value, string|SdkNotGiven $data = SdkNotGiven::Value, int|null|SdkNotGiven $priority = SdkNotGiven::Value, int|null|SdkNotGiven $port = SdkNotGiven::Value, int|SdkNotGiven $ttl = SdkNotGiven::Value, int|null|SdkNotGiven $weight = SdkNotGiven::Value, int|null|SdkNotGiven $flags = SdkNotGiven::Value, string|null|SdkNotGiven $tag = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): DomainRecordResponse
     {
 
-        $sdkResponse = SdkClient::request('PATCH', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records/" . SdkClient::encodePathSegment($domainRecordId) . "", $clientConfig, body: ['type' => $type, 'name' => $name, 'data' => $data, 'priority' => $priority, 'port' => $port, 'ttl' => $ttl, 'weight' => $weight, 'flags' => $flags, 'tag' => $tag], returnType: DomainRecordResponse::class, decoder: 'json', operationId: 'domainsPatchRecord', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PATCH', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records/" . SdkClient::encodePathSegment($domainRecordId) . "", $clientConfig, body: ['type' => $type, 'name' => $name, 'data' => $data, 'priority' => $priority, 'port' => $port, 'ttl' => $ttl, 'weight' => $weight, 'flags' => $flags, 'tag' => $tag], returnType: DomainRecordResponse::class, decoder: 'json', operationId: 'domainsPatchRecord', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DomainRecordResponse::class));
     }
 
@@ -137,7 +152,7 @@ class DomainRecords
     public static function domainsUpdateRecord(ClientConfig $clientConfig, string $domainName, int $domainRecordId, string $type, string|SdkNotGiven $name = SdkNotGiven::Value, string|SdkNotGiven $data = SdkNotGiven::Value, int|null|SdkNotGiven $priority = SdkNotGiven::Value, int|null|SdkNotGiven $port = SdkNotGiven::Value, int|SdkNotGiven $ttl = SdkNotGiven::Value, int|null|SdkNotGiven $weight = SdkNotGiven::Value, int|null|SdkNotGiven $flags = SdkNotGiven::Value, string|null|SdkNotGiven $tag = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): DomainRecordResponse
     {
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records/" . SdkClient::encodePathSegment($domainRecordId) . "", $clientConfig, body: ['type' => $type, 'name' => $name, 'data' => $data, 'priority' => $priority, 'port' => $port, 'ttl' => $ttl, 'weight' => $weight, 'flags' => $flags, 'tag' => $tag], returnType: DomainRecordResponse::class, decoder: 'json', operationId: 'domainsUpdateRecord', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records/" . SdkClient::encodePathSegment($domainRecordId) . "", $clientConfig, body: ['type' => $type, 'name' => $name, 'data' => $data, 'priority' => $priority, 'port' => $port, 'ttl' => $ttl, 'weight' => $weight, 'flags' => $flags, 'tag' => $tag], returnType: DomainRecordResponse::class, decoder: 'json', operationId: 'domainsUpdateRecord', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DomainRecordResponse::class));
     }
 
@@ -153,6 +168,6 @@ class DomainRecords
     public static function domainsDeleteRecord(ClientConfig $clientConfig, string $domainName, int $domainRecordId, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records/" . SdkClient::encodePathSegment($domainRecordId) . "", $clientConfig, decoder: 'empty', operationId: 'domainsDeleteRecord', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/domains/" . SdkClient::encodePathSegment($domainName) . "/records/" . SdkClient::encodePathSegment($domainRecordId) . "", $clientConfig, decoder: 'empty', operationId: 'domainsDeleteRecord', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

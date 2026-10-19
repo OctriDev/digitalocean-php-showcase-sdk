@@ -164,7 +164,9 @@ class OpensearchConfigRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "endpoint") || $data->endpoint === null) { throw new SdkValidationError("endpoint", 'required', "Required property 'endpoint' is missing or null"); }
+        if (!property_exists($data, "endpoint") || $data->endpoint === null) {
+            throw new SdkValidationError("endpoint", 'required', "Required property 'endpoint' is missing or null");
+        }
         return new self(
             endpoint: SdkClient::stringValue($data->endpoint),
             credentials: (property_exists($data, "credentials") && $data->credentials !== null ? SdkClient::hydrateClass($data->credentials, OpensearchConfigRequestCredentials::class) : SdkNotGiven::Value),
@@ -226,7 +228,9 @@ class SinkResource implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "urn") || $data->urn === null) { throw new SdkValidationError("urn", 'required', "Required property 'urn' is missing or null"); }
+        if (!property_exists($data, "urn") || $data->urn === null) {
+            throw new SdkValidationError("urn", 'required', "Required property 'urn' is missing or null");
+        }
         return new self(
             urn: SdkClient::stringValue($data->urn),
             name: (property_exists($data, "name") && $data->name !== null ? SdkClient::stringValue($data->name) : SdkNotGiven::Value),

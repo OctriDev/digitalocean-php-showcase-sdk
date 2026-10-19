@@ -123,9 +123,15 @@ class ConnectionPoolUpdate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "mode") || $data->mode === null) { throw new SdkValidationError("mode", 'required', "Required property 'mode' is missing or null"); }
-        if (!property_exists($data, "size") || $data->size === null) { throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null"); }
-        if (!property_exists($data, "db") || $data->db === null) { throw new SdkValidationError("db", 'required', "Required property 'db' is missing or null"); }
+        if (!property_exists($data, "mode") || $data->mode === null) {
+            throw new SdkValidationError("mode", 'required', "Required property 'mode' is missing or null");
+        }
+        if (!property_exists($data, "size") || $data->size === null) {
+            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
+        }
+        if (!property_exists($data, "db") || $data->db === null) {
+            throw new SdkValidationError("db", 'required', "Required property 'db' is missing or null");
+        }
         return new self(
             mode: SdkClient::stringValue($data->mode),
             size: SdkClient::intValue($data->size),

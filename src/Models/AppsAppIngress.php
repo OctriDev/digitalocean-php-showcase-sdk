@@ -272,7 +272,9 @@ class AppIngressSpecRuleRoutingComponent implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             preservePathPrefix: (property_exists($data, "preserve_path_prefix") && $data->preserve_path_prefix !== null ? SdkClient::stringValue($data->preserve_path_prefix) : SdkNotGiven::Value),

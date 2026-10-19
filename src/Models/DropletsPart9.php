@@ -83,8 +83,12 @@ class DropletsCreateResponseVariant1 implements DropletsCreateResponse, \JsonSer
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "droplets") || $data->droplets === null) { throw new SdkValidationError("droplets", 'required', "Required property 'droplets' is missing or null"); }
-        if (!property_exists($data, "links") || $data->links === null) { throw new SdkValidationError("links", 'required', "Required property 'links' is missing or null"); }
+        if (!property_exists($data, "droplets") || $data->droplets === null) {
+            throw new SdkValidationError("droplets", 'required', "Required property 'droplets' is missing or null");
+        }
+        if (!property_exists($data, "links") || $data->links === null) {
+            throw new SdkValidationError("links", 'required', "Required property 'links' is missing or null");
+        }
         return new self(
             droplets: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Droplet::class), SdkClient::arrayValue($data->droplets))),
             links: SdkClient::hydrateClass($data->links, DropletsCreateResponseVariant1Links::class),
@@ -127,7 +131,9 @@ class DropletSingleCreateRequestVariant0 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
         );

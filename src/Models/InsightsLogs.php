@@ -15,11 +15,26 @@ final readonly class LogsFieldRefScopeEnum implements SdkOpenEnum
     public const FIELD_SCOPE_RESOURCE = "FIELD_SCOPE_RESOURCE";
     public const FIELD_SCOPE_ATTRIBUTES = "FIELD_SCOPE_ATTRIBUTES";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -72,7 +87,9 @@ class LogsFieldRef implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             scope: (property_exists($data, "scope") && $data->scope !== null ? SdkClient::hydrateStringEnumOrString($data->scope, LogsFieldRefScopeEnum::class) : SdkNotGiven::Value),
@@ -92,11 +109,26 @@ final readonly class LogsFilterConditionOperatorEnum implements SdkOpenEnum
     public const FILTER_OPERATOR_GTE = "FILTER_OPERATOR_GTE";
     public const FILTER_OPERATOR_LTE = "FILTER_OPERATOR_LTE";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -159,8 +191,12 @@ class LogsFilterCondition implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "field") || $data->field === null) { throw new SdkValidationError("field", 'required', "Required property 'field' is missing or null"); }
-        if (!property_exists($data, "operator") || $data->operator === null) { throw new SdkValidationError("operator", 'required', "Required property 'operator' is missing or null"); }
+        if (!property_exists($data, "field") || $data->field === null) {
+            throw new SdkValidationError("field", 'required', "Required property 'field' is missing or null");
+        }
+        if (!property_exists($data, "operator") || $data->operator === null) {
+            throw new SdkValidationError("operator", 'required', "Required property 'operator' is missing or null");
+        }
         return new self(
             field: SdkClient::hydrateClass($data->field, LogsFieldRef::class),
             operator: SdkClient::hydrateStringEnumOrString($data->operator, LogsFilterConditionOperatorEnum::class),
@@ -207,7 +243,9 @@ class LogsFilterExpressionAnd implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "expressions") || $data->expressions === null) { throw new SdkValidationError("expressions", 'required', "Required property 'expressions' is missing or null"); }
+        if (!property_exists($data, "expressions") || $data->expressions === null) {
+            throw new SdkValidationError("expressions", 'required', "Required property 'expressions' is missing or null");
+        }
         return new self(
             expressions: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, LogsFilterExpression::class), SdkClient::arrayValue($data->expressions))),
         );
@@ -252,7 +290,9 @@ class LogsFilterExpressionOr implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "expressions") || $data->expressions === null) { throw new SdkValidationError("expressions", 'required', "Required property 'expressions' is missing or null"); }
+        if (!property_exists($data, "expressions") || $data->expressions === null) {
+            throw new SdkValidationError("expressions", 'required', "Required property 'expressions' is missing or null");
+        }
         return new self(
             expressions: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, LogsFilterExpression::class), SdkClient::arrayValue($data->expressions))),
         );
@@ -297,7 +337,9 @@ class LogsFilterExpressionTextSearch implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "query") || $data->query === null) { throw new SdkValidationError("query", 'required', "Required property 'query' is missing or null"); }
+        if (!property_exists($data, "query") || $data->query === null) {
+            throw new SdkValidationError("query", 'required', "Required property 'query' is missing or null");
+        }
         return new self(
             query: SdkClient::stringValue($data->query),
         );

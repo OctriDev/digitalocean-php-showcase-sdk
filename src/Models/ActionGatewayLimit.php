@@ -17,11 +17,26 @@ final readonly class LimitCategory implements SdkOpenEnum
     public const LIMIT_CATEGORY_NATIVE_TOOL_CALLS_REQUESTS_PER_MINUTE = "LIMIT_CATEGORY_NATIVE_TOOL_CALLS_REQUESTS_PER_MINUTE";
     public const LIMIT_CATEGORY_NON_NATIVE_TOOL_CALLS_REQUESTS_PER_MINUTE = "LIMIT_CATEGORY_NON_NATIVE_TOOL_CALLS_REQUESTS_PER_MINUTE";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -72,8 +87,12 @@ class LimitOverride implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "category") || $data->category === null) { throw new SdkValidationError("category", 'required', "Required property 'category' is missing or null"); }
-        if (!property_exists($data, "requests_per_minute") || $data->requests_per_minute === null) { throw new SdkValidationError("requests_per_minute", 'required', "Required property 'requests_per_minute' is missing or null"); }
+        if (!property_exists($data, "category") || $data->category === null) {
+            throw new SdkValidationError("category", 'required', "Required property 'category' is missing or null");
+        }
+        if (!property_exists($data, "requests_per_minute") || $data->requests_per_minute === null) {
+            throw new SdkValidationError("requests_per_minute", 'required', "Required property 'requests_per_minute' is missing or null");
+        }
         return new self(
             category: SdkClient::hydrateEnum($data->category, LimitCategory::class),
             requestsPerMinute: SdkClient::stringValue($data->requests_per_minute),

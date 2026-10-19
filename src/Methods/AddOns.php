@@ -17,7 +17,7 @@ class AddOns
     public static function addonsGetApp(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): AddonsGetApp
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/add-ons/apps", $clientConfig, returnType: AddonsGetApp::class, decoder: 'json', operationId: 'addonsGetApp', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/add-ons/apps", $clientConfig, returnType: AddonsGetApp::class, decoder: 'json', operationId: 'addonsGetApp', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AddonsGetApp::class));
     }
 
@@ -33,7 +33,7 @@ class AddOns
     public static function addonsGetAppMetadata(ClientConfig $clientConfig, string $appSlug, ?RequestOptions $requestOptions = null): AddonsGetAppMetadata
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/add-ons/apps/" . SdkClient::encodePathSegment($appSlug) . "/metadata", $clientConfig, returnType: AddonsGetAppMetadata::class, decoder: 'json', operationId: 'addonsGetAppMetadata', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/add-ons/apps/" . SdkClient::encodePathSegment($appSlug) . "/metadata", $clientConfig, returnType: AddonsGetAppMetadata::class, decoder: 'json', operationId: 'addonsGetAppMetadata', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AddonsGetAppMetadata::class));
     }
 
@@ -46,7 +46,7 @@ class AddOns
     public static function addonsList(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): AddonsList
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/add-ons/saas", $clientConfig, returnType: AddonsList::class, decoder: 'json', operationId: 'addonsList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/add-ons/saas", $clientConfig, returnType: AddonsList::class, decoder: 'json', operationId: 'addonsList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AddonsList::class));
     }
 
@@ -67,7 +67,7 @@ class AddOns
     public static function addonsCreate(ClientConfig $clientConfig, string $appSlug, string $planSlug, string $name, array $metadata, int|SdkNotGiven $linkedDropletId = SdkNotGiven::Value, string|SdkNotGiven $fleetUuid = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): AddonsCreate
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/add-ons/saas", $clientConfig, body: ['app_slug' => $appSlug, 'plan_slug' => $planSlug, 'name' => $name, 'metadata' => $metadata, 'linked_droplet_id' => $linkedDropletId, 'fleet_uuid' => $fleetUuid], returnType: AddonsCreate::class, decoder: 'json', operationId: 'addonsCreate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/add-ons/saas", $clientConfig, body: ['app_slug' => $appSlug, 'plan_slug' => $planSlug, 'name' => $name, 'metadata' => $metadata, 'linked_droplet_id' => $linkedDropletId, 'fleet_uuid' => $fleetUuid], returnType: AddonsCreate::class, decoder: 'json', operationId: 'addonsCreate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AddonsCreate::class));
     }
 
@@ -83,7 +83,7 @@ class AddOns
     public static function addonsGet(ClientConfig $clientConfig, string $resourceUuid, ?RequestOptions $requestOptions = null): AddonsGet
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/add-ons/saas/" . SdkClient::encodePathSegment($resourceUuid) . "", $clientConfig, returnType: AddonsGet::class, decoder: 'json', operationId: 'addonsGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/add-ons/saas/" . SdkClient::encodePathSegment($resourceUuid) . "", $clientConfig, returnType: AddonsGet::class, decoder: 'json', operationId: 'addonsGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AddonsGet::class));
     }
 
@@ -100,7 +100,7 @@ class AddOns
 
         Validation::validateUuid('resource_uuid', $resourceUuid);
 
-        return SdkClient::request('DELETE', "/v2/add-ons/saas/" . SdkClient::encodePathSegment($resourceUuid) . "", $clientConfig, decoder: 'empty', operationId: 'addonsDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/add-ons/saas/" . SdkClient::encodePathSegment($resourceUuid) . "", $clientConfig, decoder: 'empty', operationId: 'addonsDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -116,7 +116,7 @@ class AddOns
     public static function addonsPatch(ClientConfig $clientConfig, string $resourceUuid, string $name, ?RequestOptions $requestOptions = null): AddonsUpdate
     {
 
-        $sdkResponse = SdkClient::request('PATCH', "/v2/add-ons/saas/" . SdkClient::encodePathSegment($resourceUuid) . "", $clientConfig, body: ['name' => $name], returnType: AddonsUpdate::class, decoder: 'json', operationId: 'addonsPatch', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PATCH', "/v2/add-ons/saas/" . SdkClient::encodePathSegment($resourceUuid) . "", $clientConfig, body: ['name' => $name], returnType: AddonsUpdate::class, decoder: 'json', operationId: 'addonsPatch', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AddonsUpdate::class));
     }
 
@@ -133,7 +133,7 @@ class AddOns
     public static function addonsPatchPlan(ClientConfig $clientConfig, string $resourceUuid, string $planSlug, ?RequestOptions $requestOptions = null): AddonsUpdate
     {
 
-        $sdkResponse = SdkClient::request('PATCH', "/v2/add-ons/saas/" . SdkClient::encodePathSegment($resourceUuid) . "/plan", $clientConfig, body: ['plan_slug' => $planSlug], returnType: AddonsUpdate::class, decoder: 'json', operationId: 'addonsPatchPlan', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PATCH', "/v2/add-ons/saas/" . SdkClient::encodePathSegment($resourceUuid) . "/plan", $clientConfig, body: ['plan_slug' => $planSlug], returnType: AddonsUpdate::class, decoder: 'json', operationId: 'addonsPatchPlan', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AddonsUpdate::class));
     }
 }

@@ -42,7 +42,9 @@ class VolumesVariant0 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "volumes") || $data->volumes === null) { throw new SdkValidationError("volumes", 'required', "Required property 'volumes' is missing or null"); }
+        if (!property_exists($data, "volumes") || $data->volumes === null) {
+            throw new SdkValidationError("volumes", 'required', "Required property 'volumes' is missing or null");
+        }
         return new self(
             volumes: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, VolumeFull::class), SdkClient::arrayValue($data->volumes))),
         );
@@ -109,8 +111,12 @@ class Volumes implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "volumes") || $data->volumes === null) { throw new SdkValidationError("volumes", 'required', "Required property 'volumes' is missing or null"); }
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "volumes") || $data->volumes === null) {
+            throw new SdkValidationError("volumes", 'required', "Required property 'volumes' is missing or null");
+        }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             volumes: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, VolumeFull::class), SdkClient::arrayValue($data->volumes))),
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
@@ -162,7 +168,9 @@ class VolumesExt4RequestVariant3 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
+        if (!property_exists($data, "region") || $data->region === null) {
+            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
+        }
         return new self(
             region: SdkClient::hydrateStringEnumOrString($data->region, RegionSlug::class),
             filesystemLabel: (property_exists($data, "filesystem_label") && $data->filesystem_label !== null ? SdkClient::stringValue($data->filesystem_label) : SdkNotGiven::Value),
@@ -284,9 +292,15 @@ class VolumesExt4Request implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) { throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null"); }
-        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) {
+            throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null");
+        }
+        if (!property_exists($data, "region") || $data->region === null) {
+            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             sizeGigabytes: SdkClient::intValue($data->size_gigabytes),

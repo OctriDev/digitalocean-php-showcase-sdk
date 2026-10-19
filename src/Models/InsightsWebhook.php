@@ -57,7 +57,9 @@ class WebhookBasicAuthRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "username") || $data->username === null) { throw new SdkValidationError("username", 'required', "Required property 'username' is missing or null"); }
+        if (!property_exists($data, "username") || $data->username === null) {
+            throw new SdkValidationError("username", 'required', "Required property 'username' is missing or null");
+        }
         return new self(
             username: SdkClient::stringValue($data->username),
             password: (property_exists($data, "password") && $data->password !== null ? SdkClient::stringValue($data->password) : SdkNotGiven::Value),
@@ -115,7 +117,9 @@ class WebhookBasicAuthResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "username") || $data->username === null) { throw new SdkValidationError("username", 'required', "Required property 'username' is missing or null"); }
+        if (!property_exists($data, "username") || $data->username === null) {
+            throw new SdkValidationError("username", 'required', "Required property 'username' is missing or null");
+        }
         return new self(
             username: SdkClient::stringValue($data->username),
             passwordStatus: (property_exists($data, "password_status") && $data->password_status !== null ? SdkClient::hydrateClass($data->password_status, SecretStatus::class) : SdkNotGiven::Value),
@@ -301,7 +305,9 @@ class WebhookNotificationConfigRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         return new self(
             url: SdkClient::stringValue($data->url),
             basicAuth: (property_exists($data, "basic_auth") && $data->basic_auth !== null ? SdkClient::hydrateClass($data->basic_auth, WebhookBasicAuthRequest::class) : SdkNotGiven::Value),

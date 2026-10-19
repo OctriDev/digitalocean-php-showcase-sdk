@@ -135,10 +135,18 @@ class RsyslogLogsink implements LogsinkUpdateConfig, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "server") || $data->server === null) { throw new SdkValidationError("server", 'required', "Required property 'server' is missing or null"); }
-        if (!property_exists($data, "port") || $data->port === null) { throw new SdkValidationError("port", 'required', "Required property 'port' is missing or null"); }
-        if (!property_exists($data, "tls") || $data->tls === null) { throw new SdkValidationError("tls", 'required', "Required property 'tls' is missing or null"); }
-        if (!property_exists($data, "format") || $data->format === null) { throw new SdkValidationError("format", 'required', "Required property 'format' is missing or null"); }
+        if (!property_exists($data, "server") || $data->server === null) {
+            throw new SdkValidationError("server", 'required', "Required property 'server' is missing or null");
+        }
+        if (!property_exists($data, "port") || $data->port === null) {
+            throw new SdkValidationError("port", 'required', "Required property 'port' is missing or null");
+        }
+        if (!property_exists($data, "tls") || $data->tls === null) {
+            throw new SdkValidationError("tls", 'required', "Required property 'tls' is missing or null");
+        }
+        if (!property_exists($data, "format") || $data->format === null) {
+            throw new SdkValidationError("format", 'required', "Required property 'format' is missing or null");
+        }
         return new self(
             server: SdkClient::stringValue($data->server),
             port: SdkClient::intValue($data->port),
@@ -313,7 +321,9 @@ class SourceDatabase implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
+        if (!property_exists($data, "source") || $data->source === null) {
+            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
+        }
         return new self(
             source: SdkClient::hydrateClass($data->source, SourceDatabaseSource::class),
             disableSsl: (property_exists($data, "disable_ssl") && $data->disable_ssl !== null ? SdkClient::boolValue($data->disable_ssl) : SdkNotGiven::Value),

@@ -99,10 +99,18 @@ class AddonsResourceNew implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "app_slug") || $data->app_slug === null) { throw new SdkValidationError("app_slug", 'required', "Required property 'app_slug' is missing or null"); }
-        if (!property_exists($data, "plan_slug") || $data->plan_slug === null) { throw new SdkValidationError("plan_slug", 'required', "Required property 'plan_slug' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "metadata") || $data->metadata === null) { throw new SdkValidationError("metadata", 'required', "Required property 'metadata' is missing or null"); }
+        if (!property_exists($data, "app_slug") || $data->app_slug === null) {
+            throw new SdkValidationError("app_slug", 'required', "Required property 'app_slug' is missing or null");
+        }
+        if (!property_exists($data, "plan_slug") || $data->plan_slug === null) {
+            throw new SdkValidationError("plan_slug", 'required', "Required property 'plan_slug' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "metadata") || $data->metadata === null) {
+            throw new SdkValidationError("metadata", 'required', "Required property 'metadata' is missing or null");
+        }
         return new self(
             appSlug: SdkClient::stringValue($data->app_slug),
             planSlug: SdkClient::stringValue($data->plan_slug),
@@ -164,7 +172,9 @@ class AppPropose implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
+        if (!property_exists($data, "spec") || $data->spec === null) {
+            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
+        }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, AppSpec::class),
             appId: (property_exists($data, "app_id") && $data->app_id !== null ? SdkClient::stringValue($data->app_id) : SdkNotGiven::Value),

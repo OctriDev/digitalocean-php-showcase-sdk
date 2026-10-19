@@ -137,15 +137,33 @@ class AccessPointResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "share_id") || $data->share_id === null) { throw new SdkValidationError("share_id", 'required', "Required property 'share_id' is missing or null"); }
-        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
-        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
-        if (!property_exists($data, "access_policy") || $data->access_policy === null) { throw new SdkValidationError("access_policy", 'required', "Required property 'access_policy' is missing or null"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
-        if (!property_exists($data, "is_default") || $data->is_default === null) { throw new SdkValidationError("is_default", 'required', "Required property 'is_default' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "share_id") || $data->share_id === null) {
+            throw new SdkValidationError("share_id", 'required', "Required property 'share_id' is missing or null");
+        }
+        if (!property_exists($data, "path") || $data->path === null) {
+            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
+        }
+        if (!property_exists($data, "status") || $data->status === null) {
+            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
+        }
+        if (!property_exists($data, "access_policy") || $data->access_policy === null) {
+            throw new SdkValidationError("access_policy", 'required', "Required property 'access_policy' is missing or null");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
+            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
+        }
+        if (!property_exists($data, "is_default") || $data->is_default === null) {
+            throw new SdkValidationError("is_default", 'required', "Required property 'is_default' is missing or null");
+        }
         return new self(
             id: SdkClient::stringValue($data->id),
             name: SdkClient::stringValue($data->name),
@@ -169,11 +187,26 @@ final readonly class AccessPolicyProtocolsItemEnum implements SdkOpenEnum
     public const NFS4 = "NFS4";
     public const NFS = "NFS";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -185,11 +218,26 @@ final readonly class AccessPolicySquashConfigEnum implements SdkOpenEnum
     public const ROOT_SQUASH = "ROOT_SQUASH";
     public const ALL_SQUASH = "ALL_SQUASH";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -270,11 +318,21 @@ class AccessPolicy implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "anonuid") || $data->anonuid === null) { throw new SdkValidationError("anonuid", 'required', "Required property 'anonuid' is missing or null"); }
-        if (!property_exists($data, "anongid") || $data->anongid === null) { throw new SdkValidationError("anongid", 'required', "Required property 'anongid' is missing or null"); }
-        if (!property_exists($data, "protocols") || $data->protocols === null) { throw new SdkValidationError("protocols", 'required', "Required property 'protocols' is missing or null"); }
-        if (!property_exists($data, "squash_config") || $data->squash_config === null) { throw new SdkValidationError("squash_config", 'required', "Required property 'squash_config' is missing or null"); }
-        if (!property_exists($data, "identity_enforcement_enabled") || $data->identity_enforcement_enabled === null) { throw new SdkValidationError("identity_enforcement_enabled", 'required', "Required property 'identity_enforcement_enabled' is missing or null"); }
+        if (!property_exists($data, "anonuid") || $data->anonuid === null) {
+            throw new SdkValidationError("anonuid", 'required', "Required property 'anonuid' is missing or null");
+        }
+        if (!property_exists($data, "anongid") || $data->anongid === null) {
+            throw new SdkValidationError("anongid", 'required', "Required property 'anongid' is missing or null");
+        }
+        if (!property_exists($data, "protocols") || $data->protocols === null) {
+            throw new SdkValidationError("protocols", 'required', "Required property 'protocols' is missing or null");
+        }
+        if (!property_exists($data, "squash_config") || $data->squash_config === null) {
+            throw new SdkValidationError("squash_config", 'required', "Required property 'squash_config' is missing or null");
+        }
+        if (!property_exists($data, "identity_enforcement_enabled") || $data->identity_enforcement_enabled === null) {
+            throw new SdkValidationError("identity_enforcement_enabled", 'required', "Required property 'identity_enforcement_enabled' is missing or null");
+        }
         return new self(
             anonuid: SdkClient::intValue($data->anonuid),
             anongid: SdkClient::intValue($data->anongid),
@@ -333,8 +391,12 @@ class NfsApiError implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "code") || $data->code === null) { throw new SdkValidationError("code", 'required', "Required property 'code' is missing or null"); }
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "code") || $data->code === null) {
+            throw new SdkValidationError("code", 'required', "Required property 'code' is missing or null");
+        }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
         return new self(
             code: SdkClient::stringValue($data->code),
             message: SdkClient::stringValue($data->message),

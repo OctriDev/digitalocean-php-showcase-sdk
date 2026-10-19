@@ -65,7 +65,9 @@ class VpcNatGateways implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             vpcNatGateways: (property_exists($data, "vpc_nat_gateways") && $data->vpc_nat_gateways !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, VpcNatGatewayGet::class), SdkClient::arrayValue($data->vpc_nat_gateways))) : SdkNotGiven::Value),
@@ -242,8 +244,12 @@ class VpcNatGatewayUpdate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "size") || $data->size === null) { throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "size") || $data->size === null) {
+            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             size: SdkClient::intValue($data->size),

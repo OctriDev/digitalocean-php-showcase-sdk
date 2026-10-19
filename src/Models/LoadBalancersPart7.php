@@ -357,7 +357,9 @@ class LoadBalancerBase implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "forwarding_rules") || $data->forwarding_rules === null) { throw new SdkValidationError("forwarding_rules", 'required', "Required property 'forwarding_rules' is missing or null"); }
+        if (!property_exists($data, "forwarding_rules") || $data->forwarding_rules === null) {
+            throw new SdkValidationError("forwarding_rules", 'required', "Required property 'forwarding_rules' is missing or null");
+        }
         return new self(
             forwardingRules: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ForwardingRule::class), SdkClient::arrayValue($data->forwarding_rules))),
             id: (property_exists($data, "id") && $data->id !== null ? SdkClient::stringValue($data->id) : SdkNotGiven::Value),

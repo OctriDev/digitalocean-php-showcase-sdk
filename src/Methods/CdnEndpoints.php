@@ -29,7 +29,7 @@ class CdnEndpoints
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/cdn/endpoints", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllCdnEndpoints::class, decoder: 'json', operationId: 'cdnListEndpoints', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/cdn/endpoints", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: AllCdnEndpoints::class, decoder: 'json', operationId: 'cdnListEndpoints', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllCdnEndpoints::class));
     }
 
@@ -52,7 +52,7 @@ class CdnEndpoints
             Validation::validateUuid('certificate_id', $certificateId);
         }
 
-        $sdkResponse = SdkClient::request('POST', "/v2/cdn/endpoints", $clientConfig, body: ['origin' => $origin, 'ttl' => $ttl, 'certificate_id' => $certificateId, 'custom_domain' => $customDomain], returnType: ExistingEndpoint::class, decoder: 'json', operationId: 'cdnCreateEndpoint', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/cdn/endpoints", $clientConfig, body: ['origin' => $origin, 'ttl' => $ttl, 'certificate_id' => $certificateId, 'custom_domain' => $customDomain], returnType: ExistingEndpoint::class, decoder: 'json', operationId: 'cdnCreateEndpoint', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingEndpoint::class));
     }
 
@@ -70,7 +70,7 @@ class CdnEndpoints
 
         Validation::validateUuid('cdn_id', $cdnId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/cdn/endpoints/" . SdkClient::encodePathSegment($cdnId) . "", $clientConfig, returnType: ExistingEndpoint::class, decoder: 'json', operationId: 'cdnGetEndpoint', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/cdn/endpoints/" . SdkClient::encodePathSegment($cdnId) . "", $clientConfig, returnType: ExistingEndpoint::class, decoder: 'json', operationId: 'cdnGetEndpoint', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingEndpoint::class));
     }
 
@@ -95,7 +95,7 @@ class CdnEndpoints
             Validation::validateUuid('certificate_id', $certificateId);
         }
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/cdn/endpoints/" . SdkClient::encodePathSegment($cdnId) . "", $clientConfig, body: ['ttl' => $ttl, 'certificate_id' => $certificateId, 'custom_domain' => $customDomain], returnType: ExistingEndpoint::class, decoder: 'json', operationId: 'cdnUpdateEndpoints', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/cdn/endpoints/" . SdkClient::encodePathSegment($cdnId) . "", $clientConfig, body: ['ttl' => $ttl, 'certificate_id' => $certificateId, 'custom_domain' => $customDomain], returnType: ExistingEndpoint::class, decoder: 'json', operationId: 'cdnUpdateEndpoints', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingEndpoint::class));
     }
 
@@ -112,7 +112,7 @@ class CdnEndpoints
 
         Validation::validateUuid('cdn_id', $cdnId);
 
-        return SdkClient::request('DELETE', "/v2/cdn/endpoints/" . SdkClient::encodePathSegment($cdnId) . "", $clientConfig, decoder: 'empty', operationId: 'cdnDeleteEndpoint', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/cdn/endpoints/" . SdkClient::encodePathSegment($cdnId) . "", $clientConfig, decoder: 'empty', operationId: 'cdnDeleteEndpoint', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -129,6 +129,6 @@ class CdnEndpoints
 
         Validation::validateUuid('cdn_id', $cdnId);
 
-        return SdkClient::request('DELETE', "/v2/cdn/endpoints/" . SdkClient::encodePathSegment($cdnId) . "/cache", $clientConfig, body: ['files' => $files], decoder: 'empty', operationId: 'cdnPurgeCache', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/cdn/endpoints/" . SdkClient::encodePathSegment($cdnId) . "/cache", $clientConfig, body: ['files' => $files], decoder: 'empty', operationId: 'cdnPurgeCache', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

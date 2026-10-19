@@ -104,7 +104,9 @@ class AllCheckpoints implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             checkpoints: (property_exists($data, "checkpoints") && $data->checkpoints !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Checkpoint2::class), SdkClient::arrayValue($data->checkpoints))) : SdkNotGiven::Value),
@@ -210,7 +212,9 @@ class AllMicrovms implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             microvms: (property_exists($data, "microvms") && $data->microvms !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Microvm::class), SdkClient::arrayValue($data->microvms))) : SdkNotGiven::Value),
@@ -230,9 +234,24 @@ final readonly class Checkpoint2StatusEnum implements SdkOpenEnum
     public const CHECKPOINT_DELETING = "CHECKPOINT_DELETING";
     public const CHECKPOINT_DELETED = "CHECKPOINT_DELETED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
