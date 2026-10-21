@@ -45,9 +45,7 @@ class DatabaseClusterResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "database") || $data->database === null) {
-            throw new SdkValidationError("database", 'required', "Required property 'database' is missing or null");
-        }
+        if (!property_exists($data, "database") || $data->database === null) { throw new SdkValidationError("database", 'required', "Required property 'database' is missing or null"); }
         return new self(
             database: SdkClient::hydrateClass($data->database, DatabaseClusterRead::class),
         );
@@ -183,10 +181,12 @@ class DatabaseConnection implements \JsonSerializable
  */
 class DatabaseConnectionRequest implements \JsonSerializable
 {
+
     /**
      */
     public function __construct(
-    ) {}
+    ) {
+    }
 
     /** @return array<array-key, mixed> */
     public function toArray(): array
@@ -281,12 +281,8 @@ class DatabaseMaintenanceWindow implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "day") || $data->day === null) {
-            throw new SdkValidationError("day", 'required', "Required property 'day' is missing or null");
-        }
-        if (!property_exists($data, "hour") || $data->hour === null) {
-            throw new SdkValidationError("hour", 'required', "Required property 'hour' is missing or null");
-        }
+        if (!property_exists($data, "day") || $data->day === null) { throw new SdkValidationError("day", 'required', "Required property 'day' is missing or null"); }
+        if (!property_exists($data, "hour") || $data->hour === null) { throw new SdkValidationError("hour", 'required', "Required property 'hour' is missing or null"); }
         return new self(
             day: SdkClient::stringValue($data->day),
             hour: SdkClient::stringValue($data->hour),
@@ -344,12 +340,8 @@ class DatabaseMaintenanceWindowRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "day") || $data->day === null) {
-            throw new SdkValidationError("day", 'required', "Required property 'day' is missing or null");
-        }
-        if (!property_exists($data, "hour") || $data->hour === null) {
-            throw new SdkValidationError("hour", 'required', "Required property 'hour' is missing or null");
-        }
+        if (!property_exists($data, "day") || $data->day === null) { throw new SdkValidationError("day", 'required', "Required property 'day' is missing or null"); }
+        if (!property_exists($data, "hour") || $data->hour === null) { throw new SdkValidationError("hour", 'required', "Required property 'hour' is missing or null"); }
         return new self(
             day: SdkClient::stringValue($data->day),
             hour: SdkClient::stringValue($data->hour),

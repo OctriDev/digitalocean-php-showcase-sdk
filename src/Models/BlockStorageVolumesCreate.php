@@ -259,9 +259,7 @@ class VolumesExt4RequestVariant3 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "region") || $data->region === null) {
-            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
-        }
+        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
         return new self(
             region: SdkClient::hydrateStringEnumOrString($data->region, RegionSlug::class),
             filesystemLabel: (property_exists($data, "filesystem_label") && $data->filesystem_label !== null ? SdkClient::stringValue($data->filesystem_label) : SdkNotGiven::Value),

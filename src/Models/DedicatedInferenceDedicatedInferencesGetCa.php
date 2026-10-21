@@ -45,9 +45,7 @@ class CaCertificate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cert") || $data->cert === null) {
-            throw new SdkValidationError("cert", 'required', "Required property 'cert' is missing or null");
-        }
+        if (!property_exists($data, "cert") || $data->cert === null) { throw new SdkValidationError("cert", 'required', "Required property 'cert' is missing or null"); }
         return new self(
             cert: SdkClient::stringValue($data->cert),
         );

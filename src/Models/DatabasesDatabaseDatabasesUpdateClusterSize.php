@@ -67,12 +67,8 @@ class DatabaseClusterResize implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "size") || $data->size === null) {
-            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
-        }
-        if (!property_exists($data, "num_nodes") || $data->num_nodes === null) {
-            throw new SdkValidationError("num_nodes", 'required', "Required property 'num_nodes' is missing or null");
-        }
+        if (!property_exists($data, "size") || $data->size === null) { throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null"); }
+        if (!property_exists($data, "num_nodes") || $data->num_nodes === null) { throw new SdkValidationError("num_nodes", 'required', "Required property 'num_nodes' is missing or null"); }
         return new self(
             size: SdkClient::stringValue($data->size),
             numNodes: SdkClient::intValue($data->num_nodes),

@@ -67,12 +67,8 @@ class ErrorWithRootCauses implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error") || $data->error === null) {
-            throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null");
-        }
-        if (!property_exists($data, "root_causes") || $data->root_causes === null) {
-            throw new SdkValidationError("root_causes", 'required', "Required property 'root_causes' is missing or null");
-        }
+        if (!property_exists($data, "error") || $data->error === null) { throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null"); }
+        if (!property_exists($data, "root_causes") || $data->root_causes === null) { throw new SdkValidationError("root_causes", 'required', "Required property 'root_causes' is missing or null"); }
         return new self(
             error: SdkClient::stringValue($data->error),
             rootCauses: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->root_causes))),

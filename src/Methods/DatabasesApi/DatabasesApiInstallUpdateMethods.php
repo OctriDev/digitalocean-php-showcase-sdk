@@ -21,6 +21,6 @@ trait DatabasesApiInstallUpdateMethods
 
         Validation::validateUuid('database_cluster_uuid', $databaseClusterUuid);
 
-        return SdkClient::request('PUT', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/install_update", $clientConfig, decoder: 'empty', operationId: 'databasesInstallUpdate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('PUT', "/v2/databases/" . SdkClient::encodePathSegment($databaseClusterUuid) . "/install_update", $clientConfig, decoder: 'empty', operationId: 'databasesInstallUpdate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

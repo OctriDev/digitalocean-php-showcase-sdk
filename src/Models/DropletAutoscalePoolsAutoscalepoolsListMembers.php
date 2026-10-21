@@ -104,9 +104,7 @@ class AllMembers implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             droplets: (property_exists($data, "droplets") && $data->droplets !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Member::class), SdkClient::arrayValue($data->droplets))) : SdkNotGiven::Value),
@@ -123,26 +121,11 @@ final readonly class MemberHealthStatusEnum implements SdkOpenEnum
     public const HEALTHY = "healthy";
     public const UNHEALTHY = "unhealthy";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -155,26 +138,11 @@ final readonly class MemberStatusEnum implements SdkOpenEnum
     public const DELETING = "deleting";
     public const OFF = "off";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -277,24 +245,12 @@ class Member implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) {
-            throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
-        if (!property_exists($data, "health_status") || $data->health_status === null) {
-            throw new SdkValidationError("health_status", 'required', "Required property 'health_status' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "current_utilization") || $data->current_utilization === null) {
-            throw new SdkValidationError("current_utilization", 'required', "Required property 'current_utilization' is missing or null");
-        }
+        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) { throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
+        if (!property_exists($data, "health_status") || $data->health_status === null) { throw new SdkValidationError("health_status", 'required', "Required property 'health_status' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "current_utilization") || $data->current_utilization === null) { throw new SdkValidationError("current_utilization", 'required', "Required property 'current_utilization' is missing or null"); }
         return new self(
             dropletId: SdkClient::intValue($data->droplet_id),
             createdAt: SdkClient::stringValue($data->created_at),

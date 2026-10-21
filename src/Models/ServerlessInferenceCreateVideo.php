@@ -79,12 +79,8 @@ class CreateVideoRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "model") || $data->model === null) {
-            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
-        }
-        if (!property_exists($data, "prompt") || $data->prompt === null) {
-            throw new SdkValidationError("prompt", 'required', "Required property 'prompt' is missing or null");
-        }
+        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "prompt") || $data->prompt === null) { throw new SdkValidationError("prompt", 'required', "Required property 'prompt' is missing or null"); }
         return new self(
             model: SdkClient::stringValue($data->model),
             prompt: SdkClient::stringValue($data->prompt),

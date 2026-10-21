@@ -251,24 +251,12 @@ class Batch implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "batch_id") || $data->batch_id === null) {
-            throw new SdkValidationError("batch_id", 'required', "Required property 'batch_id' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "provider") || $data->provider === null) {
-            throw new SdkValidationError("provider", 'required', "Required property 'provider' is missing or null");
-        }
-        if (!property_exists($data, "completion_window") || $data->completion_window === null) {
-            throw new SdkValidationError("completion_window", 'required', "Required property 'completion_window' is missing or null");
-        }
-        if (!property_exists($data, "input_file_id") || $data->input_file_id === null) {
-            throw new SdkValidationError("input_file_id", 'required', "Required property 'input_file_id' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
+        if (!property_exists($data, "batch_id") || $data->batch_id === null) { throw new SdkValidationError("batch_id", 'required', "Required property 'batch_id' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "provider") || $data->provider === null) { throw new SdkValidationError("provider", 'required', "Required property 'provider' is missing or null"); }
+        if (!property_exists($data, "completion_window") || $data->completion_window === null) { throw new SdkValidationError("completion_window", 'required', "Required property 'completion_window' is missing or null"); }
+        if (!property_exists($data, "input_file_id") || $data->input_file_id === null) { throw new SdkValidationError("input_file_id", 'required', "Required property 'input_file_id' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
         return new self(
             batchId: SdkClient::stringValue($data->batch_id),
             status: SdkClient::hydrateStringEnumOrString($data->status, BatchStatusEnum::class),

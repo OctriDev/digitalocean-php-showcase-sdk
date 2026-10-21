@@ -42,9 +42,7 @@ class FloatingIpCreateVariant0 implements FloatingIpCreate, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) {
-            throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null");
-        }
+        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) { throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null"); }
         return new self(
             dropletId: SdkClient::intValue($data->droplet_id),
         );
@@ -98,9 +96,7 @@ class FloatingIpCreateVariant1 implements FloatingIpCreate, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "region") || $data->region === null) {
-            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
-        }
+        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
         return new self(
             region: SdkClient::stringValue($data->region),
             projectId: (property_exists($data, "project_id") && $data->project_id !== null ? SdkClient::stringValue($data->project_id) : SdkNotGiven::Value),

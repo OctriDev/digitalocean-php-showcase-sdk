@@ -45,9 +45,7 @@ class ReservedIpv6Create implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "region_slug") || $data->region_slug === null) {
-            throw new SdkValidationError("region_slug", 'required', "Required property 'region_slug' is missing or null");
-        }
+        if (!property_exists($data, "region_slug") || $data->region_slug === null) { throw new SdkValidationError("region_slug", 'required', "Required property 'region_slug' is missing or null"); }
         return new self(
             regionSlug: SdkClient::stringValue($data->region_slug),
         );

@@ -45,9 +45,7 @@ class ClearActorLimits implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "categories") || $data->categories === null) {
-            throw new SdkValidationError("categories", 'required', "Required property 'categories' is missing or null");
-        }
+        if (!property_exists($data, "categories") || $data->categories === null) { throw new SdkValidationError("categories", 'required', "Required property 'categories' is missing or null"); }
         return new self(
             categories: array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, LimitCategory::class), SdkClient::arrayValue($data->categories))),
         );

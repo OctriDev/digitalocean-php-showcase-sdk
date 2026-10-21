@@ -133,21 +133,11 @@ class CreateTriggerRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "kind") || $data->kind === null) {
-            throw new SdkValidationError("kind", 'required', "Required property 'kind' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "session_mode") || $data->session_mode === null) {
-            throw new SdkValidationError("session_mode", 'required', "Required property 'session_mode' is missing or null");
-        }
-        if (!property_exists($data, "prompt_template") || $data->prompt_template === null) {
-            throw new SdkValidationError("prompt_template", 'required', "Required property 'prompt_template' is missing or null");
-        }
-        if (!property_exists($data, "output") || $data->output === null) {
-            throw new SdkValidationError("output", 'required', "Required property 'output' is missing or null");
-        }
+        if (!property_exists($data, "kind") || $data->kind === null) { throw new SdkValidationError("kind", 'required', "Required property 'kind' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "session_mode") || $data->session_mode === null) { throw new SdkValidationError("session_mode", 'required', "Required property 'session_mode' is missing or null"); }
+        if (!property_exists($data, "prompt_template") || $data->prompt_template === null) { throw new SdkValidationError("prompt_template", 'required', "Required property 'prompt_template' is missing or null"); }
+        if (!property_exists($data, "output") || $data->output === null) { throw new SdkValidationError("output", 'required', "Required property 'output' is missing or null"); }
         return new self(
             kind: SdkClient::hydrateStringEnumOrString($data->kind, TriggerKind::class),
             name: SdkClient::stringValue($data->name),

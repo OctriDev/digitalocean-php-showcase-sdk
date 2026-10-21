@@ -57,9 +57,7 @@ class DropletActionEnableBackupsRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, DropletActionEnableBackupsRequestTypeEnum::class),
             backupPolicy: (property_exists($data, "backup_policy") && $data->backup_policy !== null ? SdkClient::hydrateClass($data->backup_policy, DropletBackupPolicyRequest::class) : SdkNotGiven::Value),
@@ -182,9 +180,7 @@ class DropletActionRebuild implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, DropletActionRebuildTypeEnum::class),
             image: (property_exists($data, "image") && $data->image !== null ? (is_int($data->image) ? SdkClient::intValue($data->image) : SdkClient::stringValue($data->image)) : SdkNotGiven::Value),
@@ -307,9 +303,7 @@ class DropletActionRename implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, DropletActionRenameTypeEnum::class),
             name: (property_exists($data, "name") && $data->name !== null ? SdkClient::stringValue($data->name) : SdkNotGiven::Value),

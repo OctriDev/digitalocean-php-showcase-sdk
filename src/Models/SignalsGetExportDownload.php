@@ -55,12 +55,8 @@ class ExportDownload implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "download_url") || $data->download_url === null) {
-            throw new SdkValidationError("download_url", 'required', "Required property 'download_url' is missing or null");
-        }
-        if (!property_exists($data, "expires_at") || $data->expires_at === null) {
-            throw new SdkValidationError("expires_at", 'required', "Required property 'expires_at' is missing or null");
-        }
+        if (!property_exists($data, "download_url") || $data->download_url === null) { throw new SdkValidationError("download_url", 'required', "Required property 'download_url' is missing or null"); }
+        if (!property_exists($data, "expires_at") || $data->expires_at === null) { throw new SdkValidationError("expires_at", 'required', "Required property 'expires_at' is missing or null"); }
         return new self(
             downloadUrl: SdkClient::stringValue($data->download_url),
             expiresAt: SdkClient::intValue($data->expires_at),

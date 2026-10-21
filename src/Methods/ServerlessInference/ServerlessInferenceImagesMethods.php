@@ -47,7 +47,7 @@ trait ServerlessInferenceImagesMethods
             Validation::validateLength('user', $user, max: 256);
         }
 
-        $sdkResponse = SdkClient::request('POST', "/v1/images/generations", $clientConfig, body: ['prompt' => $prompt, 'model' => $model, 'n' => $n, 'moderation' => $moderation, 'background' => $background, 'output_format' => $outputFormat, 'output_compression' => $outputCompression, 'quality' => $quality, 'size' => $size, 'stream' => $stream, 'partial_images' => $partialImages, 'user' => $user], returnType: ImagesResponse::class, decoder: 'json', operationId: 'inferenceCreateImage', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/images/generations", $clientConfig, body: ['prompt' => $prompt, 'model' => $model, 'n' => $n, 'moderation' => $moderation, 'background' => $background, 'output_format' => $outputFormat, 'output_compression' => $outputCompression, 'quality' => $quality, 'size' => $size, 'stream' => $stream, 'partial_images' => $partialImages, 'user' => $user], returnType: ImagesResponse::class, decoder: 'json', operationId: 'inferenceCreateImage', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ImagesResponse::class));
     }
 
@@ -84,7 +84,7 @@ trait ServerlessInferenceImagesMethods
             streamFormat: 'sse',
             streamMediaType: 'text/event-stream',
             requestOptions: $requestOptions,
-            errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)],
+            errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]
         ) as $_ev) {
             if ($_ev->data === '[DONE]') {
                 return;

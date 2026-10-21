@@ -81,9 +81,7 @@ class LogsSearchRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "time_range") || $data->time_range === null) {
-            throw new SdkValidationError("time_range", 'required', "Required property 'time_range' is missing or null");
-        }
+        if (!property_exists($data, "time_range") || $data->time_range === null) { throw new SdkValidationError("time_range", 'required', "Required property 'time_range' is missing or null"); }
         return new self(
             timeRange: SdkClient::hydrateClass($data->time_range, LogsTimeRange::class),
             filter: (property_exists($data, "filter") && $data->filter !== null ? SdkClient::hydrateClass($data->filter, LogsFilterExpression::class) : SdkNotGiven::Value),
@@ -272,12 +270,8 @@ class LogsTimeRange implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "from") || $data->from === null) {
-            throw new SdkValidationError("from", 'required', "Required property 'from' is missing or null");
-        }
-        if (!property_exists($data, "to") || $data->to === null) {
-            throw new SdkValidationError("to", 'required', "Required property 'to' is missing or null");
-        }
+        if (!property_exists($data, "from") || $data->from === null) { throw new SdkValidationError("from", 'required', "Required property 'from' is missing or null"); }
+        if (!property_exists($data, "to") || $data->to === null) { throw new SdkValidationError("to", 'required', "Required property 'to' is missing or null"); }
         return new self(
             from: SdkClient::hydrateClass($data->from, LogsTimeInstant::class),
             to: SdkClient::hydrateClass($data->to, LogsTimeInstant::class),

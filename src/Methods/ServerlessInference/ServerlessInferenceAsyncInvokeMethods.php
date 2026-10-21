@@ -22,7 +22,7 @@ trait ServerlessInferenceAsyncInvokeMethods
     public static function inferenceCreateAsyncInvoke(ClientConfig $clientConfig, string $modelId, InferenceCreateAsyncInvokeInput $input, array|null|SdkNotGiven $tags = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): AsyncInvokeResponse
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v1/async-invoke", $clientConfig, body: ['model_id' => $modelId, 'input' => $input, 'tags' => $tags], returnType: AsyncInvokeResponse::class, decoder: 'json', operationId: 'inferenceCreateAsyncInvoke', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/async-invoke", $clientConfig, body: ['model_id' => $modelId, 'input' => $input, 'tags' => $tags], returnType: AsyncInvokeResponse::class, decoder: 'json', operationId: 'inferenceCreateAsyncInvoke', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AsyncInvokeResponse::class));
     }
 }

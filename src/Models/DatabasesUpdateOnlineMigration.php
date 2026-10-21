@@ -167,9 +167,7 @@ class SourceDatabase implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "source") || $data->source === null) {
-            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
-        }
+        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
         return new self(
             source: SdkClient::hydrateClass($data->source, SourceDatabaseSource::class),
             disableSsl: (property_exists($data, "disable_ssl") && $data->disable_ssl !== null ? SdkClient::boolValue($data->disable_ssl) : SdkNotGiven::Value),

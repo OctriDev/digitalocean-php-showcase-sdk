@@ -141,9 +141,7 @@ class DatabaseBackups implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "backups") || $data->backups === null) {
-            throw new SdkValidationError("backups", 'required', "Required property 'backups' is missing or null");
-        }
+        if (!property_exists($data, "backups") || $data->backups === null) { throw new SdkValidationError("backups", 'required', "Required property 'backups' is missing or null"); }
         return new self(
             backups: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Backup::class), SdkClient::arrayValue($data->backups))),
             scheduledBackupTime: (property_exists($data, "scheduled_backup_time") && $data->scheduled_backup_time !== null ? SdkClient::hydrateClass($data->scheduled_backup_time, DatabaseBackupsScheduledBackupTime::class) : SdkNotGiven::Value),

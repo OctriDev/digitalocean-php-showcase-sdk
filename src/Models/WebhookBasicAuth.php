@@ -45,9 +45,7 @@ class WebhookBasicAuth implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "username") || $data->username === null) {
-            throw new SdkValidationError("username", 'required', "Required property 'username' is missing or null");
-        }
+        if (!property_exists($data, "username") || $data->username === null) { throw new SdkValidationError("username", 'required', "Required property 'username' is missing or null"); }
         return new self(
             username: SdkClient::stringValue($data->username),
         );

@@ -85,21 +85,11 @@ class SnapshotsBase implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "regions") || $data->regions === null) {
-            throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null");
-        }
-        if (!property_exists($data, "min_disk_size") || $data->min_disk_size === null) {
-            throw new SdkValidationError("min_disk_size", 'required', "Required property 'min_disk_size' is missing or null");
-        }
-        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) {
-            throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "regions") || $data->regions === null) { throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null"); }
+        if (!property_exists($data, "min_disk_size") || $data->min_disk_size === null) { throw new SdkValidationError("min_disk_size", 'required', "Required property 'min_disk_size' is missing or null"); }
+        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) { throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             createdAt: SdkClient::stringValue($data->created_at),

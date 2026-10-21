@@ -104,9 +104,7 @@ class AllDomainRecordsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             domainRecords: (property_exists($data, "domain_records") && $data->domain_records !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, DomainRecord::class), SdkClient::arrayValue($data->domain_records))) : SdkNotGiven::Value),

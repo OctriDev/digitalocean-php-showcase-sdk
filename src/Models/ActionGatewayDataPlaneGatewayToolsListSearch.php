@@ -97,26 +97,11 @@ final readonly class DataPlaneSearchToolsResponseStatusEnum implements SdkOpenEn
     public const SUCCEEDED = "succeeded";
     public const FAILED = "failed";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 class DataPlaneSearchToolsResponseOutput implements \JsonSerializable
@@ -242,12 +227,8 @@ class DataPlaneSearchToolsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "call_id") || $data->call_id === null) {
-            throw new SdkValidationError("call_id", 'required', "Required property 'call_id' is missing or null");
-        }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "call_id") || $data->call_id === null) { throw new SdkValidationError("call_id", 'required', "Required property 'call_id' is missing or null"); }
         return new self(
             status: SdkClient::hydrateStringEnumOrString($data->status, DataPlaneSearchToolsResponseStatusEnum::class),
             callId: SdkClient::stringValue($data->call_id),
@@ -308,9 +289,7 @@ class SearchQuery implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "use_case") || $data->use_case === null) {
-            throw new SdkValidationError("use_case", 'required', "Required property 'use_case' is missing or null");
-        }
+        if (!property_exists($data, "use_case") || $data->use_case === null) { throw new SdkValidationError("use_case", 'required', "Required property 'use_case' is missing or null"); }
         return new self(
             useCase: SdkClient::stringValue($data->use_case),
             knownFields: (property_exists($data, "known_fields") && $data->known_fields !== null ? SdkClient::stringValue($data->known_fields) : SdkNotGiven::Value),

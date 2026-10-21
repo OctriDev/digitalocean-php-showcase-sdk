@@ -65,9 +65,7 @@ class NfsActionReassign implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, NfsActionReassignTypeEnum::class),
             region: (property_exists($data, "region") && $data->region !== null ? SdkClient::stringValue($data->region) : SdkNotGiven::Value),
@@ -111,9 +109,7 @@ class NfsActionResizeVariant1Params implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "size_gib") || $data->size_gib === null) {
-            throw new SdkValidationError("size_gib", 'required', "Required property 'size_gib' is missing or null");
-        }
+        if (!property_exists($data, "size_gib") || $data->size_gib === null) { throw new SdkValidationError("size_gib", 'required', "Required property 'size_gib' is missing or null"); }
         return new self(
             sizeGib: SdkClient::intValue($data->size_gib),
         );
@@ -207,9 +203,7 @@ class NfsActionResizeParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "size_gib") || $data->size_gib === null) {
-            throw new SdkValidationError("size_gib", 'required', "Required property 'size_gib' is missing or null");
-        }
+        if (!property_exists($data, "size_gib") || $data->size_gib === null) { throw new SdkValidationError("size_gib", 'required', "Required property 'size_gib' is missing or null"); }
         return new self(
             sizeGib: SdkClient::intValue($data->size_gib),
         );
@@ -274,9 +268,7 @@ class NfsActionResize implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, NfsActionResizeTypeEnum::class),
             region: (property_exists($data, "region") && $data->region !== null ? SdkClient::stringValue($data->region) : SdkNotGiven::Value),
@@ -320,9 +312,7 @@ class NfsActionSnapshotVariant1Params implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
         );

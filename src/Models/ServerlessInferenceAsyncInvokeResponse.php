@@ -123,18 +123,10 @@ class AsyncInvokeResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "request_id") || $data->request_id === null) {
-            throw new SdkValidationError("request_id", 'required', "Required property 'request_id' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "model_id") || $data->model_id === null) {
-            throw new SdkValidationError("model_id", 'required', "Required property 'model_id' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
+        if (!property_exists($data, "request_id") || $data->request_id === null) { throw new SdkValidationError("request_id", 'required', "Required property 'request_id' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "model_id") || $data->model_id === null) { throw new SdkValidationError("model_id", 'required', "Required property 'model_id' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
         return new self(
             requestId: SdkClient::stringValue($data->request_id),
             status: SdkClient::hydrateStringEnumOrString($data->status, AsyncInvokeResponseStatusEnum::class),

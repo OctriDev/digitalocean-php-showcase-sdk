@@ -21,7 +21,7 @@ trait AppsProposeMethods
     public static function appsValidateAppSpec(ClientConfig $clientConfig, AppSpecRequest $spec, string|SdkNotGiven $appId = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): AppProposeResponse
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/apps/propose", $clientConfig, body: ['spec' => $spec, 'app_id' => $appId], returnType: AppProposeResponse::class, decoder: 'json', operationId: 'appsValidateAppSpec', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/apps/propose", $clientConfig, body: ['spec' => $spec, 'app_id' => $appId], returnType: AppProposeResponse::class, decoder: 'json', operationId: 'appsValidateAppSpec', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AppProposeResponse::class));
     }
 }

@@ -19,7 +19,7 @@ trait KubernetesRegistryMethods
     public static function kubernetesAddRegistry(ClientConfig $clientConfig, array|SdkNotGiven $clusterUuids = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('POST', "/v2/kubernetes/registry", $clientConfig, body: ['cluster_uuids' => $clusterUuids], decoder: 'empty', operationId: 'kubernetesAddRegistry', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('POST', "/v2/kubernetes/registry", $clientConfig, body: ['cluster_uuids' => $clusterUuids], decoder: 'empty', operationId: 'kubernetesAddRegistry', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -33,6 +33,6 @@ trait KubernetesRegistryMethods
     public static function kubernetesRemoveRegistry(ClientConfig $clientConfig, array|SdkNotGiven $clusterUuids = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/kubernetes/registry", $clientConfig, body: ['cluster_uuids' => $clusterUuids], decoder: 'empty', operationId: 'kubernetesRemoveRegistry', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/kubernetes/registry", $clientConfig, body: ['cluster_uuids' => $clusterUuids], decoder: 'empty', operationId: 'kubernetesRemoveRegistry', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

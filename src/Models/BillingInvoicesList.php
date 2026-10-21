@@ -227,9 +227,7 @@ class Invoices implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             invoices: (property_exists($data, "invoices") && $data->invoices !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, InvoicePreview::class), SdkClient::arrayValue($data->invoices))) : SdkNotGiven::Value),

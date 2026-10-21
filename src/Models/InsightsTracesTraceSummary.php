@@ -129,9 +129,7 @@ class TracesTraceSummary implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "traceId") || $data->traceId === null) {
-            throw new SdkValidationError("traceId", 'required', "Required property 'traceId' is missing or null");
-        }
+        if (!property_exists($data, "traceId") || $data->traceId === null) { throw new SdkValidationError("traceId", 'required', "Required property 'traceId' is missing or null"); }
         return new self(
             traceId: SdkClient::stringValue($data->traceId),
             started: (property_exists($data, "started") && $data->started !== null ? SdkClient::stringValue($data->started) : SdkNotGiven::Value),

@@ -187,12 +187,8 @@ class TracesSpanRecord implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "traceId") || $data->traceId === null) {
-            throw new SdkValidationError("traceId", 'required', "Required property 'traceId' is missing or null");
-        }
-        if (!property_exists($data, "spanId") || $data->spanId === null) {
-            throw new SdkValidationError("spanId", 'required', "Required property 'spanId' is missing or null");
-        }
+        if (!property_exists($data, "traceId") || $data->traceId === null) { throw new SdkValidationError("traceId", 'required', "Required property 'traceId' is missing or null"); }
+        if (!property_exists($data, "spanId") || $data->spanId === null) { throw new SdkValidationError("spanId", 'required', "Required property 'spanId' is missing or null"); }
         return new self(
             traceId: SdkClient::stringValue($data->traceId),
             spanId: SdkClient::stringValue($data->spanId),

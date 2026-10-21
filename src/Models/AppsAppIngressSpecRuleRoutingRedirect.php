@@ -143,9 +143,7 @@ class AppIngressSpecRuleStringMatchExact implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "exact")) {
-            throw new SdkValidationError("exact", 'required', "Missing required property 'exact'");
-        }
+        if (!property_exists($data, "exact")) { throw new SdkValidationError("exact", 'required', "Missing required property 'exact'"); }
         return new self(
             exact: ($data->exact === null ? null : SdkClient::stringValue($data->exact)),
         );
@@ -190,9 +188,7 @@ class AppIngressSpecRuleStringMatchPrefix implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "prefix")) {
-            throw new SdkValidationError("prefix", 'required', "Missing required property 'prefix'");
-        }
+        if (!property_exists($data, "prefix")) { throw new SdkValidationError("prefix", 'required', "Missing required property 'prefix'"); }
         return new self(
             prefix: ($data->prefix === null ? null : SdkClient::stringValue($data->prefix)),
         );

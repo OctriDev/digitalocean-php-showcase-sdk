@@ -45,9 +45,7 @@ class ImagesPostAccountTransferDecline implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "transfer_id") || $data->transfer_id === null) {
-            throw new SdkValidationError("transfer_id", 'required', "Required property 'transfer_id' is missing or null");
-        }
+        if (!property_exists($data, "transfer_id") || $data->transfer_id === null) { throw new SdkValidationError("transfer_id", 'required', "Required property 'transfer_id' is missing or null"); }
         return new self(
             transferId: SdkClient::intValue($data->transfer_id),
         );

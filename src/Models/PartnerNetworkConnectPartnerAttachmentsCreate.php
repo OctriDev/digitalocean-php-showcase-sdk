@@ -18,26 +18,11 @@ final readonly class PartnerAttachmentWritableRegionEnum implements SdkOpenEnum
     public const AMS = "ams";
     public const SGP = "sgp";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -108,18 +93,10 @@ class PartnerAttachmentWritableBgp implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "local_router_ip") || $data->local_router_ip === null) {
-            throw new SdkValidationError("local_router_ip", 'required', "Required property 'local_router_ip' is missing or null");
-        }
-        if (!property_exists($data, "peer_router_ip") || $data->peer_router_ip === null) {
-            throw new SdkValidationError("peer_router_ip", 'required', "Required property 'peer_router_ip' is missing or null");
-        }
-        if (!property_exists($data, "peer_router_asn") || $data->peer_router_asn === null) {
-            throw new SdkValidationError("peer_router_asn", 'required', "Required property 'peer_router_asn' is missing or null");
-        }
-        if (!property_exists($data, "auth_key") || $data->auth_key === null) {
-            throw new SdkValidationError("auth_key", 'required', "Required property 'auth_key' is missing or null");
-        }
+        if (!property_exists($data, "local_router_ip") || $data->local_router_ip === null) { throw new SdkValidationError("local_router_ip", 'required', "Required property 'local_router_ip' is missing or null"); }
+        if (!property_exists($data, "peer_router_ip") || $data->peer_router_ip === null) { throw new SdkValidationError("peer_router_ip", 'required', "Required property 'peer_router_ip' is missing or null"); }
+        if (!property_exists($data, "peer_router_asn") || $data->peer_router_asn === null) { throw new SdkValidationError("peer_router_asn", 'required', "Required property 'peer_router_asn' is missing or null"); }
+        if (!property_exists($data, "auth_key") || $data->auth_key === null) { throw new SdkValidationError("auth_key", 'required', "Required property 'auth_key' is missing or null"); }
         return new self(
             localRouterIp: SdkClient::stringValue($data->local_router_ip),
             peerRouterIp: SdkClient::stringValue($data->peer_router_ip),
@@ -137,26 +114,11 @@ final readonly class PartnerAttachmentWritableRedundancyZoneEnum implements SdkO
     public const MEGAPORT_BLUE = "MEGAPORT_BLUE";
     public const MEGAPORT_RED = "MEGAPORT_RED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -273,21 +235,11 @@ class PartnerAttachmentWritable implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "connection_bandwidth_in_mbps") || $data->connection_bandwidth_in_mbps === null) {
-            throw new SdkValidationError("connection_bandwidth_in_mbps", 'required', "Required property 'connection_bandwidth_in_mbps' is missing or null");
-        }
-        if (!property_exists($data, "region") || $data->region === null) {
-            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
-        }
-        if (!property_exists($data, "naas_provider") || $data->naas_provider === null) {
-            throw new SdkValidationError("naas_provider", 'required', "Required property 'naas_provider' is missing or null");
-        }
-        if (!property_exists($data, "vpc_ids") || $data->vpc_ids === null) {
-            throw new SdkValidationError("vpc_ids", 'required', "Required property 'vpc_ids' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "connection_bandwidth_in_mbps") || $data->connection_bandwidth_in_mbps === null) { throw new SdkValidationError("connection_bandwidth_in_mbps", 'required', "Required property 'connection_bandwidth_in_mbps' is missing or null"); }
+        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
+        if (!property_exists($data, "naas_provider") || $data->naas_provider === null) { throw new SdkValidationError("naas_provider", 'required', "Required property 'naas_provider' is missing or null"); }
+        if (!property_exists($data, "vpc_ids") || $data->vpc_ids === null) { throw new SdkValidationError("vpc_ids", 'required', "Required property 'vpc_ids' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             connectionBandwidthInMbps: SdkClient::intValue($data->connection_bandwidth_in_mbps),

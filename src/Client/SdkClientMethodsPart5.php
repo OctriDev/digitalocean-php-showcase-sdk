@@ -314,8 +314,7 @@ trait SdkClientMethodsPart5
     {
         if (in_array($method, self::IDEMPOTENT_METHODS, true)) {
             return true;
-        }return false;
-    }
+        }return false;}
 
     /** @param list<int> $retryOn */
     private static function shouldRetry(string $method, int $status, array $retryOn): bool

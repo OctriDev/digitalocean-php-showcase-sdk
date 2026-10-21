@@ -67,12 +67,8 @@ class Backup implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) {
-            throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null");
-        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) { throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null"); }
         return new self(
             createdAt: SdkClient::stringValue($data->created_at),
             sizeGigabytes: SdkClient::floatValue($data->size_gigabytes),

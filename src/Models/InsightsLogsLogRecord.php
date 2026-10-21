@@ -141,9 +141,7 @@ class LogsLogRecord implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "timestamp") || $data->timestamp === null) {
-            throw new SdkValidationError("timestamp", 'required', "Required property 'timestamp' is missing or null");
-        }
+        if (!property_exists($data, "timestamp") || $data->timestamp === null) { throw new SdkValidationError("timestamp", 'required', "Required property 'timestamp' is missing or null"); }
         return new self(
             timestamp: SdkClient::stringValue($data->timestamp),
             severityNumber: (property_exists($data, "severity_number") && $data->severity_number !== null ? SdkClient::intValue($data->severity_number) : SdkNotGiven::Value),
@@ -166,26 +164,11 @@ final readonly class LogsOrderByDirectionEnum implements SdkOpenEnum
     public const SORT_DIRECTION_ASC = "SORT_DIRECTION_ASC";
     public const SORT_DIRECTION_DESC = "SORT_DIRECTION_DESC";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -238,9 +221,7 @@ class LogsOrderBy implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "field") || $data->field === null) {
-            throw new SdkValidationError("field", 'required', "Required property 'field' is missing or null");
-        }
+        if (!property_exists($data, "field") || $data->field === null) { throw new SdkValidationError("field", 'required', "Required property 'field' is missing or null"); }
         return new self(
             field: SdkClient::hydrateClass($data->field, LogsFieldRef::class),
             direction: (property_exists($data, "direction") && $data->direction !== null ? SdkClient::hydrateStringEnumOrString($data->direction, LogsOrderByDirectionEnum::class) : SdkNotGiven::Value),

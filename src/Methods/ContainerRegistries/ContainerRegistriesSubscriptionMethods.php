@@ -17,7 +17,7 @@ trait ContainerRegistriesSubscriptionMethods
     public static function registriesGetSubscription(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): SubscriptionResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/registries/subscription", $clientConfig, returnType: SubscriptionResponse::class, decoder: 'json', operationId: 'registriesGetSubscription', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/registries/subscription", $clientConfig, returnType: SubscriptionResponse::class, decoder: 'json', operationId: 'registriesGetSubscription', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SubscriptionResponse::class));
     }
 
@@ -33,7 +33,7 @@ trait ContainerRegistriesSubscriptionMethods
     public static function registriesUpdateSubscription(ClientConfig $clientConfig, RegistriesUpdateSubscriptionTierSlug|SdkNotGiven $tierSlug = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): SubscriptionResponse
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/registries/subscription", $clientConfig, body: ['tier_slug' => $tierSlug], returnType: SubscriptionResponse::class, decoder: 'json', operationId: 'registriesUpdateSubscription', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/registries/subscription", $clientConfig, body: ['tier_slug' => $tierSlug], returnType: SubscriptionResponse::class, decoder: 'json', operationId: 'registriesUpdateSubscription', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SubscriptionResponse::class));
     }
 }

@@ -55,12 +55,8 @@ class MetricsData implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "result") || $data->result === null) {
-            throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null");
-        }
-        if (!property_exists($data, "resultType") || $data->resultType === null) {
-            throw new SdkValidationError("resultType", 'required', "Required property 'resultType' is missing or null");
-        }
+        if (!property_exists($data, "result") || $data->result === null) { throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null"); }
+        if (!property_exists($data, "resultType") || $data->resultType === null) { throw new SdkValidationError("resultType", 'required', "Required property 'resultType' is missing or null"); }
         return new self(
             result: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, MetricsResult::class), SdkClient::arrayValue($data->result))),
             resultType: SdkClient::hydrateStringEnumOrString($data->resultType, MetricsDataResultTypeEnum::class),
@@ -116,12 +112,8 @@ class MetricsResult implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "metric") || $data->metric === null) {
-            throw new SdkValidationError("metric", 'required', "Required property 'metric' is missing or null");
-        }
-        if (!property_exists($data, "values") || $data->values === null) {
-            throw new SdkValidationError("values", 'required', "Required property 'values' is missing or null");
-        }
+        if (!property_exists($data, "metric") || $data->metric === null) { throw new SdkValidationError("metric", 'required', "Required property 'metric' is missing or null"); }
+        if (!property_exists($data, "values") || $data->values === null) { throw new SdkValidationError("values", 'required', "Required property 'values' is missing or null"); }
         return new self(
             metric: SdkClient::mapValues(SdkClient::stringMapValue($data->metric), static fn($item) => SdkClient::stringValue($item)),
             values: array_values(array_map(static fn($item) => array_values(array_map(static fn($item2) => (is_int($item2) ? SdkClient::intValue($item2) : SdkClient::stringValue($item2)), SdkClient::arrayValue($item))), SdkClient::arrayValue($data->values))),
@@ -298,9 +290,7 @@ class OpensearchConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "endpoint") || $data->endpoint === null) {
-            throw new SdkValidationError("endpoint", 'required', "Required property 'endpoint' is missing or null");
-        }
+        if (!property_exists($data, "endpoint") || $data->endpoint === null) { throw new SdkValidationError("endpoint", 'required', "Required property 'endpoint' is missing or null"); }
         return new self(
             endpoint: SdkClient::stringValue($data->endpoint),
             id: (property_exists($data, "id") && $data->id !== null ? SdkClient::stringValue($data->id) : SdkNotGiven::Value),

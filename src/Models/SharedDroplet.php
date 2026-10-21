@@ -285,63 +285,25 @@ class Droplet implements FloatingIpDroplet, ReservedIpDroplet, ReservedIpv6ListR
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "memory") || $data->memory === null) {
-            throw new SdkValidationError("memory", 'required', "Required property 'memory' is missing or null");
-        }
-        if (!property_exists($data, "vcpus") || $data->vcpus === null) {
-            throw new SdkValidationError("vcpus", 'required', "Required property 'vcpus' is missing or null");
-        }
-        if (!property_exists($data, "disk") || $data->disk === null) {
-            throw new SdkValidationError("disk", 'required', "Required property 'disk' is missing or null");
-        }
-        if (!property_exists($data, "locked") || $data->locked === null) {
-            throw new SdkValidationError("locked", 'required', "Required property 'locked' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "features") || $data->features === null) {
-            throw new SdkValidationError("features", 'required', "Required property 'features' is missing or null");
-        }
-        if (!property_exists($data, "backup_ids") || $data->backup_ids === null) {
-            throw new SdkValidationError("backup_ids", 'required', "Required property 'backup_ids' is missing or null");
-        }
-        if (!property_exists($data, "next_backup_window")) {
-            throw new SdkValidationError("next_backup_window", 'required', "Missing required property 'next_backup_window'");
-        }
-        if (!property_exists($data, "snapshot_ids") || $data->snapshot_ids === null) {
-            throw new SdkValidationError("snapshot_ids", 'required', "Required property 'snapshot_ids' is missing or null");
-        }
-        if (!property_exists($data, "image") || $data->image === null) {
-            throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null");
-        }
-        if (!property_exists($data, "volume_ids") || $data->volume_ids === null) {
-            throw new SdkValidationError("volume_ids", 'required', "Required property 'volume_ids' is missing or null");
-        }
-        if (!property_exists($data, "size") || $data->size === null) {
-            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
-        }
-        if (!property_exists($data, "size_slug") || $data->size_slug === null) {
-            throw new SdkValidationError("size_slug", 'required', "Required property 'size_slug' is missing or null");
-        }
-        if (!property_exists($data, "networks") || $data->networks === null) {
-            throw new SdkValidationError("networks", 'required', "Required property 'networks' is missing or null");
-        }
-        if (!property_exists($data, "region") || $data->region === null) {
-            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
-        }
-        if (!property_exists($data, "tags") || $data->tags === null) {
-            throw new SdkValidationError("tags", 'required', "Required property 'tags' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "memory") || $data->memory === null) { throw new SdkValidationError("memory", 'required', "Required property 'memory' is missing or null"); }
+        if (!property_exists($data, "vcpus") || $data->vcpus === null) { throw new SdkValidationError("vcpus", 'required', "Required property 'vcpus' is missing or null"); }
+        if (!property_exists($data, "disk") || $data->disk === null) { throw new SdkValidationError("disk", 'required', "Required property 'disk' is missing or null"); }
+        if (!property_exists($data, "locked") || $data->locked === null) { throw new SdkValidationError("locked", 'required', "Required property 'locked' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "features") || $data->features === null) { throw new SdkValidationError("features", 'required', "Required property 'features' is missing or null"); }
+        if (!property_exists($data, "backup_ids") || $data->backup_ids === null) { throw new SdkValidationError("backup_ids", 'required', "Required property 'backup_ids' is missing or null"); }
+        if (!property_exists($data, "next_backup_window")) { throw new SdkValidationError("next_backup_window", 'required', "Missing required property 'next_backup_window'"); }
+        if (!property_exists($data, "snapshot_ids") || $data->snapshot_ids === null) { throw new SdkValidationError("snapshot_ids", 'required', "Required property 'snapshot_ids' is missing or null"); }
+        if (!property_exists($data, "image") || $data->image === null) { throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null"); }
+        if (!property_exists($data, "volume_ids") || $data->volume_ids === null) { throw new SdkValidationError("volume_ids", 'required', "Required property 'volume_ids' is missing or null"); }
+        if (!property_exists($data, "size") || $data->size === null) { throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null"); }
+        if (!property_exists($data, "size_slug") || $data->size_slug === null) { throw new SdkValidationError("size_slug", 'required', "Required property 'size_slug' is missing or null"); }
+        if (!property_exists($data, "networks") || $data->networks === null) { throw new SdkValidationError("networks", 'required', "Required property 'networks' is missing or null"); }
+        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
+        if (!property_exists($data, "tags") || $data->tags === null) { throw new SdkValidationError("tags", 'required', "Required property 'tags' is missing or null"); }
         return new self(
             id: SdkClient::intValue($data->id),
             name: SdkClient::stringValue($data->name),
@@ -379,24 +341,9 @@ final readonly class DropletBackupPolicyPlanEnum implements SdkOpenEnum
     public const DAILY = "daily";
     public const WEEKLY = "weekly";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

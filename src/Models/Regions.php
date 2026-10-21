@@ -38,9 +38,7 @@ class AllRegionsVariant0 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "regions") || $data->regions === null) {
-            throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null");
-        }
+        if (!property_exists($data, "regions") || $data->regions === null) { throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null"); }
         return new self(
             regions: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Region::class), SdkClient::arrayValue($data->regions))),
         );
@@ -103,12 +101,8 @@ class AllRegions implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "regions") || $data->regions === null) {
-            throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null");
-        }
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "regions") || $data->regions === null) { throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             regions: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Region::class), SdkClient::arrayValue($data->regions))),
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),

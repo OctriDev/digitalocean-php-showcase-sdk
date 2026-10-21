@@ -67,12 +67,8 @@ class InsightsListAlertRulesResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "alert_rules") || $data->alert_rules === null) {
-            throw new SdkValidationError("alert_rules", 'required', "Required property 'alert_rules' is missing or null");
-        }
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "alert_rules") || $data->alert_rules === null) { throw new SdkValidationError("alert_rules", 'required', "Required property 'alert_rules' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             alertRules: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, AlertRule::class), SdkClient::arrayValue($data->alert_rules))),
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
@@ -141,12 +137,8 @@ class InsightsListNotificationChannelsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "notification_channels") || $data->notification_channels === null) {
-            throw new SdkValidationError("notification_channels", 'required', "Required property 'notification_channels' is missing or null");
-        }
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "notification_channels") || $data->notification_channels === null) { throw new SdkValidationError("notification_channels", 'required', "Required property 'notification_channels' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             notificationChannels: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, NotificationChannel::class), SdkClient::arrayValue($data->notification_channels))),
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),

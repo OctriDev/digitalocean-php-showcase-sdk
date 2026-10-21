@@ -42,9 +42,7 @@ class VolumeActionPostResizeVariant1 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) {
-            throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null");
-        }
+        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) { throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null"); }
         return new self(
             sizeGigabytes: SdkClient::intValue($data->size_gigabytes),
         );
@@ -121,12 +119,8 @@ class VolumeActionPostResize implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) {
-            throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "size_gigabytes") || $data->size_gigabytes === null) { throw new SdkValidationError("size_gigabytes", 'required', "Required property 'size_gigabytes' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, VolumeActionPostResizeTypeEnum::class),
             sizeGigabytes: SdkClient::intValue($data->size_gigabytes),

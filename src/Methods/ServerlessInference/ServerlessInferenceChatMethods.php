@@ -74,7 +74,7 @@ trait ServerlessInferenceChatMethods
             Validation::validateRange('top_p', $topP, min: 0, max: 1);
         }
 
-        $sdkResponse = SdkClient::request('POST', "/v1/chat/completions", $clientConfig, body: ['messages' => $messages, 'model' => $model, 'max_tokens' => $maxTokens, 'max_completion_tokens' => $maxCompletionTokens, 'frequency_penalty' => $frequencyPenalty, 'presence_penalty' => $presencePenalty, 'top_logprobs' => $topLogprobs, 'tools' => $tools, 'tool_choice' => $toolChoice, 'stream' => $stream, 'stop' => $stop, 'logit_bias' => $logitBias, 'logprobs' => $logprobs, 'n' => $n, 'stream_options' => $streamOptions, 'reasoning_effort' => $reasoningEffort, 'seed' => $seed, 'metadata' => $metadata, 'temperature' => $temperature, 'top_p' => $topP, 'user' => $user], returnType: ChatCompletionResponse::class, decoder: 'json', operationId: 'inferenceCreateChatCompletion', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/chat/completions", $clientConfig, body: ['messages' => $messages, 'model' => $model, 'max_tokens' => $maxTokens, 'max_completion_tokens' => $maxCompletionTokens, 'frequency_penalty' => $frequencyPenalty, 'presence_penalty' => $presencePenalty, 'top_logprobs' => $topLogprobs, 'tools' => $tools, 'tool_choice' => $toolChoice, 'stream' => $stream, 'stop' => $stop, 'logit_bias' => $logitBias, 'logprobs' => $logprobs, 'n' => $n, 'stream_options' => $streamOptions, 'reasoning_effort' => $reasoningEffort, 'seed' => $seed, 'metadata' => $metadata, 'temperature' => $temperature, 'top_p' => $topP, 'user' => $user], returnType: ChatCompletionResponse::class, decoder: 'json', operationId: 'inferenceCreateChatCompletion', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ChatCompletionResponse::class));
     }
 
@@ -120,7 +120,7 @@ trait ServerlessInferenceChatMethods
             streamFormat: 'sse',
             streamMediaType: 'text/event-stream',
             requestOptions: $requestOptions,
-            errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)],
+            errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]
         ) as $_ev) {
             if ($_ev->data === '[DONE]') {
                 return;

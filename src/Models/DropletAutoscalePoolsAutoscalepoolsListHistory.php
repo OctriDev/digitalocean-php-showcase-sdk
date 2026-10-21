@@ -16,26 +16,11 @@ final readonly class HistoryReasonEnum implements SdkOpenEnum
     public const SCALE_UP = "SCALE_UP";
     public const SCALE_DOWN = "SCALE_DOWN";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -47,26 +32,11 @@ final readonly class HistoryStatusEnum implements SdkOpenEnum
     public const SUCCESS = "success";
     public const ERROR = "error";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -167,27 +137,13 @@ class History implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "history_event_id") || $data->history_event_id === null) {
-            throw new SdkValidationError("history_event_id", 'required', "Required property 'history_event_id' is missing or null");
-        }
-        if (!property_exists($data, "current_instance_count") || $data->current_instance_count === null) {
-            throw new SdkValidationError("current_instance_count", 'required', "Required property 'current_instance_count' is missing or null");
-        }
-        if (!property_exists($data, "desired_instance_count") || $data->desired_instance_count === null) {
-            throw new SdkValidationError("desired_instance_count", 'required', "Required property 'desired_instance_count' is missing or null");
-        }
-        if (!property_exists($data, "reason") || $data->reason === null) {
-            throw new SdkValidationError("reason", 'required', "Required property 'reason' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
+        if (!property_exists($data, "history_event_id") || $data->history_event_id === null) { throw new SdkValidationError("history_event_id", 'required', "Required property 'history_event_id' is missing or null"); }
+        if (!property_exists($data, "current_instance_count") || $data->current_instance_count === null) { throw new SdkValidationError("current_instance_count", 'required', "Required property 'current_instance_count' is missing or null"); }
+        if (!property_exists($data, "desired_instance_count") || $data->desired_instance_count === null) { throw new SdkValidationError("desired_instance_count", 'required', "Required property 'desired_instance_count' is missing or null"); }
+        if (!property_exists($data, "reason") || $data->reason === null) { throw new SdkValidationError("reason", 'required', "Required property 'reason' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
         return new self(
             historyEventId: SdkClient::stringValue($data->history_event_id),
             currentInstanceCount: SdkClient::intValue($data->current_instance_count),
@@ -297,9 +253,7 @@ class HistoryEvents implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) {
-            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
-        }
+        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             history: (property_exists($data, "history") && $data->history !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, History::class), SdkClient::arrayValue($data->history))) : SdkNotGiven::Value),

@@ -17,7 +17,7 @@ trait DatabasesApiMetricsMethods
     public static function databasesGetClusterMetricsCredentials(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): DatabaseMetricsAuth
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/databases/metrics/credentials", $clientConfig, returnType: DatabaseMetricsAuth::class, decoder: 'json', operationId: 'databasesGetClusterMetricsCredentials', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/databases/metrics/credentials", $clientConfig, returnType: DatabaseMetricsAuth::class, decoder: 'json', operationId: 'databasesGetClusterMetricsCredentials', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DatabaseMetricsAuth::class));
     }
 
@@ -32,6 +32,6 @@ trait DatabasesApiMetricsMethods
     public static function databasesUpdateClusterMetricsCredentials(ClientConfig $clientConfig, DatabaseMetricsCredentials|SdkNotGiven $body = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('PUT', "/v2/databases/metrics/credentials", $clientConfig, body: $body, decoder: 'empty', operationId: 'databasesUpdateClusterMetricsCredentials', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('PUT', "/v2/databases/metrics/credentials", $clientConfig, body: $body, decoder: 'empty', operationId: 'databasesUpdateClusterMetricsCredentials', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

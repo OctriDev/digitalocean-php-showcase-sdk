@@ -22,7 +22,7 @@ trait DropletsNeighborsMethods
 
         Validation::validateRange('droplet_id', $dropletId, min: 1);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/droplets/" . SdkClient::encodePathSegment($dropletId) . "/neighbors", $clientConfig, returnType: NeighborDroplets::class, decoder: 'json', operationId: 'dropletsListNeighbors', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/droplets/" . SdkClient::encodePathSegment($dropletId) . "/neighbors", $clientConfig, returnType: NeighborDroplets::class, decoder: 'json', operationId: 'dropletsListNeighbors', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, NeighborDroplets::class));
     }
 }

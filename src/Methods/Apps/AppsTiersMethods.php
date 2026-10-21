@@ -17,7 +17,7 @@ trait AppsTiersMethods
     public static function appsListInstanceSizes(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): AppsListInstanceSizesResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/apps/tiers/instance_sizes", $clientConfig, returnType: AppsListInstanceSizesResponse::class, decoder: 'json', operationId: 'appsListInstanceSizes', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/apps/tiers/instance_sizes", $clientConfig, returnType: AppsListInstanceSizesResponse::class, decoder: 'json', operationId: 'appsListInstanceSizes', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AppsListInstanceSizesResponse::class));
     }
 
@@ -33,7 +33,7 @@ trait AppsTiersMethods
     public static function appsGetInstanceSize(ClientConfig $clientConfig, string $slug, ?RequestOptions $requestOptions = null): AppsGetInstanceSizeResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/apps/tiers/instance_sizes/" . SdkClient::encodePathSegment($slug) . "", $clientConfig, returnType: AppsGetInstanceSizeResponse::class, decoder: 'json', operationId: 'appsGetInstanceSize', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/apps/tiers/instance_sizes/" . SdkClient::encodePathSegment($slug) . "", $clientConfig, returnType: AppsGetInstanceSizeResponse::class, decoder: 'json', operationId: 'appsGetInstanceSize', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AppsGetInstanceSizeResponse::class));
     }
 }

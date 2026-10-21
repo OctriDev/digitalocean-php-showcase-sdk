@@ -19,78 +19,33 @@ final readonly class HarnessListConfigSessionsStatus implements SdkOpenEnum
     public const SESSION_STATUS_PAUSED = "SESSION_STATUS_PAUSED";
     public const SESSION_STATUS_ALL = "SESSION_STATUS_ALL";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 final readonly class HarnessValidateSessionPolicyApiVersion implements SdkOpenEnum
 {
     public const AGENTS_DIGITALOCEAN_COM_V1ALPHA1 = "agents.digitalocean.com/v1alpha1";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 final readonly class HarnessValidateSessionPolicyKind implements SdkOpenEnum
 {
     public const AGENT = "Agent";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 final readonly class HarnessCreateSessionWorkspaceTransferDirection implements SdkOpenEnum
@@ -98,26 +53,11 @@ final readonly class HarnessCreateSessionWorkspaceTransferDirection implements S
     public const UPLOAD = "upload";
     public const DOWNLOAD = "download";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -200,26 +140,11 @@ final readonly class HarnessValidateSessionPolicySpecModeEnum implements SdkOpen
     public const INTERACTIVE = "interactive";
     public const SERVED = "served";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -241,26 +166,11 @@ final readonly class HarnessValidateSessionPolicySpecRuntimeAdapterEnum implemen
     public const CREWAI = "crewai";
     public const LANGGRAPH = "langgraph";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -313,9 +223,7 @@ class HarnessValidateSessionPolicySpecRuntimeCustom implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "image") || $data->image === null) {
-            throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null");
-        }
+        if (!property_exists($data, "image") || $data->image === null) { throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null"); }
         return new self(
             image: SdkClient::stringValue($data->image),
             entrypoint: (property_exists($data, "entrypoint") && $data->entrypoint !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->entrypoint))) : SdkNotGiven::Value),
@@ -385,9 +293,7 @@ class HarnessValidateSessionPolicySpecRuntime implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "adapter") || $data->adapter === null) {
-            throw new SdkValidationError("adapter", 'required', "Required property 'adapter' is missing or null");
-        }
+        if (!property_exists($data, "adapter") || $data->adapter === null) { throw new SdkValidationError("adapter", 'required', "Required property 'adapter' is missing or null"); }
         return new self(
             adapter: SdkClient::hydrateStringEnumOrString($data->adapter, HarnessValidateSessionPolicySpecRuntimeAdapterEnum::class),
             custom: (property_exists($data, "custom") && $data->custom !== null ? SdkClient::hydrateClass($data->custom, HarnessValidateSessionPolicySpecRuntimeCustom::class) : SdkNotGiven::Value),

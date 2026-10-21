@@ -54,26 +54,11 @@ final readonly class AlertRuleCreateRequestStatusEnum implements SdkOpenEnum
     public const ALERT_RULE_STATUS_ACTIVE = "ALERT_RULE_STATUS_ACTIVE";
     public const ALERT_RULE_STATUS_PAUSED = "ALERT_RULE_STATUS_PAUSED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -122,9 +107,7 @@ class AlertRuleCreateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) {
-            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
-        }
+        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, AlertRuleSpec::class),
             status: (property_exists($data, "status") && $data->status !== null ? SdkClient::hydrateStringEnumOrString($data->status, AlertRuleCreateRequestStatusEnum::class) : SdkNotGiven::Value),

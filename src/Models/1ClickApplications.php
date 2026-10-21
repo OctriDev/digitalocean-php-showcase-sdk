@@ -55,12 +55,8 @@ class OneClicks implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "slug") || $data->slug === null) {
-            throw new SdkValidationError("slug", 'required', "Required property 'slug' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "slug") || $data->slug === null) { throw new SdkValidationError("slug", 'required', "Required property 'slug' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             slug: SdkClient::stringValue($data->slug),
             type: SdkClient::stringValue($data->type),
@@ -162,12 +158,8 @@ class OneClicksCreate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "addon_slugs") || $data->addon_slugs === null) {
-            throw new SdkValidationError("addon_slugs", 'required', "Required property 'addon_slugs' is missing or null");
-        }
-        if (!property_exists($data, "cluster_uuid") || $data->cluster_uuid === null) {
-            throw new SdkValidationError("cluster_uuid", 'required', "Required property 'cluster_uuid' is missing or null");
-        }
+        if (!property_exists($data, "addon_slugs") || $data->addon_slugs === null) { throw new SdkValidationError("addon_slugs", 'required', "Required property 'addon_slugs' is missing or null"); }
+        if (!property_exists($data, "cluster_uuid") || $data->cluster_uuid === null) { throw new SdkValidationError("cluster_uuid", 'required', "Required property 'cluster_uuid' is missing or null"); }
         return new self(
             addonSlugs: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->addon_slugs))),
             clusterUuid: SdkClient::stringValue($data->cluster_uuid),

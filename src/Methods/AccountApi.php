@@ -17,7 +17,7 @@ class AccountApi
     public static function accountGet(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): AccountResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/account", $clientConfig, returnType: AccountResponse::class, decoder: 'json', operationId: 'accountGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/account", $clientConfig, returnType: AccountResponse::class, decoder: 'json', operationId: 'accountGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AccountResponse::class));
     }
 }

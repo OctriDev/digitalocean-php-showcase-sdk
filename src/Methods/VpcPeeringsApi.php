@@ -30,7 +30,7 @@ class VpcPeeringsApi
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/vpc_peerings", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'region' => new SdkQueryValue($region, "form", true)], returnType: AllVpcPeerings::class, decoder: 'json', operationId: 'vpcPeeringsList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/vpc_peerings", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'region' => new SdkQueryValue($region, "form", true)], returnType: AllVpcPeerings::class, decoder: 'json', operationId: 'vpcPeeringsList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllVpcPeerings::class));
     }
 
@@ -44,7 +44,7 @@ class VpcPeeringsApi
     public static function vpcPeeringsCreate(ClientConfig $clientConfig, VpcPeeringUpdatable $body, ?RequestOptions $requestOptions = null): ProvisioningVpcPeering
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/vpc_peerings", $clientConfig, body: $body, returnType: ProvisioningVpcPeering::class, decoder: 'json', operationId: 'vpcPeeringsCreate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/vpc_peerings", $clientConfig, body: $body, returnType: ProvisioningVpcPeering::class, decoder: 'json', operationId: 'vpcPeeringsCreate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ProvisioningVpcPeering::class));
     }
 
@@ -62,7 +62,7 @@ class VpcPeeringsApi
 
         Validation::validateUuid('vpc_peering_id', $vpcPeeringId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/vpc_peerings/" . SdkClient::encodePathSegment($vpcPeeringId) . "", $clientConfig, returnType: ActiveVpcPeering::class, decoder: 'json', operationId: 'vpcPeeringsGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/vpc_peerings/" . SdkClient::encodePathSegment($vpcPeeringId) . "", $clientConfig, returnType: ActiveVpcPeering::class, decoder: 'json', operationId: 'vpcPeeringsGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ActiveVpcPeering::class));
     }
 
@@ -83,7 +83,7 @@ class VpcPeeringsApi
 
         Validation::validatePattern('name', $name, '^[a-zA-Z0-9\\-]+$');
 
-        $sdkResponse = SdkClient::request('PATCH', "/v2/vpc_peerings/" . SdkClient::encodePathSegment($vpcPeeringId) . "", $clientConfig, body: ['name' => $name], returnType: ActiveVpcPeering::class, decoder: 'json', operationId: 'vpcPeeringsPatch', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PATCH', "/v2/vpc_peerings/" . SdkClient::encodePathSegment($vpcPeeringId) . "", $clientConfig, body: ['name' => $name], returnType: ActiveVpcPeering::class, decoder: 'json', operationId: 'vpcPeeringsPatch', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ActiveVpcPeering::class));
     }
 
@@ -101,7 +101,7 @@ class VpcPeeringsApi
 
         Validation::validateUuid('vpc_peering_id', $vpcPeeringId);
 
-        $sdkResponse = SdkClient::request('DELETE', "/v2/vpc_peerings/" . SdkClient::encodePathSegment($vpcPeeringId) . "", $clientConfig, returnType: DeletingVpcPeering::class, decoder: 'json', operationId: 'vpcPeeringsDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('DELETE', "/v2/vpc_peerings/" . SdkClient::encodePathSegment($vpcPeeringId) . "", $clientConfig, returnType: DeletingVpcPeering::class, decoder: 'json', operationId: 'vpcPeeringsDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DeletingVpcPeering::class));
     }
 }

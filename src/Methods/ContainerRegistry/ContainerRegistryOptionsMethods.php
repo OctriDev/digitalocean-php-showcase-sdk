@@ -19,7 +19,7 @@ trait ContainerRegistryOptionsMethods
     public static function registryGetOptions(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): RegistryOptionsResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/registry/options", $clientConfig, returnType: RegistryOptionsResponse::class, decoder: 'json', operationId: 'registryGetOptions', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/registry/options", $clientConfig, returnType: RegistryOptionsResponse::class, decoder: 'json', operationId: 'registryGetOptions', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, RegistryOptionsResponse::class));
     }
 }

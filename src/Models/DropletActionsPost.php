@@ -120,12 +120,8 @@ class DropletActionChangeBackupPolicy implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "backup_policy") || $data->backup_policy === null) {
-            throw new SdkValidationError("backup_policy", 'required', "Required property 'backup_policy' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "backup_policy") || $data->backup_policy === null) { throw new SdkValidationError("backup_policy", 'required', "Required property 'backup_policy' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, DropletActionChangeBackupPolicyTypeEnum::class),
             backupPolicy: SdkClient::hydrateClass($data->backup_policy, DropletBackupPolicy::class),
@@ -248,9 +244,7 @@ class DropletActionChangeKernel implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, DropletActionChangeKernelTypeEnum::class),
             kernel: (property_exists($data, "kernel") && $data->kernel !== null ? SdkClient::intValue($data->kernel) : SdkNotGiven::Value),

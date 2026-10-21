@@ -75,18 +75,10 @@ class AccessPointRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "path") || $data->path === null) {
-            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
-        }
-        if (!property_exists($data, "access_policy") || $data->access_policy === null) {
-            throw new SdkValidationError("access_policy", 'required', "Required property 'access_policy' is missing or null");
-        }
-        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) {
-            throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
+        if (!property_exists($data, "access_policy") || $data->access_policy === null) { throw new SdkValidationError("access_policy", 'required', "Required property 'access_policy' is missing or null"); }
+        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) { throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             path: SdkClient::stringValue($data->path),

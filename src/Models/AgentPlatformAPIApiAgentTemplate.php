@@ -341,24 +341,9 @@ final readonly class ApiAgentTemplateType implements SdkOpenEnum
     public const AGENT_TEMPLATE_TYPE_STANDARD = "AGENT_TEMPLATE_TYPE_STANDARD";
     public const AGENT_TEMPLATE_TYPE_ONE_CLICK = "AGENT_TEMPLATE_TYPE_ONE_CLICK";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

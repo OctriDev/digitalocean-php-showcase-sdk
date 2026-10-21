@@ -194,18 +194,10 @@ class ExportJob implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "export_id") || $data->export_id === null) {
-            throw new SdkValidationError("export_id", 'required', "Required property 'export_id' is missing or null");
-        }
-        if (!property_exists($data, "agent_id") || $data->agent_id === null) {
-            throw new SdkValidationError("agent_id", 'required', "Required property 'agent_id' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
+        if (!property_exists($data, "export_id") || $data->export_id === null) { throw new SdkValidationError("export_id", 'required', "Required property 'export_id' is missing or null"); }
+        if (!property_exists($data, "agent_id") || $data->agent_id === null) { throw new SdkValidationError("agent_id", 'required', "Required property 'agent_id' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
         return new self(
             exportId: SdkClient::stringValue($data->export_id),
             agentId: SdkClient::stringValue($data->agent_id),

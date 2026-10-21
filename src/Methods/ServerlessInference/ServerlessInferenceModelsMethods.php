@@ -17,7 +17,7 @@ trait ServerlessInferenceModelsMethods
     public static function inferenceListModels(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): ListModelsResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v1/models", $clientConfig, returnType: ListModelsResponse::class, decoder: 'json', operationId: 'inferenceListModels', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v1/models", $clientConfig, returnType: ListModelsResponse::class, decoder: 'json', operationId: 'inferenceListModels', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ListModelsResponse::class));
     }
 }

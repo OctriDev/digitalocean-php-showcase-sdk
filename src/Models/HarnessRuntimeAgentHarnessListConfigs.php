@@ -105,27 +105,13 @@ class AgentConfigSummary implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "agentspec_schema_version") || $data->agentspec_schema_version === null) {
-            throw new SdkValidationError("agentspec_schema_version", 'required', "Required property 'agentspec_schema_version' is missing or null");
-        }
-        if (!property_exists($data, "content_hash") || $data->content_hash === null) {
-            throw new SdkValidationError("content_hash", 'required', "Required property 'content_hash' is missing or null");
-        }
-        if (!property_exists($data, "created_by") || $data->created_by === null) {
-            throw new SdkValidationError("created_by", 'required', "Required property 'created_by' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "agentspec_schema_version") || $data->agentspec_schema_version === null) { throw new SdkValidationError("agentspec_schema_version", 'required', "Required property 'agentspec_schema_version' is missing or null"); }
+        if (!property_exists($data, "content_hash") || $data->content_hash === null) { throw new SdkValidationError("content_hash", 'required', "Required property 'content_hash' is missing or null"); }
+        if (!property_exists($data, "created_by") || $data->created_by === null) { throw new SdkValidationError("created_by", 'required', "Required property 'created_by' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
         return new self(
             id: SdkClient::stringValue($data->id),
             name: SdkClient::stringValue($data->name),

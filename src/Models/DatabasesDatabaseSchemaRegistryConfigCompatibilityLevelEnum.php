@@ -20,26 +20,11 @@ final readonly class DatabaseSchemaRegistryConfigCompatibilityLevelEnum implemen
     public const FULL = "FULL";
     public const FULL_TRANSITIVE = "FULL_TRANSITIVE";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -80,9 +65,7 @@ class DatabaseSchemaRegistryConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "compatibility_level") || $data->compatibility_level === null) {
-            throw new SdkValidationError("compatibility_level", 'required', "Required property 'compatibility_level' is missing or null");
-        }
+        if (!property_exists($data, "compatibility_level") || $data->compatibility_level === null) { throw new SdkValidationError("compatibility_level", 'required', "Required property 'compatibility_level' is missing or null"); }
         return new self(
             compatibilityLevel: SdkClient::hydrateStringEnumOrString($data->compatibility_level, DatabaseSchemaRegistryConfigCompatibilityLevelEnum::class),
         );
@@ -102,26 +85,11 @@ final readonly class DatabaseSchemaRegistrySubjectConfigCompatibilityLevelEnum i
     public const FULL = "FULL";
     public const FULL_TRANSITIVE = "FULL_TRANSITIVE";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -172,12 +140,8 @@ class DatabaseSchemaRegistrySubjectConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "subject_name") || $data->subject_name === null) {
-            throw new SdkValidationError("subject_name", 'required', "Required property 'subject_name' is missing or null");
-        }
-        if (!property_exists($data, "compatibility_level") || $data->compatibility_level === null) {
-            throw new SdkValidationError("compatibility_level", 'required', "Required property 'compatibility_level' is missing or null");
-        }
+        if (!property_exists($data, "subject_name") || $data->subject_name === null) { throw new SdkValidationError("subject_name", 'required', "Required property 'subject_name' is missing or null"); }
+        if (!property_exists($data, "compatibility_level") || $data->compatibility_level === null) { throw new SdkValidationError("compatibility_level", 'required', "Required property 'compatibility_level' is missing or null"); }
         return new self(
             subjectName: SdkClient::stringValue($data->subject_name),
             compatibilityLevel: SdkClient::hydrateStringEnumOrString($data->compatibility_level, DatabaseSchemaRegistrySubjectConfigCompatibilityLevelEnum::class),
@@ -306,9 +270,7 @@ class DatabaseStorageAutoscaleParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "enabled") || $data->enabled === null) {
-            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
-        }
+        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
         return new self(
             enabled: SdkClient::boolValue($data->enabled),
             thresholdPercent: (property_exists($data, "threshold_percent") && $data->threshold_percent !== null ? SdkClient::intValue($data->threshold_percent) : SdkNotGiven::Value),
@@ -325,24 +287,9 @@ final readonly class DatabaseUserRoleEnum implements SdkOpenEnum
     public const PRIMARY = "primary";
     public const NORMAL = "normal";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
