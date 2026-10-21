@@ -9,6 +9,12 @@ namespace octridev_digitalocean;
 
 class Droplets
 {
-    use DropletsMethodsPart1;
-    use DropletsMethodsPart2;
+    use DropletsMethods;
+    use DropletsBackupsMethods;
+    use DropletsSnapshotsMethods;
+    use DropletsKernelsMethods;
+    use DropletsFirewallsMethods;
+    use DropletsNeighborsMethods;
+    use DropletsDestroyWithAssociatedResourcesMethods;
+    use DropletsReportsMethods;
 }

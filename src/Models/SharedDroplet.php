@@ -8,14 +8,376 @@ declare(strict_types=1);
 namespace octridev_digitalocean;
 
 /**
- * A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
+ * Typed representation of the `Droplet` API schema.
  */
-final readonly class DropletStatusEnum implements SdkOpenEnum
+class Droplet implements FloatingIpDroplet, ReservedIpDroplet, ReservedIpv6ListReservedIpv6sItemDroplet, ReservedIpv6Droplet, \JsonSerializable
 {
-    public const NEW = "new";
-    public const ACTIVE = "active";
-    public const OFF = "off";
-    public const ARCHIVE = "archive";
+    /**
+     * A unique identifier for each Droplet instance. This is automatically generated upon Droplet creation.
+     *
+     * @var int
+     */
+    public readonly int $id;
+    /**
+     * The human-readable name set for the Droplet instance.
+     *
+     * @var string
+     */
+    public readonly string $name;
+    /**
+     * Memory of the Droplet in megabytes.
+     *
+     * @var int
+     */
+    public readonly int $memory;
+    /**
+     * The number of virtual CPUs.
+     *
+     * @var int
+     */
+    public readonly int $vcpus;
+    /**
+     * The size of the Droplet's disk in gigabytes.
+     *
+     * @var int
+     */
+    public readonly int $disk;
+    /**
+     * An array of objects containing information about the disks available to the Droplet.
+     *
+     * @var list<DiskInfo>|SdkNotGiven
+     */
+    public readonly array|SdkNotGiven $diskInfo;
+    /**
+     * A boolean value indicating whether the Droplet has been locked, preventing actions by users.
+     *
+     * @var bool
+     */
+    public readonly bool $locked;
+    /**
+     * A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
+     *
+     * @var DropletStatusEnum|string
+     */
+    public readonly DropletStatusEnum|string $status;
+    /**
+     * **Note**: All Droplets created after March 2017 use internal kernels by default. These Droplets will have this attribute set to `null`. The current [kernel](https://docs.digitalocean.com/products/droplets/how-to/kernel/) for Droplets with externally managed kernels. This will initially be set to the kernel of the base image when the Droplet is created.
+     *
+     * @var Kernel|null|SdkNotGiven
+     */
+    public readonly Kernel|null|SdkNotGiven $kernel;
+    /**
+     * A time value given in ISO8601 combined date and time format that represents when the Droplet was created.
+     *
+     * @var string
+     */
+    public readonly string $createdAt;
+    /**
+     * An array of features enabled on this Droplet.
+     *
+     * @var list<string>
+     */
+    public readonly array $features;
+    /**
+     * An array of backup IDs of any backups that have been taken of the Droplet instance. Droplet backups are enabled at the time of the instance creation. Requires `image:read` scope.
+     *
+     * @var list<int>
+     */
+    public readonly array $backupIds;
+    /**
+     * The details of the Droplet's backups feature, if backups are configured for the Droplet. This object contains keys for the start and end times of the window during which the backup will start.
+     *
+     * @var DropletNextBackupWindow|null
+     */
+    public readonly DropletNextBackupWindow|null $nextBackupWindow;
+    /**
+     * An array of snapshot IDs of any snapshots created from the Droplet instance. Requires `image:read` scope.
+     *
+     * @var list<int>
+     */
+    public readonly array $snapshotIds;
+    /**
+     * The Droplet's image. Requires `image:read` scope.
+     *
+     * @var Image
+     */
+    public readonly Image $image;
+    /**
+     * A flat array including the unique identifier for each Block Storage volume attached to the Droplet. Requires `block_storage:read` scope.
+     *
+     * @var list<string>
+     */
+    public readonly array $volumeIds;
+    /**
+     * Required object value serialized in the `size` wire field.
+     *
+     * @var Size
+     */
+    public readonly Size $size;
+    /**
+     * The unique slug identifier for the size of this Droplet.
+     *
+     * @var string
+     */
+    public readonly string $sizeSlug;
+    /**
+     * The details of the network that are configured for the Droplet instance. This is an object that contains keys for IPv4 and IPv6. The value of each of these is an array that contains objects describing an individual IP resource allocated to the Droplet. These will define attributes like the IP address, netmask, and gateway of the specific network depending on the type of network it is.
+     *
+     * @var DropletNetworks
+     */
+    public readonly DropletNetworks $networks;
+    /**
+     * Required object value serialized in the `region` wire field.
+     *
+     * @var Region
+     */
+    public readonly Region $region;
+    /**
+     * An array of Tags the Droplet has been tagged with. Requires `tag:read` scope.
+     *
+     * @var list<string>
+     */
+    public readonly array $tags;
+    /**
+     * A string specifying the UUID of the VPC to which the Droplet is assigned. Requires `vpc:read` scope.
+     *
+     * @var string|SdkNotGiven
+     */
+    public readonly string|SdkNotGiven $vpcUuid;
+    /**
+     * A string specifying the UUID of the VPC subnet to which the Droplet is assigned. Requires `vpc:read` scope.
+     *
+     * @var string|SdkNotGiven
+     */
+    public readonly string|SdkNotGiven $subnetUuid;
+    /**
+     * An object containing information about the GPU capabilities of Droplets created with this size.
+     *
+     * @var GpuInfo|SdkNotGiven
+     */
+    public readonly GpuInfo|SdkNotGiven $gpuInfo;
+
+    /**
+     * @param int $id
+     * @param string $name
+     * @param int $memory
+     * @param int $vcpus
+     * @param int $disk
+     * @param bool $locked
+     * @param DropletStatusEnum|string $status
+     * @param string $createdAt
+     * @param list<string> $features
+     * @param list<int> $backupIds
+     * @param DropletNextBackupWindow|null $nextBackupWindow
+     * @param list<int> $snapshotIds
+     * @param Image $image
+     * @param list<string> $volumeIds
+     * @param Size $size
+     * @param string $sizeSlug
+     * @param DropletNetworks $networks
+     * @param Region $region
+     * @param list<string> $tags
+     * @param list<DiskInfo>|SdkNotGiven $diskInfo
+     * @param Kernel|null|SdkNotGiven $kernel
+     * @param string|SdkNotGiven $vpcUuid
+     * @param string|SdkNotGiven $subnetUuid
+     * @param GpuInfo|SdkNotGiven $gpuInfo
+     */
+    public function __construct(
+        int $id,
+        string $name,
+        int $memory,
+        int $vcpus,
+        int $disk,
+        bool $locked,
+        DropletStatusEnum|string $status,
+        string $createdAt,
+        array $features,
+        array $backupIds,
+        DropletNextBackupWindow|null $nextBackupWindow,
+        array $snapshotIds,
+        Image $image,
+        array $volumeIds,
+        Size $size,
+        string $sizeSlug,
+        DropletNetworks $networks,
+        Region $region,
+        array $tags,
+        array|SdkNotGiven $diskInfo = SdkNotGiven::Value,
+        Kernel|null|SdkNotGiven $kernel = SdkNotGiven::Value,
+        string|SdkNotGiven $vpcUuid = SdkNotGiven::Value,
+        string|SdkNotGiven $subnetUuid = SdkNotGiven::Value,
+        GpuInfo|SdkNotGiven $gpuInfo = SdkNotGiven::Value,
+    ) {
+        $this->id = $id;
+        $this->name = $name;
+        $this->memory = $memory;
+        $this->vcpus = $vcpus;
+        $this->disk = $disk;
+        $this->locked = $locked;
+        $this->status = $status;
+        $this->createdAt = $createdAt;
+        $this->features = $features;
+        $this->backupIds = $backupIds;
+        $this->nextBackupWindow = $nextBackupWindow;
+        $this->snapshotIds = $snapshotIds;
+        $this->image = $image;
+        $this->volumeIds = $volumeIds;
+        $this->size = $size;
+        $this->sizeSlug = $sizeSlug;
+        $this->networks = $networks;
+        $this->region = $region;
+        $this->tags = $tags;
+        $this->diskInfo = $diskInfo;
+        $this->kernel = $kernel;
+        $this->vpcUuid = $vpcUuid;
+        $this->subnetUuid = $subnetUuid;
+        $this->gpuInfo = $gpuInfo;
+    }
+
+    /** @return array<array-key, mixed> */
+    public function toArray(): array
+    {
+        $values = [
+            "id" => $this->id,
+            "name" => $this->name,
+            "memory" => $this->memory,
+            "vcpus" => $this->vcpus,
+            "disk" => $this->disk,
+            "locked" => $this->locked,
+            "status" => $this->status,
+            "created_at" => $this->createdAt,
+            "features" => $this->features,
+            "backup_ids" => $this->backupIds,
+            "next_backup_window" => $this->nextBackupWindow,
+            "snapshot_ids" => $this->snapshotIds,
+            "image" => $this->image,
+            "volume_ids" => $this->volumeIds,
+            "size" => $this->size,
+            "size_slug" => $this->sizeSlug,
+            "networks" => $this->networks,
+            "region" => $this->region,
+            "tags" => $this->tags,
+        ];
+        if ($this->diskInfo !== SdkNotGiven::Value) {
+            $values["disk_info"] = $this->diskInfo;
+        }
+        if ($this->kernel !== SdkNotGiven::Value) {
+            $values["kernel"] = $this->kernel;
+        }
+        if ($this->vpcUuid !== SdkNotGiven::Value) {
+            $values["vpc_uuid"] = $this->vpcUuid;
+        }
+        if ($this->subnetUuid !== SdkNotGiven::Value) {
+            $values["subnet_uuid"] = $this->subnetUuid;
+        }
+        if ($this->gpuInfo !== SdkNotGiven::Value) {
+            $values["gpu_info"] = $this->gpuInfo;
+        }
+        return $values;
+    }
+
+    /** @return object */
+    public function jsonSerialize(): object
+    {
+        return (object) $this->toArray();
+    }
+
+    public static function fromObject(object $data): self
+    {
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "memory") || $data->memory === null) {
+            throw new SdkValidationError("memory", 'required', "Required property 'memory' is missing or null");
+        }
+        if (!property_exists($data, "vcpus") || $data->vcpus === null) {
+            throw new SdkValidationError("vcpus", 'required', "Required property 'vcpus' is missing or null");
+        }
+        if (!property_exists($data, "disk") || $data->disk === null) {
+            throw new SdkValidationError("disk", 'required', "Required property 'disk' is missing or null");
+        }
+        if (!property_exists($data, "locked") || $data->locked === null) {
+            throw new SdkValidationError("locked", 'required', "Required property 'locked' is missing or null");
+        }
+        if (!property_exists($data, "status") || $data->status === null) {
+            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
+        if (!property_exists($data, "features") || $data->features === null) {
+            throw new SdkValidationError("features", 'required', "Required property 'features' is missing or null");
+        }
+        if (!property_exists($data, "backup_ids") || $data->backup_ids === null) {
+            throw new SdkValidationError("backup_ids", 'required', "Required property 'backup_ids' is missing or null");
+        }
+        if (!property_exists($data, "next_backup_window")) {
+            throw new SdkValidationError("next_backup_window", 'required', "Missing required property 'next_backup_window'");
+        }
+        if (!property_exists($data, "snapshot_ids") || $data->snapshot_ids === null) {
+            throw new SdkValidationError("snapshot_ids", 'required', "Required property 'snapshot_ids' is missing or null");
+        }
+        if (!property_exists($data, "image") || $data->image === null) {
+            throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null");
+        }
+        if (!property_exists($data, "volume_ids") || $data->volume_ids === null) {
+            throw new SdkValidationError("volume_ids", 'required', "Required property 'volume_ids' is missing or null");
+        }
+        if (!property_exists($data, "size") || $data->size === null) {
+            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
+        }
+        if (!property_exists($data, "size_slug") || $data->size_slug === null) {
+            throw new SdkValidationError("size_slug", 'required', "Required property 'size_slug' is missing or null");
+        }
+        if (!property_exists($data, "networks") || $data->networks === null) {
+            throw new SdkValidationError("networks", 'required', "Required property 'networks' is missing or null");
+        }
+        if (!property_exists($data, "region") || $data->region === null) {
+            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
+        }
+        if (!property_exists($data, "tags") || $data->tags === null) {
+            throw new SdkValidationError("tags", 'required', "Required property 'tags' is missing or null");
+        }
+        return new self(
+            id: SdkClient::intValue($data->id),
+            name: SdkClient::stringValue($data->name),
+            memory: SdkClient::intValue($data->memory),
+            vcpus: SdkClient::intValue($data->vcpus),
+            disk: SdkClient::intValue($data->disk),
+            locked: SdkClient::boolValue($data->locked),
+            status: SdkClient::hydrateStringEnumOrString($data->status, DropletStatusEnum::class),
+            createdAt: SdkClient::stringValue($data->created_at),
+            features: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->features))),
+            backupIds: array_values(array_map(static fn($item) => SdkClient::intValue($item), SdkClient::arrayValue($data->backup_ids))),
+            nextBackupWindow: ($data->next_backup_window === null ? null : SdkClient::hydrateClass($data->next_backup_window, DropletNextBackupWindow::class)),
+            snapshotIds: array_values(array_map(static fn($item) => SdkClient::intValue($item), SdkClient::arrayValue($data->snapshot_ids))),
+            image: SdkClient::hydrateClass($data->image, Image::class),
+            volumeIds: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->volume_ids))),
+            size: SdkClient::hydrateClass($data->size, Size::class),
+            sizeSlug: SdkClient::stringValue($data->size_slug),
+            networks: SdkClient::hydrateClass($data->networks, DropletNetworks::class),
+            region: SdkClient::hydrateClass($data->region, Region::class),
+            tags: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->tags))),
+            diskInfo: (property_exists($data, "disk_info") && $data->disk_info !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, DiskInfo::class), SdkClient::arrayValue($data->disk_info))) : SdkNotGiven::Value),
+            kernel: (property_exists($data, "kernel") ? ($data->kernel === null ? null : SdkClient::hydrateClass($data->kernel, Kernel::class)) : SdkNotGiven::Value),
+            vpcUuid: (property_exists($data, "vpc_uuid") && $data->vpc_uuid !== null ? SdkClient::stringValue($data->vpc_uuid) : SdkNotGiven::Value),
+            subnetUuid: (property_exists($data, "subnet_uuid") && $data->subnet_uuid !== null ? SdkClient::stringValue($data->subnet_uuid) : SdkNotGiven::Value),
+            gpuInfo: (property_exists($data, "gpu_info") && $data->gpu_info !== null ? SdkClient::hydrateClass($data->gpu_info, GpuInfo::class) : SdkNotGiven::Value),
+        );
+    }
+}
+
+/**
+ * The backup plan used for the Droplet. The plan can be either `daily` or `weekly`.
+ */
+final readonly class DropletBackupPolicyPlanEnum implements SdkOpenEnum
+{
+    public const DAILY = "daily";
+    public const WEEKLY = "weekly";
     private function __construct(public string $value) {}
     public static function from(string|int $value): static
     {
@@ -36,64 +398,5 @@ final readonly class DropletStatusEnum implements SdkOpenEnum
     public function __toString(): string
     {
         return (string) $this->value;
-    }
-}
-
-/**
- * The details of the network that are configured for the Droplet instance. This is an object that contains keys for IPv4 and IPv6. The value of each of these is an array that contains objects describing an individual IP resource allocated to the Droplet. These will define attributes like the IP address, netmask, and gateway of the specific network depending on the type of network it is.
- */
-class DropletNetworks implements \JsonSerializable
-{
-    /**
-     * Optional array value serialized in the `v4` wire field.
-     *
-     * @var list<NetworkV4>|SdkNotGiven
-     */
-    public readonly array|SdkNotGiven $v4;
-    /**
-     * Optional array value serialized in the `v6` wire field.
-     *
-     * @var list<NetworkV6>|SdkNotGiven
-     */
-    public readonly array|SdkNotGiven $v6;
-
-    /**
-     * @param list<NetworkV4>|SdkNotGiven $v4
-     * @param list<NetworkV6>|SdkNotGiven $v6
-     */
-    public function __construct(
-        array|SdkNotGiven $v4 = SdkNotGiven::Value,
-        array|SdkNotGiven $v6 = SdkNotGiven::Value,
-    ) {
-        $this->v4 = $v4;
-        $this->v6 = $v6;
-    }
-
-    /** @return array<array-key, mixed> */
-    public function toArray(): array
-    {
-        $values = [
-        ];
-        if ($this->v4 !== SdkNotGiven::Value) {
-            $values["v4"] = $this->v4;
-        }
-        if ($this->v6 !== SdkNotGiven::Value) {
-            $values["v6"] = $this->v6;
-        }
-        return $values;
-    }
-
-    /** @return object */
-    public function jsonSerialize(): object
-    {
-        return (object) $this->toArray();
-    }
-
-    public static function fromObject(object $data): self
-    {
-        return new self(
-            v4: (property_exists($data, "v4") && $data->v4 !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, NetworkV4::class), SdkClient::arrayValue($data->v4))) : SdkNotGiven::Value),
-            v6: (property_exists($data, "v6") && $data->v6 !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, NetworkV6::class), SdkClient::arrayValue($data->v6))) : SdkNotGiven::Value),
-        );
     }
 }

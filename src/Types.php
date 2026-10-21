@@ -10,3 +10,4 @@ namespace octridev_digitalocean;
 require_once __DIR__ . '/UnionTypes.php';
 require_once __DIR__ . '/TypesLoaders/Part1.php';
 require_once __DIR__ . '/TypesLoaders/Part2.php';
+require_once __DIR__ . '/TypesLoaders/Part3.php';

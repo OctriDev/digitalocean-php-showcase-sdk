@@ -9,11 +9,11 @@ namespace octridev_digitalocean;
 
 class HarnessRuntime
 {
-    use HarnessRuntimeMethodsPart1;
-    use HarnessRuntimeMethodsPart2;
-    use HarnessRuntimeMethodsPart3;
-    use HarnessRuntimeMethodsPart4;
-    use HarnessRuntimeMethodsPart5;
-    use HarnessRuntimeMethodsPart6;
-    use HarnessRuntimeMethodsPart7;
+    use HarnessRuntimeAgentsMethods;
+    use HarnessRuntimeHarnessListSessionsMethods;
+    use HarnessRuntimeHarnessGetSessionCheckpointMethods;
+    use HarnessRuntimeHarnessGetSessionEventsMethods;
+    use HarnessRuntimeHarnessListTemplateBuildsMethods;
+    use HarnessRuntimeHarnessListReusableSessionsMethods;
+    use HarnessRuntimeHarnessListWebhookProvidersMethods;
 }

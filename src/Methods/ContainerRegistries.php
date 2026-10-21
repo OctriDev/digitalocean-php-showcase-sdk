@@ -9,6 +9,13 @@ namespace octridev_digitalocean;
 
 class ContainerRegistries
 {
-    use ContainerRegistriesMethodsPart1;
-    use ContainerRegistriesMethodsPart2;
+    use ContainerRegistriesMethods;
+    use ContainerRegistriesDockerCredentialsMethods;
+    use ContainerRegistriesSubscriptionMethods;
+    use ContainerRegistriesOptionsMethods;
+    use ContainerRegistriesGarbageCollectionMethods;
+    use ContainerRegistriesGarbageCollectionsMethods;
+    use ContainerRegistriesRepositoriesV2Methods;
+    use ContainerRegistriesRepositoriesMethods;
+    use ContainerRegistriesValidateNameMethods;
 }
