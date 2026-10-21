@@ -9,9 +9,30 @@ namespace octridev_digitalocean;
 
 class DatabasesApi
 {
-    use DatabasesApiMethodsPart1;
-    use DatabasesApiMethodsPart2;
-    use DatabasesApiMethodsPart3;
-    use DatabasesApiMethodsPart4;
-    use DatabasesApiMethodsPart5;
+    use DatabasesApiOptionsMethods;
+    use DatabasesApiMethods;
+    use DatabasesApiConfigMethods;
+    use DatabasesApiCaMethods;
+    use DatabasesApiOnlineMigrationMethods;
+    use DatabasesApiMigrateMethods;
+    use DatabasesApiResizeMethods;
+    use DatabasesApiFirewallMethods;
+    use DatabasesApiDoSettingsMethods;
+    use DatabasesApiMaintenanceMethods;
+    use DatabasesApiInstallUpdateMethods;
+    use DatabasesApiBackupsMethods;
+    use DatabasesApiReplicasMethods;
+    use DatabasesApiEventsMethods;
+    use DatabasesApiUsersMethods;
+    use DatabasesApiDbsMethods;
+    use DatabasesApiPoolsMethods;
+    use DatabasesApiEvictionPolicyMethods;
+    use DatabasesApiSqlModeMethods;
+    use DatabasesApiUpgradeMethods;
+    use DatabasesApiAutoscaleMethods;
+    use DatabasesApiTopicsMethods;
+    use DatabasesApiLogsinkMethods;
+    use DatabasesApiSchemaRegistryMethods;
+    use DatabasesApiMetricsMethods;
+    use DatabasesApiIndexesMethods;
 }

@@ -9,6 +9,8 @@ namespace octridev_digitalocean;
 
 class Insights
 {
-    use InsightsMethodsPart1;
-    use InsightsMethodsPart2;
+    use InsightsAlertInstancesMethods;
+    use InsightsAlertRulesMethods;
+    use InsightsNotificationChannelsMethods;
+    use InsightsQueryMethods;
 }

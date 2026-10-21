@@ -9,7 +9,20 @@ namespace octridev_digitalocean;
 
 class Apps
 {
-    use AppsMethodsPart1;
-    use AppsMethodsPart2;
-    use AppsMethodsPart3;
+    use AppsMethods;
+    use AppsRestartMethods;
+    use AppsComponentsMethods;
+    use AppsInstancesMethods;
+    use AppsDeploymentsMethods;
+    use AppsLogsMethods;
+    use AppsJobInvocationsMethods;
+    use AppsJobsMethods;
+    use AppsEventsMethods;
+    use AppsTiersMethods;
+    use AppsRegionsMethods;
+    use AppsProposeMethods;
+    use AppsAlertsMethods;
+    use AppsRollbackMethods;
+    use AppsMetricsMethods;
+    use AppsHealthMethods;
 }

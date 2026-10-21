@@ -9,6 +9,14 @@ namespace octridev_digitalocean;
 
 class ServerlessInference
 {
-    use ServerlessInferenceMethodsPart1;
-    use ServerlessInferenceMethodsPart2;
+    use ServerlessInferenceChatMethods;
+    use ServerlessInferenceMessagesMethods;
+    use ServerlessInferenceEmbeddingsMethods;
+    use ServerlessInferenceImagesMethods;
+    use ServerlessInferenceModelsMethods;
+    use ServerlessInferenceSystemoneMethods;
+    use ServerlessInferenceResponsesMethods;
+    use ServerlessInferenceAsyncInvokeMethods;
+    use ServerlessInferenceAudioMethods;
+    use ServerlessInferenceVideosMethods;
 }

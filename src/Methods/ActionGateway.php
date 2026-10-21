@@ -9,9 +9,13 @@ namespace octridev_digitalocean;
 
 class ActionGateway
 {
-    use ActionGatewayMethodsPart1;
-    use ActionGatewayMethodsPart2;
-    use ActionGatewayMethodsPart3;
-    use ActionGatewayMethodsPart4;
-    use ActionGatewayMethodsPart5;
+    use ActionGatewayActorsMethods;
+    use ActionGatewayConnectionsMethods;
+    use ActionGatewayMcpServersMethods;
+    use ActionGatewayOutputViewsMethods;
+    use ActionGatewaySessionsMethods;
+    use ActionGatewayToolbeltsMethods;
+    use ActionGatewayToolbeltsListProviderToolsMethods;
+    use ActionGatewayToolsMethods;
+    use ActionGatewayUsersMethods;
 }

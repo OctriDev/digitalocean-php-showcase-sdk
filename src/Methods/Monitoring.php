@@ -9,9 +9,10 @@ namespace octridev_digitalocean;
 
 class Monitoring
 {
-    use MonitoringMethodsPart1;
-    use MonitoringMethodsPart2;
-    use MonitoringMethodsPart3;
-    use MonitoringMethodsPart4;
-    use MonitoringMethodsPart5;
+    use MonitoringAlertsMethods;
+    use MonitoringMetricsMethods;
+    use MonitoringGetLbFrontendCpuUtilizationMethods;
+    use MonitoringGetLbDropletsHttpResponseTimeAvgMethods;
+    use MonitoringGetDatabaseMysqlLoadMethods;
+    use MonitoringSinksMethods;
 }

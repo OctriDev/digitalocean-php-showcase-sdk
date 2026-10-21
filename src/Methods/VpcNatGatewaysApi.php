@@ -9,5 +9,5 @@ namespace octridev_digitalocean;
 
 class VpcNatGatewaysApi
 {
-    use VpcNatGatewaysApiMethodsPart1;
+    use VpcNatGatewaysApiMethods;
 }

@@ -8,80 +8,130 @@ declare(strict_types=1);
 namespace octridev_digitalocean;
 
 /**
- * Current state of the Accelerator.
+ * A Dedicated Inference instance.
  */
-final readonly class AcceleratorConfigSpecStatusEnum implements SdkOpenEnum
-{
-    public const NEW = "new";
-    public const PROVISIONING = "provisioning";
-    public const ACTIVE = "active";
-    private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
-}
-
-/**
- * Typed representation of the `AcceleratorConfigSpec` API schema.
- */
-class AcceleratorConfigSpec implements \JsonSerializable
+class DedicatedInference implements \JsonSerializable
 {
     /**
-     * Number of accelerator instances.
+     * Unique ID of the Dedicated Inference.
      *
-     * @var int
+     * @var string|SdkNotGiven
      */
-    public readonly int $scale;
+    public readonly string|SdkNotGiven $id;
     /**
-     * Accelerator type (e.g. prefill_decode).
+     * Current state of the Dedicated Inference.
      *
-     * @var string
+     * @var DedicatedInferenceStatusEnum|string|SdkNotGiven
      */
-    public readonly string $type;
+    public readonly DedicatedInferenceStatusEnum|string|SdkNotGiven $status;
     /**
-     * DigitalOcean GPU slug.
+     * DigitalOcean region where the Dedicated Inference is hosted.
      *
-     * @var string
+     * @var string|SdkNotGiven
      */
-    public readonly string $acceleratorSlug;
+    public readonly string|SdkNotGiven $region;
     /**
-     * Current state of the Accelerator.
+     * VPC UUID of the Dedicated Inference.
      *
-     * @var AcceleratorConfigSpecStatusEnum|string|SdkNotGiven
+     * @var string|SdkNotGiven
      */
-    public readonly AcceleratorConfigSpecStatusEnum|string|SdkNotGiven $status;
+    public readonly string|SdkNotGiven $vpcUuid;
+    /**
+     * Structured configuration for a Dedicated Inference deployment.
+     *
+     * @var DedicatedInferenceSpec|SdkNotGiven
+     */
+    public readonly DedicatedInferenceSpec|SdkNotGiven $spec;
+    /**
+     * Pending deployment when status is provisioning or updating.
+     *
+     * @var PendingDeploymentSpec|SdkNotGiven
+     */
+    public readonly PendingDeploymentSpec|SdkNotGiven $pendingDeploymentSpec;
+    /**
+     * Optional object value serialized in the `endpoints` wire field.
+     *
+     * @var DedicatedInferenceEndpoints|SdkNotGiven
+     */
+    public readonly DedicatedInferenceEndpoints|SdkNotGiven $endpoints;
+    /**
+     * When the Dedicated Inference was created.
+     *
+     * @var string|SdkNotGiven
+     */
+    public readonly string|SdkNotGiven $createdAt;
+    /**
+     * When the Dedicated Inference was last updated.
+     *
+     * @var string|SdkNotGiven
+     */
+    public readonly string|SdkNotGiven $updatedAt;
 
     /**
-     * @param int $scale
-     * @param string $type
-     * @param string $acceleratorSlug
-     * @param AcceleratorConfigSpecStatusEnum|string|SdkNotGiven $status
+     * @param string|SdkNotGiven $id
+     * @param DedicatedInferenceStatusEnum|string|SdkNotGiven $status
+     * @param string|SdkNotGiven $region
+     * @param string|SdkNotGiven $vpcUuid
+     * @param DedicatedInferenceSpec|SdkNotGiven $spec
+     * @param PendingDeploymentSpec|SdkNotGiven $pendingDeploymentSpec
+     * @param DedicatedInferenceEndpoints|SdkNotGiven $endpoints
+     * @param string|SdkNotGiven $createdAt
+     * @param string|SdkNotGiven $updatedAt
      */
     public function __construct(
-        int $scale,
-        string $type,
-        string $acceleratorSlug,
-        AcceleratorConfigSpecStatusEnum|string|SdkNotGiven $status = SdkNotGiven::Value,
+        string|SdkNotGiven $id = SdkNotGiven::Value,
+        DedicatedInferenceStatusEnum|string|SdkNotGiven $status = SdkNotGiven::Value,
+        string|SdkNotGiven $region = SdkNotGiven::Value,
+        string|SdkNotGiven $vpcUuid = SdkNotGiven::Value,
+        DedicatedInferenceSpec|SdkNotGiven $spec = SdkNotGiven::Value,
+        PendingDeploymentSpec|SdkNotGiven $pendingDeploymentSpec = SdkNotGiven::Value,
+        DedicatedInferenceEndpoints|SdkNotGiven $endpoints = SdkNotGiven::Value,
+        string|SdkNotGiven $createdAt = SdkNotGiven::Value,
+        string|SdkNotGiven $updatedAt = SdkNotGiven::Value,
     ) {
-        $this->scale = $scale;
-        $this->type = $type;
-        $this->acceleratorSlug = $acceleratorSlug;
+        $this->id = $id;
         $this->status = $status;
+        $this->region = $region;
+        $this->vpcUuid = $vpcUuid;
+        $this->spec = $spec;
+        $this->pendingDeploymentSpec = $pendingDeploymentSpec;
+        $this->endpoints = $endpoints;
+        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
     }
 
     /** @return array<array-key, mixed> */
     public function toArray(): array
     {
         $values = [
-            "scale" => $this->scale,
-            "type" => $this->type,
-            "accelerator_slug" => $this->acceleratorSlug,
         ];
+        if ($this->id !== SdkNotGiven::Value) {
+            $values["id"] = $this->id;
+        }
         if ($this->status !== SdkNotGiven::Value) {
             $values["status"] = $this->status;
         }
+        if ($this->region !== SdkNotGiven::Value) {
+            $values["region"] = $this->region;
+        }
+        if ($this->vpcUuid !== SdkNotGiven::Value) {
+            $values["vpc_uuid"] = $this->vpcUuid;
+        }
+        if ($this->spec !== SdkNotGiven::Value) {
+            $values["spec"] = $this->spec;
+        }
+        if ($this->pendingDeploymentSpec !== SdkNotGiven::Value) {
+            $values["pending_deployment_spec"] = $this->pendingDeploymentSpec;
+        }
+        if ($this->endpoints !== SdkNotGiven::Value) {
+            $values["endpoints"] = $this->endpoints;
+        }
+        if ($this->createdAt !== SdkNotGiven::Value) {
+            $values["created_at"] = $this->createdAt;
+        }
+        if ($this->updatedAt !== SdkNotGiven::Value) {
+            $values["updated_at"] = $this->updatedAt;
+        }
         return $values;
     }
 
@@ -93,212 +143,84 @@ class AcceleratorConfigSpec implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "scale") || $data->scale === null) { throw new SdkValidationError("scale", 'required', "Required property 'scale' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "accelerator_slug") || $data->accelerator_slug === null) { throw new SdkValidationError("accelerator_slug", 'required', "Required property 'accelerator_slug' is missing or null"); }
         return new self(
-            scale: SdkClient::intValue($data->scale),
-            type: SdkClient::stringValue($data->type),
-            acceleratorSlug: SdkClient::stringValue($data->accelerator_slug),
-            status: (property_exists($data, "status") && $data->status !== null ? SdkClient::hydrateStringEnumOrString($data->status, AcceleratorConfigSpecStatusEnum::class) : SdkNotGiven::Value),
+            id: (property_exists($data, "id") && $data->id !== null ? SdkClient::stringValue($data->id) : SdkNotGiven::Value),
+            status: (property_exists($data, "status") && $data->status !== null ? SdkClient::hydrateStringEnumOrString($data->status, DedicatedInferenceStatusEnum::class) : SdkNotGiven::Value),
+            region: (property_exists($data, "region") && $data->region !== null ? SdkClient::stringValue($data->region) : SdkNotGiven::Value),
+            vpcUuid: (property_exists($data, "vpc_uuid") && $data->vpc_uuid !== null ? SdkClient::stringValue($data->vpc_uuid) : SdkNotGiven::Value),
+            spec: (property_exists($data, "spec") && $data->spec !== null ? SdkClient::hydrateClass($data->spec, DedicatedInferenceSpec::class) : SdkNotGiven::Value),
+            pendingDeploymentSpec: (property_exists($data, "pending_deployment_spec") && $data->pending_deployment_spec !== null ? SdkClient::hydrateClass($data->pending_deployment_spec, PendingDeploymentSpec::class) : SdkNotGiven::Value),
+            endpoints: (property_exists($data, "endpoints") && $data->endpoints !== null ? SdkClient::hydrateClass($data->endpoints, DedicatedInferenceEndpoints::class) : SdkNotGiven::Value),
+            createdAt: (property_exists($data, "created_at") && $data->created_at !== null ? SdkClient::stringValue($data->created_at) : SdkNotGiven::Value),
+            updatedAt: (property_exists($data, "updated_at") && $data->updated_at !== null ? SdkClient::stringValue($data->updated_at) : SdkNotGiven::Value),
         );
     }
 }
 
 /**
- * Typed representation of the `AcceleratorConfigSpecRequest` API schema.
+ * A Dedicated Inference accelerator (GPU) in use by an instance.
  */
-class AcceleratorConfigSpecRequest implements \JsonSerializable
+class DedicatedInferenceAccelerator implements \JsonSerializable
 {
     /**
-     * Number of accelerator instances.
+     * Unique ID of the accelerator.
      *
-     * @var int
+     * @var string|SdkNotGiven
      */
-    public readonly int $scale;
+    public readonly string|SdkNotGiven $id;
     /**
-     * Accelerator type (e.g. prefill_decode).
+     * Name of the accelerator.
      *
-     * @var string
+     * @var string|SdkNotGiven
      */
-    public readonly string $type;
+    public readonly string|SdkNotGiven $name;
     /**
      * DigitalOcean GPU slug.
      *
-     * @var string
+     * @var string|SdkNotGiven
      */
-    public readonly string $acceleratorSlug;
-
+    public readonly string|SdkNotGiven $slug;
     /**
-     * @param int $scale
-     * @param string $type
-     * @param string $acceleratorSlug
-     */
-    public function __construct(
-        int $scale,
-        string $type,
-        string $acceleratorSlug,
-    ) {
-        $this->scale = $scale;
-        $this->type = $type;
-        $this->acceleratorSlug = $acceleratorSlug;
-    }
-
-    /** @return array<array-key, mixed> */
-    public function toArray(): array
-    {
-        $values = [
-            "scale" => $this->scale,
-            "type" => $this->type,
-            "accelerator_slug" => $this->acceleratorSlug,
-        ];
-        return $values;
-    }
-
-    /** @return object */
-    public function jsonSerialize(): object
-    {
-        return (object) $this->toArray();
-    }
-
-    public static function fromObject(object $data): self
-    {
-        if (!property_exists($data, "scale") || $data->scale === null) { throw new SdkValidationError("scale", 'required', "Required property 'scale' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "accelerator_slug") || $data->accelerator_slug === null) { throw new SdkValidationError("accelerator_slug", 'required', "Required property 'accelerator_slug' is missing or null"); }
-        return new self(
-            scale: SdkClient::intValue($data->scale),
-            type: SdkClient::stringValue($data->type),
-            acceleratorSlug: SdkClient::stringValue($data->accelerator_slug),
-        );
-    }
-}
-
-class AcceleratorsListVariant0 implements \JsonSerializable
-{
-    /** @var list<DedicatedInferenceAccelerator>|SdkNotGiven */
-    public readonly array|SdkNotGiven $accelerators;
-
-    /**
-     * @param list<DedicatedInferenceAccelerator>|SdkNotGiven $accelerators
-     */
-    public function __construct(
-        array|SdkNotGiven $accelerators = SdkNotGiven::Value,
-    ) {
-        $this->accelerators = $accelerators;
-    }
-
-    /** @return array<array-key, mixed> */
-    public function toArray(): array
-    {
-        $values = [
-        ];
-        if ($this->accelerators !== SdkNotGiven::Value) {
-            $values["accelerators"] = $this->accelerators;
-        }
-        return $values;
-    }
-
-    /** @return object */
-    public function jsonSerialize(): object
-    {
-        return (object) $this->toArray();
-    }
-
-    public static function fromObject(object $data): self
-    {
-        return new self(
-            accelerators: (property_exists($data, "accelerators") && $data->accelerators !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, DedicatedInferenceAccelerator::class), SdkClient::arrayValue($data->accelerators))) : SdkNotGiven::Value),
-        );
-    }
-}
-
-/**
- * Typed representation of the `AcceleratorsList` API schema.
- */
-class AcceleratorsList implements \JsonSerializable
-{
-    /** @var list<DedicatedInferenceAccelerator>|SdkNotGiven */
-    public readonly array|SdkNotGiven $accelerators;
-    /**
-     * Optional object value serialized in the `links` wire field.
+     * Role of the accelerator (e.g. prefill_decode).
      *
-     * @var PageLinks|SdkNotGiven
+     * @var string|SdkNotGiven
      */
-    public readonly PageLinks|SdkNotGiven $links;
+    public readonly string|SdkNotGiven $role;
     /**
-     * Required API value serialized in the `meta` wire field.
+     * Status of the accelerator.
      *
-     * @var MetaProperties
+     * @var string|SdkNotGiven
      */
-    public readonly MetaProperties $meta;
+    public readonly string|SdkNotGiven $status;
+    /**
+     * Optional `date-time`-formatted value serialized in the `created_at` wire field.
+     *
+     * @var string|SdkNotGiven
+     */
+    public readonly string|SdkNotGiven $createdAt;
 
     /**
-     * @param MetaProperties $meta
-     * @param list<DedicatedInferenceAccelerator>|SdkNotGiven $accelerators
-     * @param PageLinks|SdkNotGiven $links
+     * @param string|SdkNotGiven $id
+     * @param string|SdkNotGiven $name
+     * @param string|SdkNotGiven $slug
+     * @param string|SdkNotGiven $role
+     * @param string|SdkNotGiven $status
+     * @param string|SdkNotGiven $createdAt
      */
     public function __construct(
-        MetaProperties $meta,
-        array|SdkNotGiven $accelerators = SdkNotGiven::Value,
-        PageLinks|SdkNotGiven $links = SdkNotGiven::Value,
+        string|SdkNotGiven $id = SdkNotGiven::Value,
+        string|SdkNotGiven $name = SdkNotGiven::Value,
+        string|SdkNotGiven $slug = SdkNotGiven::Value,
+        string|SdkNotGiven $role = SdkNotGiven::Value,
+        string|SdkNotGiven $status = SdkNotGiven::Value,
+        string|SdkNotGiven $createdAt = SdkNotGiven::Value,
     ) {
-        $this->meta = $meta;
-        $this->accelerators = $accelerators;
-        $this->links = $links;
-    }
-
-    /** @return array<array-key, mixed> */
-    public function toArray(): array
-    {
-        $values = [
-            "meta" => $this->meta,
-        ];
-        if ($this->accelerators !== SdkNotGiven::Value) {
-            $values["accelerators"] = $this->accelerators;
-        }
-        if ($this->links !== SdkNotGiven::Value) {
-            $values["links"] = $this->links;
-        }
-        return $values;
-    }
-
-    /** @return object */
-    public function jsonSerialize(): object
-    {
-        return (object) $this->toArray();
-    }
-
-    public static function fromObject(object $data): self
-    {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
-        return new self(
-            meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
-            accelerators: (property_exists($data, "accelerators") && $data->accelerators !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, DedicatedInferenceAccelerator::class), SdkClient::arrayValue($data->accelerators))) : SdkNotGiven::Value),
-            links: (property_exists($data, "links") && $data->links !== null ? SdkClient::hydrateClass($data->links, PageLinks::class) : SdkNotGiven::Value),
-        );
-    }
-}
-
-/**
- * Required object value serialized in the `links` wire field.
- */
-class AllDedicatedInferencesLinks implements \JsonSerializable
-{
-    /**
-     * Pagination links (first, prev, next, last).
-     *
-     * @var array<string,string>|SdkNotGiven
-     */
-    public readonly array|SdkNotGiven $pages;
-
-    /**
-     * @param array<string,string>|SdkNotGiven $pages
-     */
-    public function __construct(
-        array|SdkNotGiven $pages = SdkNotGiven::Value,
-    ) {
-        $this->pages = $pages;
+        $this->id = $id;
+        $this->name = $name;
+        $this->slug = $slug;
+        $this->role = $role;
+        $this->status = $status;
+        $this->createdAt = $createdAt;
     }
 
     /** @return array<array-key, mixed> */
@@ -306,8 +228,23 @@ class AllDedicatedInferencesLinks implements \JsonSerializable
     {
         $values = [
         ];
-        if ($this->pages !== SdkNotGiven::Value) {
-            $values["pages"] = $this->pages;
+        if ($this->id !== SdkNotGiven::Value) {
+            $values["id"] = $this->id;
+        }
+        if ($this->name !== SdkNotGiven::Value) {
+            $values["name"] = $this->name;
+        }
+        if ($this->slug !== SdkNotGiven::Value) {
+            $values["slug"] = $this->slug;
+        }
+        if ($this->role !== SdkNotGiven::Value) {
+            $values["role"] = $this->role;
+        }
+        if ($this->status !== SdkNotGiven::Value) {
+            $values["status"] = $this->status;
+        }
+        if ($this->createdAt !== SdkNotGiven::Value) {
+            $values["created_at"] = $this->createdAt;
         }
         return $values;
     }
@@ -321,7 +258,12 @@ class AllDedicatedInferencesLinks implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            pages: (property_exists($data, "pages") && $data->pages !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->pages), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
+            id: (property_exists($data, "id") && $data->id !== null ? SdkClient::stringValue($data->id) : SdkNotGiven::Value),
+            name: (property_exists($data, "name") && $data->name !== null ? SdkClient::stringValue($data->name) : SdkNotGiven::Value),
+            slug: (property_exists($data, "slug") && $data->slug !== null ? SdkClient::stringValue($data->slug) : SdkNotGiven::Value),
+            role: (property_exists($data, "role") && $data->role !== null ? SdkClient::stringValue($data->role) : SdkNotGiven::Value),
+            status: (property_exists($data, "status") && $data->status !== null ? SdkClient::stringValue($data->status) : SdkNotGiven::Value),
+            createdAt: (property_exists($data, "created_at") && $data->created_at !== null ? SdkClient::stringValue($data->created_at) : SdkNotGiven::Value),
         );
     }
 }

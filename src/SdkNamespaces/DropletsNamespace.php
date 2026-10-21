@@ -111,9 +111,9 @@ class DropletsNamespace
      * @param int|SdkNotGiven $page
      * @return AllDropletBackupPolicies
      */
-    public function listBackupPolicies(int|SdkNotGiven $perPage = SdkNotGiven::Value, int|SdkNotGiven $page = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): AllDropletBackupPolicies
+    public function listAllBackupPolicies(int|SdkNotGiven $perPage = SdkNotGiven::Value, int|SdkNotGiven $page = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): AllDropletBackupPolicies
     {
-        return Droplets::dropletsListBackupPolicies($this->clientConfig, $perPage, $page, $requestOptions);
+        return Droplets::listAllBackupPolicies($this->clientConfig, $perPage, $page, $requestOptions);
     }
     /**
      * To retrieve a list of all supported Droplet backup policies, send a GET request to `/v2/droplets/backups/supported_policies`.

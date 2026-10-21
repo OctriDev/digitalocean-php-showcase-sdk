@@ -9,5 +9,5 @@ namespace octridev_digitalocean;
 
 class Signals
 {
-    use SignalsMethodsPart1;
+    use SignalsMethods;
 }

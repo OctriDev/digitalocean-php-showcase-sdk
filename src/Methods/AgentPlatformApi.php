@@ -9,13 +9,13 @@ namespace octridev_digitalocean;
 
 class AgentPlatformApi
 {
-    use AgentPlatformApiMethodsPart1;
-    use AgentPlatformApiMethodsPart2;
-    use AgentPlatformApiMethodsPart3;
-    use AgentPlatformApiMethodsPart4;
-    use AgentPlatformApiMethodsPart5;
-    use AgentPlatformApiMethodsPart6;
-    use AgentPlatformApiMethodsPart7;
-    use AgentPlatformApiMethodsPart8;
-    use AgentPlatformApiMethodsPart9;
+    use AgentPlatformApiGenAiMethods;
+    use AgentPlatformApiGenaiAttachAgentMethods;
+    use AgentPlatformApiGenaiDeleteAnthropicApiKeyMethods;
+    use AgentPlatformApiGenaiRunEvaluationTestCaseMethods;
+    use AgentPlatformApiGenaiCreateKnowledgeBaseMethods;
+    use AgentPlatformApiGenaiCreateModelEvaluationRunMethods;
+    use AgentPlatformApiGenaiListModelRouterPresetsMethods;
+    use AgentPlatformApiGenaiListScenarioLibraryScenariosMethods;
+    use AgentPlatformApiGenaiGetSimulationRunMethods;
 }

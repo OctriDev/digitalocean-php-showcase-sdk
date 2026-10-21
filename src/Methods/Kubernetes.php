@@ -9,6 +9,9 @@ namespace octridev_digitalocean;
 
 class Kubernetes
 {
-    use KubernetesMethodsPart1;
-    use KubernetesMethodsPart2;
+    use KubernetesClustersMethods;
+    use KubernetesAddNodePoolMethods;
+    use KubernetesOptionsMethods;
+    use KubernetesRegistryMethods;
+    use KubernetesRegistriesMethods;
 }
