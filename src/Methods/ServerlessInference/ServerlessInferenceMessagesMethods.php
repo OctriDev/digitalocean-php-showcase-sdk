@@ -46,7 +46,7 @@ trait ServerlessInferenceMessagesMethods
             Validation::validateRange('top_k', $topK, min: 0);
         }
 
-        $sdkResponse = SdkClient::request('POST', "/v1/messages", $clientConfig, body: ['model' => $model, 'max_tokens' => $maxTokens, 'messages' => $messages, 'system' => $system, 'stop_sequences' => $stopSequences, 'stream' => $stream, 'temperature' => $temperature, 'top_p' => $topP, 'top_k' => $topK, 'tools' => $tools, 'tool_choice' => $toolChoice, 'metadata' => $metadata, 'reasoning_effort' => $reasoningEffort, 'speed' => $speed, 'thinking' => $thinking], returnType: MessagesCreateResponse::class, decoder: 'json', operationId: 'inferenceCreateMessages', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MessagesCreateErrorResponse::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/messages", $clientConfig, body: ['model' => $model, 'max_tokens' => $maxTokens, 'messages' => $messages, 'system' => $system, 'stop_sequences' => $stopSequences, 'stream' => $stream, 'temperature' => $temperature, 'top_p' => $topP, 'top_k' => $topK, 'tools' => $tools, 'tool_choice' => $toolChoice, 'metadata' => $metadata, 'reasoning_effort' => $reasoningEffort, 'speed' => $speed, 'thinking' => $thinking], returnType: MessagesCreateResponse::class, decoder: 'json', operationId: 'inferenceCreateMessages', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MessagesCreateErrorResponse::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, MessagesCreateResponse::class));
     }
 
@@ -86,7 +86,7 @@ trait ServerlessInferenceMessagesMethods
             streamFormat: 'sse',
             streamMediaType: 'text/event-stream',
             requestOptions: $requestOptions,
-            errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MessagesCreateErrorResponse::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]
+            errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MessagesCreateErrorResponse::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)],
         ) as $_ev) {
             if ($_ev->data === '[DONE]') {
                 return;

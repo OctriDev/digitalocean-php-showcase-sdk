@@ -91,7 +91,9 @@ class AllDedicatedInferencesMeta implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "total") || $data->total === null) { throw new SdkValidationError("total", 'required', "Required property 'total' is missing or null"); }
+        if (!property_exists($data, "total") || $data->total === null) {
+            throw new SdkValidationError("total", 'required', "Required property 'total' is missing or null");
+        }
         return new self(
             total: SdkClient::intValue($data->total),
         );
@@ -156,9 +158,15 @@ class AllDedicatedInferences implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "dedicated_inferences") || $data->dedicated_inferences === null) { throw new SdkValidationError("dedicated_inferences", 'required', "Required property 'dedicated_inferences' is missing or null"); }
-        if (!property_exists($data, "links") || $data->links === null) { throw new SdkValidationError("links", 'required', "Required property 'links' is missing or null"); }
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "dedicated_inferences") || $data->dedicated_inferences === null) {
+            throw new SdkValidationError("dedicated_inferences", 'required', "Required property 'dedicated_inferences' is missing or null");
+        }
+        if (!property_exists($data, "links") || $data->links === null) {
+            throw new SdkValidationError("links", 'required', "Required property 'links' is missing or null");
+        }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             dedicatedInferences: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, DedicatedInference::class), SdkClient::arrayValue($data->dedicated_inferences))),
             links: SdkClient::hydrateClass($data->links, AllDedicatedInferencesLinks::class),

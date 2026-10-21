@@ -320,7 +320,9 @@ class AgentManifestSpec implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "runtime") || $data->runtime === null) { throw new SdkValidationError("runtime", 'required', "Required property 'runtime' is missing or null"); }
+        if (!property_exists($data, "runtime") || $data->runtime === null) {
+            throw new SdkValidationError("runtime", 'required', "Required property 'runtime' is missing or null");
+        }
         return new self(
             runtime: SdkClient::hydrateClass($data->runtime, AgentManifestSpecRuntime::class),
             permissions: (property_exists($data, "permissions") && $data->permissions !== null ? SdkClient::hydrateClass($data->permissions, Permissions::class) : SdkNotGiven::Value),

@@ -26,7 +26,7 @@ trait ServerlessInferenceAudioMethods
 
         Validation::validateLength('input', $input, min: 1);
 
-        $sdkResponse = SdkClient::request('POST', "/v1/audio/speech", $clientConfig, body: ['model' => $model, 'input' => $input, 'voice' => $voice, 'response_format' => $responseFormat, 'instructions' => $instructions], returnType: SpeechResponse::class, decoder: 'json', operationId: 'inferenceCreateSpeech', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/audio/speech", $clientConfig, body: ['model' => $model, 'input' => $input, 'voice' => $voice, 'response_format' => $responseFormat, 'instructions' => $instructions], returnType: SpeechResponse::class, decoder: 'json', operationId: 'inferenceCreateSpeech', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SpeechResponse::class));
     }
 }

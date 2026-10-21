@@ -57,7 +57,9 @@ class AgentManifestSpecMemory implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "backend") || $data->backend === null) { throw new SdkValidationError("backend", 'required', "Required property 'backend' is missing or null"); }
+        if (!property_exists($data, "backend") || $data->backend === null) {
+            throw new SdkValidationError("backend", 'required', "Required property 'backend' is missing or null");
+        }
         return new self(
             backend: SdkClient::stringValue($data->backend),
             scope: (property_exists($data, "scope") && $data->scope !== null ? SdkClient::hydrateStringEnumOrString($data->scope, AgentManifestSpecMemoryScopeEnum::class) : SdkNotGiven::Value),
@@ -73,11 +75,26 @@ final readonly class AgentManifestSpecSecretsItemSourceEnum implements SdkOpenEn
     public const OAUTH = "oauth";
     public const TENANTSECRET = "tenantSecret";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -176,8 +193,12 @@ class AgentManifestSpecSecretsItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "source") || $data->source === null) {
+            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             source: SdkClient::hydrateStringEnumOrString($data->source, AgentManifestSpecSecretsItemSourceEnum::class),
@@ -198,11 +219,26 @@ final readonly class AgentManifestSpecDefaultsBudgetOnBreachEnum implements SdkO
     public const HUMANINPUT = "humanInput";
     public const FAIL = "fail";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**

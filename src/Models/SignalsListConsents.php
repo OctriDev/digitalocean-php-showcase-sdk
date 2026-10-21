@@ -15,11 +15,26 @@ final readonly class ListConsentsSourceEnum implements SdkOpenEnum
     public const AGENT = "agent";
     public const INFERENCE = "inference";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -72,7 +87,9 @@ class ListConsents implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "consents") || $data->consents === null) { throw new SdkValidationError("consents", 'required', "Required property 'consents' is missing or null"); }
+        if (!property_exists($data, "consents") || $data->consents === null) {
+            throw new SdkValidationError("consents", 'required', "Required property 'consents' is missing or null");
+        }
         return new self(
             consents: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ConsentRecord::class), SdkClient::arrayValue($data->consents))),
             source: (property_exists($data, "source") && $data->source !== null ? SdkClient::hydrateStringEnumOrString($data->source, ListConsentsSourceEnum::class) : SdkNotGiven::Value),

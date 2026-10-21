@@ -45,7 +45,9 @@ class AlertInstanceResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "alert_instance") || $data->alert_instance === null) { throw new SdkValidationError("alert_instance", 'required', "Required property 'alert_instance' is missing or null"); }
+        if (!property_exists($data, "alert_instance") || $data->alert_instance === null) {
+            throw new SdkValidationError("alert_instance", 'required', "Required property 'alert_instance' is missing or null");
+        }
         return new self(
             alertInstance: SdkClient::hydrateClass($data->alert_instance, AlertInstance::class),
         );

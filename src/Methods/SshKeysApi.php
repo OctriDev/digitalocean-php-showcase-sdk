@@ -29,7 +29,7 @@ class SshKeysApi
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/account/keys", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: SshKeysAll::class, decoder: 'json', operationId: 'sshKeysList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/account/keys", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: SshKeysAll::class, decoder: 'json', operationId: 'sshKeysList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SshKeysAll::class));
     }
 
@@ -46,7 +46,7 @@ class SshKeysApi
     public static function sshKeysCreate(ClientConfig $clientConfig, string $publicKey, string $name, ?RequestOptions $requestOptions = null): SshKeysNew
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/account/keys", $clientConfig, body: ['public_key' => $publicKey, 'name' => $name], returnType: SshKeysNew::class, decoder: 'json', operationId: 'sshKeysCreate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/account/keys", $clientConfig, body: ['public_key' => $publicKey, 'name' => $name], returnType: SshKeysNew::class, decoder: 'json', operationId: 'sshKeysCreate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SshKeysNew::class));
     }
 
@@ -62,7 +62,7 @@ class SshKeysApi
     public static function sshKeysGet(ClientConfig $clientConfig, int|string $sshKeyIdentifier, ?RequestOptions $requestOptions = null): SshKeysExisting
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/account/keys/" . SdkClient::encodePathSegment($sshKeyIdentifier) . "", $clientConfig, returnType: SshKeysExisting::class, decoder: 'json', operationId: 'sshKeysGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/account/keys/" . SdkClient::encodePathSegment($sshKeyIdentifier) . "", $clientConfig, returnType: SshKeysExisting::class, decoder: 'json', operationId: 'sshKeysGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SshKeysExisting::class));
     }
 
@@ -79,7 +79,7 @@ class SshKeysApi
     public static function sshKeysUpdate(ClientConfig $clientConfig, int|string $sshKeyIdentifier, string|SdkNotGiven $name = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): SshKeysExisting
     {
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/account/keys/" . SdkClient::encodePathSegment($sshKeyIdentifier) . "", $clientConfig, body: ['name' => $name], returnType: SshKeysExisting::class, decoder: 'json', operationId: 'sshKeysUpdate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/account/keys/" . SdkClient::encodePathSegment($sshKeyIdentifier) . "", $clientConfig, body: ['name' => $name], returnType: SshKeysExisting::class, decoder: 'json', operationId: 'sshKeysUpdate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, SshKeysExisting::class));
     }
 
@@ -94,6 +94,6 @@ class SshKeysApi
     public static function sshKeysDelete(ClientConfig $clientConfig, int|string $sshKeyIdentifier, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/account/keys/" . SdkClient::encodePathSegment($sshKeyIdentifier) . "", $clientConfig, decoder: 'empty', operationId: 'sshKeysDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/account/keys/" . SdkClient::encodePathSegment($sshKeyIdentifier) . "", $clientConfig, decoder: 'empty', operationId: 'sshKeysDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

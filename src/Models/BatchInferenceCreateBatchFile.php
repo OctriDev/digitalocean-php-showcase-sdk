@@ -45,7 +45,9 @@ class BatchFileCreateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "file_name") || $data->file_name === null) { throw new SdkValidationError("file_name", 'required', "Required property 'file_name' is missing or null"); }
+        if (!property_exists($data, "file_name") || $data->file_name === null) {
+            throw new SdkValidationError("file_name", 'required', "Required property 'file_name' is missing or null");
+        }
         return new self(
             fileName: SdkClient::stringValue($data->file_name),
         );
@@ -112,8 +114,12 @@ class BatchFileCreateResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "file_id") || $data->file_id === null) { throw new SdkValidationError("file_id", 'required', "Required property 'file_id' is missing or null"); }
-        if (!property_exists($data, "upload_url") || $data->upload_url === null) { throw new SdkValidationError("upload_url", 'required', "Required property 'upload_url' is missing or null"); }
+        if (!property_exists($data, "file_id") || $data->file_id === null) {
+            throw new SdkValidationError("file_id", 'required', "Required property 'file_id' is missing or null");
+        }
+        if (!property_exists($data, "upload_url") || $data->upload_url === null) {
+            throw new SdkValidationError("upload_url", 'required', "Required property 'upload_url' is missing or null");
+        }
         return new self(
             fileId: SdkClient::stringValue($data->file_id),
             uploadUrl: SdkClient::stringValue($data->upload_url),

@@ -16,11 +16,26 @@ final readonly class KafkaSchemaSchemaTypeEnum implements SdkOpenEnum
     public const JSON = "JSON";
     public const PROTOBUF = "PROTOBUF";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -91,10 +106,18 @@ class KafkaSchema implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "schema_id") || $data->schema_id === null) { throw new SdkValidationError("schema_id", 'required', "Required property 'schema_id' is missing or null"); }
-        if (!property_exists($data, "subject_name") || $data->subject_name === null) { throw new SdkValidationError("subject_name", 'required', "Required property 'subject_name' is missing or null"); }
-        if (!property_exists($data, "schema_type") || $data->schema_type === null) { throw new SdkValidationError("schema_type", 'required', "Required property 'schema_type' is missing or null"); }
-        if (!property_exists($data, "schema") || $data->schema === null) { throw new SdkValidationError("schema", 'required', "Required property 'schema' is missing or null"); }
+        if (!property_exists($data, "schema_id") || $data->schema_id === null) {
+            throw new SdkValidationError("schema_id", 'required', "Required property 'schema_id' is missing or null");
+        }
+        if (!property_exists($data, "subject_name") || $data->subject_name === null) {
+            throw new SdkValidationError("subject_name", 'required', "Required property 'subject_name' is missing or null");
+        }
+        if (!property_exists($data, "schema_type") || $data->schema_type === null) {
+            throw new SdkValidationError("schema_type", 'required', "Required property 'schema_type' is missing or null");
+        }
+        if (!property_exists($data, "schema") || $data->schema === null) {
+            throw new SdkValidationError("schema", 'required', "Required property 'schema' is missing or null");
+        }
         return new self(
             schemaId: SdkClient::intValue($data->schema_id),
             subjectName: SdkClient::stringValue($data->subject_name),

@@ -326,9 +326,15 @@ class LoadBalancerUpdateRequestVariant1 implements LoadBalancerUpdateRequest, \J
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tag") || $data->tag === null) { throw new SdkValidationError("tag", 'required', "Required property 'tag' is missing or null"); }
-        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
-        if (!property_exists($data, "forwarding_rules") || $data->forwarding_rules === null) { throw new SdkValidationError("forwarding_rules", 'required', "Required property 'forwarding_rules' is missing or null"); }
+        if (!property_exists($data, "tag") || $data->tag === null) {
+            throw new SdkValidationError("tag", 'required', "Required property 'tag' is missing or null");
+        }
+        if (!property_exists($data, "region") || $data->region === null) {
+            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
+        }
+        if (!property_exists($data, "forwarding_rules") || $data->forwarding_rules === null) {
+            throw new SdkValidationError("forwarding_rules", 'required', "Required property 'forwarding_rules' is missing or null");
+        }
         return new self(
             tag: SdkClient::stringValue($data->tag),
             region: SdkClient::hydrateStringEnumOrString($data->region, RegionSlug::class),

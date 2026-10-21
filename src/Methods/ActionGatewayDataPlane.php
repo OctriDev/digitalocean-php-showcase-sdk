@@ -12,11 +12,26 @@ final readonly class GatewaySessionApprovalsUpdateDecision implements SdkOpenEnu
     public const APPROVE = "approve";
     public const DENY = "deny";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class GatewayApprovalsUpdateDecision implements SdkOpenEnum
@@ -24,11 +39,26 @@ final readonly class GatewayApprovalsUpdateDecision implements SdkOpenEnum
     public const APPROVE = "approve";
     public const DENY = "deny";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 class ActionGatewayDataPlane
@@ -53,7 +83,7 @@ class ActionGatewayDataPlane
             Validation::validateRange('page_size', $pageSize, min: 1, max: 100);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/tools", $clientConfig, query: ['page_size' => new SdkQueryValue($pageSize, "form", true), 'page_token' => new SdkQueryValue($pageToken, "form", true)], returnType: ListSessionToolsResponse::class, decoder: 'json', operationId: 'gatewayToolsList', extraHeaders: ["X-Session-Id" => SdkClient::headerValue($xSessionId, false), "If-None-Match" => SdkClient::headerValue($ifNoneMatch, false)], requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
+        $sdkResponse = SdkClient::request('GET', "/tools", $clientConfig, query: ['page_size' => new SdkQueryValue($pageSize, "form", true), 'page_token' => new SdkQueryValue($pageToken, "form", true)], returnType: ListSessionToolsResponse::class, decoder: 'json', operationId: 'gatewayToolsList', extraHeaders: ["X-Session-Id" => SdkClient::headerValue($xSessionId, false), "If-None-Match" => SdkClient::headerValue($ifNoneMatch, false)], requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ListSessionToolsResponse::class));
     }
 
@@ -154,7 +184,7 @@ class ActionGatewayDataPlane
             Validation::validateRange('limit', $limit, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('POST', "/tools/search", $clientConfig, body: ['queries' => $queries, 'providers' => $providers, 'tags' => $tags, 'limit' => $limit], returnType: DataPlaneSearchToolsResponse::class, decoder: 'json', operationId: 'gatewayToolsListSearch', extraHeaders: ["X-Session-Id" => SdkClient::headerValue($xSessionId, false)], requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 413 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
+        $sdkResponse = SdkClient::request('POST', "/tools/search", $clientConfig, body: ['queries' => $queries, 'providers' => $providers, 'tags' => $tags, 'limit' => $limit], returnType: DataPlaneSearchToolsResponse::class, decoder: 'json', operationId: 'gatewayToolsListSearch', extraHeaders: ["X-Session-Id" => SdkClient::headerValue($xSessionId, false)], requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DataPlaneSearchToolsResponse::class));
     }
 
@@ -176,7 +206,7 @@ class ActionGatewayDataPlane
 
         Validation::validateItems('tools', $tools, min: 1, max: 10);
 
-        $sdkResponse = SdkClient::request('POST', "/tools/invoke", $clientConfig, body: ['tools' => $tools, 'rationale' => $rationale], returnType: InvokeToolsResponse::class, decoder: 'json', operationId: 'gatewayToolsRun', extraHeaders: ["X-Session-Id" => SdkClient::headerValue($xSessionId, false)], requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 402 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 413 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
+        $sdkResponse = SdkClient::request('POST', "/tools/invoke", $clientConfig, body: ['tools' => $tools, 'rationale' => $rationale], returnType: InvokeToolsResponse::class, decoder: 'json', operationId: 'gatewayToolsRun', extraHeaders: ["X-Session-Id" => SdkClient::headerValue($xSessionId, false)], requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 402 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, InvokeToolsResponse::class));
     }
 
@@ -195,7 +225,7 @@ class ActionGatewayDataPlane
 
         Validation::validateUuid('X-Session-Id', $xSessionId);
 
-        $sdkResponse = SdkClient::request('POST', "/code/execute", $clientConfig, body: ['code' => $code], returnType: ExecuteCodeResponse::class, decoder: 'json', operationId: 'gatewayCodeRun', extraHeaders: ["X-Session-Id" => SdkClient::headerValue($xSessionId, false)], requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 413 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 504 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
+        $sdkResponse = SdkClient::request('POST', "/code/execute", $clientConfig, body: ['code' => $code], returnType: ExecuteCodeResponse::class, decoder: 'json', operationId: 'gatewayCodeRun', extraHeaders: ["X-Session-Id" => SdkClient::headerValue($xSessionId, false)], requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 504 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExecuteCodeResponse::class));
     }
 
@@ -217,7 +247,7 @@ class ActionGatewayDataPlane
 
         Validation::validateUuid('approval_id', $approvalId);
 
-        $sdkResponse = SdkClient::request('POST', "/approvals/session/" . SdkClient::encodePathSegment($sessionId) . "/" . SdkClient::encodePathSegment($approvalId) . "", $clientConfig, body: ['decision' => $decision], returnType: ApprovalDecisionResponse::class, decoder: 'json', operationId: 'gatewaySessionApprovalsUpdate', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
+        $sdkResponse = SdkClient::request('POST', "/approvals/session/" . SdkClient::encodePathSegment($sessionId) . "/" . SdkClient::encodePathSegment($approvalId) . "", $clientConfig, body: ['decision' => $decision], returnType: ApprovalDecisionResponse::class, decoder: 'json', operationId: 'gatewaySessionApprovalsUpdate', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ApprovalDecisionResponse::class));
     }
 
@@ -239,7 +269,7 @@ class ActionGatewayDataPlane
 
         Validation::validateUuid('X-Session-Id', $xSessionId);
 
-        $sdkResponse = SdkClient::request('POST', "/approvals/" . SdkClient::encodePathSegment($approvalId) . "", $clientConfig, body: ['decision' => $decision], returnType: ApprovalDecisionResponse::class, decoder: 'json', operationId: 'gatewayApprovalsUpdate', extraHeaders: ["X-Session-Id" => SdkClient::headerValue($xSessionId, false)], requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
+        $sdkResponse = SdkClient::request('POST', "/approvals/" . SdkClient::encodePathSegment($approvalId) . "", $clientConfig, body: ['decision' => $decision], returnType: ApprovalDecisionResponse::class, decoder: 'json', operationId: 'gatewayApprovalsUpdate', extraHeaders: ["X-Session-Id" => SdkClient::headerValue($xSessionId, false)], requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateUnionAs($value, Forbidden::class, [ToolResultError::class, Error2::class], null, []), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, ToolResultError::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ApprovalDecisionResponse::class));
     }
 }

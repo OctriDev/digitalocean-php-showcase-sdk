@@ -45,7 +45,9 @@ class TagsResource implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "resources") || $data->resources === null) { throw new SdkValidationError("resources", 'required', "Required property 'resources' is missing or null"); }
+        if (!property_exists($data, "resources") || $data->resources === null) {
+            throw new SdkValidationError("resources", 'required', "Required property 'resources' is missing or null");
+        }
         return new self(
             resources: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, TagsResourceResourcesItem::class), SdkClient::arrayValue($data->resources))),
         );

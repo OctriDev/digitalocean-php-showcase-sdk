@@ -12,12 +12,10 @@ namespace octridev_digitalocean;
  */
 class WebhookSignatureConfig implements \JsonSerializable
 {
-
     /**
      */
     public function __construct(
-    ) {
-    }
+    ) {}
 
     /** @return array<array-key, mixed> */
     public function toArray(): array

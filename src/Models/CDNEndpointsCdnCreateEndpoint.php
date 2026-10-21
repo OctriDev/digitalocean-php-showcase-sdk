@@ -81,7 +81,9 @@ class CdnEndpointRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "origin") || $data->origin === null) { throw new SdkValidationError("origin", 'required', "Required property 'origin' is missing or null"); }
+        if (!property_exists($data, "origin") || $data->origin === null) {
+            throw new SdkValidationError("origin", 'required', "Required property 'origin' is missing or null");
+        }
         return new self(
             origin: SdkClient::stringValue($data->origin),
             ttl: (property_exists($data, "ttl") && $data->ttl !== null ? SdkClient::intValue($data->ttl) : SdkNotGiven::Value),

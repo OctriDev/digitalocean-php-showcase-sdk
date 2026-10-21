@@ -57,7 +57,9 @@ class CertificateCreateBase implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             type: (property_exists($data, "type") && $data->type !== null ? SdkClient::hydrateStringEnumOrString($data->type, CertificateCreateBaseTypeEnum::class) : SdkNotGiven::Value),
@@ -122,8 +124,12 @@ class CertificateRequestCustomVariant1 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "private_key") || $data->private_key === null) { throw new SdkValidationError("private_key", 'required', "Required property 'private_key' is missing or null"); }
-        if (!property_exists($data, "leaf_certificate") || $data->leaf_certificate === null) { throw new SdkValidationError("leaf_certificate", 'required', "Required property 'leaf_certificate' is missing or null"); }
+        if (!property_exists($data, "private_key") || $data->private_key === null) {
+            throw new SdkValidationError("private_key", 'required', "Required property 'private_key' is missing or null");
+        }
+        if (!property_exists($data, "leaf_certificate") || $data->leaf_certificate === null) {
+            throw new SdkValidationError("leaf_certificate", 'required', "Required property 'leaf_certificate' is missing or null");
+        }
         return new self(
             privateKey: SdkClient::stringValue($data->private_key),
             leafCertificate: SdkClient::stringValue($data->leaf_certificate),
@@ -140,11 +146,26 @@ final readonly class CertificateRequestCustomTypeEnum implements SdkOpenEnum
     public const CUSTOM = "custom";
     public const LETS_ENCRYPT = "lets_encrypt";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -229,9 +250,15 @@ class CertificateRequestCustom implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "private_key") || $data->private_key === null) { throw new SdkValidationError("private_key", 'required', "Required property 'private_key' is missing or null"); }
-        if (!property_exists($data, "leaf_certificate") || $data->leaf_certificate === null) { throw new SdkValidationError("leaf_certificate", 'required', "Required property 'leaf_certificate' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "private_key") || $data->private_key === null) {
+            throw new SdkValidationError("private_key", 'required', "Required property 'private_key' is missing or null");
+        }
+        if (!property_exists($data, "leaf_certificate") || $data->leaf_certificate === null) {
+            throw new SdkValidationError("leaf_certificate", 'required', "Required property 'leaf_certificate' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             privateKey: SdkClient::stringValue($data->private_key),
@@ -277,7 +304,9 @@ class CertificateRequestLetsEncryptVariant1 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "dns_names") || $data->dns_names === null) { throw new SdkValidationError("dns_names", 'required', "Required property 'dns_names' is missing or null"); }
+        if (!property_exists($data, "dns_names") || $data->dns_names === null) {
+            throw new SdkValidationError("dns_names", 'required', "Required property 'dns_names' is missing or null");
+        }
         return new self(
             dnsNames: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->dns_names))),
         );
@@ -292,9 +321,24 @@ final readonly class CertificateRequestLetsEncryptTypeEnum implements SdkOpenEnu
     public const CUSTOM = "custom";
     public const LETS_ENCRYPT = "lets_encrypt";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

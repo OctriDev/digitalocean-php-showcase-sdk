@@ -13,11 +13,26 @@ final readonly class DedicatedInferencesListRegion implements SdkOpenEnum
     public const TOR1 = "tor1";
     public const ATL1 = "atl1";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -81,7 +96,7 @@ class DedicatedInferenceApi
 
         Validation::validateUuid('dedicated_inference_id', $dedicatedInferenceId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "", $clientConfig, returnType: DedicatedInferenceResponse::class, decoder: 'json', operationId: 'dedicatedInferencesGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "", $clientConfig, returnType: DedicatedInferenceResponse::class, decoder: 'json', operationId: 'dedicatedInferencesGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DedicatedInferenceResponse::class));
     }
 
@@ -101,7 +116,7 @@ class DedicatedInferenceApi
 
         Validation::validateUuid('dedicated_inference_id', $dedicatedInferenceId);
 
-        $sdkResponse = SdkClient::request('PATCH', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "", $clientConfig, body: ['spec' => $spec, 'access_tokens' => $accessTokens], returnType: DedicatedInferenceUpdateAccepted::class, decoder: 'json', operationId: 'dedicatedInferencesPatch', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PATCH', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "", $clientConfig, body: ['spec' => $spec, 'access_tokens' => $accessTokens], returnType: DedicatedInferenceUpdateAccepted::class, decoder: 'json', operationId: 'dedicatedInferencesPatch', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DedicatedInferenceUpdateAccepted::class));
     }
 
@@ -118,7 +133,7 @@ class DedicatedInferenceApi
 
         Validation::validateUuid('dedicated_inference_id', $dedicatedInferenceId);
 
-        return SdkClient::request('DELETE', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "", $clientConfig, decoder: 'empty', operationId: 'dedicatedInferencesDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "", $clientConfig, decoder: 'empty', operationId: 'dedicatedInferencesDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -143,7 +158,7 @@ class DedicatedInferenceApi
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'region' => new SdkQueryValue($region, "form", true)], returnType: AllDedicatedInferences::class, decoder: 'json', operationId: 'dedicatedInferencesList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'region' => new SdkQueryValue($region, "form", true)], returnType: AllDedicatedInferences::class, decoder: 'json', operationId: 'dedicatedInferencesList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllDedicatedInferences::class));
     }
 
@@ -160,7 +175,7 @@ class DedicatedInferenceApi
     public static function dedicatedInferencesCreate(ClientConfig $clientConfig, DedicatedInferenceSpecRequest $spec, array|SdkNotGiven $accessTokens = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): DedicatedInferenceProvisioning
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/dedicated-inferences", $clientConfig, body: ['spec' => $spec, 'access_tokens' => $accessTokens], returnType: DedicatedInferenceProvisioning::class, decoder: 'json', operationId: 'dedicatedInferencesCreate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/dedicated-inferences", $clientConfig, body: ['spec' => $spec, 'access_tokens' => $accessTokens], returnType: DedicatedInferenceProvisioning::class, decoder: 'json', operationId: 'dedicatedInferencesCreate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DedicatedInferenceProvisioning::class));
     }
 
@@ -189,7 +204,7 @@ class DedicatedInferenceApi
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/accelerators", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'slug' => new SdkQueryValue($slug, "form", true)], returnType: AcceleratorsList::class, decoder: 'json', operationId: 'dedicatedInferencesListAccelerators', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/accelerators", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'slug' => new SdkQueryValue($slug, "form", true)], returnType: AcceleratorsList::class, decoder: 'json', operationId: 'dedicatedInferencesListAccelerators', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AcceleratorsList::class));
     }
 
@@ -210,7 +225,7 @@ class DedicatedInferenceApi
 
         Validation::validateUuid('accelerator_id', $acceleratorId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/accelerators/" . SdkClient::encodePathSegment($acceleratorId) . "", $clientConfig, returnType: DedicatedInferenceAccelerator::class, decoder: 'json', operationId: 'dedicatedInferencesGetAccelerator', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/accelerators/" . SdkClient::encodePathSegment($acceleratorId) . "", $clientConfig, returnType: DedicatedInferenceAccelerator::class, decoder: 'json', operationId: 'dedicatedInferencesGetAccelerator', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DedicatedInferenceAccelerator::class));
     }
 
@@ -228,7 +243,7 @@ class DedicatedInferenceApi
 
         Validation::validateUuid('dedicated_inference_id', $dedicatedInferenceId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/ca", $clientConfig, returnType: CaCertificate::class, decoder: 'json', operationId: 'dedicatedInferencesGetCa', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/ca", $clientConfig, returnType: CaCertificate::class, decoder: 'json', operationId: 'dedicatedInferencesGetCa', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, CaCertificate::class));
     }
 
@@ -256,7 +271,7 @@ class DedicatedInferenceApi
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/tokens", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: TokensList::class, decoder: 'json', operationId: 'dedicatedInferencesListTokens', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/tokens", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: TokensList::class, decoder: 'json', operationId: 'dedicatedInferencesListTokens', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, TokensList::class));
     }
 
@@ -278,7 +293,7 @@ class DedicatedInferenceApi
         Validation::validateLength('name', $name, max: 255);
         Validation::validatePattern('name', $name, '^[a-zA-Z0-9_-]+$');
 
-        $sdkResponse = SdkClient::request('POST', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/tokens", $clientConfig, body: ['name' => $name], returnType: TokenCreated::class, decoder: 'json', operationId: 'dedicatedInferencesCreateTokens', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/tokens", $clientConfig, body: ['name' => $name], returnType: TokenCreated::class, decoder: 'json', operationId: 'dedicatedInferencesCreateTokens', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, TokenCreated::class));
     }
 
@@ -298,7 +313,7 @@ class DedicatedInferenceApi
 
         Validation::validateUuid('token_id', $tokenId);
 
-        return SdkClient::request('DELETE', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/tokens/" . SdkClient::encodePathSegment($tokenId) . "", $clientConfig, decoder: 'empty', operationId: 'dedicatedInferencesDeleteTokens', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/dedicated-inferences/" . SdkClient::encodePathSegment($dedicatedInferenceId) . "/tokens/" . SdkClient::encodePathSegment($tokenId) . "", $clientConfig, decoder: 'empty', operationId: 'dedicatedInferencesDeleteTokens', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -310,7 +325,7 @@ class DedicatedInferenceApi
     public static function dedicatedInferencesListSizes(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): DedicatedInferenceSizesResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/sizes", $clientConfig, returnType: DedicatedInferenceSizesResponse::class, decoder: 'json', operationId: 'dedicatedInferencesListSizes', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/sizes", $clientConfig, returnType: DedicatedInferenceSizesResponse::class, decoder: 'json', operationId: 'dedicatedInferencesListSizes', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DedicatedInferenceSizesResponse::class));
     }
 
@@ -323,7 +338,7 @@ class DedicatedInferenceApi
     public static function dedicatedInferencesGetGpuModelConfig(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): DedicatedInferenceGpuModelConfigsResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/gpu-model-config", $clientConfig, returnType: DedicatedInferenceGpuModelConfigsResponse::class, decoder: 'json', operationId: 'dedicatedInferencesGetGpuModelConfig', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/dedicated-inferences/gpu-model-config", $clientConfig, returnType: DedicatedInferenceGpuModelConfigsResponse::class, decoder: 'json', operationId: 'dedicatedInferencesGetGpuModelConfig', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DedicatedInferenceGpuModelConfigsResponse::class));
     }
 }

@@ -115,14 +115,30 @@ class ImageGenPartialImageEvent implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "b64_json") || $data->b64_json === null) { throw new SdkValidationError("b64_json", 'required', "Required property 'b64_json' is missing or null"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
-        if (!property_exists($data, "size") || $data->size === null) { throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null"); }
-        if (!property_exists($data, "quality") || $data->quality === null) { throw new SdkValidationError("quality", 'required', "Required property 'quality' is missing or null"); }
-        if (!property_exists($data, "background") || $data->background === null) { throw new SdkValidationError("background", 'required', "Required property 'background' is missing or null"); }
-        if (!property_exists($data, "output_format") || $data->output_format === null) { throw new SdkValidationError("output_format", 'required', "Required property 'output_format' is missing or null"); }
-        if (!property_exists($data, "partial_image_index") || $data->partial_image_index === null) { throw new SdkValidationError("partial_image_index", 'required', "Required property 'partial_image_index' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "b64_json") || $data->b64_json === null) {
+            throw new SdkValidationError("b64_json", 'required', "Required property 'b64_json' is missing or null");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
+        if (!property_exists($data, "size") || $data->size === null) {
+            throw new SdkValidationError("size", 'required', "Required property 'size' is missing or null");
+        }
+        if (!property_exists($data, "quality") || $data->quality === null) {
+            throw new SdkValidationError("quality", 'required', "Required property 'quality' is missing or null");
+        }
+        if (!property_exists($data, "background") || $data->background === null) {
+            throw new SdkValidationError("background", 'required', "Required property 'background' is missing or null");
+        }
+        if (!property_exists($data, "output_format") || $data->output_format === null) {
+            throw new SdkValidationError("output_format", 'required', "Required property 'output_format' is missing or null");
+        }
+        if (!property_exists($data, "partial_image_index") || $data->partial_image_index === null) {
+            throw new SdkValidationError("partial_image_index", 'required', "Required property 'partial_image_index' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, ImageGenPartialImageEventTypeEnum::class),
             b64Json: SdkClient::stringValue($data->b64_json),
@@ -143,11 +159,26 @@ final readonly class ListModelsResponseObjectEnum implements SdkOpenEnum
 {
     public const LIST = "list";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -198,8 +229,12 @@ class ListModelsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "object") || $data->object === null) { throw new SdkValidationError("object", 'required', "Required property 'object' is missing or null"); }
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "object") || $data->object === null) {
+            throw new SdkValidationError("object", 'required', "Required property 'object' is missing or null");
+        }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
         return new self(
             object_: SdkClient::hydrateStringEnumOrString($data->object, ListModelsResponseObjectEnum::class),
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Model::class), SdkClient::arrayValue($data->data))),
@@ -214,11 +249,26 @@ final readonly class ModelObjectEnum implements SdkOpenEnum
 {
     public const MODEL = "model";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -289,10 +339,18 @@ class Model implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "created") || $data->created === null) { throw new SdkValidationError("created", 'required', "Required property 'created' is missing or null"); }
-        if (!property_exists($data, "object") || $data->object === null) { throw new SdkValidationError("object", 'required', "Required property 'object' is missing or null"); }
-        if (!property_exists($data, "owned_by") || $data->owned_by === null) { throw new SdkValidationError("owned_by", 'required', "Required property 'owned_by' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "created") || $data->created === null) {
+            throw new SdkValidationError("created", 'required', "Required property 'created' is missing or null");
+        }
+        if (!property_exists($data, "object") || $data->object === null) {
+            throw new SdkValidationError("object", 'required', "Required property 'object' is missing or null");
+        }
+        if (!property_exists($data, "owned_by") || $data->owned_by === null) {
+            throw new SdkValidationError("owned_by", 'required', "Required property 'owned_by' is missing or null");
+        }
         return new self(
             id: SdkClient::stringValue($data->id),
             created: SdkClient::intValue($data->created),
@@ -340,7 +398,9 @@ class ResponseUsageInputTokensDetails implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cached_tokens") || $data->cached_tokens === null) { throw new SdkValidationError("cached_tokens", 'required', "Required property 'cached_tokens' is missing or null"); }
+        if (!property_exists($data, "cached_tokens") || $data->cached_tokens === null) {
+            throw new SdkValidationError("cached_tokens", 'required', "Required property 'cached_tokens' is missing or null");
+        }
         return new self(
             cachedTokens: SdkClient::intValue($data->cached_tokens),
         );

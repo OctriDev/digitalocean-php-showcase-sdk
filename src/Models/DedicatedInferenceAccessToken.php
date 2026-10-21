@@ -155,7 +155,9 @@ class DedicatedInferenceCreateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
+        if (!property_exists($data, "spec") || $data->spec === null) {
+            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
+        }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, DedicatedInferenceSpec::class),
             accessTokens: (property_exists($data, "access_tokens") && $data->access_tokens !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->access_tokens), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
@@ -172,11 +174,26 @@ final readonly class DedicatedInferenceSpecRegionEnum implements SdkOpenEnum
     public const NYC2 = "nyc2";
     public const TOR1 = "tor1";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -217,7 +234,9 @@ class DedicatedInferenceSpecVpc implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "uuid") || $data->uuid === null) { throw new SdkValidationError("uuid", 'required', "Required property 'uuid' is missing or null"); }
+        if (!property_exists($data, "uuid") || $data->uuid === null) {
+            throw new SdkValidationError("uuid", 'required', "Required property 'uuid' is missing or null");
+        }
         return new self(
             uuid: SdkClient::stringValue($data->uuid),
         );
@@ -312,12 +331,24 @@ class DedicatedInferenceSpec implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "version") || $data->version === null) { throw new SdkValidationError("version", 'required', "Required property 'version' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
-        if (!property_exists($data, "vpc") || $data->vpc === null) { throw new SdkValidationError("vpc", 'required', "Required property 'vpc' is missing or null"); }
-        if (!property_exists($data, "enable_public_endpoint") || $data->enable_public_endpoint === null) { throw new SdkValidationError("enable_public_endpoint", 'required', "Required property 'enable_public_endpoint' is missing or null"); }
-        if (!property_exists($data, "model_deployments") || $data->model_deployments === null) { throw new SdkValidationError("model_deployments", 'required', "Required property 'model_deployments' is missing or null"); }
+        if (!property_exists($data, "version") || $data->version === null) {
+            throw new SdkValidationError("version", 'required', "Required property 'version' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "region") || $data->region === null) {
+            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
+        }
+        if (!property_exists($data, "vpc") || $data->vpc === null) {
+            throw new SdkValidationError("vpc", 'required', "Required property 'vpc' is missing or null");
+        }
+        if (!property_exists($data, "enable_public_endpoint") || $data->enable_public_endpoint === null) {
+            throw new SdkValidationError("enable_public_endpoint", 'required', "Required property 'enable_public_endpoint' is missing or null");
+        }
+        if (!property_exists($data, "model_deployments") || $data->model_deployments === null) {
+            throw new SdkValidationError("model_deployments", 'required', "Required property 'model_deployments' is missing or null");
+        }
         return new self(
             version: SdkClient::intValue($data->version),
             name: SdkClient::stringValue($data->name),
@@ -338,9 +369,24 @@ final readonly class DedicatedInferenceSpecRequestRegionEnum implements SdkOpenE
     public const NYC2 = "nyc2";
     public const TOR1 = "tor1";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

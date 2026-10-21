@@ -87,11 +87,26 @@ final readonly class AgentManifestSpecModeEnum implements SdkOpenEnum
     public const INTERACTIVE = "interactive";
     public const SERVED = "served";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -113,11 +128,26 @@ final readonly class AgentManifestSpecRuntimeAdapterEnum implements SdkOpenEnum
     public const CREWAI = "crewai";
     public const LANGGRAPH = "langgraph";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -170,7 +200,9 @@ class AgentManifestSpecRuntimeCustom implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "image") || $data->image === null) { throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null"); }
+        if (!property_exists($data, "image") || $data->image === null) {
+            throw new SdkValidationError("image", 'required', "Required property 'image' is missing or null");
+        }
         return new self(
             image: SdkClient::stringValue($data->image),
             entrypoint: (property_exists($data, "entrypoint") && $data->entrypoint !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->entrypoint))) : SdkNotGiven::Value),
@@ -240,7 +272,9 @@ class AgentManifestSpecRuntime implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "adapter") || $data->adapter === null) { throw new SdkValidationError("adapter", 'required', "Required property 'adapter' is missing or null"); }
+        if (!property_exists($data, "adapter") || $data->adapter === null) {
+            throw new SdkValidationError("adapter", 'required', "Required property 'adapter' is missing or null");
+        }
         return new self(
             adapter: SdkClient::hydrateStringEnumOrString($data->adapter, AgentManifestSpecRuntimeAdapterEnum::class),
             custom: (property_exists($data, "custom") && $data->custom !== null ? SdkClient::hydrateClass($data->custom, AgentManifestSpecRuntimeCustom::class) : SdkNotGiven::Value),
@@ -302,9 +336,24 @@ final readonly class AgentManifestSpecSandboxMountsItemTypeEnum implements SdkOp
 {
     public const S3FUSE = "s3fuse";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

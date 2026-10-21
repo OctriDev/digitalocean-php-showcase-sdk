@@ -57,7 +57,9 @@ class DatabaseBackup implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "database_name") || $data->database_name === null) { throw new SdkValidationError("database_name", 'required', "Required property 'database_name' is missing or null"); }
+        if (!property_exists($data, "database_name") || $data->database_name === null) {
+            throw new SdkValidationError("database_name", 'required', "Required property 'database_name' is missing or null");
+        }
         return new self(
             databaseName: SdkClient::stringValue($data->database_name),
             backupCreatedAt: (property_exists($data, "backup_created_at") && $data->backup_created_at !== null ? SdkClient::stringValue($data->backup_created_at) : SdkNotGiven::Value),
@@ -80,9 +82,24 @@ final readonly class DatabaseClusterRequestEngineEnum implements SdkOpenEnum
     public const ADVANCED_PG = "advanced_pg";
     public const ADVANCED_MYSQL = "advanced_mysql";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

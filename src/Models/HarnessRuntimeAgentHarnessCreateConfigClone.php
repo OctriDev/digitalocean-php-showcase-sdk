@@ -69,7 +69,9 @@ class AgentConfigCloneRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             secrets: (property_exists($data, "secrets") && $data->secrets !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->secrets), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),

@@ -55,8 +55,12 @@ class CreateTeam implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "uuid") || $data->uuid === null) { throw new SdkValidationError("uuid", 'required', "Required property 'uuid' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "uuid") || $data->uuid === null) {
+            throw new SdkValidationError("uuid", 'required', "Required property 'uuid' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             uuid: SdkClient::stringValue($data->uuid),
             name: SdkClient::stringValue($data->name),
@@ -114,7 +118,9 @@ class CreateTeamRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             invitations: (property_exists($data, "invitations") && $data->invitations !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, TeamInvitation::class), SdkClient::arrayValue($data->invitations))) : SdkNotGiven::Value),
@@ -172,7 +178,9 @@ class CreateTeamResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "team") || $data->team === null) { throw new SdkValidationError("team", 'required', "Required property 'team' is missing or null"); }
+        if (!property_exists($data, "team") || $data->team === null) {
+            throw new SdkValidationError("team", 'required', "Required property 'team' is missing or null");
+        }
         return new self(
             team: SdkClient::hydrateClass($data->team, CreateTeam::class),
             invitations: (property_exists($data, "invitations") && $data->invitations !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->invitations), static fn($item) => SdkClient::hydrateClass($item, TeamInvitationStatus::class)) : SdkNotGiven::Value),
@@ -218,7 +226,9 @@ class ListTeams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "teams") || $data->teams === null) { throw new SdkValidationError("teams", 'required', "Required property 'teams' is missing or null"); }
+        if (!property_exists($data, "teams") || $data->teams === null) {
+            throw new SdkValidationError("teams", 'required', "Required property 'teams' is missing or null");
+        }
         return new self(
             teams: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, OrganizationTeam::class), SdkClient::arrayValue($data->teams))),
         );
@@ -233,9 +243,24 @@ final readonly class OrganizationTeamStatusEnum implements SdkOpenEnum
     public const JOINED = "joined";
     public const PENDING = "pending";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

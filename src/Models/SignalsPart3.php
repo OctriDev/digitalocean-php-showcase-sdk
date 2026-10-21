@@ -15,11 +15,26 @@ final readonly class ExportJobTypeEnum implements SdkOpenEnum
     public const AGENT = "agent";
     public const INFERENCE = "inference";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -32,11 +47,26 @@ final readonly class ExportJobStatusEnum implements SdkOpenEnum
     public const COMPLETE = "complete";
     public const FAILED = "failed";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -226,10 +256,18 @@ class ExportJob implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "export_id") || $data->export_id === null) { throw new SdkValidationError("export_id", 'required', "Required property 'export_id' is missing or null"); }
-        if (!property_exists($data, "agent_id") || $data->agent_id === null) { throw new SdkValidationError("agent_id", 'required', "Required property 'agent_id' is missing or null"); }
-        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "export_id") || $data->export_id === null) {
+            throw new SdkValidationError("export_id", 'required', "Required property 'export_id' is missing or null");
+        }
+        if (!property_exists($data, "agent_id") || $data->agent_id === null) {
+            throw new SdkValidationError("agent_id", 'required', "Required property 'agent_id' is missing or null");
+        }
+        if (!property_exists($data, "status") || $data->status === null) {
+            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
         return new self(
             exportId: SdkClient::stringValue($data->export_id),
             agentId: SdkClient::stringValue($data->agent_id),
@@ -282,7 +320,9 @@ class ExportOptionsFilters implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "signal_type") || $data->signal_type === null) { throw new SdkValidationError("signal_type", 'required', "Required property 'signal_type' is missing or null"); }
+        if (!property_exists($data, "signal_type") || $data->signal_type === null) {
+            throw new SdkValidationError("signal_type", 'required', "Required property 'signal_type' is missing or null");
+        }
         return new self(
             signalType: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->signal_type))),
         );
@@ -327,7 +367,9 @@ class ExportOptions implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "filters") || $data->filters === null) { throw new SdkValidationError("filters", 'required', "Required property 'filters' is missing or null"); }
+        if (!property_exists($data, "filters") || $data->filters === null) {
+            throw new SdkValidationError("filters", 'required', "Required property 'filters' is missing or null");
+        }
         return new self(
             filters: SdkClient::hydrateClass($data->filters, ExportOptionsFilters::class),
         );
@@ -342,9 +384,24 @@ final readonly class ListConsentsSourceEnum implements SdkOpenEnum
     public const AGENT = "agent";
     public const INFERENCE = "inference";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

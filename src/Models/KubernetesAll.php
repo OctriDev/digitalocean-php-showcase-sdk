@@ -104,7 +104,9 @@ class AllClusters implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             kubernetesClusters: (property_exists($data, "kubernetes_clusters") && $data->kubernetes_clusters !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ClusterRead::class), SdkClient::arrayValue($data->kubernetes_clusters))) : SdkNotGiven::Value),

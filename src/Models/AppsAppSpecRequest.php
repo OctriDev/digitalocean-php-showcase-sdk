@@ -213,7 +213,9 @@ class AppSpecRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             region: (property_exists($data, "region") && $data->region !== null ? SdkClient::hydrateStringEnumOrString($data->region, AppSpecRequestRegionEnum::class) : SdkNotGiven::Value),

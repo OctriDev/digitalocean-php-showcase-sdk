@@ -55,8 +55,12 @@ class Grant implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "bucket") || $data->bucket === null) { throw new SdkValidationError("bucket", 'required', "Required property 'bucket' is missing or null"); }
-        if (!property_exists($data, "permission") || $data->permission === null) { throw new SdkValidationError("permission", 'required', "Required property 'permission' is missing or null"); }
+        if (!property_exists($data, "bucket") || $data->bucket === null) {
+            throw new SdkValidationError("bucket", 'required', "Required property 'bucket' is missing or null");
+        }
+        if (!property_exists($data, "permission") || $data->permission === null) {
+            throw new SdkValidationError("permission", 'required', "Required property 'permission' is missing or null");
+        }
         return new self(
             bucket: SdkClient::stringValue($data->bucket),
             permission: SdkClient::stringValue($data->permission),

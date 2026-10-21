@@ -321,7 +321,9 @@ class AppServiceSpec implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             git: (property_exists($data, "git") && $data->git !== null ? SdkClient::hydrateClass($data->git, AppsGitSourceSpec::class) : SdkNotGiven::Value),

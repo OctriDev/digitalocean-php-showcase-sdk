@@ -177,7 +177,9 @@ class DatabaseReplicaRead implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             id: (property_exists($data, "id") && $data->id !== null ? SdkClient::stringValue($data->id) : SdkNotGiven::Value),
@@ -325,7 +327,9 @@ class DatabaseResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "db") || $data->db === null) { throw new SdkValidationError("db", 'required', "Required property 'db' is missing or null"); }
+        if (!property_exists($data, "db") || $data->db === null) {
+            throw new SdkValidationError("db", 'required', "Required property 'db' is missing or null");
+        }
         return new self(
             db: SdkClient::hydrateClass($data->db, Database::class),
         );
@@ -345,9 +349,24 @@ final readonly class DatabaseSchemaRegistryConfigCompatibilityLevelEnum implemen
     public const FULL = "FULL";
     public const FULL_TRANSITIVE = "FULL_TRANSITIVE";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

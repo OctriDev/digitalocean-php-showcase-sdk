@@ -24,6 +24,6 @@ trait ContainerRegistryValidateNameMethods
         Validation::validateLength('name', $name, max: 63);
         Validation::validatePattern('name', $name, '^[a-z0-9-]{1,63}$');
 
-        return SdkClient::request('POST', "/v2/registry/validate-name", $clientConfig, body: ['name' => $name], decoder: 'empty', operationId: 'registryValidateName', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('POST', "/v2/registry/validate-name", $clientConfig, body: ['name' => $name], decoder: 'empty', operationId: 'registryValidateName', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

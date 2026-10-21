@@ -240,7 +240,9 @@ class ScheduledDetails implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cron") || $data->cron === null) { throw new SdkValidationError("cron", 'required', "Required property 'cron' is missing or null"); }
+        if (!property_exists($data, "cron") || $data->cron === null) {
+            throw new SdkValidationError("cron", 'required', "Required property 'cron' is missing or null");
+        }
         return new self(
             cron: SdkClient::stringValue($data->cron),
             body: (property_exists($data, "body") ? ($data->body === null ? null : SdkClient::hydrateClass($data->body, ScheduledDetailsBody::class)) : SdkNotGiven::Value),

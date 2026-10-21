@@ -152,7 +152,9 @@ class Session2 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "session_id") || $data->session_id === null) { throw new SdkValidationError("session_id", 'required', "Required property 'session_id' is missing or null"); }
+        if (!property_exists($data, "session_id") || $data->session_id === null) {
+            throw new SdkValidationError("session_id", 'required', "Required property 'session_id' is missing or null");
+        }
         return new self(
             sessionId: SdkClient::stringValue($data->session_id),
             totalTurns: (property_exists($data, "total_turns") && $data->total_turns !== null ? SdkClient::intValue($data->total_turns) : SdkNotGiven::Value),
@@ -249,7 +251,9 @@ class SessionDialogue implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
         return new self(
             id: SdkClient::stringValue($data->id),
             sequence: (property_exists($data, "sequence") && $data->sequence !== null ? SdkClient::intValue($data->sequence) : SdkNotGiven::Value),
@@ -298,7 +302,9 @@ class UpdateConsentResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "consent") || $data->consent === null) { throw new SdkValidationError("consent", 'required', "Required property 'consent' is missing or null"); }
+        if (!property_exists($data, "consent") || $data->consent === null) {
+            throw new SdkValidationError("consent", 'required', "Required property 'consent' is missing or null");
+        }
         return new self(
             consent: SdkClient::hydrateClass($data->consent, ConsentRecord::class),
         );
@@ -343,7 +349,9 @@ class UpdateTeamConsentResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "consent") || $data->consent === null) { throw new SdkValidationError("consent", 'required', "Required property 'consent' is missing or null"); }
+        if (!property_exists($data, "consent") || $data->consent === null) {
+            throw new SdkValidationError("consent", 'required', "Required property 'consent' is missing or null");
+        }
         return new self(
             consent: SdkClient::hydrateClass($data->consent, ConsentRecord::class),
         );

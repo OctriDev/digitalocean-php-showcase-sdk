@@ -57,7 +57,9 @@ class AppsCreateAppRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
+        if (!property_exists($data, "spec") || $data->spec === null) {
+            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
+        }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, AppSpec::class),
             projectId: (property_exists($data, "project_id") && $data->project_id !== null ? SdkClient::stringValue($data->project_id) : SdkNotGiven::Value),
@@ -115,7 +117,9 @@ class AppsCreateAppRequestRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "spec") || $data->spec === null) { throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null"); }
+        if (!property_exists($data, "spec") || $data->spec === null) {
+            throw new SdkValidationError("spec", 'required', "Required property 'spec' is missing or null");
+        }
         return new self(
             spec: SdkClient::hydrateClass($data->spec, AppSpecRequest::class),
             projectId: (property_exists($data, "project_id") && $data->project_id !== null ? SdkClient::stringValue($data->project_id) : SdkNotGiven::Value),

@@ -55,8 +55,12 @@ class CreateCronConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cron_expr") || $data->cron_expr === null) { throw new SdkValidationError("cron_expr", 'required', "Required property 'cron_expr' is missing or null"); }
-        if (!property_exists($data, "timezone") || $data->timezone === null) { throw new SdkValidationError("timezone", 'required', "Required property 'timezone' is missing or null"); }
+        if (!property_exists($data, "cron_expr") || $data->cron_expr === null) {
+            throw new SdkValidationError("cron_expr", 'required', "Required property 'cron_expr' is missing or null");
+        }
+        if (!property_exists($data, "timezone") || $data->timezone === null) {
+            throw new SdkValidationError("timezone", 'required', "Required property 'timezone' is missing or null");
+        }
         return new self(
             cronExpr: SdkClient::stringValue($data->cron_expr),
             timezone: SdkClient::stringValue($data->timezone),

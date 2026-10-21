@@ -81,7 +81,9 @@ class ExecInSandboxRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "argv") || $data->argv === null) { throw new SdkValidationError("argv", 'required', "Required property 'argv' is missing or null"); }
+        if (!property_exists($data, "argv") || $data->argv === null) {
+            throw new SdkValidationError("argv", 'required', "Required property 'argv' is missing or null");
+        }
         if (property_exists($data, "stdin") && $data->stdin !== null) {
             Validation::validateByte("stdin", SdkClient::stringValue($data->stdin));
         }

@@ -147,8 +147,12 @@ class CreateCronConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cron_expr") || $data->cron_expr === null) { throw new SdkValidationError("cron_expr", 'required', "Required property 'cron_expr' is missing or null"); }
-        if (!property_exists($data, "timezone") || $data->timezone === null) { throw new SdkValidationError("timezone", 'required', "Required property 'timezone' is missing or null"); }
+        if (!property_exists($data, "cron_expr") || $data->cron_expr === null) {
+            throw new SdkValidationError("cron_expr", 'required', "Required property 'cron_expr' is missing or null");
+        }
+        if (!property_exists($data, "timezone") || $data->timezone === null) {
+            throw new SdkValidationError("timezone", 'required', "Required property 'timezone' is missing or null");
+        }
         return new self(
             cronExpr: SdkClient::stringValue($data->cron_expr),
             timezone: SdkClient::stringValue($data->timezone),
@@ -216,8 +220,12 @@ class CreateSessionConfigRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "config_id") || $data->config_id === null) { throw new SdkValidationError("config_id", 'required', "Required property 'config_id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "config_id") || $data->config_id === null) {
+            throw new SdkValidationError("config_id", 'required', "Required property 'config_id' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             configId: SdkClient::stringValue($data->config_id),
@@ -284,9 +292,15 @@ class CreateTemplateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "base_template") || $data->base_template === null) { throw new SdkValidationError("base_template", 'required', "Required property 'base_template' is missing or null"); }
-        if (!property_exists($data, "source_oci_ref") || $data->source_oci_ref === null) { throw new SdkValidationError("source_oci_ref", 'required', "Required property 'source_oci_ref' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "base_template") || $data->base_template === null) {
+            throw new SdkValidationError("base_template", 'required', "Required property 'base_template' is missing or null");
+        }
+        if (!property_exists($data, "source_oci_ref") || $data->source_oci_ref === null) {
+            throw new SdkValidationError("source_oci_ref", 'required', "Required property 'source_oci_ref' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             baseTemplate: SdkClient::stringValue($data->base_template),

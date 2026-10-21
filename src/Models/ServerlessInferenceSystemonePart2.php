@@ -65,9 +65,15 @@ class SystemoneResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
-        if (!property_exists($data, "answers") || $data->answers === null) { throw new SdkValidationError("answers", 'required', "Required property 'answers' is missing or null"); }
-        if (!property_exists($data, "usage") || $data->usage === null) { throw new SdkValidationError("usage", 'required', "Required property 'usage' is missing or null"); }
+        if (!property_exists($data, "model") || $data->model === null) {
+            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
+        }
+        if (!property_exists($data, "answers") || $data->answers === null) {
+            throw new SdkValidationError("answers", 'required', "Required property 'answers' is missing or null");
+        }
+        if (!property_exists($data, "usage") || $data->usage === null) {
+            throw new SdkValidationError("usage", 'required', "Required property 'usage' is missing or null");
+        }
         return new self(
             model: SdkClient::stringValue($data->model),
             answers: SdkClient::mapValues(SdkClient::stringMapValue($data->answers), static fn($item) => SdkClient::hydrateClass($item, SystemoneAnswer::class)),
@@ -124,8 +130,12 @@ class SystemoneUsage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) { throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null"); }
-        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) { throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null"); }
+        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) {
+            throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) {
+            throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null");
+        }
         return new self(
             inputTokens: SdkClient::intValue($data->input_tokens),
             outputTokens: SdkClient::intValue($data->output_tokens),

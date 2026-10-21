@@ -104,7 +104,9 @@ class AllDropletSnapshots implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             snapshots: (property_exists($data, "snapshots") && $data->snapshots !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, DropletSnapshot::class), SdkClient::arrayValue($data->snapshots))) : SdkNotGiven::Value),
@@ -210,7 +212,9 @@ class AllFirewalls implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             firewalls: (property_exists($data, "firewalls") && $data->firewalls !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Firewall::class), SdkClient::arrayValue($data->firewalls))) : SdkNotGiven::Value),
@@ -316,7 +320,9 @@ class AllKernels implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             kernels: (property_exists($data, "kernels") && $data->kernels !== null ? array_values(array_map(static fn($item) => ($item === null ? null : SdkClient::hydrateClass($item, Kernel::class)), SdkClient::arrayValue($data->kernels))) : SdkNotGiven::Value),

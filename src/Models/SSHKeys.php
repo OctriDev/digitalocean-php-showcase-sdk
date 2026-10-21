@@ -79,8 +79,12 @@ class SshKeys implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "public_key") || $data->public_key === null) { throw new SdkValidationError("public_key", 'required', "Required property 'public_key' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "public_key") || $data->public_key === null) {
+            throw new SdkValidationError("public_key", 'required', "Required property 'public_key' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             publicKey: SdkClient::stringValue($data->public_key),
             name: SdkClient::stringValue($data->name),
@@ -187,7 +191,9 @@ class SshKeysAll implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             sshKeys: (property_exists($data, "ssh_keys") && $data->ssh_keys !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, SshKeys::class), SdkClient::arrayValue($data->ssh_keys))) : SdkNotGiven::Value),
@@ -336,8 +342,12 @@ class SshKeysRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "public_key") || $data->public_key === null) { throw new SdkValidationError("public_key", 'required', "Required property 'public_key' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "public_key") || $data->public_key === null) {
+            throw new SdkValidationError("public_key", 'required', "Required property 'public_key' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             publicKey: SdkClient::stringValue($data->public_key),
             name: SdkClient::stringValue($data->name),

@@ -222,7 +222,9 @@ class ByoipPrefixList implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             byoipPrefixes: (property_exists($data, "byoip_prefixes") && $data->byoip_prefixes !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ByoipPrefix::class), SdkClient::arrayValue($data->byoip_prefixes))) : SdkNotGiven::Value),
@@ -328,7 +330,9 @@ class ByoipPrefixListResources implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             ips: (property_exists($data, "ips") && $data->ips !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ByoipPrefixResource::class), SdkClient::arrayValue($data->ips))) : SdkNotGiven::Value),

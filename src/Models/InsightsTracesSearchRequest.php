@@ -81,7 +81,9 @@ class TracesSearchRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "timeRange") || $data->timeRange === null) { throw new SdkValidationError("timeRange", 'required', "Required property 'timeRange' is missing or null"); }
+        if (!property_exists($data, "timeRange") || $data->timeRange === null) {
+            throw new SdkValidationError("timeRange", 'required', "Required property 'timeRange' is missing or null");
+        }
         return new self(
             timeRange: SdkClient::hydrateClass($data->timeRange, TracesTimeRange::class),
             filter: (property_exists($data, "filter") && $data->filter !== null ? SdkClient::hydrateClass($data->filter, TracesFilterExpression::class) : SdkNotGiven::Value),
@@ -139,8 +141,12 @@ class TracesSearchResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "pagination") || $data->pagination === null) { throw new SdkValidationError("pagination", 'required', "Required property 'pagination' is missing or null"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "pagination") || $data->pagination === null) {
+            throw new SdkValidationError("pagination", 'required', "Required property 'pagination' is missing or null");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, TracesTraceSummary::class), SdkClient::arrayValue($data->data))),
             pagination: SdkClient::hydrateClass($data->pagination, TracesPaginationResponse::class),
@@ -255,8 +261,12 @@ class TracesTimeRange implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "from") || $data->from === null) { throw new SdkValidationError("from", 'required', "Required property 'from' is missing or null"); }
-        if (!property_exists($data, "to") || $data->to === null) { throw new SdkValidationError("to", 'required', "Required property 'to' is missing or null"); }
+        if (!property_exists($data, "from") || $data->from === null) {
+            throw new SdkValidationError("from", 'required', "Required property 'from' is missing or null");
+        }
+        if (!property_exists($data, "to") || $data->to === null) {
+            throw new SdkValidationError("to", 'required', "Required property 'to' is missing or null");
+        }
         return new self(
             from: SdkClient::hydrateClass($data->from, TracesTimeInstant::class),
             to: SdkClient::hydrateClass($data->to, TracesTimeInstant::class),
@@ -272,9 +282,24 @@ final readonly class TracesTraceSummaryStatusEnum implements SdkOpenEnum
     public const OK = "Ok";
     public const ERROR = "Error";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

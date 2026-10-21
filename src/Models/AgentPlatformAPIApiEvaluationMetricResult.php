@@ -154,11 +154,26 @@ final readonly class ApiEvaluationMetricResultStatus implements SdkOpenEnum
     public const EVALUATION_METRIC_RESULT_STATUS_FAILED = "EVALUATION_METRIC_RESULT_STATUS_FAILED";
     public const EVALUATION_METRIC_RESULT_STATUS_SKIPPED = "EVALUATION_METRIC_RESULT_STATUS_SKIPPED";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -170,11 +185,26 @@ final readonly class ApiEvaluationMetricSource implements SdkOpenEnum
     public const EVALUATION_METRIC_SOURCE_BUILTIN = "EVALUATION_METRIC_SOURCE_BUILTIN";
     public const EVALUATION_METRIC_SOURCE_CUSTOM = "EVALUATION_METRIC_SOURCE_CUSTOM";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -188,11 +218,26 @@ final readonly class ApiEvaluationMetricType implements SdkOpenEnum
     public const METRIC_TYPE_MODEL_QUALITY = "METRIC_TYPE_MODEL_QUALITY";
     public const METRIC_TYPE_MODEL_SAFETY = "METRIC_TYPE_MODEL_SAFETY";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -205,9 +250,24 @@ final readonly class ApiEvaluationMetricValueType implements SdkOpenEnum
     public const METRIC_VALUE_TYPE_STRING = "METRIC_VALUE_TYPE_STRING";
     public const METRIC_VALUE_TYPE_PERCENTAGE = "METRIC_VALUE_TYPE_PERCENTAGE";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

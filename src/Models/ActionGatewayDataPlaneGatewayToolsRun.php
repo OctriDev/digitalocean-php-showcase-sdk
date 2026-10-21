@@ -142,7 +142,9 @@ class InvokeToolsRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tools") || $data->tools === null) { throw new SdkValidationError("tools", 'required', "Required property 'tools' is missing or null"); }
+        if (!property_exists($data, "tools") || $data->tools === null) {
+            throw new SdkValidationError("tools", 'required', "Required property 'tools' is missing or null");
+        }
         return new self(
             tools: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ToolCall::class), SdkClient::arrayValue($data->tools))),
             rationale: (property_exists($data, "rationale") && $data->rationale !== null ? SdkClient::stringValue($data->rationale) : SdkNotGiven::Value),
@@ -297,7 +299,9 @@ class ToolCall implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool") || $data->tool === null) { throw new SdkValidationError("tool", 'required', "Required property 'tool' is missing or null"); }
+        if (!property_exists($data, "tool") || $data->tool === null) {
+            throw new SdkValidationError("tool", 'required', "Required property 'tool' is missing or null");
+        }
         return new self(
             tool: SdkClient::stringValue($data->tool),
             version: (property_exists($data, "version") && $data->version !== null ? SdkClient::stringValue($data->version) : SdkNotGiven::Value),

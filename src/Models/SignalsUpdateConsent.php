@@ -45,7 +45,9 @@ class UpdateConsentResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "consent") || $data->consent === null) { throw new SdkValidationError("consent", 'required', "Required property 'consent' is missing or null"); }
+        if (!property_exists($data, "consent") || $data->consent === null) {
+            throw new SdkValidationError("consent", 'required', "Required property 'consent' is missing or null");
+        }
         return new self(
             consent: SdkClient::hydrateClass($data->consent, ConsentRecord::class),
         );

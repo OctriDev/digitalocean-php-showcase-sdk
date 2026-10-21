@@ -45,7 +45,9 @@ class AccessPointGetResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "access_point") || $data->access_point === null) { throw new SdkValidationError("access_point", 'required', "Required property 'access_point' is missing or null"); }
+        if (!property_exists($data, "access_point") || $data->access_point === null) {
+            throw new SdkValidationError("access_point", 'required', "Required property 'access_point' is missing or null");
+        }
         return new self(
             accessPoint: SdkClient::hydrateClass($data->access_point, AccessPointResponse::class),
         );

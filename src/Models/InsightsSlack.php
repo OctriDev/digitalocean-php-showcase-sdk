@@ -57,7 +57,9 @@ class SlackNotificationConfigRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "channel") || $data->channel === null) { throw new SdkValidationError("channel", 'required', "Required property 'channel' is missing or null"); }
+        if (!property_exists($data, "channel") || $data->channel === null) {
+            throw new SdkValidationError("channel", 'required', "Required property 'channel' is missing or null");
+        }
         return new self(
             channel: SdkClient::stringValue($data->channel),
             webhookUrl: (property_exists($data, "webhook_url") && $data->webhook_url !== null ? SdkClient::stringValue($data->webhook_url) : SdkNotGiven::Value),
@@ -115,7 +117,9 @@ class SlackNotificationConfigResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "channel") || $data->channel === null) { throw new SdkValidationError("channel", 'required', "Required property 'channel' is missing or null"); }
+        if (!property_exists($data, "channel") || $data->channel === null) {
+            throw new SdkValidationError("channel", 'required', "Required property 'channel' is missing or null");
+        }
         return new self(
             channel: SdkClient::stringValue($data->channel),
             webhookUrlStatus: (property_exists($data, "webhook_url_status") && $data->webhook_url_status !== null ? SdkClient::hydrateClass($data->webhook_url_status, SecretStatus::class) : SdkNotGiven::Value),

@@ -99,10 +99,18 @@ class BatchCreateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "file_id") || $data->file_id === null) { throw new SdkValidationError("file_id", 'required', "Required property 'file_id' is missing or null"); }
-        if (!property_exists($data, "provider") || $data->provider === null) { throw new SdkValidationError("provider", 'required', "Required property 'provider' is missing or null"); }
-        if (!property_exists($data, "completion_window") || $data->completion_window === null) { throw new SdkValidationError("completion_window", 'required', "Required property 'completion_window' is missing or null"); }
-        if (!property_exists($data, "request_id") || $data->request_id === null) { throw new SdkValidationError("request_id", 'required', "Required property 'request_id' is missing or null"); }
+        if (!property_exists($data, "file_id") || $data->file_id === null) {
+            throw new SdkValidationError("file_id", 'required', "Required property 'file_id' is missing or null");
+        }
+        if (!property_exists($data, "provider") || $data->provider === null) {
+            throw new SdkValidationError("provider", 'required', "Required property 'provider' is missing or null");
+        }
+        if (!property_exists($data, "completion_window") || $data->completion_window === null) {
+            throw new SdkValidationError("completion_window", 'required', "Required property 'completion_window' is missing or null");
+        }
+        if (!property_exists($data, "request_id") || $data->request_id === null) {
+            throw new SdkValidationError("request_id", 'required', "Required property 'request_id' is missing or null");
+        }
         return new self(
             fileId: SdkClient::stringValue($data->file_id),
             provider: SdkClient::hydrateStringEnumOrString($data->provider, BatchCreateRequestProviderEnum::class),
@@ -152,7 +160,9 @@ class BatchFileCreateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "file_name") || $data->file_name === null) { throw new SdkValidationError("file_name", 'required', "Required property 'file_name' is missing or null"); }
+        if (!property_exists($data, "file_name") || $data->file_name === null) {
+            throw new SdkValidationError("file_name", 'required', "Required property 'file_name' is missing or null");
+        }
         return new self(
             fileName: SdkClient::stringValue($data->file_name),
         );
@@ -219,8 +229,12 @@ class BatchFileCreateResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "file_id") || $data->file_id === null) { throw new SdkValidationError("file_id", 'required', "Required property 'file_id' is missing or null"); }
-        if (!property_exists($data, "upload_url") || $data->upload_url === null) { throw new SdkValidationError("upload_url", 'required', "Required property 'upload_url' is missing or null"); }
+        if (!property_exists($data, "file_id") || $data->file_id === null) {
+            throw new SdkValidationError("file_id", 'required', "Required property 'file_id' is missing or null");
+        }
+        if (!property_exists($data, "upload_url") || $data->upload_url === null) {
+            throw new SdkValidationError("upload_url", 'required', "Required property 'upload_url' is missing or null");
+        }
         return new self(
             fileId: SdkClient::stringValue($data->file_id),
             uploadUrl: SdkClient::stringValue($data->upload_url),
@@ -236,11 +250,26 @@ final readonly class BatchListResponseObjectEnum implements SdkOpenEnum
 {
     public const LIST = "list";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -325,9 +354,15 @@ class BatchListResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "object") || $data->object === null) { throw new SdkValidationError("object", 'required', "Required property 'object' is missing or null"); }
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "has_more") || $data->has_more === null) { throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null"); }
+        if (!property_exists($data, "object") || $data->object === null) {
+            throw new SdkValidationError("object", 'required', "Required property 'object' is missing or null");
+        }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "has_more") || $data->has_more === null) {
+            throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null");
+        }
         return new self(
             object_: SdkClient::hydrateStringEnumOrString($data->object, BatchListResponseObjectEnum::class),
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Batch::class), SdkClient::arrayValue($data->data))),
