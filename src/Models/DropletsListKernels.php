@@ -104,7 +104,9 @@ class AllKernels implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             kernels: (property_exists($data, "kernels") && $data->kernels !== null ? array_values(array_map(static fn($item) => ($item === null ? null : SdkClient::hydrateClass($item, Kernel::class)), SdkClient::arrayValue($data->kernels))) : SdkNotGiven::Value),

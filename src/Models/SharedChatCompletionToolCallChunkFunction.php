@@ -209,9 +209,15 @@ class ChatCompletionTopLogprobItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "token") || $data->token === null) { throw new SdkValidationError("token", 'required', "Required property 'token' is missing or null"); }
-        if (!property_exists($data, "logprob") || $data->logprob === null) { throw new SdkValidationError("logprob", 'required', "Required property 'logprob' is missing or null"); }
-        if (!property_exists($data, "bytes")) { throw new SdkValidationError("bytes", 'required', "Missing required property 'bytes'"); }
+        if (!property_exists($data, "token") || $data->token === null) {
+            throw new SdkValidationError("token", 'required', "Required property 'token' is missing or null");
+        }
+        if (!property_exists($data, "logprob") || $data->logprob === null) {
+            throw new SdkValidationError("logprob", 'required', "Required property 'logprob' is missing or null");
+        }
+        if (!property_exists($data, "bytes")) {
+            throw new SdkValidationError("bytes", 'required', "Missing required property 'bytes'");
+        }
         return new self(
             token: SdkClient::stringValue($data->token),
             logprob: SdkClient::floatValue($data->logprob),
@@ -231,11 +237,26 @@ final readonly class ChatMessageRoleEnum implements SdkOpenEnum
     public const ASSISTANT = "assistant";
     public const TOOL = "tool";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -336,7 +357,9 @@ class ChatMessage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "role") || $data->role === null) { throw new SdkValidationError("role", 'required', "Required property 'role' is missing or null"); }
+        if (!property_exists($data, "role") || $data->role === null) {
+            throw new SdkValidationError("role", 'required', "Required property 'role' is missing or null");
+        }
         return new self(
             role: SdkClient::hydrateStringEnumOrString($data->role, ChatMessageRoleEnum::class),
             content: (property_exists($data, "content") ? ($data->content === null ? null : SdkClient::stringValue($data->content)) : SdkNotGiven::Value),

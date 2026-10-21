@@ -45,7 +45,9 @@ class ExportOptionsFilters implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "signal_type") || $data->signal_type === null) { throw new SdkValidationError("signal_type", 'required', "Required property 'signal_type' is missing or null"); }
+        if (!property_exists($data, "signal_type") || $data->signal_type === null) {
+            throw new SdkValidationError("signal_type", 'required', "Required property 'signal_type' is missing or null");
+        }
         return new self(
             signalType: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->signal_type))),
         );
@@ -90,7 +92,9 @@ class ExportOptions implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "filters") || $data->filters === null) { throw new SdkValidationError("filters", 'required', "Required property 'filters' is missing or null"); }
+        if (!property_exists($data, "filters") || $data->filters === null) {
+            throw new SdkValidationError("filters", 'required', "Required property 'filters' is missing or null");
+        }
         return new self(
             filters: SdkClient::hydrateClass($data->filters, ExportOptionsFilters::class),
         );

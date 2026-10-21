@@ -42,7 +42,9 @@ class ImagesPostAccountTransferCreateVariant0 implements ImagesPostAccountTransf
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "recipient_email") || $data->recipient_email === null) { throw new SdkValidationError("recipient_email", 'required', "Required property 'recipient_email' is missing or null"); }
+        if (!property_exists($data, "recipient_email") || $data->recipient_email === null) {
+            throw new SdkValidationError("recipient_email", 'required', "Required property 'recipient_email' is missing or null");
+        }
         return new self(
             recipientEmail: SdkClient::stringValue($data->recipient_email),
         );
@@ -84,7 +86,9 @@ class ImagesPostAccountTransferCreateVariant1 implements ImagesPostAccountTransf
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "recipient_uuid") || $data->recipient_uuid === null) { throw new SdkValidationError("recipient_uuid", 'required', "Required property 'recipient_uuid' is missing or null"); }
+        if (!property_exists($data, "recipient_uuid") || $data->recipient_uuid === null) {
+            throw new SdkValidationError("recipient_uuid", 'required', "Required property 'recipient_uuid' is missing or null");
+        }
         return new self(
             recipientUuid: SdkClient::stringValue($data->recipient_uuid),
         );

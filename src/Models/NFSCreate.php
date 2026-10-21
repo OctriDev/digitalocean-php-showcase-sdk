@@ -133,10 +133,18 @@ class NfsRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "size_gib") || $data->size_gib === null) { throw new SdkValidationError("size_gib", 'required', "Required property 'size_gib' is missing or null"); }
-        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
-        if (!property_exists($data, "vpc_ids") || $data->vpc_ids === null) { throw new SdkValidationError("vpc_ids", 'required', "Required property 'vpc_ids' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "size_gib") || $data->size_gib === null) {
+            throw new SdkValidationError("size_gib", 'required', "Required property 'size_gib' is missing or null");
+        }
+        if (!property_exists($data, "region") || $data->region === null) {
+            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
+        }
+        if (!property_exists($data, "vpc_ids") || $data->vpc_ids === null) {
+            throw new SdkValidationError("vpc_ids", 'required', "Required property 'vpc_ids' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             sizeGib: SdkClient::intValue($data->size_gib),

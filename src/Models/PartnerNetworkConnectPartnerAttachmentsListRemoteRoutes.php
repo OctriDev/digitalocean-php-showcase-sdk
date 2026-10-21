@@ -104,7 +104,9 @@ class AllPartnerAttachmentRemoteRoutes implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             remoteRoutes: (property_exists($data, "remote_routes") && $data->remote_routes !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, PartnerAttachmentRemoteRoute::class), SdkClient::arrayValue($data->remote_routes))) : SdkNotGiven::Value),

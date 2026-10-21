@@ -55,8 +55,12 @@ class DatadogLogsink implements LogsinkUpdateConfig, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "site") || $data->site === null) { throw new SdkValidationError("site", 'required', "Required property 'site' is missing or null"); }
-        if (!property_exists($data, "datadog_api_key") || $data->datadog_api_key === null) { throw new SdkValidationError("datadog_api_key", 'required', "Required property 'datadog_api_key' is missing or null"); }
+        if (!property_exists($data, "site") || $data->site === null) {
+            throw new SdkValidationError("site", 'required', "Required property 'site' is missing or null");
+        }
+        if (!property_exists($data, "datadog_api_key") || $data->datadog_api_key === null) {
+            throw new SdkValidationError("datadog_api_key", 'required', "Required property 'datadog_api_key' is missing or null");
+        }
         return new self(
             site: SdkClient::stringValue($data->site),
             datadogApiKey: SdkClient::stringValue($data->datadog_api_key),
@@ -148,8 +152,12 @@ class ElasticsearchLogsink implements LogsinkUpdateConfig, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
-        if (!property_exists($data, "index_prefix") || $data->index_prefix === null) { throw new SdkValidationError("index_prefix", 'required', "Required property 'index_prefix' is missing or null"); }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
+        if (!property_exists($data, "index_prefix") || $data->index_prefix === null) {
+            throw new SdkValidationError("index_prefix", 'required', "Required property 'index_prefix' is missing or null");
+        }
         return new self(
             url: SdkClient::stringValue($data->url),
             indexPrefix: SdkClient::stringValue($data->index_prefix),
@@ -169,11 +177,26 @@ final readonly class MongoAdvancedConfigDefaultReadConcernEnum implements SdkOpe
     public const AVAILABLE = "available";
     public const MAJORITY = "majority";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -285,9 +308,24 @@ final readonly class OnlineMigrationStatusEnum implements SdkOpenEnum
     public const ERROR = "error";
     public const DONE = "done";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

@@ -12,11 +12,26 @@ final readonly class MicrovmsCreateNetworking implements SdkOpenEnum
     public const PUBLIC = "public";
     public const VPC = "vpc";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class MicrovmsCreateHttpProtocol implements SdkOpenEnum
@@ -24,11 +39,26 @@ final readonly class MicrovmsCreateHttpProtocol implements SdkOpenEnum
     public const HTTP = "http";
     public const HTTP2 = "http2";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 class MicroVmsPublicPreview
@@ -56,7 +86,7 @@ class MicroVmsPublicPreview
             Validation::validateRange('per_page', $perPage, min: 1, max: 200);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/microvms", $clientConfig, query: ['page' => new SdkQueryValue($page, "form", true), 'per_page' => new SdkQueryValue($perPage, "form", true), 'region' => new SdkQueryValue($region, "form", true), 'name' => new SdkQueryValue($name, "form", true), 'tag_name' => new SdkQueryValue($tagName, "form", true)], returnType: AllMicrovms::class, decoder: 'json', operationId: 'microvmsList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/microvms", $clientConfig, query: ['page' => new SdkQueryValue($page, "form", true), 'per_page' => new SdkQueryValue($perPage, "form", true), 'region' => new SdkQueryValue($region, "form", true), 'name' => new SdkQueryValue($name, "form", true), 'tag_name' => new SdkQueryValue($tagName, "form", true)], returnType: AllMicrovms::class, decoder: 'json', operationId: 'microvmsList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllMicrovms::class));
     }
 
@@ -94,7 +124,7 @@ class MicroVmsPublicPreview
             Validation::validateItems('ports', $ports, max: 5);
         }
 
-        $sdkResponse = SdkClient::request('POST', "/v2/microvms", $clientConfig, body: ['name' => $name, 'source' => $source, 'region' => $region, 'size' => $size, 'networking' => $networking, 'vpc_uuid' => $vpcUuid, 'auto_pause' => $autoPause, 'auto_resume' => $autoResume, 'http_port' => $httpPort, 'http_protocol' => $httpProtocol, 'ports' => $ports, 'environment' => $environment, 'tags' => $tags], returnType: MicrovmCreated::class, decoder: 'json', operationId: 'microvmsCreate', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/microvms", $clientConfig, body: ['name' => $name, 'source' => $source, 'region' => $region, 'size' => $size, 'networking' => $networking, 'vpc_uuid' => $vpcUuid, 'auto_pause' => $autoPause, 'auto_resume' => $autoResume, 'http_port' => $httpPort, 'http_protocol' => $httpProtocol, 'ports' => $ports, 'environment' => $environment, 'tags' => $tags], returnType: MicrovmCreated::class, decoder: 'json', operationId: 'microvmsCreate', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, MicrovmCreated::class));
     }
 
@@ -107,7 +137,7 @@ class MicroVmsPublicPreview
     public static function microvmsGetOptions(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): MicrovmOptions
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/microvms/options", $clientConfig, returnType: MicrovmOptions::class, decoder: 'json', operationId: 'microvmsGetOptions', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/microvms/options", $clientConfig, returnType: MicrovmOptions::class, decoder: 'json', operationId: 'microvmsGetOptions', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, MicrovmOptions::class));
     }
 
@@ -137,7 +167,7 @@ class MicroVmsPublicPreview
             Validation::validateUuid('microvm_id', $microvmId);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/microvms/checkpoints", $clientConfig, query: ['page' => new SdkQueryValue($page, "form", true), 'per_page' => new SdkQueryValue($perPage, "form", true), 'microvm_id' => new SdkQueryValue($microvmId, "form", true)], returnType: AllCheckpoints::class, decoder: 'json', operationId: 'microvmCheckpointsList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/microvms/checkpoints", $clientConfig, query: ['page' => new SdkQueryValue($page, "form", true), 'per_page' => new SdkQueryValue($perPage, "form", true), 'microvm_id' => new SdkQueryValue($microvmId, "form", true)], returnType: AllCheckpoints::class, decoder: 'json', operationId: 'microvmCheckpointsList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllCheckpoints::class));
     }
 
@@ -155,7 +185,7 @@ class MicroVmsPublicPreview
 
         Validation::validateUuid('checkpoint_id', $checkpointId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/microvms/checkpoints/" . SdkClient::encodePathSegment($checkpointId) . "", $clientConfig, returnType: CheckpointResponse::class, decoder: 'json', operationId: 'microvmCheckpointsGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/microvms/checkpoints/" . SdkClient::encodePathSegment($checkpointId) . "", $clientConfig, returnType: CheckpointResponse::class, decoder: 'json', operationId: 'microvmCheckpointsGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, CheckpointResponse::class));
     }
 
@@ -172,7 +202,7 @@ class MicroVmsPublicPreview
 
         Validation::validateUuid('checkpoint_id', $checkpointId);
 
-        return SdkClient::request('DELETE', "/v2/microvms/checkpoints/" . SdkClient::encodePathSegment($checkpointId) . "", $clientConfig, decoder: 'empty', operationId: 'microvmCheckpointsDelete', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/microvms/checkpoints/" . SdkClient::encodePathSegment($checkpointId) . "", $clientConfig, decoder: 'empty', operationId: 'microvmCheckpointsDelete', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -189,7 +219,7 @@ class MicroVmsPublicPreview
 
         Validation::validateUuid('microvm_id', $microvmId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "", $clientConfig, returnType: MicrovmResponse::class, decoder: 'json', operationId: 'microvmsGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "", $clientConfig, returnType: MicrovmResponse::class, decoder: 'json', operationId: 'microvmsGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, MicrovmResponse::class));
     }
 
@@ -206,7 +236,7 @@ class MicroVmsPublicPreview
 
         Validation::validateUuid('microvm_id', $microvmId);
 
-        return SdkClient::request('DELETE', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "", $clientConfig, decoder: 'empty', operationId: 'microvmsDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "", $clientConfig, decoder: 'empty', operationId: 'microvmsDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 
 
@@ -223,7 +253,7 @@ class MicroVmsPublicPreview
 
         Validation::validateUuid('microvm_id', $microvmId);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "/pause", $clientConfig, returnType: MicrovmResponse::class, decoder: 'json', operationId: 'microvmsPostPause', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "/pause", $clientConfig, returnType: MicrovmResponse::class, decoder: 'json', operationId: 'microvmsPostPause', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, MicrovmResponse::class));
     }
 
@@ -241,7 +271,7 @@ class MicroVmsPublicPreview
 
         Validation::validateUuid('microvm_id', $microvmId);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "/resume", $clientConfig, returnType: MicrovmResponse::class, decoder: 'json', operationId: 'microvmsPostResume', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "/resume", $clientConfig, returnType: MicrovmResponse::class, decoder: 'json', operationId: 'microvmsPostResume', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, MicrovmResponse::class));
     }
 
@@ -263,7 +293,7 @@ class MicroVmsPublicPreview
 
         Validation::validateItems('argv', $argv, min: 1);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "/exec", $clientConfig, body: ['argv' => $argv, 'cwd' => $cwd], returnType: ExecResponse::class, decoder: 'json', operationId: 'microvmsRunCommand', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 502 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "/exec", $clientConfig, body: ['argv' => $argv, 'cwd' => $cwd], returnType: ExecResponse::class, decoder: 'json', operationId: 'microvmsRunCommand', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 502 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExecResponse::class));
     }
 
@@ -291,7 +321,7 @@ class MicroVmsPublicPreview
             Validation::validateRange('cols', $cols, min: 1, max: 65535);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "/console", $clientConfig, query: ['rows' => new SdkQueryValue($rows, "form", true), 'cols' => new SdkQueryValue($cols, "form", true)], returnType: Error2::class, decoder: 'json', operationId: 'microvmsGetConsole', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "/console", $clientConfig, query: ['rows' => new SdkQueryValue($rows, "form", true), 'cols' => new SdkQueryValue($cols, "form", true)], returnType: Error2::class, decoder: 'json', operationId: 'microvmsGetConsole', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, Error2::class));
     }
 
@@ -310,7 +340,7 @@ class MicroVmsPublicPreview
 
         Validation::validateUuid('microvm_id', $microvmId);
 
-        $sdkResponse = SdkClient::request('POST', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "/checkpoints", $clientConfig, body: ['name' => $name], returnType: CheckpointResponse::class, decoder: 'json', operationId: 'microvmCheckpointsCreate', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/microvms/" . SdkClient::encodePathSegment($microvmId) . "/checkpoints", $clientConfig, body: ['name' => $name], returnType: CheckpointResponse::class, decoder: 'json', operationId: 'microvmCheckpointsCreate', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, MicrovmError::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, CheckpointResponse::class));
     }
 }

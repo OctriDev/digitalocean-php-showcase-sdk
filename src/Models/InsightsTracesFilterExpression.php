@@ -126,11 +126,26 @@ final readonly class TracesOrderByDirectionEnum implements SdkOpenEnum
     public const ASC = "asc";
     public const DESC = "desc";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -183,7 +198,9 @@ class TracesOrderBy implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "field") || $data->field === null) { throw new SdkValidationError("field", 'required', "Required property 'field' is missing or null"); }
+        if (!property_exists($data, "field") || $data->field === null) {
+            throw new SdkValidationError("field", 'required', "Required property 'field' is missing or null");
+        }
         return new self(
             field: SdkClient::hydrateClass($data->field, TracesFieldRef::class),
             direction: (property_exists($data, "direction") && $data->direction !== null ? SdkClient::hydrateStringEnumOrString($data->direction, TracesOrderByDirectionEnum::class) : SdkNotGiven::Value),
@@ -275,7 +292,9 @@ class TracesPaginationResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "hasMore") || $data->hasMore === null) { throw new SdkValidationError("hasMore", 'required', "Required property 'hasMore' is missing or null"); }
+        if (!property_exists($data, "hasMore") || $data->hasMore === null) {
+            throw new SdkValidationError("hasMore", 'required', "Required property 'hasMore' is missing or null");
+        }
         return new self(
             hasMore: SdkClient::boolValue($data->hasMore),
         );

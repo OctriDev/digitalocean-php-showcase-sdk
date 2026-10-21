@@ -94,7 +94,9 @@ class NfsActionDetachParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) { throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null"); }
+        if (!property_exists($data, "vpc_id") || $data->vpc_id === null) {
+            throw new SdkValidationError("vpc_id", 'required', "Required property 'vpc_id' is missing or null");
+        }
         return new self(
             vpcId: SdkClient::stringValue($data->vpc_id),
         );
@@ -159,7 +161,9 @@ class NfsActionDetach implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, NfsActionDetachTypeEnum::class),
             region: (property_exists($data, "region") && $data->region !== null ? SdkClient::stringValue($data->region) : SdkNotGiven::Value),
@@ -213,8 +217,12 @@ class NfsActionReassignVariant1Params implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "old_vpc_id") || $data->old_vpc_id === null) { throw new SdkValidationError("old_vpc_id", 'required', "Required property 'old_vpc_id' is missing or null"); }
-        if (!property_exists($data, "new_vpc_id") || $data->new_vpc_id === null) { throw new SdkValidationError("new_vpc_id", 'required', "Required property 'new_vpc_id' is missing or null"); }
+        if (!property_exists($data, "old_vpc_id") || $data->old_vpc_id === null) {
+            throw new SdkValidationError("old_vpc_id", 'required', "Required property 'old_vpc_id' is missing or null");
+        }
+        if (!property_exists($data, "new_vpc_id") || $data->new_vpc_id === null) {
+            throw new SdkValidationError("new_vpc_id", 'required', "Required property 'new_vpc_id' is missing or null");
+        }
         return new self(
             oldVpcId: SdkClient::stringValue($data->old_vpc_id),
             newVpcId: SdkClient::stringValue($data->new_vpc_id),
@@ -319,8 +327,12 @@ class NfsActionReassignParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "old_vpc_id") || $data->old_vpc_id === null) { throw new SdkValidationError("old_vpc_id", 'required', "Required property 'old_vpc_id' is missing or null"); }
-        if (!property_exists($data, "new_vpc_id") || $data->new_vpc_id === null) { throw new SdkValidationError("new_vpc_id", 'required', "Required property 'new_vpc_id' is missing or null"); }
+        if (!property_exists($data, "old_vpc_id") || $data->old_vpc_id === null) {
+            throw new SdkValidationError("old_vpc_id", 'required', "Required property 'old_vpc_id' is missing or null");
+        }
+        if (!property_exists($data, "new_vpc_id") || $data->new_vpc_id === null) {
+            throw new SdkValidationError("new_vpc_id", 'required', "Required property 'new_vpc_id' is missing or null");
+        }
         return new self(
             oldVpcId: SdkClient::stringValue($data->old_vpc_id),
             newVpcId: SdkClient::stringValue($data->new_vpc_id),

@@ -65,9 +65,15 @@ class ByoipPrefixCreate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "prefix") || $data->prefix === null) { throw new SdkValidationError("prefix", 'required', "Required property 'prefix' is missing or null"); }
-        if (!property_exists($data, "region") || $data->region === null) { throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null"); }
-        if (!property_exists($data, "signature") || $data->signature === null) { throw new SdkValidationError("signature", 'required', "Required property 'signature' is missing or null"); }
+        if (!property_exists($data, "prefix") || $data->prefix === null) {
+            throw new SdkValidationError("prefix", 'required', "Required property 'prefix' is missing or null");
+        }
+        if (!property_exists($data, "region") || $data->region === null) {
+            throw new SdkValidationError("region", 'required', "Required property 'region' is missing or null");
+        }
+        if (!property_exists($data, "signature") || $data->signature === null) {
+            throw new SdkValidationError("signature", 'required', "Required property 'signature' is missing or null");
+        }
         return new self(
             prefix: SdkClient::stringValue($data->prefix),
             region: SdkClient::stringValue($data->region),

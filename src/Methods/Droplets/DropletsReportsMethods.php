@@ -17,7 +17,7 @@ trait DropletsReportsMethods
     public static function dropletsListNeighborsIds(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): NeighborIds
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/reports/droplet_neighbors_ids", $clientConfig, returnType: NeighborIds::class, decoder: 'json', operationId: 'dropletsListNeighborsIds', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/reports/droplet_neighbors_ids", $clientConfig, returnType: NeighborIds::class, decoder: 'json', operationId: 'dropletsListNeighborsIds', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, NeighborIds::class));
     }
 }

@@ -17,11 +17,26 @@ final readonly class HitlOutcome implements SdkOpenEnum
     public const HITL_OUTCOME_REJECT = "HITL_OUTCOME_REJECT";
     public const HITL_OUTCOME_DEFER = "HITL_OUTCOME_DEFER";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -33,11 +48,26 @@ final readonly class ResolutionSource implements SdkOpenEnum
     public const RESOLUTION_SOURCE_INLINE_KEYSTROKE = "RESOLUTION_SOURCE_INLINE_KEYSTROKE";
     public const RESOLUTION_SOURCE_OUT_OF_BAND = "RESOLUTION_SOURCE_OUT_OF_BAND";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -102,7 +132,9 @@ class ResolveHitlRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "outcome") || $data->outcome === null) { throw new SdkValidationError("outcome", 'required', "Required property 'outcome' is missing or null"); }
+        if (!property_exists($data, "outcome") || $data->outcome === null) {
+            throw new SdkValidationError("outcome", 'required', "Required property 'outcome' is missing or null");
+        }
         return new self(
             outcome: SdkClient::hydrateStringEnumOrString($data->outcome, HitlOutcome::class),
             reason: (property_exists($data, "reason") && $data->reason !== null ? SdkClient::stringValue($data->reason) : SdkNotGiven::Value),

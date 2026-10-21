@@ -42,7 +42,9 @@ class ReservedIpActionAssignVariant1 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) { throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null"); }
+        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) {
+            throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null");
+        }
         return new self(
             dropletId: SdkClient::intValue($data->droplet_id),
         );
@@ -106,8 +108,12 @@ class ReservedIpActionAssign implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) { throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) {
+            throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, ReservedIpActionAssignTypeEnum::class),
             dropletId: SdkClient::intValue($data->droplet_id),
@@ -162,7 +168,9 @@ class ReservedIpActionType implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, ReservedIpActionTypeTypeEnum::class),
         );
@@ -222,7 +230,9 @@ class ReservedIpActionUnassign implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, ReservedIpActionUnassignTypeEnum::class),
             additionalProperties: array_diff_key(SdkClient::stringMapValue($data), array_flip(["type"])),

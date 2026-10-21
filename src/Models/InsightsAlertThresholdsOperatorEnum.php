@@ -19,11 +19,26 @@ final readonly class AlertThresholdsOperatorEnum implements SdkOpenEnum
     public const THRESHOLD_OPERATOR_GREATER_THAN_OR_EQUAL = "THRESHOLD_OPERATOR_GREATER_THAN_OR_EQUAL";
     public const THRESHOLD_OPERATOR_NOT_EQUAL = "THRESHOLD_OPERATOR_NOT_EQUAL";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -88,7 +103,9 @@ class AlertThresholds implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "operator") || $data->operator === null) { throw new SdkValidationError("operator", 'required', "Required property 'operator' is missing or null"); }
+        if (!property_exists($data, "operator") || $data->operator === null) {
+            throw new SdkValidationError("operator", 'required', "Required property 'operator' is missing or null");
+        }
         return new self(
             operator: SdkClient::hydrateStringEnumOrString($data->operator, AlertThresholdsOperatorEnum::class),
             warning: (property_exists($data, "warning") && $data->warning !== null ? SdkClient::floatValue($data->warning) : SdkNotGiven::Value),

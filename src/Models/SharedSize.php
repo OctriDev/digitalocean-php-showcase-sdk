@@ -159,16 +159,36 @@ class Size implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "slug") || $data->slug === null) { throw new SdkValidationError("slug", 'required', "Required property 'slug' is missing or null"); }
-        if (!property_exists($data, "memory") || $data->memory === null) { throw new SdkValidationError("memory", 'required', "Required property 'memory' is missing or null"); }
-        if (!property_exists($data, "vcpus") || $data->vcpus === null) { throw new SdkValidationError("vcpus", 'required', "Required property 'vcpus' is missing or null"); }
-        if (!property_exists($data, "disk") || $data->disk === null) { throw new SdkValidationError("disk", 'required', "Required property 'disk' is missing or null"); }
-        if (!property_exists($data, "transfer") || $data->transfer === null) { throw new SdkValidationError("transfer", 'required', "Required property 'transfer' is missing or null"); }
-        if (!property_exists($data, "price_monthly") || $data->price_monthly === null) { throw new SdkValidationError("price_monthly", 'required', "Required property 'price_monthly' is missing or null"); }
-        if (!property_exists($data, "price_hourly") || $data->price_hourly === null) { throw new SdkValidationError("price_hourly", 'required', "Required property 'price_hourly' is missing or null"); }
-        if (!property_exists($data, "regions") || $data->regions === null) { throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null"); }
-        if (!property_exists($data, "available") || $data->available === null) { throw new SdkValidationError("available", 'required', "Required property 'available' is missing or null"); }
-        if (!property_exists($data, "description") || $data->description === null) { throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null"); }
+        if (!property_exists($data, "slug") || $data->slug === null) {
+            throw new SdkValidationError("slug", 'required', "Required property 'slug' is missing or null");
+        }
+        if (!property_exists($data, "memory") || $data->memory === null) {
+            throw new SdkValidationError("memory", 'required', "Required property 'memory' is missing or null");
+        }
+        if (!property_exists($data, "vcpus") || $data->vcpus === null) {
+            throw new SdkValidationError("vcpus", 'required', "Required property 'vcpus' is missing or null");
+        }
+        if (!property_exists($data, "disk") || $data->disk === null) {
+            throw new SdkValidationError("disk", 'required', "Required property 'disk' is missing or null");
+        }
+        if (!property_exists($data, "transfer") || $data->transfer === null) {
+            throw new SdkValidationError("transfer", 'required', "Required property 'transfer' is missing or null");
+        }
+        if (!property_exists($data, "price_monthly") || $data->price_monthly === null) {
+            throw new SdkValidationError("price_monthly", 'required', "Required property 'price_monthly' is missing or null");
+        }
+        if (!property_exists($data, "price_hourly") || $data->price_hourly === null) {
+            throw new SdkValidationError("price_hourly", 'required', "Required property 'price_hourly' is missing or null");
+        }
+        if (!property_exists($data, "regions") || $data->regions === null) {
+            throw new SdkValidationError("regions", 'required', "Required property 'regions' is missing or null");
+        }
+        if (!property_exists($data, "available") || $data->available === null) {
+            throw new SdkValidationError("available", 'required', "Required property 'available' is missing or null");
+        }
+        if (!property_exists($data, "description") || $data->description === null) {
+            throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null");
+        }
         return new self(
             slug: SdkClient::stringValue($data->slug),
             memory: SdkClient::intValue($data->memory),

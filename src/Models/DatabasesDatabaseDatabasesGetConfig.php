@@ -45,7 +45,9 @@ class DatabaseConfigResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "config") || $data->config === null) { throw new SdkValidationError("config", 'required', "Required property 'config' is missing or null"); }
+        if (!property_exists($data, "config") || $data->config === null) {
+            throw new SdkValidationError("config", 'required', "Required property 'config' is missing or null");
+        }
         return new self(
             config: SdkClient::hydrateUnionAs($data->config, DatabaseConfigResponseConfig::class, [MysqlAdvancedConfig::class, PostgresAdvancedConfig::class, RedisAdvancedConfig::class, ValkeyAdvancedConfig::class, KafkaAdvancedConfig::class, OpensearchAdvancedConfig::class, MongoAdvancedConfig::class], null, []),
         );

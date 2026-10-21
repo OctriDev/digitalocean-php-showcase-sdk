@@ -17,7 +17,7 @@ trait ContainerRegistriesMethods
     public static function registriesList(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): AllRegistriesInfo
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/registries", $clientConfig, returnType: AllRegistriesInfo::class, decoder: 'json', operationId: 'registriesList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/registries", $clientConfig, returnType: AllRegistriesInfo::class, decoder: 'json', operationId: 'registriesList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AllRegistriesInfo::class));
     }
 
@@ -38,7 +38,7 @@ trait ContainerRegistriesMethods
         Validation::validateLength('name', $name, max: 63);
         Validation::validatePattern('name', $name, '^[a-z0-9-]{1,63}$');
 
-        $sdkResponse = SdkClient::request('POST', "/v2/registries", $clientConfig, body: ['name' => $name, 'subscription_tier_slug' => $subscriptionTierSlug, 'region' => $region], returnType: MultiregistryInfo::class, decoder: 'json', operationId: 'registriesCreate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/registries", $clientConfig, body: ['name' => $name, 'subscription_tier_slug' => $subscriptionTierSlug, 'region' => $region], returnType: MultiregistryInfo::class, decoder: 'json', operationId: 'registriesCreate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, MultiregistryInfo::class));
     }
 
@@ -54,7 +54,7 @@ trait ContainerRegistriesMethods
     public static function registriesGet(ClientConfig $clientConfig, string $registryName, ?RequestOptions $requestOptions = null): MultiregistryInfo
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/registries/" . SdkClient::encodePathSegment($registryName) . "", $clientConfig, returnType: MultiregistryInfo::class, decoder: 'json', operationId: 'registriesGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/registries/" . SdkClient::encodePathSegment($registryName) . "", $clientConfig, returnType: MultiregistryInfo::class, decoder: 'json', operationId: 'registriesGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, MultiregistryInfo::class));
     }
 
@@ -69,6 +69,6 @@ trait ContainerRegistriesMethods
     public static function registriesDelete(ClientConfig $clientConfig, string $registryName, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/registries/" . SdkClient::encodePathSegment($registryName) . "", $clientConfig, decoder: 'empty', operationId: 'registriesDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/registries/" . SdkClient::encodePathSegment($registryName) . "", $clientConfig, decoder: 'empty', operationId: 'registriesDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

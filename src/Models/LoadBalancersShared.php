@@ -91,11 +91,26 @@ final readonly class ForwardingRuleEntryProtocolEnum implements SdkOpenEnum
     public const TCP = "tcp";
     public const UDP = "udp";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -109,11 +124,26 @@ final readonly class ForwardingRuleTargetProtocolEnum implements SdkOpenEnum
     public const TCP = "tcp";
     public const UDP = "udp";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -208,10 +238,18 @@ class ForwardingRule implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "entry_protocol") || $data->entry_protocol === null) { throw new SdkValidationError("entry_protocol", 'required', "Required property 'entry_protocol' is missing or null"); }
-        if (!property_exists($data, "entry_port") || $data->entry_port === null) { throw new SdkValidationError("entry_port", 'required', "Required property 'entry_port' is missing or null"); }
-        if (!property_exists($data, "target_protocol") || $data->target_protocol === null) { throw new SdkValidationError("target_protocol", 'required', "Required property 'target_protocol' is missing or null"); }
-        if (!property_exists($data, "target_port") || $data->target_port === null) { throw new SdkValidationError("target_port", 'required', "Required property 'target_port' is missing or null"); }
+        if (!property_exists($data, "entry_protocol") || $data->entry_protocol === null) {
+            throw new SdkValidationError("entry_protocol", 'required', "Required property 'entry_protocol' is missing or null");
+        }
+        if (!property_exists($data, "entry_port") || $data->entry_port === null) {
+            throw new SdkValidationError("entry_port", 'required', "Required property 'entry_port' is missing or null");
+        }
+        if (!property_exists($data, "target_protocol") || $data->target_protocol === null) {
+            throw new SdkValidationError("target_protocol", 'required', "Required property 'target_protocol' is missing or null");
+        }
+        if (!property_exists($data, "target_port") || $data->target_port === null) {
+            throw new SdkValidationError("target_port", 'required', "Required property 'target_port' is missing or null");
+        }
         return new self(
             entryProtocol: SdkClient::hydrateStringEnumOrString($data->entry_protocol, ForwardingRuleEntryProtocolEnum::class),
             entryPort: SdkClient::intValue($data->entry_port),
@@ -232,11 +270,26 @@ final readonly class GlbSettingsTargetProtocolEnum implements SdkOpenEnum
     public const HTTPS = "https";
     public const HTTP2 = "http2";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**

@@ -199,10 +199,18 @@ class BillingInsights implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data_points") || $data->data_points === null) { throw new SdkValidationError("data_points", 'required', "Required property 'data_points' is missing or null"); }
-        if (!property_exists($data, "total_items") || $data->total_items === null) { throw new SdkValidationError("total_items", 'required', "Required property 'total_items' is missing or null"); }
-        if (!property_exists($data, "total_pages") || $data->total_pages === null) { throw new SdkValidationError("total_pages", 'required', "Required property 'total_pages' is missing or null"); }
-        if (!property_exists($data, "current_page") || $data->current_page === null) { throw new SdkValidationError("current_page", 'required', "Required property 'current_page' is missing or null"); }
+        if (!property_exists($data, "data_points") || $data->data_points === null) {
+            throw new SdkValidationError("data_points", 'required', "Required property 'data_points' is missing or null");
+        }
+        if (!property_exists($data, "total_items") || $data->total_items === null) {
+            throw new SdkValidationError("total_items", 'required', "Required property 'total_items' is missing or null");
+        }
+        if (!property_exists($data, "total_pages") || $data->total_pages === null) {
+            throw new SdkValidationError("total_pages", 'required', "Required property 'total_pages' is missing or null");
+        }
+        if (!property_exists($data, "current_page") || $data->current_page === null) {
+            throw new SdkValidationError("current_page", 'required', "Required property 'current_page' is missing or null");
+        }
         return new self(
             dataPoints: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BillingDataPoint::class), SdkClient::arrayValue($data->data_points))),
             totalItems: SdkClient::intValue($data->total_items),

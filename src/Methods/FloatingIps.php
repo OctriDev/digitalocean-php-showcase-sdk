@@ -29,7 +29,7 @@ class FloatingIps
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/floating_ips", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: FloatingIpList::class, decoder: 'json', operationId: 'floatingIpsList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/floating_ips", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: FloatingIpList::class, decoder: 'json', operationId: 'floatingIpsList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, FloatingIpList::class));
     }
 
@@ -45,7 +45,7 @@ class FloatingIps
     public static function floatingIpsCreate(ClientConfig $clientConfig, FloatingIpCreate $body, ?RequestOptions $requestOptions = null): FloatingIpCreated
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v2/floating_ips", $clientConfig, body: $body, returnType: FloatingIpCreated::class, decoder: 'json', operationId: 'floatingIpsCreate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/floating_ips", $clientConfig, body: $body, returnType: FloatingIpCreated::class, decoder: 'json', operationId: 'floatingIpsCreate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, FloatingIpCreated::class));
     }
 
@@ -61,7 +61,7 @@ class FloatingIps
     public static function floatingIpsGet(ClientConfig $clientConfig, string $floatingIp, ?RequestOptions $requestOptions = null): FloatingIpResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/floating_ips/" . SdkClient::encodePathSegment($floatingIp) . "", $clientConfig, returnType: FloatingIpResponse::class, decoder: 'json', operationId: 'floatingIpsGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/floating_ips/" . SdkClient::encodePathSegment($floatingIp) . "", $clientConfig, returnType: FloatingIpResponse::class, decoder: 'json', operationId: 'floatingIpsGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, FloatingIpResponse::class));
     }
 
@@ -76,6 +76,6 @@ class FloatingIps
     public static function floatingIpsDelete(ClientConfig $clientConfig, string $floatingIp, ?RequestOptions $requestOptions = null): mixed
     {
 
-        return SdkClient::request('DELETE', "/v2/floating_ips/" . SdkClient::encodePathSegment($floatingIp) . "", $clientConfig, decoder: 'empty', operationId: 'floatingIpsDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/floating_ips/" . SdkClient::encodePathSegment($floatingIp) . "", $clientConfig, decoder: 'empty', operationId: 'floatingIpsDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

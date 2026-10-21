@@ -19,11 +19,26 @@ final readonly class EvictionPolicyModel implements SdkOpenEnum
     public const VOLATILE_RANDOM = "volatile_random";
     public const VOLATILE_TTL = "volatile_ttl";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -64,7 +79,9 @@ class EvictionPolicyResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "eviction_policy") || $data->eviction_policy === null) { throw new SdkValidationError("eviction_policy", 'required', "Required property 'eviction_policy' is missing or null"); }
+        if (!property_exists($data, "eviction_policy") || $data->eviction_policy === null) {
+            throw new SdkValidationError("eviction_policy", 'required', "Required property 'eviction_policy' is missing or null");
+        }
         return new self(
             evictionPolicy: SdkClient::hydrateStringEnumOrString($data->eviction_policy, EvictionPolicyModel::class),
         );

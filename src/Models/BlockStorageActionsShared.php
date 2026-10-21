@@ -72,11 +72,26 @@ final readonly class VolumeActionStatusEnum implements SdkOpenEnum
     public const COMPLETED = "completed";
     public const ERRORED = "errored";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -276,7 +291,9 @@ class VolumeActionPostAttachVariant1 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) { throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null"); }
+        if (!property_exists($data, "droplet_id") || $data->droplet_id === null) {
+            throw new SdkValidationError("droplet_id", 'required', "Required property 'droplet_id' is missing or null");
+        }
         return new self(
             dropletId: SdkClient::intValue($data->droplet_id),
             tags: (property_exists($data, "tags") ? ($data->tags === null ? null : array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->tags)))) : SdkNotGiven::Value),

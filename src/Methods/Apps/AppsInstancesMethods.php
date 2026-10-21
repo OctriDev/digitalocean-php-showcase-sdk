@@ -20,7 +20,7 @@ trait AppsInstancesMethods
     public static function appsGetInstances(ClientConfig $clientConfig, string $appId, ?RequestOptions $requestOptions = null): AppInstances
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/apps/" . SdkClient::encodePathSegment($appId) . "/instances", $clientConfig, returnType: AppInstances::class, decoder: 'json', operationId: 'appsGetInstances', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/apps/" . SdkClient::encodePathSegment($appId) . "/instances", $clientConfig, returnType: AppInstances::class, decoder: 'json', operationId: 'appsGetInstances', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, AppInstances::class));
     }
 }

@@ -27,7 +27,7 @@ trait ContainerRegistryDockerCredentialsMethods
             Validation::validateRange('expiry_seconds', $expirySeconds, min: 0);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/registry/docker-credentials", $clientConfig, query: ['expiry_seconds' => new SdkQueryValue($expirySeconds, "form", true), 'read_write' => new SdkQueryValue($readWrite, "form", true)], returnType: DockerCredentials::class, decoder: 'json', operationId: 'registryGetDockerCredentials', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/registry/docker-credentials", $clientConfig, query: ['expiry_seconds' => new SdkQueryValue($expirySeconds, "form", true), 'read_write' => new SdkQueryValue($readWrite, "form", true)], returnType: DockerCredentials::class, decoder: 'json', operationId: 'registryGetDockerCredentials', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DockerCredentials::class));
     }
 }

@@ -55,8 +55,12 @@ class MicrovmError implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "code") || $data->code === null) { throw new SdkValidationError("code", 'required', "Required property 'code' is missing or null"); }
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "code") || $data->code === null) {
+            throw new SdkValidationError("code", 'required', "Required property 'code' is missing or null");
+        }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
         return new self(
             code: SdkClient::stringValue($data->code),
             message: SdkClient::stringValue($data->message),
@@ -170,8 +174,12 @@ class MicrovmSize implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cpu") || $data->cpu === null) { throw new SdkValidationError("cpu", 'required', "Required property 'cpu' is missing or null"); }
-        if (!property_exists($data, "memory") || $data->memory === null) { throw new SdkValidationError("memory", 'required', "Required property 'memory' is missing or null"); }
+        if (!property_exists($data, "cpu") || $data->cpu === null) {
+            throw new SdkValidationError("cpu", 'required', "Required property 'cpu' is missing or null");
+        }
+        if (!property_exists($data, "memory") || $data->memory === null) {
+            throw new SdkValidationError("memory", 'required', "Required property 'memory' is missing or null");
+        }
         return new self(
             cpu: SdkClient::intValue($data->cpu),
             memory: SdkClient::intValue($data->memory),
@@ -247,11 +255,26 @@ final readonly class MicrovmUrlStatusEnum implements SdkOpenEnum
     public const PENDING = "PENDING";
     public const ACTIVE = "ACTIVE";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**

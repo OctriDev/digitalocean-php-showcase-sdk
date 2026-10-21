@@ -296,7 +296,9 @@ class AppFunctionsSpec implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             cors: (property_exists($data, "cors") && $data->cors !== null ? SdkClient::hydrateClass($data->cors, AppsCorsPolicy::class) : SdkNotGiven::Value),

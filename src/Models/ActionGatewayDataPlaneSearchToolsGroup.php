@@ -166,7 +166,9 @@ class SearchToolsRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "queries") || $data->queries === null) { throw new SdkValidationError("queries", 'required', "Required property 'queries' is missing or null"); }
+        if (!property_exists($data, "queries") || $data->queries === null) {
+            throw new SdkValidationError("queries", 'required', "Required property 'queries' is missing or null");
+        }
         return new self(
             queries: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, SearchQuery::class), SdkClient::arrayValue($data->queries))),
             providers: (property_exists($data, "providers") && $data->providers !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->providers))) : SdkNotGiven::Value),

@@ -253,7 +253,9 @@ class HarnessValidateSessionPolicySpecToolsMcpServersItemAuth implements \JsonSe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "secretRef") || $data->secretRef === null) { throw new SdkValidationError("secretRef", 'required', "Required property 'secretRef' is missing or null"); }
+        if (!property_exists($data, "secretRef") || $data->secretRef === null) {
+            throw new SdkValidationError("secretRef", 'required', "Required property 'secretRef' is missing or null");
+        }
         return new self(
             secretRef: SdkClient::stringValue($data->secretRef),
             header: (property_exists($data, "header") && $data->header !== null ? SdkClient::stringValue($data->header) : SdkNotGiven::Value),

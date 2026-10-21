@@ -91,7 +91,9 @@ class DoSettingsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "do_settings") || $data->do_settings === null) { throw new SdkValidationError("do_settings", 'required', "Required property 'do_settings' is missing or null"); }
+        if (!property_exists($data, "do_settings") || $data->do_settings === null) {
+            throw new SdkValidationError("do_settings", 'required', "Required property 'do_settings' is missing or null");
+        }
         return new self(
             doSettings: SdkClient::hydrateClass($data->do_settings, DoSettings::class),
         );

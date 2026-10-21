@@ -104,7 +104,9 @@ class AllPartnerAttachments implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             partnerAttachments: (property_exists($data, "partner_attachments") && $data->partner_attachments !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, PartnerAttachment::class), SdkClient::arrayValue($data->partner_attachments))) : SdkNotGiven::Value),

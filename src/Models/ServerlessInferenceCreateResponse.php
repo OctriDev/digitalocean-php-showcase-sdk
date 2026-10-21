@@ -45,7 +45,9 @@ class ResponseUsageInputTokensDetails implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cached_tokens") || $data->cached_tokens === null) { throw new SdkValidationError("cached_tokens", 'required', "Required property 'cached_tokens' is missing or null"); }
+        if (!property_exists($data, "cached_tokens") || $data->cached_tokens === null) {
+            throw new SdkValidationError("cached_tokens", 'required', "Required property 'cached_tokens' is missing or null");
+        }
         return new self(
             cachedTokens: SdkClient::intValue($data->cached_tokens),
         );
@@ -100,8 +102,12 @@ class ResponseUsageOutputTokensDetails implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "reasoning_tokens") || $data->reasoning_tokens === null) { throw new SdkValidationError("reasoning_tokens", 'required', "Required property 'reasoning_tokens' is missing or null"); }
-        if (!property_exists($data, "tool_output_tokens") || $data->tool_output_tokens === null) { throw new SdkValidationError("tool_output_tokens", 'required', "Required property 'tool_output_tokens' is missing or null"); }
+        if (!property_exists($data, "reasoning_tokens") || $data->reasoning_tokens === null) {
+            throw new SdkValidationError("reasoning_tokens", 'required', "Required property 'reasoning_tokens' is missing or null");
+        }
+        if (!property_exists($data, "tool_output_tokens") || $data->tool_output_tokens === null) {
+            throw new SdkValidationError("tool_output_tokens", 'required', "Required property 'tool_output_tokens' is missing or null");
+        }
         return new self(
             reasoningTokens: SdkClient::intValue($data->reasoning_tokens),
             toolOutputTokens: SdkClient::intValue($data->tool_output_tokens),
@@ -187,11 +193,21 @@ class ResponseUsage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) { throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null"); }
-        if (!property_exists($data, "input_tokens_details") || $data->input_tokens_details === null) { throw new SdkValidationError("input_tokens_details", 'required', "Required property 'input_tokens_details' is missing or null"); }
-        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) { throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null"); }
-        if (!property_exists($data, "output_tokens_details") || $data->output_tokens_details === null) { throw new SdkValidationError("output_tokens_details", 'required', "Required property 'output_tokens_details' is missing or null"); }
-        if (!property_exists($data, "total_tokens") || $data->total_tokens === null) { throw new SdkValidationError("total_tokens", 'required', "Required property 'total_tokens' is missing or null"); }
+        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) {
+            throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "input_tokens_details") || $data->input_tokens_details === null) {
+            throw new SdkValidationError("input_tokens_details", 'required', "Required property 'input_tokens_details' is missing or null");
+        }
+        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) {
+            throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null");
+        }
+        if (!property_exists($data, "output_tokens_details") || $data->output_tokens_details === null) {
+            throw new SdkValidationError("output_tokens_details", 'required', "Required property 'output_tokens_details' is missing or null");
+        }
+        if (!property_exists($data, "total_tokens") || $data->total_tokens === null) {
+            throw new SdkValidationError("total_tokens", 'required', "Required property 'total_tokens' is missing or null");
+        }
         return new self(
             inputTokens: SdkClient::intValue($data->input_tokens),
             inputTokensDetails: SdkClient::hydrateClass($data->input_tokens_details, ResponseUsageInputTokensDetails::class),

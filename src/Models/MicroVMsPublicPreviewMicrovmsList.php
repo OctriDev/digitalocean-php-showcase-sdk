@@ -104,7 +104,9 @@ class AllMicrovms implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "meta") || $data->meta === null) { throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null"); }
+        if (!property_exists($data, "meta") || $data->meta === null) {
+            throw new SdkValidationError("meta", 'required', "Required property 'meta' is missing or null");
+        }
         return new self(
             meta: SdkClient::hydrateClass($data->meta, MetaProperties::class),
             microvms: (property_exists($data, "microvms") && $data->microvms !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, Microvm::class), SdkClient::arrayValue($data->microvms))) : SdkNotGiven::Value),

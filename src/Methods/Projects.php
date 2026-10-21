@@ -13,11 +13,26 @@ final readonly class ProjectsCreateEnvironment implements SdkOpenEnum
     public const STAGING = "Staging";
     public const PRODUCTION = "Production";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class ProjectsUpdateDefaultEnvironment implements SdkOpenEnum
@@ -26,11 +41,26 @@ final readonly class ProjectsUpdateDefaultEnvironment implements SdkOpenEnum
     public const STAGING = "Staging";
     public const PRODUCTION = "Production";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 final readonly class ProjectsUpdateEnvironment implements SdkOpenEnum
@@ -39,11 +69,26 @@ final readonly class ProjectsUpdateEnvironment implements SdkOpenEnum
     public const STAGING = "Staging";
     public const PRODUCTION = "Production";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 class Projects
@@ -68,7 +113,7 @@ class Projects
             Validation::validateRange('page', $page, min: 1);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v2/projects", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: ProjectsList::class, decoder: 'json', operationId: 'projectsList', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/projects", $clientConfig, query: ['per_page' => new SdkQueryValue($perPage, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: ProjectsList::class, decoder: 'json', operationId: 'projectsList', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ProjectsList::class));
     }
 
@@ -95,7 +140,7 @@ class Projects
             Validation::validateLength('description', $description, max: 255);
         }
 
-        $sdkResponse = SdkClient::request('POST', "/v2/projects", $clientConfig, body: ['name' => $name, 'purpose' => $purpose, 'description' => $description, 'environment' => $environment], returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsCreate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v2/projects", $clientConfig, body: ['name' => $name, 'purpose' => $purpose, 'description' => $description, 'environment' => $environment], returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsCreate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingProject::class));
     }
 
@@ -108,7 +153,7 @@ class Projects
     public static function projectsGetDefault(ClientConfig $clientConfig, ?RequestOptions $requestOptions = null): DefaultProject
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v2/projects/default", $clientConfig, returnType: DefaultProject::class, decoder: 'json', operationId: 'projectsGetDefault', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/projects/default", $clientConfig, returnType: DefaultProject::class, decoder: 'json', operationId: 'projectsGetDefault', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, DefaultProject::class));
     }
 
@@ -134,7 +179,7 @@ class Projects
 
         Validation::validateLength('purpose', $purpose, max: 255);
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/projects/default", $clientConfig, body: ['name' => $name, 'description' => $description, 'purpose' => $purpose, 'environment' => $environment, 'is_default' => $isDefault], returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsUpdateDefault', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/projects/default", $clientConfig, body: ['name' => $name, 'description' => $description, 'purpose' => $purpose, 'environment' => $environment, 'is_default' => $isDefault], returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsUpdateDefault', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingProject::class));
     }
 
@@ -148,7 +193,7 @@ class Projects
     public static function projectsPatchDefault(ClientConfig $clientConfig, ProjectRequest $body, ?RequestOptions $requestOptions = null): ExistingProject
     {
 
-        $sdkResponse = SdkClient::request('PATCH', "/v2/projects/default", $clientConfig, body: $body, returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsPatchDefault', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PATCH', "/v2/projects/default", $clientConfig, body: $body, returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsPatchDefault', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingProject::class));
     }
 
@@ -166,7 +211,7 @@ class Projects
 
         Validation::validateUuid('project_id', $projectId);
 
-        $sdkResponse = SdkClient::request('GET', "/v2/projects/" . SdkClient::encodePathSegment($projectId) . "", $clientConfig, returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsGet', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v2/projects/" . SdkClient::encodePathSegment($projectId) . "", $clientConfig, returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsGet', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingProject::class));
     }
 
@@ -195,7 +240,7 @@ class Projects
 
         Validation::validateLength('purpose', $purpose, max: 255);
 
-        $sdkResponse = SdkClient::request('PUT', "/v2/projects/" . SdkClient::encodePathSegment($projectId) . "", $clientConfig, body: ['name' => $name, 'description' => $description, 'purpose' => $purpose, 'environment' => $environment, 'is_default' => $isDefault], returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsUpdate', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PUT', "/v2/projects/" . SdkClient::encodePathSegment($projectId) . "", $clientConfig, body: ['name' => $name, 'description' => $description, 'purpose' => $purpose, 'environment' => $environment, 'is_default' => $isDefault], returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsUpdate', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingProject::class));
     }
 
@@ -214,7 +259,7 @@ class Projects
 
         Validation::validateUuid('project_id', $projectId);
 
-        $sdkResponse = SdkClient::request('PATCH', "/v2/projects/" . SdkClient::encodePathSegment($projectId) . "", $clientConfig, body: $body, returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsPatch', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
+        $sdkResponse = SdkClient::request('PATCH', "/v2/projects/" . SdkClient::encodePathSegment($projectId) . "", $clientConfig, body: $body, returnType: ExistingProject::class, decoder: 'json', operationId: 'projectsPatch', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, ExistingProject::class));
     }
 
@@ -231,6 +276,6 @@ class Projects
 
         Validation::validateUuid('project_id', $projectId);
 
-        return SdkClient::request('DELETE', "/v2/projects/" . SdkClient::encodePathSegment($projectId) . "", $clientConfig, decoder: 'empty', operationId: 'projectsDelete', requestOptions: $requestOptions, errors: [401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
+        return SdkClient::request('DELETE', "/v2/projects/" . SdkClient::encodePathSegment($projectId) . "", $clientConfig, decoder: 'empty', operationId: 'projectsDelete', requestOptions: $requestOptions, errors: [401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class), "default" => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, Error2::class)])->data;
     }
 }

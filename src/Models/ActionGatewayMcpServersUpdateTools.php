@@ -57,7 +57,9 @@ class McpServerToolsUpdate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "enabledToolSlugs") || $data->enabledToolSlugs === null) { throw new SdkValidationError("enabledToolSlugs", 'required', "Required property 'enabledToolSlugs' is missing or null"); }
+        if (!property_exists($data, "enabledToolSlugs") || $data->enabledToolSlugs === null) {
+            throw new SdkValidationError("enabledToolSlugs", 'required', "Required property 'enabledToolSlugs' is missing or null");
+        }
         return new self(
             enabledToolSlugs: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->enabledToolSlugs))),
             userId: (property_exists($data, "user_id") && $data->user_id !== null ? SdkClient::stringValue($data->user_id) : SdkNotGiven::Value),

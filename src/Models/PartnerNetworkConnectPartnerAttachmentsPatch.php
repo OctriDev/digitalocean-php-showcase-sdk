@@ -42,7 +42,9 @@ class PartnerAttachmentUpdatableVariant0 implements PartnerAttachmentUpdatable, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
         );
@@ -84,7 +86,9 @@ class PartnerAttachmentUpdatableVariant1 implements PartnerAttachmentUpdatable, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "vpc_ids") || $data->vpc_ids === null) { throw new SdkValidationError("vpc_ids", 'required', "Required property 'vpc_ids' is missing or null"); }
+        if (!property_exists($data, "vpc_ids") || $data->vpc_ids === null) {
+            throw new SdkValidationError("vpc_ids", 'required', "Required property 'vpc_ids' is missing or null");
+        }
         return new self(
             vpcIds: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->vpc_ids))),
         );
@@ -159,10 +163,18 @@ class PartnerAttachmentUpdatableVariant2Bgp implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "local_router_ip") || $data->local_router_ip === null) { throw new SdkValidationError("local_router_ip", 'required', "Required property 'local_router_ip' is missing or null"); }
-        if (!property_exists($data, "peer_router_ip") || $data->peer_router_ip === null) { throw new SdkValidationError("peer_router_ip", 'required', "Required property 'peer_router_ip' is missing or null"); }
-        if (!property_exists($data, "peer_router_asn") || $data->peer_router_asn === null) { throw new SdkValidationError("peer_router_asn", 'required', "Required property 'peer_router_asn' is missing or null"); }
-        if (!property_exists($data, "auth_key") || $data->auth_key === null) { throw new SdkValidationError("auth_key", 'required', "Required property 'auth_key' is missing or null"); }
+        if (!property_exists($data, "local_router_ip") || $data->local_router_ip === null) {
+            throw new SdkValidationError("local_router_ip", 'required', "Required property 'local_router_ip' is missing or null");
+        }
+        if (!property_exists($data, "peer_router_ip") || $data->peer_router_ip === null) {
+            throw new SdkValidationError("peer_router_ip", 'required', "Required property 'peer_router_ip' is missing or null");
+        }
+        if (!property_exists($data, "peer_router_asn") || $data->peer_router_asn === null) {
+            throw new SdkValidationError("peer_router_asn", 'required', "Required property 'peer_router_asn' is missing or null");
+        }
+        if (!property_exists($data, "auth_key") || $data->auth_key === null) {
+            throw new SdkValidationError("auth_key", 'required', "Required property 'auth_key' is missing or null");
+        }
         return new self(
             localRouterIp: SdkClient::stringValue($data->local_router_ip),
             peerRouterIp: SdkClient::stringValue($data->peer_router_ip),

@@ -65,9 +65,15 @@ class CreateTemplateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "base_template") || $data->base_template === null) { throw new SdkValidationError("base_template", 'required', "Required property 'base_template' is missing or null"); }
-        if (!property_exists($data, "source_oci_ref") || $data->source_oci_ref === null) { throw new SdkValidationError("source_oci_ref", 'required', "Required property 'source_oci_ref' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "base_template") || $data->base_template === null) {
+            throw new SdkValidationError("base_template", 'required', "Required property 'base_template' is missing or null");
+        }
+        if (!property_exists($data, "source_oci_ref") || $data->source_oci_ref === null) {
+            throw new SdkValidationError("source_oci_ref", 'required', "Required property 'source_oci_ref' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             baseTemplate: SdkClient::stringValue($data->base_template),
